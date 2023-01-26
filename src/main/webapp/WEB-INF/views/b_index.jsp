@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ <c:set var="path" value="${pageContext.request.contextPath}"/>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -14,27 +17,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--css-->
-    <link href="/css/bootstrap.min.css?20230117122237" rel="stylesheet">
+    <link href="${path}/resources/css/bootstrap.min.css?20230117122237" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
-    <link href="/css/jquery.fullpage.css?20230117122237" rel="stylesheet">
-    <link href="/css/jquery.ui.min.css?20230117122237" rel="stylesheet">
+    <link href="${path}/resources/css/jquery.fullpage.css?20230117122237" rel="stylesheet">
+    <link href="${path}/resources/css/jquery.ui.min.css?20230117122237" rel="stylesheet">
     <link href="//pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
-    <link href="/plugins/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css">
-    <link href="/plugins/ckeditor/plugins/codesnippet/lib/highlight/styles/monokai_sublime.css" rel="stylesheet">
+    <link href="${path}/resources/plugins/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css">
+    <link href="${path}/resources/plugins/ckeditor/plugins/codesnippet/lib/highlight/styles/monokai_sublime.css" rel="stylesheet">
     <link href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css" rel="stylesheet">
-    <link href="/css/bootstrap-dialog.css" rel="stylesheet" type="text/css">
-    <link href="/css/front.css?20230117122237" rel="stylesheet">
-    <link href="/css/board.css?20230117122237" rel="stylesheet">
-    <link href="/css/default.css?20230117122237" rel="stylesheet">
-    <link href="/css/main.css?20230117122237" rel="stylesheet">
-
-
+    <link href="${path}/resources/css/bootstrap-dialog.css" rel="stylesheet" type="text/css">
+    <link href="${path}/resources/css/front.css?20230117122237" rel="stylesheet">
+    <link href="${path}/resources/css/board.css?20230117122237" rel="stylesheet">
+    <link href="${path}/resources/css/default.css?20230117122237" rel="stylesheet">
+    <link href="${path}/resources/css/main.css?20230117122237" rel="stylesheet">
     <!--javascript-->
-    <script src="/plugins/jquery/jquery.min.js"></script>
+    <script src="${path}/resources/plugins/jquery/jquery.min.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="/plugins/sweetalert2/sweetalert2.all.min.js"></script>
-
+    <script src="${path}/resources/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+    
+    
     <style>
         .swal2-popup.swal2-toast {
             box-sizing: border-box;
@@ -3096,7 +3098,7 @@
             background: var(--color-f2f2f2);
         }
 
-    </style>
+    </style> 
 
     <!-- 시작 -->
 
@@ -3104,7 +3106,9 @@
         <div class="swiper main_swiper swiper-container-initialized swiper-container-vertical">
             <div class="main_header">
                 <a href="" class="logo">
-                    <div class="img"><img src="./images/weed_log2.jpg"></div>
+                    <!-- <div class="img"><img src="/resources/images/weed_log2.jpg"></div> -->
+<%--                     <div class="img"><img src="<c:url value="/resources/images/weed_log2.jpg" />"></div> --%>
+                    <div class="img"><img src="${path}/resources/images/weed_log2.jpg"></div>
                     <span class="en"> <b>WHO WITH SERVICE</b></span>
                 </a>
                 <ul class="gnb">

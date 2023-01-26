@@ -1,0 +1,17 @@
+@charset "utf-8";
+/*
+* YOUR WEB Style Sheets
+* File Name : default.css
+* Description : 기본 스타일시트
+* Author : Web business Team / Jeong Sang Hoon
+* Date : 2022.08.16
+* Update : 2022.08.16
+* Copyright(c) 2022 YOUR WEB Communications. All Rights Reserved.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body,html{line-height: 1; font-family: 'Noto Sans KR', sans-serif; font-weight: 400; margin-bottom:0 !important;}
+*{margin:0; padding:0; border:0; box-sizing: border-box;}
+a {color:#333; transition: all .3s ease;}
+a:hover { color:#000;}
+.en{font-family: 'Montserrat', sans-serif;}

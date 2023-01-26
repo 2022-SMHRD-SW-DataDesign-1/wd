@@ -9,27 +9,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>코시아보드</title>
     <meta name="X-CSRF-TOKEN" content="9e1df29c77b7a592462f8a7808050758">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!--css-->
-    <link href="/css/bootstrap.min.css?20230117122237" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
-    <link href="/css/jquery.fullpage.css?20230117122237" rel="stylesheet">
-    <link href="/css/jquery.ui.min.css?20230117122237" rel="stylesheet">
-    <link href="//pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
-    <link href="/plugins/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css">
-    <link href="/plugins/ckeditor/plugins/codesnippet/lib/highlight/styles/monokai_sublime.css" rel="stylesheet">
-    <link href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css" rel="stylesheet">
-    <link href="/css/bootstrap-dialog.css" rel="stylesheet" type="text/css">
-    <link href="/css/front.css?20230117122237" rel="stylesheet">
-    <link href="/css/board.css?20230117122237" rel="stylesheet">
-    <link href="/css/default.css?20230117122237" rel="stylesheet">
-    <link href="/css/main.css?20230117122237" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/jquery.fullpage.css">
+    <link rel="stylesheet" href="resources/css/jquery.ui.min.css">
+    <link rel="stylesheet" href="//pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="resources/plugins/sweetalert2/sweetalert2.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/plugins/ckeditor/plugins/codesnippet/lib/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="resources/css/bootstrap-dialog.css" type="text/css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="stylesheet" href="resources/css/front.css">
+    <link rel="stylesheet" href="resources/css/board.css">
+    <link rel="stylesheet" href="resources/css/default.css">
+    <link rel="stylesheet" href="resources/css/main.css">
 
 
     <!--javascript-->
-    <script src="/plugins/jquery/jquery.min.js"></script>
+    <script src="resources/plugins/jquery/jquery.min.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="resources/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+
     <style>
         .swal2-popup.swal2-toast {
             box-sizing: border-box;

@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,26 +15,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--css-->
-    <link href="/css/bootstrap.min.css?20230117122237" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
-    <link href="/css/jquery.fullpage.css?20230117122237" rel="stylesheet">
-    <link href="/css/jquery.ui.min.css?20230117122237" rel="stylesheet">
-    <link href="//pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
-    <link href="/plugins/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css">
-    <link href="/plugins/ckeditor/plugins/codesnippet/lib/highlight/styles/monokai_sublime.css" rel="stylesheet">
-    <link href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css" rel="stylesheet">
-    <link href="/css/bootstrap-dialog.css" rel="stylesheet" type="text/css">
-    <link href="/css/front.css?20230117122237" rel="stylesheet">
-    <link href="/css/board.css?20230117122237" rel="stylesheet">
-    <link href="/css/default.css?20230117122237" rel="stylesheet">
-    <link href="/css/main.css?20230117122237" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/jquery.fullpage.css">
+    <link rel="stylesheet" href="resources/css/jquery.ui.min.css">
+    <link rel="stylesheet" href="//pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="resources/plugins/sweetalert2/sweetalert2.min.css" type="text/css">
+    <link rel="stylesheet" href="resources/plugins/ckeditor/plugins/codesnippet/lib/highlight/styles/monokai_sublime.css">
+    <link rel="stylesheet" href="resources/css/bootstrap-dialog.css" type="text/css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="stylesheet" href="resources/css/front.css">
+    <link rel="stylesheet" href="resources/css/board.css">
+    <link rel="stylesheet" href="resources/css/default.css">
+    <link rel="stylesheet" href="resources/css/main.css">
 
 
     <!--javascript-->
-    <script src="/plugins/jquery/jquery.min.js"></script>
+    <script src="resources/plugins/jquery/jquery.min.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="resources/plugins/sweetalert2/sweetalert2.all.min.js"></script>
 
     <style>
         .swal2-popup.swal2-toast {
@@ -1605,7 +1606,7 @@
     <script src="/js/front-board.js?20230117122237"></script>
     <script src="/js/default.js?20230117122237"></script>
     <script src="/js/front.js?20230117122237"></script>
-    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="shortcut icon" href="resources/images/favicon.png">
     <link rel="icon" href="/images/favicon.png">
     <script>
         if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
@@ -2269,7 +2270,7 @@
         .sec1 .swiper-slide {
             position: relative;
             z-index: 1;
-            background: url(./images/sec1_bg.jpg) no-repeat center / cover;
+            background: url(./resources/images/sec1_bg.jpg) no-repeat center / cover;
         }
 
         .sec1 .swiper-slide::before {
@@ -2280,7 +2281,7 @@
             content: '';
             width: 100%;
             height: 100%;
-            background: url(./images/big_img1_blur.png) no-repeat center / 100% 100%;
+            background: url(./resources/images/big_img1_blur.png) no-repeat center / 100% 100%;
         }
 
         .sec1 .swiper-slide .container {
@@ -2543,7 +2544,7 @@
             bottom: 0;
             width: 728px;
             height: 728px;
-            background: url(./images/bg_item_1.png) no-repeat center / 100%;
+            background: url(./resources/images/bg_item_1.png) no-repeat center / 100%;
             content: '';
             opacity: .25;
             transform: translate(50%, 50%);
@@ -2789,7 +2790,7 @@
 
 
         .sec4 {
-            background: url(./images/sec4_bg.jpg) no-repeat center / cover;
+            background: url(./resources/images/sec4_bg.jpg) no-repeat center / cover;
             position: relative;
             z-index: 1;
         }
@@ -2802,7 +2803,7 @@
             content: '';
             width: 100%;
             height: 100%;
-            background: url(./images/big_img1_blur.png) no-repeat center / 100% 100%;
+            background: url(./resources/images/big_img1_blur.png) no-repeat center / 100% 100%;
             z-index: -1;
         }
 
@@ -3073,7 +3074,7 @@
         <div class="swiper main_swiper swiper-container-initialized swiper-container-vertical">
             <div class="main_header">
                 <a href="" class="logo">
-                    <div class="img"><img src="./images/weed_log2.jpg"></div>
+                    <div class="img"><img src="./resources/images/weed_log2.jpg"></div>
                     <span class="en"> <b>WHO WITH SERVICE</b></span>
                 </a>
                 <ul class="gnb">
@@ -3386,7 +3387,7 @@
                                     <div class="swiper-slide swiper-slide-duplicate-active"
                                         style="width: 389.333px; margin-right: 30px;" data-swiper-slide-index="0">
                                         <div class="img_box">
-                                            <img src="./images/farm.png">
+                                            <img src="./resources/images/farm.png">
                                         </div>
                                         <div class="txt_box">
                                             <h3>농업 데이터 학습</h3>
@@ -3399,7 +3400,7 @@
                                     </div>
                                     <div class="swiper-slide swiper-slide-duplicate-next"
                                         style="width: 389.333px; margin-right: 30px;" data-swiper-slide-index="1">
-                                        <div class="img_box"><img src="./images/medical.png">
+                                        <div class="img_box"><img src="./resources/images/medical.png">
                                         </div>
                                         <div class="txt_box">
                                             <h3>의학전문 데이터 학습</h3>
@@ -3412,7 +3413,7 @@
                                     </div>
                                     <div class="swiper-slide" style="width: 389.333px; margin-right: 30px;"
                                         data-swiper-slide-index="2">
-                                        <div class="img_box"><img src="./images/road.jpg">
+                                        <div class="img_box"><img src="./resources/images/road.jpg">
                                         </div>
                                         <div class="txt_box">
                                             <h3>도로환경 데이터 학습</h3>
@@ -3425,7 +3426,7 @@
                                     </div>
                                     <div class="swiper-slide swiper-slide-prev"
                                         style="width: 389.333px; margin-right: 30px;" data-swiper-slide-index="3">
-                                        <div class="img_box"><img src="./images/fire.png">
+                                        <div class="img_box"><img src="./resources/images/fire.png">
                                         </div>
                                         <div class="txt_box">
                                             <h3>화재 데이터 학습</h3>
@@ -3818,7 +3819,7 @@
                     <p class="cope">Copyright ⓒ WD</p>
                 </div>
                 <div class="f_logo">
-                    <img src="/images/foot-logo.png">
+                    <img src="/resources/images/foot-logo.png">
                 </div>
 
             </div>
@@ -3834,4 +3835,4 @@
 
 </body>
 
-</html>
+</html>`

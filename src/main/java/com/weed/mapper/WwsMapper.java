@@ -24,6 +24,7 @@ public interface WwsMapper {
 	
 	//회원가입
 	//로그인
+	
 	//이미지테스트
 	//스트리밍 주소
 	

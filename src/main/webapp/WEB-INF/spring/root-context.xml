@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.3.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig"> 
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+		<property name="jdbcUrl" value="jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe"></property>
+		<property name="username" value="weed"></property>
+		<property name="password" value="wws"></property>
+	</bean>
+	
+	<bean id="hikariDataSource" class="com.zaxxer.hikari.HikariDataSource">
+		<constructor-arg ref="hikariConfig"/>
+	</bean>
+	
+	<!-- 9.mybatis에서 CP를 사용하기 위해서 mybatis-spring bridge가 필요 
+			-> pom.xml에 mybatis-spring.jar 넣어주기 
+			-> mybatis-spring안에 있는 SqlSessionFactoryBean 클래스 사용 -->
+	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="hikariDataSource"></property>
+		<!-- typeAlias 설정파일지정 -->
+		<property name="configLocation" value="/WEB-INF/spring/typeAlias.xml"></property>
+	</bean>
+	
+	<!-- 10.Mapper를 scan해서 읽어들이는 작업(메모리에 올리는 작업)-> scan방식으로
+	해당태그들이 정리되어있는 xmlns (xml namespace)필요  -->
+	<mybatis-spring:scan base-package="com.weed.mapper"/>
+	
+	
+</beans>

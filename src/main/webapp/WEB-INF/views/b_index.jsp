@@ -3603,23 +3603,23 @@
                                 <ul>
                                     <li data="E-mail"><input name="email" type="email" class="email" placeholder="이메일"
                                             autocomplete="off"></li>
-                                    <li data="Company"><input name="name" type="text" placeholder="업체명"
+                                    <li data="Company"><input name="company" type="text" placeholder="업체명"
                                             autocomplete="off"></li>
-                                    <li data="password"><input name="pw" type="text" placeholder="password"
+                                    <li data="password"><input name="password" type="text" placeholder="password"
                                             autocomplete="off"></li>
                                 </ul>
                             </div>
 
                             <div class="btn_bottom">
-                                <button type="submit" class="b_type1">회원가입</button>
-                                <button type="submit" class="b_type4">로그인</button>
-                                <button type="submit" class="b_type5">관리자</button>
+                                <button type="submit" class="b_type1" onclick="location.href='Main.do'">회원가입</button>
+                              	<button type="submit" class="b_type4" onclick="location.href='index.do'">로그인</button>
+                                <button type="submit" class="b_type5" onclick="location.href='manager.do'">관리자</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 난 바보 멍청이다 나는 할 줄 아는게 아무것도 없다 난 왜 살까.. 오늘 시골내려가야겠다.. 가서 전주 초코파이나 먹어야지...
 
         </di홈버튼 누르면 처음 페이지>
 

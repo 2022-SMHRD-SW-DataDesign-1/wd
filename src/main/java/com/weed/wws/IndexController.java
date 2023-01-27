@@ -12,8 +12,14 @@ public class IndexController {
 	}
 	
 	@RequestMapping(value="/Main.do")
-	public String main() {
+	public String b_main() {
 		return "b_index";
+	}
+	
+	@RequestMapping(value="/index.do")
+	public String main() {
+		System.out.println("test");
+		return "index";
 	}
 	
 	@RequestMapping(value="/Test.do")

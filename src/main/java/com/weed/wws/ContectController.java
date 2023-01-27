@@ -21,7 +21,7 @@ public class ContectController {
 	public String contectList(Model model) {
 		List<WeedDTO> list = wwsMapper.getContect();
 		model.addAttribute("list", list);
-		return " ";
+		return "";
 	}
 	
 	//비동기방식을 써야할지도

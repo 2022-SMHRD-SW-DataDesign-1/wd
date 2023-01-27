@@ -15,7 +15,7 @@ import com.weed.entity.WeedDTO;
 public interface WwsMapper {
 
 	//의뢰신청서
-	@Insert("insert into t_client values(#{email},#{compuny},#{name},#{phone},#{category},#{content},sysdate()l,#{c_token})")
+	@Insert("insert into t_client values(#{email},#{compuny},#{name},#{phone},#{category},#{content},sysdate())")
 	public int insertContect(WeedDTO dto);
 	@Select("select * from t_client")
 	public List<WeedDTO> getContect();

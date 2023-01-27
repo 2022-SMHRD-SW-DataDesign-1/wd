@@ -22,8 +22,6 @@ public interface WwsMapper {
 	@Delete("delete from t_client where c_token = #{c_token}")
 	public int contectDelete(int num);
 	
-	//회원가입
-	//로그인
 	
 	//이미지테스트
 	//스트리밍 주소

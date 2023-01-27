@@ -18,8 +18,12 @@ public class IndexController {
 	
 	@RequestMapping(value="/index.do")
 	public String main() {
-		System.out.println("test");
 		return "index";
+	}
+	
+	@RequestMapping(value="/Manager.do")
+	public String manager() {
+		return "manager";
 	}
 	
 	@RequestMapping(value="/Test.do")

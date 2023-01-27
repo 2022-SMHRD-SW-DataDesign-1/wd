@@ -31,6 +31,17 @@ public class JoinController {
 		return "redirect:/index.do";
 	}
 	
+	@PostMapping(value = "/ManagerSelect.do")
+	public String Manager(String managerkey) {
+		
+		if(managerkey.equals("weed123")) {
+			return "redirect:/Manager.do";			
+		}else {
+			return "redirect:/index.do";
+		}
+		
+	}
+	
 	
 	
 	

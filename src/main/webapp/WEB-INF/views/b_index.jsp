@@ -2626,7 +2626,7 @@
             }
         }
 
-        .sec3 .container {
+.sec3 .container {
             max-width: 1400px;
             width: 100%;
             margin: 0 auto;
@@ -2635,6 +2635,7 @@
             gap: 40px 0;
             flex-direction: column;
             justify-content: center;
+            position:relative;
         }
 
         .sec3 .tit_group {
@@ -2647,7 +2648,7 @@
             display: flex;
             align-items: flex-end;
             gap: 0 30px;
-            margin-bottom: 2%;
+            margin-bottom: 5%;
         }
 
         .sec3 .tit * {
@@ -2692,6 +2693,10 @@
         .sec3 .swiper-slide .txt_box {
             padding: 15px 10px;
             color: var(--color-fff);
+            position: absolute;
+            bottom: 5px;
+            left: 12px;
+
         }
 
         .sec3 .swiper-slide .txt_box h3 {
@@ -2911,7 +2916,7 @@
             border-radius: 20px;
             background: var(--color-1a1e23);
             box-shadow: var(--box-shadow-M);
-            width: 50%;
+            width: 65%;
             display: flex;
             flex-direction: column;
             gap: 15px 0;
@@ -3128,7 +3133,7 @@
                     <li><a href="javascript:void(0)" class="en"><span>Case Study</span></a></li>
                     <li><a href="javascript:void(0)" class="en"><span>Contact</span></a></li>
                     <li><a href="javascript:void(0)" class="en" onclick=""><span>Language</span></a></li>
-                    <div class="btn_bottom" style="z-index: 100;">
+                    <div class="btn_bottom" style="z-index: 100; margin-top:-10px;">
                         <button type="submit" class="b_type3" onclick="">Sign Up</button>
                     </div>
                 </ul>
@@ -3459,7 +3464,6 @@
                 </section>
 
 
-
                 <!-- Contact -->
                 <section class="swiper-slide sec4" style="height: 881px; margin-bottom: 30px;">
                     <div class="container">
@@ -3506,13 +3510,13 @@
                                                 placeholder="프로젝트 내용"></textarea></li>
                                     </ul>
                                 <div class="btn_bottom">
-                                    <button type="submit" class="b_type3" onclick="">Sign Up</button>
+                                    <button type="submit" class="b_type3" onclick="">신청하기</button>
                                 </div>
-                                <div style="position:absolute;top:25%; background-color: #303439; height:57vh; width:30%;">
+                                <div style="position:absolute;top:25%; background-color: #303439; height:54vh; width:30.5%;">
                                     <p style="color:var(--color-fff);position: absolute;
                                     left: 50%;
                                     top: 50%;
-                                    transform: translate(-50%, -50%);"> 로그인 후 이용가능합니다.</p>
+                                    transform: translate(-50%, -50%);font-size:x-large;"> 로그인 후 이용가능합니다.</p>
                                 </div>
                             </div>
                             </form>
@@ -3539,7 +3543,7 @@
                 <div class="content_info">
                     <h2>Manager</h2>
                     <div class="input_group">
-                        <form id="frm" method="post" action="/requst-post-normal" target="ifrm" novalidate="novalidate">
+                        <form id="frm" method="post" action="ManagerSelect.do" target="ifrm" novalidate="novalidate">
                             <input name="table" type="hidden" value="contact" autocomplete="off">
                             <div class="group">
                                 <ul>
@@ -3549,7 +3553,7 @@
                             </div>
 
                             <div class="btn_bottom">
-                                <button type="submit" class="b_type5">관리자모드</button>
+                                <button type="submit" class="b_type5" onclick="location.href='Manager.do'">관리자모드</button>
                             </div>
                         </form>
                     </div>
@@ -3565,19 +3569,19 @@
                 <div class="content_info">
                     <h2>Sign In</h2>
                     <div class="input_group">
-                        <form id="frm" method="post" action="/requst-post-normal" target="ifrm" novalidate="novalidate">
+                        <form id="frm" method="post" action="Login.do" target="ifrm" novalidate="novalidate">
                             <input name="table" type="hidden" value="contact" autocomplete="off">
                             <div class="group">
                                 <ul>
                                     <li data="E-mail"><input name="email" type="email" class="email" placeholder="이메일"
                                             autocomplete="off"></li>
-                                    <li data="password"><input name="pw" type="text" placeholder="password"
+                                    <li data="password"><input name="password" type="text" placeholder="password"
                                             autocomplete="off"></li>
                                 </ul>
                             </div>
 
                             <div class="btn_bottom">
-                                <button type="submit" class="b_type4" onclick="location.href='index.do'">로그인</button>
+                                <button type="submit" class="b_type4">로그인</button>
                             </div>
                         </form>
                     </div>

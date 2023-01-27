@@ -23,6 +23,16 @@ public class JoinController {
 		return "redirect:/index.do";
 	}
 	
+	@PostMapping(value = "/Login.do")
+	public String LoginSelect(WeedDTO dto) {
+
+		joinMapper.Login(dto);
+		
+		return "redirect:/index.do";
+	}
+	
+	
+	
 	
 	
 }

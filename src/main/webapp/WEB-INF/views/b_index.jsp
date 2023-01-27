@@ -1746,11 +1746,25 @@
             display: inline-block;
             font-size: 18px;
         }
+        
+         .b_type5 {
+            margin: auto;
+            padding: 10px 20px;
+            background: var(--color-03f);
+            color: var(--color-fff);
+            text-align: center;
+            border-radius: 100px;
+            min-width: 120px;
+            transition: all .3s ease;
+            display: inline-block;
+            font-size: 18px;
+        }
 
         .b_type1:hover,
         .b_type2:hover,
         .b_type3:hover,
-        .b_type4:hover {
+        .b_type4:hover,
+        .b_type5:hover {
             color: #fff;
             box-shadow: var(--box-shadow-S-03f);
         }
@@ -3114,6 +3128,9 @@
                     <li><a href="javascript:void(0)" class="en"><span>Case Study</span></a></li>
                     <li><a href="javascript:void(0)" class="en"><span>Contact</span></a></li>
                     <li><a href="javascript:void(0)" class="en" onclick=""><span>Language</span></a></li>
+                    <div class="btn_bottom" style="z-index: 100;">
+                        <button type="submit" class="b_type3" onclick="">Sign Up</button>
+                    </div>
                 </ul>
             </div>
 
@@ -3146,7 +3163,7 @@
                                                 <span class="desc2"><b>결과물</b>을 만듭니다.</span>
                                             </h2>
                                             <div class="btn_bottom" style="z-index: 100;">
-                                                <button type="submit" class="b_type3" onclick="">회원가입</button>
+                                                <button type="submit" class="b_type3" onclick="">Sign Up</button>
                                             </div>
                                         </div>
                                     </div>
@@ -3175,7 +3192,7 @@
                                                 <span class="desc2">브랜드에 힘이 되는 <b>웹사이트</b>를 제작합니다.</span>
                                             </h2>
                                             <div class="btn_bottom" style="z-index: 100;">
-                                                <button type="submit" class="b_type3" onclick="">회원가입</button>
+                                                <button type="submit" class="b_type3" onclick="">Sign Up</button>
                                             </div>
                                         </div>
                                     </div>
@@ -3205,7 +3222,7 @@
                                                 <span class="desc2">시도하고 <b>변화할 것</b> 입니다.</span>
                                             </h2>
                                             <div class="btn_bottom" style="z-index: 100;">
-                                                <button type="submit" class="b_type3" onclick="">회원가입</button>
+                                                <button type="submit" class="b_type3" onclick="">Sign Up</button>
                                             </div>
                                         </div>
                                     </div>
@@ -3234,7 +3251,7 @@
                                                 <span class="desc2"><b>결과물</b>을 만듭니다.</span>
                                             </h2>
                                             <div class="btn_bottom" style="z-index: 100;">
-                                                <button type="submit" class="b_type3" onclick="">회원가입</button>
+                                                <button type="submit" class="b_type3" onclick="">Sign Up</button>
                                             </div>
                                         </div>
                                     </div>
@@ -3516,7 +3533,7 @@
             <div class="container">
                 <i class="xi-close-thin"></i>`
                 <div class="content_info">
-                    <h2>Sign Up</h2>
+                    <h2>Manager</h2>
                     <div class="input_group">
                         <form id="frm" method="post" action="/requst-post-normal" target="ifrm" novalidate="novalidate">
                             <input name="table" type="hidden" value="contact" autocomplete="off">
@@ -3528,7 +3545,7 @@
                             </div>
 
                             <div class="btn_bottom">
-                                <button type="submit" class="b_type4">로그인</button>
+                                <button type="submit" class="b_type5">관리자모드</button>
                             </div>
                         </form>
                     </div>
@@ -3542,7 +3559,7 @@
             <div class="container">
                 <i class="xi-close-thin"></i>`
                 <div class="content_info">
-                    <h2>Sign Up</h2>
+                    <h2>Sign In</h2>
                     <div class="input_group">
                         <form id="frm" method="post" action="/requst-post-normal" target="ifrm" novalidate="novalidate">
                             <input name="table" type="hidden" value="contact" autocomplete="off">
@@ -3572,7 +3589,7 @@
                 <div class="content_info">
                     <h2>Sign Up</h2>
                     <div class="input_group">
-                        <form id="frm" method="post" action="/requst-post-normal" target="ifrm" novalidate="novalidate">
+                        <form id="frm" method="post" action="Join.do" target="ifrm" novalidate="novalidate">
                             <input name="table" type="hidden" value="contact" autocomplete="off">
                             <div class="group">
                                 <ul>
@@ -3588,6 +3605,7 @@
                             <div class="btn_bottom">
                                 <button type="submit" class="b_type1">회원가입</button>
                                 <button type="submit" class="b_type4">로그인</button>
+                                <button type="submit" class="b_type5">관리자</button>
                             </div>
                         </form>
                     </div>
@@ -3614,8 +3632,12 @@
                 });
            
                 // modal_manager는 관리자
-                $('.main_wrap .side_menu ul li i.xi-security').click(function () {
+                $('.modal_user_plus .btn_bottom .b_type5').click(function () {
                     $('.modal_manager').addClass('on')
+                });
+                
+                $('.modal_user_plus .btn_bottom .b_type5').click(function () {
+                    $('.modal_user_plus').removeClass('on')
                 });
 
                 $('.modal_manager .container .xi-close-thin').click(function () {

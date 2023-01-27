@@ -19,7 +19,7 @@ public interface WwsMapper {
 	public int insertContect(WeedDTO dto);
 	@Select("select * from t_client")
 	public List<WeedDTO> getContect();
-	@Delete("delete from t_client where c_token = #{c_token}")
+	@Delete("delete from t_client where 요청순번 = #{요청순번}")
 	public int contectDelete(int num);
 	
 	

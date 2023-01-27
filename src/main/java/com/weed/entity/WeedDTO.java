@@ -20,13 +20,14 @@ public class WeedDTO {
 	private String company; // 업체명
 	private String name; // 담당자
 	private String phone; // 연락처
-	private String category; // type : char 문의유형 
-	private String content; // 문의사항(프로젝트 내용)
+	private String req_type; // type : char 문의유형 
+	private String req_content; // 문의사항(프로젝트 내용)
 	@DateTimeFormat(pattern="yy-MM-dd")
-	private Date reg_dt; // 신청일자
+	private Date req_dt; // 신청일자
 	private String c_token; // 사용자토큰
 	private String password; // 비밀번호
-	private int reqeust_seq; // 요청순번
+	private int req_seq; // 의뢰순번(의뢰신청서 순번)
+	private int request_seq; // 요청 순번(이미지or스트리밍주소)
 	private String ur; // 스트리밍주소
 	@DateTimeFormat(pattern="yy-MM-dd HH:mm:ss")
 	private Date request_time; // 요청시간
@@ -37,8 +38,6 @@ public class WeedDTO {
 	private String p1; // 속성
 	@DateTimeFormat(pattern="yy-mm-dd HH:mm:ss")
 	private Date result_time; // 분석시간
-
-
 	/*
 	 * DatetimeFormat 
 	 * 

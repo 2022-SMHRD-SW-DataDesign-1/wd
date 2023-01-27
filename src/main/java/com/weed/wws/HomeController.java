@@ -28,6 +28,7 @@ public class HomeController {
 		
 		return "manager";
 	}
+}
 	
 	//스프링 시큐리티
 	//@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -35,4 +36,4 @@ public class HomeController {
 	//	return "login";
 	//}
 	
-}
+//}

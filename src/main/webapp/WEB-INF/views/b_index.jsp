@@ -3478,12 +3478,12 @@
                                 <input type="hidden" name="csrf_cossia_token" value="9e1df29c77b7a592462f8a7808050758"
                                     autocomplete="off">
                                 <input name="table" type="hidden" value="contact" autocomplete="off">
-                                <div class="group">
+                                <div class="group" style="position:realative;">
                                     <div class="tit">
                                         <h3>의뢰 신청서</h3>
                                         <p>신청하시면 담당자가 전화드립니다.</p>
                                     </div>
-                                    <ul>
+                                        <ul>
                                         <p>문의유형*</p>
                                         <li>
                                             <label>
@@ -3505,14 +3505,18 @@
                                         <li data="content"><textarea name="content" cols="30" rows="10"
                                                 placeholder="프로젝트 내용"></textarea></li>
                                     </ul>
-                                </div>
-
                                 <div class="btn_bottom">
-                                    <button type="submit" class="b_type1">신청하기</button>
+                                    <button type="submit" class="b_type3" onclick="">Sign Up</button>
                                 </div>
+                                <div style="position:absolute;top:25%; background-color: #303439; height:57vh; width:30%;">
+                                    <p style="color:var(--color-fff);position: absolute;
+                                    left: 50%;
+                                    top: 50%;
+                                    transform: translate(-50%, -50%);"> 로그인 후 이용가능합니다.</p>
+                                </div>
+                            </div>
                             </form>
                         </div>
-
                     </div>
                 </section>
             </div>

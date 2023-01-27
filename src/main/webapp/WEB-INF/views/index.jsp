@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>코시아보드</title>
+    <title>코시아보드T</title>
     <meta name="X-CSRF-TOKEN" content="9e1df29c77b7a592462f8a7808050758">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -3081,6 +3081,9 @@
                     <li><a href="javascript:void(0)" class="en"><span>Case Study</span></a></li>
                     <li><a href="javascript:void(0)" class="en"><span>Contact</span></a></li>
                     <li><a href="javascript:void(0)" class="en"><span>Language</span></a></li>
+                    <div class="btn_bottom" style="z-index: 100; margin-top:-10px;">
+                                                <button type="submit" class="b_type3" onclick="">로그아웃</button>
+                                            </div>
                 </ul>
             </div>
 
@@ -3640,7 +3643,7 @@
                     <h2>로그아웃 하시겠습니까?</h2>
                     <ul>
                         <div class="btn_bottom">
-                            <button type="submit" class="b_type4" onclick="location.href='b_index.html'">네</button>
+                            <button type="submit" class="b_type4" onclick="location.href='Main.do'">네</button>
                             <button type="submit" class="b_type1" onclick="location.href=''">아니오</button>
                         </div>
                     </ul>
@@ -3718,9 +3721,6 @@
                     $('.modal_logout').removeClass('on')
                 });
 
-                $('.main_wrap .fix_menu > i').click(function () {
-                    $('.main_wrap .fix_menu').toggleClass('on')
-                })
             });
 
             $(document).ready(function(){

@@ -3478,12 +3478,12 @@
                                 <input type="hidden" name="csrf_cossia_token" value="9e1df29c77b7a592462f8a7808050758"
                                     autocomplete="off">
                                 <input name="table" type="hidden" value="contact" autocomplete="off">
-                                <div class="group">
+                                <div class="group" style="position:realative;">
                                     <div class="tit">
                                         <h3>의뢰 신청서</h3>
                                         <p>신청하시면 담당자가 전화드립니다.</p>
                                     </div>
-                                    <ul>
+                                        <ul>
                                         <p>문의유형*</p>
                                         <li>
                                             <label>
@@ -3505,14 +3505,18 @@
                                         <li data="content"><textarea name="content" cols="30" rows="10"
                                                 placeholder="프로젝트 내용"></textarea></li>
                                     </ul>
-                                </div>
-
                                 <div class="btn_bottom">
-                                    <button type="submit" class="b_type1">신청하기</button>
+                                    <button type="submit" class="b_type3" onclick="">Sign Up</button>
                                 </div>
+                                <div style="position:absolute;top:25%; background-color: #303439; height:57vh; width:30%;">
+                                    <p style="color:var(--color-fff);position: absolute;
+                                    left: 50%;
+                                    top: 50%;
+                                    transform: translate(-50%, -50%);"> 로그인 후 이용가능합니다.</p>
+                                </div>
+                            </div>
                             </form>
                         </div>
-
                     </div>
                 </section>
             </div>
@@ -3595,23 +3599,23 @@
                                 <ul>
                                     <li data="E-mail"><input name="email" type="email" class="email" placeholder="이메일"
                                             autocomplete="off"></li>
-                                    <li data="Company"><input name="name" type="text" placeholder="업체명"
+                                    <li data="Company"><input name="company" type="text" placeholder="업체명"
                                             autocomplete="off"></li>
-                                    <li data="password"><input name="pw" type="text" placeholder="password"
+                                    <li data="password"><input name="password" type="text" placeholder="password"
                                             autocomplete="off"></li>
                                 </ul>
                             </div>
 
                             <div class="btn_bottom">
-                                <button type="submit" class="b_type1">회원가입</button>
-                                <button type="submit" class="b_type4">로그인</button>
-                                <button type="submit" class="b_type5">관리자</button>
+                                <button type="submit" class="b_type1" onclick="location.href='Main.do'">회원가입</button>
+                              	<button type="submit" class="b_type4" onclick="location.href='index.do'">로그인</button>
+                                <button type="submit" class="b_type5" onclick="location.href='manager.do'">관리자</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 난 바보 멍청이다 나는 할 줄 아는게 아무것도 없다 난 왜 살까.. 오늘 시골내려가야겠다.. 가서 전주 초코파이나 먹어야지...
 
         </di홈버튼 누르면 처음 페이지>
 

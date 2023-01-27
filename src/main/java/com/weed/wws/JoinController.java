@@ -15,11 +15,12 @@ public class JoinController {
 	@Autowired
 	private JoinMapper joinMapper;
 	
-	@PostMapping(value = "/.do")
+	@PostMapping(value = "/Join.do")
 	public String JoinInsert(WeedDTO dto) {
 
 		joinMapper.Join(dto);
-		return "redirect:/.do";
+		
+		return "redirect:/index.do";
 	}
 	
 	

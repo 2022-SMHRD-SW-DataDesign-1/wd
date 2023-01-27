@@ -2383,7 +2383,7 @@
         .sec1 .swiper-slide {
             position: relative;
             z-index: 1;
-            background: url(./images/sec1_bg.jpg) no-repeat center / cover;
+            background: url(./resources/images/sec1_bg.jpg) no-repeat center / cover;
         }
 
         .sec1 .swiper-slide::before {
@@ -2394,7 +2394,7 @@
             content: '';
             width: 100%;
             height: 100%;
-            background: url(./images/big_img1_blur.png) no-repeat center / 100% 100%;
+            background: url(./resource/images/big_img1_blur.png) no-repeat center / 100% 100%;
         }
 
         .sec1 .swiper-slide .container {
@@ -2640,7 +2640,7 @@
             bottom: 0;
             width: 728px;
             height: 728px;
-            background: url(./images/bg_item_1.png) no-repeat center / 100%;
+            background: url(./resource/images/bg_item_1.png) no-repeat center / 100%;
             content: '';
             opacity: .25;
             transform: translate(50%, 50%);
@@ -2878,7 +2878,7 @@
 
 
         .sec4 {
-            background: url(./images/sec4_bg.jpg) no-repeat center / cover;
+            background: url(./resources/images/sec4_bg.jpg) no-repeat center / cover;
             position: relative;
             z-index: 1;
         }
@@ -2891,7 +2891,7 @@
             content: '';
             width: 100%;
             height: 100%;
-            background: url(./images/big_img1_blur.png) no-repeat center / 100% 100%;
+            background: url(./resources/images/big_img1_blur.png) no-repeat center / 100% 100%;
             z-index: -1;
         }
 
@@ -3152,8 +3152,9 @@
     <script src="/js/front-board.js?20230117122237"></script>
     <script src="/js/default.js?20230117122237"></script>
     <script src="/js/front.js?20230117122237"></script>
-    <link rel="shortcut icon" href="/images/favicon.png">
-    <link rel="icon" href="/images/favicon.png">
+    <link rel="shortcut icon" href="resources/images/favicon.png">
+    <link rel="icon" href="resources/images/favicon.png">
+    
     <script>
         if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
             window.location.href = "microsoft-edge:" + window.location.href;
@@ -3169,7 +3170,7 @@
         <div class="swiper main_swiper swiper-container-initialized swiper-container-vertical">
             <div class="main_header">
                 <a href="" class="logo">
-                    <div class="img"><img src="./images/weed_log2.jpg"></div>
+                    <div class="img"><img src="./resource/images/weed_log2.jpg"></div>
                     <span class="en"> <b>WHO WITH SERVICE</b></span>
                 </a>
             </div>
@@ -3419,7 +3420,7 @@
                         <p class="cope">Copyright ⓒ WD</p>
                     </div>
                     <div class="f_logo">
-                        <img src="/images/foot-logo.png">
+                        <img src="./resource/images/foot-logo.png">
                     </div>
 
                 </div>

@@ -1607,7 +1607,7 @@
     <script src="/js/default.js?20230117122237"></script>
     <script src="/js/front.js?20230117122237"></script>
     <link rel="shortcut icon" href="resources/images/favicon.png">
-    <link rel="icon" href="/images/favicon.png">
+    <link rel="icon" href="resources/images/favicon.png">
     <script>
         if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
             window.location.href = "microsoft-edge:" + window.location.href;

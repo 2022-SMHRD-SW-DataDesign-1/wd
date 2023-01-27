@@ -26,7 +26,7 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 
 		
-		return "b_index";
+		return "manager";
 	}
 	
 	//스프링 시큐리티

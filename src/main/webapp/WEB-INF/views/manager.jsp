@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <html lang="ko">
 
 <head>
@@ -2291,7 +2293,7 @@
         }
 
         .sec4 {
-            background: url(./images/sec4_bg.jpg) no-repeat center / cover;
+            background: url(./resources/images/sec4_bg.jpg) no-repeat center / cover;
             position: relative;
             z-index: 1;
         }
@@ -2304,7 +2306,7 @@
             content: '';
             width: 100%;
             height: 100%;
-            background: url(./images/big_img1_blur.png) no-repeat center / 100% 100%;
+            background: url(./resources/images/big_img1_blur.png) no-repeat center / 100% 100%;
             z-index: -1;
         }
 
@@ -2532,27 +2534,27 @@
             height: 100%;
         }
     </style>
-    <script src="/plugins/validation/jquery.validate.min.js"></script>
-    <script src="/plugins/validation/additional-methods.min.js"></script>
+    <script src="resources/plugins/validation/jquery.validate.min.js"></script>
+    <script src="resources/plugins/validation/additional-methods.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="/js/bootstrap-dialog.js"></script>
+    <script src="resources/js/bootstrap-dialog.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css" rel="stylesheet"
         type="text/css">
-    <script src="/plugins/ckeditor/ckeditor.js"></script>
+    <script src="resources/plugins/ckeditor/ckeditor.js"></script>
     <style>
         .cke {
             visibility: hidden;
         }
     </style>
-    <script src="/js/jquery.fullPage.js?20230117122237"></script>
-    <script src="/js/common.js?20230117122237"></script>
-    <script src="/js/front-board.js?20230117122237"></script>
-    <script src="/js/default.js?20230117122237"></script>
-    <script src="/js/front.js?20230117122237"></script>
-    <link rel="shortcut icon" href="/images/favicon.png">
-    <link rel="icon" href="/images/favicon.png">
+    <script src="resources/js/jquery.fullPage.js?20230117122237"></script>
+    <script src="resources/js/common.js?20230117122237"></script>
+    <script src="resources/js/front-board.js?20230117122237"></script>
+    <script src="resources/js/default.js?20230117122237"></script>
+    <script src="resources/js/front.js?20230117122237"></script>
+    <link rel="shortcut icon" href="resources/images/favicon.png">
+    <link rel="icon" href="resources/images/favicon.png">
     <script>
         if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
             window.location.href = "microsoft-edge:" + window.location.href;
@@ -2569,7 +2571,7 @@
         <div class="swiper main_swiper swiper-container-initialized swiper-container-vertical">
             <div class="main_header">
                 <a href="" class="logo">
-                    <div class="img"><img src="./images/weed_log2.jpg"></div>
+                    <div class="img"><img src="./resources/images/weed_log2.jpg"></div>
                     <span class="en"> <b>WHO WITH SERVICE</b></span>
                 </a>
                 <ul class="gnb">
@@ -2815,7 +2817,7 @@
                         <p class="cope">Copyright ⓒ WD</p>
                     </div>
                     <div class="f_logo">
-                        <img src="/images/foot-logo.png">
+                        <img src="./resources/images/foot-logo.png">
                     </div>
 
                 </div>

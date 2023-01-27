@@ -14,20 +14,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * Handles requests for the application home page.
  */
-@Controller
-public class HomeController {
-	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-
-		
-		return "b_index";
-	}
+//@Controller
+//public class HomeController {
+//	
+//	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+//	
+//	/**
+//	 * Simply selects the home view to render by returning its name.
+//	 */
+//	@RequestMapping(value = "/", method = RequestMethod.GET)
+//	public String home(Locale locale, Model model) {
+//
+//		
+//		return "manager";
+//	}
 	
 	//스프링 시큐리티
 	//@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -35,4 +35,4 @@ public class HomeController {
 	//	return "login";
 	//}
 	
-}
+//}

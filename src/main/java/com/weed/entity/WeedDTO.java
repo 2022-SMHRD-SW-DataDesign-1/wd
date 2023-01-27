@@ -37,8 +37,6 @@ public class WeedDTO {
 	private String p1; // 속성
 	@DateTimeFormat(pattern="yy-mm-dd HH:mm:ss")
 	private Date result_time; // 분석시간
-
-
 	/*
 	 * DatetimeFormat 
 	 * 

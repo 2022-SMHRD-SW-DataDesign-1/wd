@@ -2321,7 +2321,7 @@
         .sec1 .swiper-slide {
             position: relative;
             z-index: 1;
-            background: url(./images/sec1_bg.jpg) no-repeat center / cover;
+            background: url(./resources/images/sec1_bg.jpg) no-repeat center / cover;
         }
 
         .sec1 .swiper-slide::before {
@@ -2332,7 +2332,7 @@
             content: '';
             width: 100%;
             height: 100%;
-            background: url(./images/big_img1_blur.png) no-repeat center / 100% 100%;
+            background: url(./resources/images/big_img1_blur.png) no-repeat center / 100% 100%;
         }
 
         .sec1 .swiper-slide .container {
@@ -2578,7 +2578,7 @@
             bottom: 0;
             width: 728px;
             height: 728px;
-            background: url(./images/bg_item_1.png) no-repeat center / 100%;
+            background: url(./resources/images/bg_item_1.png) no-repeat center / 100%;
             content: '';
             opacity: .25;
             transform: translate(50%, 50%);
@@ -2816,7 +2816,7 @@
 
 
         .sec4 {
-            background: url(./images/sec4_bg.jpg) no-repeat center / cover;
+            background: url(./resources/images/sec4_bg.jpg) no-repeat center / cover;
             position: relative;
             z-index: 1;
         }
@@ -2829,7 +2829,7 @@
             content: '';
             width: 100%;
             height: 100%;
-            background: url(./images/big_img1_blur.png) no-repeat center / 100% 100%;
+            background: url(./resources/images/big_img1_blur.png) no-repeat center / 100% 100%;
             z-index: -1;
         }
 
@@ -3090,7 +3090,7 @@
     <script src="/js/front-board.js?20230117122237"></script>
     <script src="/js/default.js?20230117122237"></script>
     <script src="/js/front.js?20230117122237"></script>
-    <link rel="shortcut icon" href="/images/favicon.png">
+    <link rel="shortcut icon" href="resources/images/favicon.png">
     <link rel="icon" href="/images/favicon.png">
     <script>
         if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
@@ -3107,7 +3107,7 @@
         <div class="swiper main_swiper swiper-container-initialized swiper-container-vertical">
             <div class="main_header">
                 <a href="" class="logo">
-                    <div class="img"><img src="./images/weed_log2.jpg"></div>
+                    <div class="img"><img src="./resources/images/weed_log2.jpg"></div>
                     <span class="en"> <b>WHO WITH SERVICE</b></span>
                 </a>
                 <ul class="gnb">
@@ -3127,7 +3127,7 @@
                             <input name="table" type="hidden" value="contact" autocomplete="off">
                             <div class="group">
                                 <div class="tit1">
-                                    <img src="./images/image.jpg" style="width: 530px; height: 320px;">
+                                    <img src="./resources/images/image.jpg" style="width: 530px; height: 320px;">
                                 </div>
                                 <div class="tit">
                                     <h3>원본</h3>
@@ -3143,7 +3143,7 @@
                             <input name="table" type="hidden" value="contact" autocomplete="off">
                             <div class="group">
                                 <div class="tit1">
-                                    <img src="./images/image.jpg" style="width: 530px; height: 320px;">
+                                    <img src="./resources/images/image.jpg" style="width: 530px; height: 320px;">
                                 </div>
                                 <div class="tit">
                                     <h3>영상</h3>
@@ -3274,7 +3274,7 @@
                         <p class="cope">Copyright ⓒ WD</p>
                     </div>
                     <div class="f_logo">
-                        <img src="/images/foot-logo.png">
+                        <img src="./resources/images/foot-logo.png">
                     </div>
 
                 </div>

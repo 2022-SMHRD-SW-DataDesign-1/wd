@@ -3114,6 +3114,9 @@
                     <li><a href="javascript:void(0)" class="en"><span>Case Study</span></a></li>
                     <li><a href="javascript:void(0)" class="en"><span>Contact</span></a></li>
                     <li><a href="javascript:void(0)" class="en" onclick=""><span>Language</span></a></li>
+                    <div class="btn_bottom" style="z-index: 100;">
+                        <button type="submit" class="b_type3" onclick="">회원가입</button>
+                    </div>
                 </ul>
             </div>
 

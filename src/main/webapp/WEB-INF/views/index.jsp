@@ -2377,13 +2377,6 @@
             margin-bottom: 120px;
         }
 
-        .sec1 .swiper-slide .txt_box h2 b {
-            -webkit-text-stroke: 1px var(--color-00f);
-            -webkit-text-stroke: 1px var(#0035ff);
-            color: #0035ff;
-            font-weight: 1000;
-        }
-
         .sec1 .swiper-slide .txt_box h2 {
             font-size: 60px;
             font-weight: 700;
@@ -2391,8 +2384,13 @@
             margin-bottom: 30px;
             display: flex;
             flex-direction: column;
-            -webkit-text-stroke: 1px var(--color-fff);
-            color: transparent
+        }
+
+        .sec1 .swiper-slide .txt_box h2 b {
+            -webkit-text-stroke: 0.5px var(0035ff);
+            color: #0035ff;
+            font-weight: 1000;
+
         }
 
         .sec1 .swiper-slide .txt_box h2 .desc1 {
@@ -3642,8 +3640,8 @@
                     <h2>로그아웃 하시겠습니까?</h2>
                     <ul>
                         <div class="btn_bottom">
-                            <button type="submit" class="b_type4" onclick="location.href='index.html'">네</button>
-                            <button type="submit" class="b_type1" onclick="location.href='manager.html'">아니오</button>
+                            <button type="submit" class="b_type4" onclick="location.href='b_index.html'">네</button>
+                            <button type="submit" class="b_type1" onclick="location.href=''">아니오</button>
                         </div>
                     </ul>
                 </div>

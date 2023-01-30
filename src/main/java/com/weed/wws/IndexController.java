@@ -18,7 +18,6 @@ public class IndexController {
 	
 	@RequestMapping(value="/index.do")
 	public String main() {
-		System.out.println("index.do");
 		return "index";
 	}
 	
@@ -26,7 +25,7 @@ public class IndexController {
 	public String manager() {
 		return "manager";
 	}
-	
+	 
 	@RequestMapping(value="/Test.do")
 	public String test(){
 		return "test";

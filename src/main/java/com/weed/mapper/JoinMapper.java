@@ -12,7 +12,7 @@ import com.weed.entity.WeedDTO;
 public interface JoinMapper {
 
 	// 회원가입 o
-	@Insert("insert into t_client(email, password, company) values(#{email},#{company},#{password})")
+	@Insert("insert into t_client(email, company, password) values(#{email},#{company},#{password})")
 	public int Join(WeedDTO dto);
 
 	// 로그인 x

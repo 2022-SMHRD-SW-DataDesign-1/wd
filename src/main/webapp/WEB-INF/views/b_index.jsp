@@ -1890,53 +1890,8 @@
             margin-right: 10px;
         }
 
-        @media(max-width:768px) {
-
-            .main_wrap .fix_menu ul li:last-child {
-                display: none;
-            }
-
-            .main_wrap .fix_menu.on ul li {
-                border: 1px solid var(--color-fff);
-                opacity: 1;
-                visibility: inherit;
-            }
-
-            .main_wrap .fix_menu>i {
-                opacity: 1;
-                visibility: inherit;
-                transition: all .3s ease;
-            }
-
-            .main_wrap .fix_menu.on>i {
-                background: var(--color-fff);
-                color: var(--color-1a1e23);
-                transform: translate(-50%, -50%) rotate(45deg);
-            }
-
-            .main_wrap .fix_menu.on ul li:nth-child(1) {
-                top: -10px;
-                transform: translate(-50%, -100%);
-            }
-
-            .main_wrap .fix_menu.on ul li:nth-child(2) {
-                top: -20px;
-                transform: translate(-50%, -200%);
-            }
-
-            .main_wrap .fix_menu.on ul li:nth-child(3) {
-                top: -30px;
-                transform: translate(-50%, -300%);
-                display: none;
-            }
-
-        }
 
         @media(max-width:540px) {
-            .main_wrap .fix_menu {
-                right: 20px;
-                bottom: 20px;
-            }
 
             .main_wrap .copy {
                 left: 20px;
@@ -3512,7 +3467,7 @@
                                 <div class="btn_bottom">
                                     <button type="submit" class="b_type3" onclick="">신청하기</button>
                                 </div>
-                                <div style="position:absolute;top:25%; background-color: #303439; height:54vh; width:30.5%;">
+                                <div style="position:absolute;top:25%; background-color: rgba(27, 28, 28, 0.8); height:55%; width:34%;">
                                     <p style="color:var(--color-fff);position: absolute;
                                     left: 50%;
                                     top: 50%;
@@ -3535,42 +3490,15 @@
             <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
         </div>
 
-       <!--   관리자 모달 
-        <div class="modal_manager">
-            <div class="bg"></div>
-            <div class="container">
-                <i class="xi-close-thin"></i>`
-                <div class="content_info">
-                    <h2>Manager</h2>
-                    <div class="input_group">
-                        <form id="frm form_test" method="post" action="ManagerSelect.do" target="ifrm" novalidate="novalidate">
-                            <input name="table" type="hidden" value="contact" autocomplete="off">
-                            <div class="group">
-                                <ul>
-                                    <li data="인증키"><input name="managerkey" type="text" placeholder="관리자 인증키"
-                                            autocomplete="off">
-                                </ul>
-                            </div>
-
-                            <div class="btn_bottom">
-                                <button type="submit" class="b_type5" onclick="">관리자모드</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-
-        로그인 모달
-        <div class="modal_user">
+<!-- 로그인 모달 -->
+     <div class="modal_user">
             <div class="bg"></div>
             <div class="container">
                 <i class="xi-close-thin"></i>`
                 <div class="content_info">
                     <h2>Sign In</h2>
                     <div class="input_group">
-                        <form id="frm" method="post" action="Login.do" target="ifrm" novalidate="novalidate">
+                        <form method="post" action="Login.do">
                             <input name="table" type="hidden" value="contact" autocomplete="off">
                             <div class="group">
                                 <ul>
@@ -3582,13 +3510,13 @@
                             </div>
 
                             <div class="btn_bottom">
-                                <button type="submit" class="b_type4" onclick="">로그인</button>
+                                <input type="submit" class="b_type4" value="로그인">
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>  -->
 
         <!-- 회원가입 모달 -->
         <div class="modal_user_plus">
@@ -3598,7 +3526,7 @@
                 <div class="content_info">
                     <h2>Sign Up</h2>
                     <div class="input_group">
-                        <form id="frm" method="post" action="Join.do" target="ifrm" novalidate="novalidate">
+                        <form method="post" action="Join.do">
                             <input name="table" type="hidden" value="contact" autocomplete="off">
                             <div class="group">
                                 <ul>
@@ -3615,6 +3543,32 @@
                                 <input type="submit" class="b_type1" value="회원가입">
                               	<button type="button" class="b_type4">로그인</button>
                                 <button type="button" class="b_type5">관리자</button> 
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+<!-- 관리자 모달 -->
+        <div class="modal_manager">
+            <div class="bg"></div>
+            <div class="container">
+                <i class="xi-close-thin"></i>`
+                <div class="content_info">
+                    <h2>Manager</h2>
+                    <div class="input_group">
+                         <form method="post" action="ManagerSelect.do">
+                            <input name="table" type="hidden" value="contact" autocomplete="off">
+                            <div class="group">
+                                <ul>
+                                    <li data="인증키"><input name="managerkey" type="text" placeholder="관리자 인증키"
+                                            autocomplete="off">
+                                </ul>
+                            </div>
+
+                            <div class="btn_bottom">
+                                <input type="submit" class="b_type5" value="관리자모드">
                             </div>
                         </form>
                     </div>
@@ -3638,31 +3592,27 @@
                     } else {
                         $(".main_wrap").removeClass("white")
                     }
-                });
-           
-                // modal_manager는 관리자
-                $('.modal_user_plus .btn_bottom .b_type5').click(function () {
-                    $('.modal_manager').addClass('on')
-                });
+                });        
                 
-                $('.modal_user_plus .btn_bottom .b_type5').click(function () {
+             // modal_user_plus는 회원가입
+                $('.main_wrap .b_type3').click(function () {
+                    $('.modal_user_plus').addClass("on")
+                });
+
+                $('.modal_user_plus .container .xi-close-thin').click(function () {
                     $('.modal_user_plus').removeClass('on')
                 });
 
-                $('.modal_manager .container .xi-close-thin').click(function () {
-                    $('.modal_manager').removeClass('on')
+                $('.modal_user_plus .bg').click(function () {
+                    $('.modal_user_plus').removeClass('on')
                 });
-
-                $('.modal_manager .bg').click(function () {
-                    $('.modal_manager').removeClass('on')
-                });
-
+                
                 // modal_user는 로그인
-                $('.modal_user_plus .btn_bottom .b_type4').click(function () {
+                $('.modal_user_plus .b_type4').click(function () {
                     $('.modal_user').addClass('on')
                 });
 
-                $('.modal_user_plus .btn_bottom .b_type4').click(function () {
+                $('.modal_user_plus .b_type4').click(function () {
                     $('.modal_user_plus').removeClass('on')
                 });
 
@@ -3673,24 +3623,24 @@
                 $('.modal_user .bg').click(function () {
                     $('.modal_user').removeClass('on')
                 });
-
-                // modal_user_plus는 회원가입
-                $('.main_wrap .b_type3').click(function () {
-                    $('.modal_user_plus').addClass('on')
+                
+             // modal_manager는 관리자
+                $('.modal_user_plus .b_type5').click(function () {
+                    $('.modal_manager').addClass('on')
                 });
-
-                $('.modal_user_plus .container .xi-close-thin').click(function () {
+                
+                $('.modal_user_plus .b_type5').click(function () {
                     $('.modal_user_plus').removeClass('on')
                 });
 
-                $('.modal_user_plus .bg').click(function () {
-                    $('.modal_user_plus').removeClass('on')
+                $('.modal_manager .container .xi-close-thin').click(function () {
+                    $('.modal_manager').removeClass('on')
                 });
 
-
-                $('.main_wrap .fix_menu > i').click(function () {
-                    $('.main_wrap .fix_menu').toggleClass('on')
-                })
+                $('.modal_manager .bg').click(function () {
+                    $('.modal_manager').removeClass('on')
+                });
+                
             });
 
 
@@ -3721,11 +3671,6 @@
             $(document).on('click', '.gnb li', function () {
                 main_page.slideTo($('.gnb li').index(this));
             });
-            /* footer right ... click */
-            // $(document).on('click', '.fix_menu', function(){
-            //     main_page.slideTo( 3 );
-            // });
-            /* main page slide E */
 
             $('#frm').validate({
                 rules: {

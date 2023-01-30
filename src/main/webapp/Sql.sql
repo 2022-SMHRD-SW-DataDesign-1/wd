@@ -1,4 +1,4 @@
-select * from t_member
+select * from t_client
 
 insert into T_MEMBER values ('hgy4546@naver.com','1234','wd')
 

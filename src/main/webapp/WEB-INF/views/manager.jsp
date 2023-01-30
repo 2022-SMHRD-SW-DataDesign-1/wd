@@ -1656,8 +1656,35 @@
             margin-right: 5%;
             font-size: 18px;
         }
+        
+                .b_type2 {
+            margin: auto;
+            padding: 10px 20px;
+            background: var(--color-03f);
+            color: var(--color-fff);
+            text-align: center;
+            border-radius: 100px;
+            min-width: 120px;
+            transition: all .3s ease;
+            display: inline-block;
+            margin-right: 5%;
+            font-size: 18px;
+        }
 
         .b_type3 {
+            margin: auto;
+            padding: 10px 20px;
+            background: var(--color-03f);
+            color: var(--color-fff);
+            text-align: center;
+            border-radius: 100px;
+            min-width: 120px;
+            transition: all .3s ease;
+            display: block;
+            font-size: 18px;
+        }
+        
+           .b_type4 {
             margin: auto;
             padding: 10px 20px;
             background: var(--color-03f);
@@ -1672,7 +1699,8 @@
 
         .b_type1:hover,
         .b_type2:hover,
-        .b_type3:hover {
+        .b_type3:hover,
+        .b_type4:hover {
             color: #fff;
             box-shadow: var(--box-shadow-S-03f);
         }
@@ -2052,7 +2080,7 @@
             transform: translate(-100%, -50%);
         }
 
-        .modal_logout {
+        .modal_logout, .modal_clear {
             position: fixed;
             left: 50%;
             top: 50%;
@@ -2069,12 +2097,13 @@
             transition: all .3s ease;
         }
 
-        .modal_logout.on {
+        .modal_logout.on, .modal_clear.on {
             visibility: inherit;
             opacity: 1;
         }
 
-        .modal_logout .bg {
+        .modal_logout .bg,
+        .modal_clear .bg  {
             background: var(--color-000);
             opacity: .75;
             width: 100%;
@@ -2087,7 +2116,8 @@
             z-index: -1;
         }
 
-        .modal_logout .container {
+        .modal_logout .container,
+        .modal_clear .container {
             display: flex;
             background: var(--color-1a1e23);
             border: 4px solid var(--color-000);
@@ -2104,11 +2134,13 @@
             transform: translateY(-100%);
         }
 
-        .modal_logout.on .container {
+        .modal_logout.on .container,
+        .modal_clear.on .container {
             transform: translateY(0);
         }
 
-        .modal_logout .container .xi-close-thin {
+        .modal_logout .container .xi-close-thin,
+        .modal_clear .container .xi-close-thin {
             position: absolute;
             left: 50%;
             top: 0;
@@ -2126,34 +2158,40 @@
             cursor: pointer;
         }
 
-        .modal_logout .container .xi-close-thin::before {
+        .modal_logout .container .xi-close-thin::before,
+        .modal_clear .container .xi-close-thin::before {
             transition: all .3s ease;
         }
 
-        .modal_logout .container .xi-close-thin:hover::before {
+        .modal_logout .container .xi-close-thin:hover::before,
+        .modal_clear .container .xi-close-thin:hover::before {
             transform: rotate(180deg);
         }
 
-        .modal_logout .content_info {
+        .modal_logout .content_info,
+        .modal_clear .content_info {
             display: flex;
             flex-direction: column;
             margin: 0 auto;
         }
 
-        .modal_logout .content_info h2 {
+        .modal_logout .content_info h2,
+        .modal_clear .content_info h2 {
             color: var(--color-fff);
             font-size: 36px;
             font-weight: 700;
             margin-bottom: 30px;
         }
 
-        .modal_logout .content_info ul {
+        .modal_logout .content_info ul,
+        .modal_clear .content_info ul {
             display: flex;
             flex-direction: column;
             gap: 15px 0;
         }
 
-        .modal_logout .content_info ul li {
+        .modal_logout .content_info ul li,
+        .modal_clear .content_info ul li {
             font-size: 18px;
             color: var(--color-fff);
             display: flex;
@@ -2575,7 +2613,9 @@
                     <span class="en"> <b>WHO WITH SERVICE</b></span>
                 </a>
                 <ul class="gnb">
-                    <li><a href="javascript:void(0)" class="en" onclick=""><span>Logout</span></a></li>
+                   <div class="btn_bottom" style="z-index: 100; margin-top:-10px;">
+                                                <button type="submit" class="b_type3" onclick="">로그아웃</button>
+                                            </div>
                 </ul>
             </div>
 
@@ -2596,39 +2636,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                1
-                                            </td>
-                                            <td>
-                                                문의유형
-                                            </td>
-                                            <td>
-                                                업체명
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                2
-                                            </td>
-                                            <td>
-                                                문의유형
-                                            </td>
-                                            <td>
-                                                업체명
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                3
-                                            </td>
-                                            <td>
-                                                문의유형
-                                            </td>
-                                            <td>
-                                                업체명
-                                            </td>
-                                        </tr>
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -2695,7 +2703,7 @@
                             </div>
                         </form>
                         <div class="btn_bottom">
-                            <button type="submit" class="b_type3">삭제하기</button>
+                            <button type="submit" class="b_type4">삭제하기</button>
                         </div>
                     </div>
 
@@ -2704,22 +2712,37 @@
 
 
             <!-- 로그아웃 -->
-            <div class="modal_logout">
-                <div class="bg"></div>
-                <div class="container">
-                    <i class="xi-close-thin"></i>`
-                    <div class="content_info">
-                        <h2>로그아웃 하시겠습니까?</h2>
-                        <ul>
-                            <div class="btn_bottom">
-                                <button type="submit" class="b_type1" onclick="location.href='index.html'">네</button>
-                                <button type="submit" class="b_type2"
-                                    onclick="location.href='manager.html'">아니오</button>
-                            </div>
-                        </ul>
-                    </div>
+        <div class="modal_logout">
+            <div class="bg"></div>
+            <div class="container">
+                <i class="xi-close-thin"></i>`
+                <div class="content_info">
+                    <h2>로그아웃 하시겠습니까?</h2>
+                    <ul>
+                        <div class="btn_bottom">
+                            <button type="submit" class="b_type2" onclick="location.href='logout.do'">네</button>
+                            <button type="submit" class="b_type1" onclick="location.href=''">아니오</button>
+                        </div>
+                    </ul>
                 </div>
             </div>
+        </div>
+        
+        <div class="modal_clear">
+            <div class="bg"></div>
+            <div class="container">
+                <i class="xi-close-thin"></i>`
+                <div class="content_info">
+                    <h2>삭제 하시겠습니까?</h2>
+                    <ul>
+                        <div class="btn_bottom">
+                            <button type="submit" class="b_type2" onclick="location.href=''">네</button>
+                            <button type="submit" class="b_type1" onclick="location.href=''">아니오</button>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
 
 
@@ -2735,7 +2758,7 @@
                     });
 
                     // modal_logout는 로그아웃
-                    $('.main_wrap .gnb a.en').click(function () {
+                    $('.main_wrap .b_type3').click(function () {
                         $('.modal_logout').addClass('on')
                     });
 
@@ -2746,10 +2769,19 @@
                     $('.modal_logout .bg').click(function () {
                         $('.modal_logout').removeClass('on')
                     });
+                    
+                    // modal_clear는 삭제
+                    $('.input_group .b_type4').click(function () {
+                        $('.modal_clear').addClass('on')
+                    });
 
-                    $('.main_wrap .fix_menu > i').click(function () {
-                        $('.main_wrap .fix_menu').toggleClass('on')
-                    })
+                    $('.modal_clear .container .xi-close-thin').click(function () {
+                        $('.modal_clear').removeClass('on')
+                    });
+
+                    $('.modal_clear .bg').click(function () {
+                        $('.modal_clear').removeClass('on')
+                    });
                 });
 
 

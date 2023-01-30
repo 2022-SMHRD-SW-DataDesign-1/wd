@@ -3562,78 +3562,6 @@
             <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
         </div>
 
-        <!-- CTO 모달 -->
-        <div class="modal_add">
-            <div class="bg"></div>
-            <div class="container">
-                <i class="xi-close-thin"></i>`
-                <div class="content_map"><img src="https://via.placeholder.com/600x400.png/09f/fff"></div>
-                <div class="content_info">
-                    <h2>WELCOME</h2>
-                    <ul>
-                        <li><span class="desc1 en"><span>Add</span></span><span class="desc2">위드컴퍼니</span></li>
-                        <li><span class="desc1 en">Tel</span><span class="desc2 en">010-7771-1241</span></li>
-                        <li><span class="desc1 en">Mail</span><span class="desc2">weed@with.com</span></li>
-                        <li><span class="desc1 en">CEO</span><span class="desc2 en">위드컴퍼니 </span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- 관리자 모달 -->
-        <div class="modal_manager">
-            <div class="bg"></div>
-            <div class="container">
-                <i class="xi-close-thin"></i>`
-                <div class="content_info">
-                    <h2>Sign Up</h2>
-                    <div class="input_group">
-                        <form id="frm" method="post" action="/requst-post-normal" target="ifrm" novalidate="novalidate">
-                            <input name="table" type="hidden" value="contact" autocomplete="off">
-                            <div class="group">
-                                <ul>
-                                    <li data="인증키"><input name="managerkey" type="text" placeholder="관리자 인증키"
-                                            autocomplete="off">
-                                </ul>
-                            </div>
-
-                            <div class="btn_bottom">
-                                <button type="submit" class="b_type1">로그인</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 로그인 모달 -->
-        <div class="modal_user">
-            <div class="bg"></div>
-            <div class="container">
-                <i class="xi-close-thin"></i>`
-                <div class="content_info">
-                    <h2>Sign Up</h2>
-                    <div class="input_group">
-                        <form id="frm" method="post" action="/requst-post-normal" target="ifrm" novalidate="novalidate">
-                            <input name="table" type="hidden" value="contact" autocomplete="off">
-                            <div class="group">
-                                <ul>
-                                    <li data="E-mail"><input name="email" type="email" class="email" placeholder="이메일"
-                                            autocomplete="off"></li>
-                                    <li data="password"><input name="pw" type="text" placeholder="password"
-                                            autocomplete="off"></li>
-                                </ul>
-                            </div>
-
-                            <div class="btn_bottom">
-                                <button type="submit" class="b_type1">로그인</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <!-- 로그아웃 -->
         <div class="modal_logout">
             <div class="bg"></div>
@@ -3643,7 +3571,7 @@
                     <h2>로그아웃 하시겠습니까?</h2>
                     <ul>
                         <div class="btn_bottom">
-                            <button type="submit" class="b_type4" onclick="location.href='Main.do'">네</button>
+                            <button type="submit" class="b_type4" onclick="location.href='logout.do'">네</button>
                             <button type="submit" class="b_type1" onclick="location.href=''">아니오</button>
                         </div>
                     </ul>
@@ -3667,45 +3595,6 @@
                     } else {
                         $(".main_wrap").removeClass("white")
                     }
-                });
-
-                // modal_add는 CTO
-                $('.main_wrap .side_menu ul li i.xi-wordpress').click(function () {
-                    $('.modal_add').addClass('on')
-                });
-
-                $('.modal_add .container .xi-close-thin').click(function () {
-                    $('.modal_add').removeClass('on')
-                });
-
-                $('.modal_add .bg').click(function () {
-                    $('.modal_add').removeClass('on')
-                });
-
-                // modal_manager는 관리자
-                $('.main_wrap .side_menu ul li i.xi-security').click(function () {
-                    $('.modal_manager').addClass('on')
-                });
-
-                $('.modal_manager .container .xi-close-thin').click(function () {
-                    $('.modal_manager').removeClass('on')
-                });
-
-                $('.modal_manager .bg').click(function () {
-                    $('.modal_manager').removeClass('on')
-                });
-
-                // modal_user는 로그인
-                $('.main_wrap .side_menu ul li i.xi-heart-o').click(function () {
-                    $('.modal_user').addClass('on')
-                });
-
-                $('.modal_user .container .xi-close-thin').click(function () {
-                    $('.modal_user').removeClass('on')
-                });
-
-                $('.modal_user .bg').click(function () {
-                    $('.modal_user').removeClass('on')
                 });
 
                 // modal_logout는 로그아웃

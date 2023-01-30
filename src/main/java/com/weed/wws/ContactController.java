@@ -33,7 +33,7 @@ public class ContactController {
 	}
 
 	// 의뢰서 조회
-	@RequestMapping(value = "/.do")
+	@RequestMapping(value = "/manager.do")
 	public String contactList(Model model) {
 		List<WeedDTO> list = wwsMapper.getContact();
 		model.addAttribute("list", list);

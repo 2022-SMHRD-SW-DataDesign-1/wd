@@ -3507,8 +3507,7 @@
                         </div>
 
                         <div class="input_group">
-                            <form id="frm" method="post" action="contactInsert.do" target="ifrm"
-                                novalidate="novalidate">
+                            <form id="frm" method="post" action="contactInsert.do">
                                 <input type="hidden" name="csrf_cossia_token" value="9e1df29c77b7a592462f8a7808050758"
                                     autocomplete="off">
                                 <input name="table" type="hidden" value="contact" autocomplete="off">

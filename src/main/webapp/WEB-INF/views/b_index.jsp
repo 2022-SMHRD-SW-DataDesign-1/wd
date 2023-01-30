@@ -3449,7 +3449,6 @@
                                                 <input name="category" type="radio" value="A"><span>기술 개발</span>
                                                 <input name="category" type="radio" value="B"><span>맞춤 서비스
                                                 </span>
-                                                <input name="category" type="radio" value="C"><span>일반 문의</span>
                                             </label>
                                         </li>
                                         <p>의뢰자 정보*</p>

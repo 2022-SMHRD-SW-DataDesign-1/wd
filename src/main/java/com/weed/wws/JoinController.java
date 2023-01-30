@@ -31,7 +31,7 @@ public class JoinController {
 		System.out.println(dto.getCompany());
 		System.out.println(dto.getPassword());
 		joinMapper.Join(dto);
-		return "index";
+		return "redirect:/Main.do";
 	}
 
 	// 로그인 
@@ -40,7 +40,7 @@ public class JoinController {
 	public String LoginSelect(WeedDTO dto, HttpSession session) {
 
 		System.out.println("cccc");
-		System.out.print(dto.getEmail());
+		System.out.println(dto.getEmail());
 		WeedDTO member = joinMapper.Login(dto);
 		if (member == null) {
 			return "redirect:/main.do";

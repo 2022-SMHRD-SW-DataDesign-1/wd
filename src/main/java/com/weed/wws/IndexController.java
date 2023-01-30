@@ -11,10 +11,6 @@ public class IndexController {
 		return "redirect:/Main.do";
 	}
 	
-	@RequestMapping(value="/jointest.do")
-	public String jointest() {
-		return "jointest";
-	}
 	@RequestMapping(value="/Main.do")
 	public String b_main() {
 		return "b_index";

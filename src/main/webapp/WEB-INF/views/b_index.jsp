@@ -3535,7 +3535,7 @@
             <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
         </div>
 
-        <!-- 관리자 모달 -->
+       <!--   관리자 모달 
         <div class="modal_manager">
             <div class="bg"></div>
             <div class="container">
@@ -3543,7 +3543,7 @@
                 <div class="content_info">
                     <h2>Manager</h2>
                     <div class="input_group">
-                        <form id="frm" method="post" action="ManagerSelect.do" target="ifrm" novalidate="novalidate">
+                        <form id="frm form_test" method="post" action="ManagerSelect.do" target="ifrm" novalidate="novalidate">
                             <input name="table" type="hidden" value="contact" autocomplete="off">
                             <div class="group">
                                 <ul>
@@ -3553,15 +3553,16 @@
                             </div>
 
                             <div class="btn_bottom">
-                                <button type="submit" class="b_type5" onclick="location.href='Manager.do'">관리자모드</button>
+                                <button type="submit" class="b_type5" onclick="">관리자모드</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
-        <!-- 로그인 모달 -->
+
+        로그인 모달
         <div class="modal_user">
             <div class="bg"></div>
             <div class="container">
@@ -3581,13 +3582,13 @@
                             </div>
 
                             <div class="btn_bottom">
-                                <button type="submit" class="b_type4">로그인</button>
+                                <button type="submit" class="b_type4" onclick="">로그인</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
 
         <!-- 회원가입 모달 -->
         <div class="modal_user_plus">
@@ -3611,9 +3612,9 @@
                             </div>
 
                             <div class="btn_bottom">
-                                <button type="submit" class="b_type1" onclick="location.href='Main.do'">회원가입</button>
-                              	<button type="submit" class="b_type4">로그인</button>
-                                <button type="submit" class="b_type5">관리자</button>
+                                <input type="submit" class="b_type1" value="회원가입">
+                              	<button type="button" class="b_type4">로그인</button>
+                                <button type="button" class="b_type5">관리자</button> 
                             </div>
                         </form>
                     </div>
@@ -3621,7 +3622,7 @@
             </div>
         </div>
 
-        </di홈버튼 누르면 처음 페이지>
+        </div>
 
 
         <!-- 홈 -->

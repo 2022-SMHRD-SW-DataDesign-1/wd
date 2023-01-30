@@ -24,7 +24,6 @@
 	<bean id="hikariDataSource" class="com.zaxxer.hikari.HikariDataSource">
 		<constructor-arg ref="hikariConfig"/>
 	</bean>
-	
 	<!-- 9.mybatis에서 CP를 사용하기 위해서 mybatis-spring bridge가 필요 
 			-> pom.xml에 mybatis-spring.jar 넣어주기 
 			-> mybatis-spring안에 있는 SqlSessionFactoryBean 클래스 사용 -->

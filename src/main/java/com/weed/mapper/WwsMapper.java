@@ -15,17 +15,13 @@ import org.springframework.stereotype.Controller;
 public interface WwsMapper {
 
 	//의뢰신청서
-	@Insert("insert into t_request values(#{email},#{company},#{name},#{phone},#{req_type},#{req_content},sysdate())")
-	public int insertContect(WeedDTO dto);
+
+	@Insert("insert into t_request (req_type,email,company,name,phone,req_content) values(#{req_type, jdbcType=CHAR},#{email, jdbcType=VARCHAR},#{company, jdbcType=VARCHAR},#{name, jdbcType=VARCHAR},#{phone, jdbcType=VARCHAR},#{req_content, jdbcType=VARCHAR})")
+	public int insertContact(WeedDTO dto);
 	@Select("select * from t_request")
-	public List<WeedDTO> getContect();
+	public List<WeedDTO> getContact();
 	@Delete("delete from t_request where 요청순번 = #{요청순번}")
-	public int contectDelete(int num);
-	
-	
-	@Insert("insert into t_request(email, req_type, req_content, req_dt, name, phone, company) "
-			+ "values(#{email}, #{req_type}, #{{req_content}, sysdate(), #{name}, #{phone}, #{company})")
-	public int insert(WeedDTO dto);
+	public int contactDelete(int num);
 	
 	//이미지테스트
 	//스트리밍 주소

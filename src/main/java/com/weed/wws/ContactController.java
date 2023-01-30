@@ -17,23 +17,26 @@ import com.weed.entity.WeedDTO;
 import com.weed.mapper.WwsMapper;
 
 @Controller
-public class ContectController {
+public class ContactController {
 
 	@Autowired
 	private WwsMapper wwsMapper;
 
+	// 의뢰서 작성
+	@PostMapping(value = "/contactInsert.do")
+	public String contactInsert(WeedDTO dto) {
+		System.out.println("의뢰서 컨트롤러");
+		wwsMapper.insertContact(dto);
+		System.out.println("의뢰서작성 성공");
+		return "index";
+
+	}
+
+	// 의뢰서 조회
 	@RequestMapping(value = "/.do")
-	public String contectList(Model model) {
-		List<WeedDTO> list = wwsMapper.getContect();
+	public String contactList(Model model) {
+		List<WeedDTO> list = wwsMapper.getContact();
 		model.addAttribute("list", list);
 		return "";
 	}
-
-	// 의뢰서 작성
-	@PostMapping(value = "/contectInsert.do")
-	public String contectInsert(WeedDTO dto) {
-		wwsMapper.insertContect(dto);
-		return "redirect:/index.do";
-	}
-
 }

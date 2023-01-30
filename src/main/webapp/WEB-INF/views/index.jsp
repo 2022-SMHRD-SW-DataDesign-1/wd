@@ -3080,7 +3080,6 @@
                     <li><a href="javascript:void(0)" class="en"><span>Developer</span></a></li>
                     <li><a href="javascript:void(0)" class="en"><span>Case Study</span></a></li>
                     <li><a href="javascript:void(0)" class="en"><span>Contact</span></a></li>
-                    <li><a href="javascript:void(0)" class="en"><span>Language</span></a></li>
                     <div class="btn_bottom" style="z-index: 100; margin-top:-10px;">
                                                 <button type="submit" class="b_type3" onclick="">${member.email}</button>
                                             </div>
@@ -3508,7 +3507,7 @@
                         </div>
 
                         <div class="input_group">
-                            <form id="frm" method="post" action="contectInsert.do" target="ifrm"
+                            <form id="frm" method="post" action="contactInsert.do" target="ifrm"
                                 novalidate="novalidate">
                                 <input type="hidden" name="csrf_cossia_token" value="9e1df29c77b7a592462f8a7808050758"
                                     autocomplete="off">
@@ -3522,10 +3521,9 @@
                                         <p>문의유형*</p>
                                         <li>
                                             <label>
-                                                <input name="category" type="radio" value="A"><span>기술 개발</span>
-                                                <input name="category" type="radio" value="B"><span>맞춤 서비스
+                                                <input name="req_type" type="radio" value="A"><span>기술 개발</span>
+                                                <input name="req_type" type="radio" value="B"><span>맞춤 서비스
                                                 </span>
-                                                <input name="category" type="radio" value="C"><span>일반 문의</span>
                                             </label>
                                         </li>
                                         <p>의뢰자 정보*</p>
@@ -3536,9 +3534,9 @@
                                         <li data="Name">
                                         	<input name="name" type="text" placeholder="담당자" autocomplete="off"></li>
                                         <li data="Contact Information">
-                                        	<input name="phone" class="phone" type="text" placeholder="하이픈(-) 자동입력" autocomplete="off" maxlength="13"></li>
+                                        	<input name="phone" class="phone" type="text" placeholder="전화번호" autocomplete="off" maxlength="13"></li>
                                         <li data="content">
-                                        	<textarea name="content" cols="30" rows="10" placeholder="프로젝트 내용"></textarea></li>
+                                        	<textarea name="req_content" cols="30" rows="10" placeholder="프로젝트 내용"></textarea></li>
                                     </ul>
                                 </div>
 

@@ -3513,7 +3513,7 @@
                                                 placeholder="프로젝트 내용"></textarea></li>
                                     </ul>
                                 <div class="btn_bottom">
-                                    <button type="submit" class="b_type3" onclick="">신청하기</button>
+                                    <button type="submit" class="b_type3" onclick="">Sign Up</button>
                                 </div>
                                 <div style="position:absolute;top:25%; background-color: rgba(27, 28, 28, 0.8); height:55%; width:34%;">
                                     <p style="color:var(--color-fff);position: absolute;

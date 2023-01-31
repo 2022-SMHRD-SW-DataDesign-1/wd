@@ -24,6 +24,10 @@ public interface WwsMapper {
 	public int contactDelete(int num);
 	
 	//이미지테스트
+	/*
+	 * @Insert("insert into t_processing (email, image) values(#{email}, #{image}")
+	 * public int insertImage(WeedDTO dto);
+	 */
 	//스트리밍 주소
 	
 }

@@ -2349,7 +2349,7 @@
                     <span class="en"> <b>WHO WITH SERVICE</b></span>
                 </a>
                 <ul class="gnb">
-                    <li><a href="Main.do" class="en"><span>Home</span></a></li>
+                    <li><a href="index.do" class="en"><span>Home</span></a></li>
                     <div class="btn_bottom" style="z-index: 100; margin-top: -10px;">
                         <button type="submit" class="b_type3" onclick="">Logout</button>
                     </div>

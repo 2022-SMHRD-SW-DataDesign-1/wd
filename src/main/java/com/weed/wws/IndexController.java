@@ -23,7 +23,7 @@ public class IndexController {
 	
 	@RequestMapping(value="/Manager.do")
 	public String manager() {
-		return "manager";
+		return "redirect:/contactSelect.do";
 	}
 	 
 	@RequestMapping(value="/Test.do")

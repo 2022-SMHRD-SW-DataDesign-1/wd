@@ -58,7 +58,6 @@ public class JoinController {
 			return "redirect:/index.do";
 
 		}
-//|| !member.equals(dto.getEmail()) && !member.equals(dto.getPassword()) 
 	}
 
 	// 관리자모드

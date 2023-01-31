@@ -2370,12 +2370,14 @@
                 <div class="container">
 
                     <div class="input_group" id="testimgdiv">
-                        
-                       	<!-- 이미지 업로드 -->
-                        <div style="width: 100%;">
-                        	<input type="file" onchange="previewImg()" accpet="image/png, image/jpeg" style="width:90%; color:#B4B4B4;">
-                            <button type="submit" class="b_type2" onclick="">실행</button>
-                        </div>
+	                    
+	                    <!-- 이미지 업로드 -->
+                        <form action="imgSave" method="post" enctype="multipart/form-data">
+	                        <div style="width: 100%;">
+	                        	<input type="file" name="filename" onchange="previewImg()" accpet="image/png, image/jpeg" style="width:90%; color:#B4B4B4;">
+	                            <button type="submit" class="b_type2" onclick="">실행</button>
+	                        </div>
+                        </form>
                         
                         <div class="group">
                             <div class="tit1" id="realTestimg">
@@ -2387,6 +2389,7 @@
                         </div>
                         
                         <script>
+                        /* 이미지 미리보기 */
                             function previewImg() {
 								let preview = document.querySelector('.testimg');
 								let file = document.querySelector('input[type=file]').files[0];

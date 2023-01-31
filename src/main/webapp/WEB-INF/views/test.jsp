@@ -2437,10 +2437,10 @@
                     <div class="input_group">
                         <div class="group">
                             <div class="tit1" style="margin-top: 7.85%;">
-                                <img src="./resources/images/image.jpg" style="width: 530px; height: 320px;">
+                                <img src="./resources/images/image.jpg" style="width: 600px; height: 320px;">
                             </div>
                             <div class="tit">
-                                <h3>영상</h3>
+                                <h3>Panoptic Segmentation</h3>
                             </div>
                         </div>
                     </div>

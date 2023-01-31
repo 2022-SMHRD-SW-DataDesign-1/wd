@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>코시아보드</title>
+<title>위드컴퍼니</title>
 <meta name="X-CSRF-TOKEN" content="9e1df29c77b7a592462f8a7808050758">
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -2168,10 +2168,10 @@
             text-align: center
         }
 
+		/* 2023-01-31 border color 변경_지수 */
         .sec4 .input_group .tit1 {
-            border: 1px solid white;
+            border: 1px solid #1F2429;
             text-align: center;
-
         }
 
         .sec4 .input_group .tit h3 {
@@ -2369,7 +2369,7 @@
                         </div>
                         <div class="group">
                             <div class="tit1">
-                                <img src="./resources/images/image.jpg" style="width: 530px; height: 320px;">
+                                <img src="./resources/images/image.jpg" style="width: 600px; height: 320px;">
                             </div>
                             <div class="tit">
                                 <h3>원본</h3>
@@ -2380,7 +2380,7 @@
                     <div class="input_group">
                         <div class="group">
                             <div class="tit1" style="margin-top: 7.85%;">
-                                <img src="./resources/images/image.jpg" style="width: 530px; height: 320px;">
+                                <img src="./resources/images/image.jpg" style="width: 600px; height: 320px;">
                             </div>
                             <div class="tit">
                                 <h3>영상</h3>

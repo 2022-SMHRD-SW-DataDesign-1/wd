@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>코시아보드</title>
+<title>위드컴퍼니</title>
 <meta name="X-CSRF-TOKEN" content="9e1df29c77b7a592462f8a7808050758">
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -2168,8 +2168,10 @@
             text-align: center
         }
 
+
+		/* 2023-01-31 border color 변경_지수 */
         .sec4 .input_group .tit1 {
-            border: 1px solid white;
+            border: 1px solid #1F2429;
             text-align: center;
 
         }
@@ -2311,6 +2313,12 @@
         .main_wrap.white {
             background: var(--color-f2f2f2);
         }
+        
+        /* 지수 추가 */
+/*         .testimg{
+        	width: 530px;
+        	height: 320px;
+        } */
     </style>
 
 
@@ -2361,28 +2369,78 @@
             <section class="swiper-slide sec4" style="height: 881px; margin-bottom: 30px;">
                 <div class="container">
 
-                    <div class="input_group">
+                    <div class="input_group" id="testimgdiv">
+                        
+                       	<!-- 이미지 업로드 -->
                         <div style="width: 100%;">
-                        	<input type="file" accpet="image/png, image/jpeg" style="width:90%; color:white;">
+                        	<input type="file" onchange="previewImg()" accpet="image/png, image/jpeg" style="width:90%; color:#B4B4B4;">
                             <button type="submit" class="b_type2" onclick="">실행</button>
                         </div>
+                        
                         <div class="group">
-                            <div class="tit1">
-                                <img src="./resources/images/image.jpg" style="width: 530px; height: 320px;">
+                            <div class="tit1" id="realTestimg">
+                                <img class="testimg" src="./resources/images/testimg.png" style="width: 600px; height: 320px;">
                             </div>
                             <div class="tit">
                                 <h3>원본</h3>
                             </div>
                         </div>
+                        
+                        <script>
+                            function previewImg() {
+								let preview = document.querySelector('.testimg');
+								let file = document.querySelector('input[type=file]').files[0];
+								let reader = new FileReader();
+
+								reader.addEventListener(
+									'load',
+									function () {
+										preview.src = reader.result;
+										console.log(reader.result);
+									},
+									false
+								);
+
+								if (file) {
+									reader.readAsDataURL(file);
+									/* console.log(reader.readAsDataURL(file)); */
+								}
+							}
+                            
+							/*  function readURL(obj) {
+
+                                let reader = new FileReader();
+                                if(!obj.files.length) {
+                                    return;
+                                }
+                                reader.readAsDataURL(obj.files[0]);
+                                reader.onload = function (e) {
+                                    let img = $('<img class="testimg"/>');
+                                    $(img).attr('src', e.target.result);
+                                    $('#realTestimg').append(img);
+                                }
+                            } */
+                            
+							/* $("#testimg").change(function(){
+								if(this.files && this.files[0]) {
+									var reader = new FileReader();
+									reader.onload = function(data) {
+										console.log(reader.result);
+										$("#realTestimg img").attr("src", data.target.result);        
+									}
+									reader.readAsDataURL(this.files[0]);
+								}
+							}); */
+                        </script>
                     </div>
 
                     <div class="input_group">
                         <div class="group">
                             <div class="tit1" style="margin-top: 7.85%;">
-                                <img src="./resources/images/image.jpg" style="width: 530px; height: 320px;">
+                                <img src="./resources/images/image.jpg" style="width: 600px; height: 320px;">
                             </div>
                             <div class="tit">
-                                <h3>영상</h3>
+                                <h3>Panoptic Segmentation</h3>
                             </div>
                         </div>
                     </div>

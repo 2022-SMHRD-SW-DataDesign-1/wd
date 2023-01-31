@@ -2479,8 +2479,21 @@
             }
         }
 
-        .sec2 {
+       .sec2 {
             position: relative;
+        }
+
+        .sec2 .tit_group {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .sec2 .tit {
+            display: flex;
+            align-items: flex-end;
+            gap: 0 30px;
+            margin-bottom: 5%;
         }
 
         .sec2 .container {
@@ -2533,8 +2546,8 @@
             font-size: 50px;
             color: var(--color-fff);
             font-weight: 700;
-            margin-bottom: 10px;
             text-align: center;
+            margin-bottom:20px;
         }
 
         .sec2 .item p {
@@ -3267,23 +3280,59 @@
                         });
                     </script>
                 </section>
-
-                <!-- developer 비회원-->
-                <section class="swiper-slide sec5" style="height: 881px; margin-bottom: 30px;">
+                
+                <!-- developer -->
+                <section class="swiper-slide sec2 swiper-slide-next" style="height: 881px; margin-bottom: 30px;">
                     <div class="container">
                         <div class="tit_group">
                             <div class="tit">
                                 <h2 class="h_type1 en"><span>Developer</span></h2>
                             </div>
-
                         </div>
-                        <div class="content" style="height: 60%;">
-                            <div class="input_group">
-                                <div>
-                                    <p style="font-size:xx-large; color: white;"> 내용입력</p>
+                        <div class="content" style="positive:relative;">
+                            <div class="swiper sec2_swiper swiper-container-initialized swiper-container-horizontal">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide item swiper-slide-active"
+                                        style="width: 427.5px; margin-right: 30px;" data-swiper-slide-index="0">
+                                        <div class="title1">
+                                        <h3>Test</h3>
+                                        </div>
+                                        <div class="text1">
+                                        <p>전 직원이 의사결정에 자발적으로 참여하게 유도함으로써 개개인의 창의력을 최대한 발휘하게 하고 있습니다..</p>
+                                        
+                                    </div>
+                                    </div>
+                                    <div class="swiper-slide item swiper-slide-next"
+                                        style="width: 427.5px; margin-right: 30px;" data-swiper-slide-index="1">
+                                        <div class="title2">
+                                            <h3>City API</h3>
+                                            </div>
+                                        <div class="text2">
+                                        <p>자율성을 바탕으로 직원 개개인의 업무에 책임을 부여함으로써 직원들의 성취감과 회사의 효율성을 동시에 추구하고 고객
+                                            위주의 서비스로 고객의
+                                            입장에서 생각하고 실천하는 회사입니다.</p>
+                                  
+                                    </div>
+                                    </div>
+                                    <div class="swiper-slide item swiper-slide-duplicate-prev"
+                                        style="width: 427.5px; margin-right: 30px;" data-swiper-slide-index="2">
+                                        <div class="title3">
+                                            <h3>시연 영상</h3>
+                                            </div>
+                                            <div class="text3">
+                                        <p>만든 것으로만 끝나지 않고 프로그램 소스, 이미지, 데이터베이스 관리부터 광고 컨설팅까지 책임지고 해드립니다.
+                                            홈페이지는 제작보다 관리가
+                                            더 중요합니다. 소홀히 방치하면 방문자는 그 사이트를 외면하게 됩니다.</p>
+             
+                                    </div>
+                                </div>
+                                 <div style="position:absolute; top:-10%; background-color: rgba(27, 28, 28, 0.8); height:110%; width:110%;">
+                                    <p style="color:var(--color-fff);position: absolute;
+                                    left: 50%;
+                                    top: 50%;
+                                    transform: translate(-50%, -50%);font-size:x-large;"> 로그인 후 이용가능합니다.</p>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </section>
@@ -3503,7 +3552,7 @@
                                 <ul>
                                     <li data="E-mail"><input name="email" type="email" class="email" placeholder="이메일"
                                             autocomplete="off"></li>
-                                    <li data="password"><input name="password" type="text" placeholder="password"
+                                    <li data="password"><input name="password" type="password" placeholder="password"
                                             autocomplete="off"></li>
                                 </ul>
                             </div>
@@ -3533,7 +3582,7 @@
                                             autocomplete="off"></li>
                                     <li data="Company"><input name="company" type="text" placeholder="업체명"
                                             autocomplete="off"></li>
-                                    <li data="password"><input name="password" type="text" placeholder="password"
+                                    <li data="password"><input name="password" type="password" placeholder="password"
                                             autocomplete="off"></li>
                                 </ul>
                             </div>

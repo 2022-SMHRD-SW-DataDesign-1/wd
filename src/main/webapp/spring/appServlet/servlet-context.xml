@@ -21,19 +21,14 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<!-- 파일 업로드에 필요한 bean -->
-<!--     <beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        파일업로드 용량
-        <beans:property name="maxUploadSize" value="10485760"/>
-    
-    </beans:bean> -->
-    
-    <!--  업로드경로 -->
-<!--     <beans:bean id="uploadPath" class="java.lang.String">
-        파일업로드 디렉토리
-        <beans:constructor-arg value="C:\Users\PoPo\Desktop\uploadtmp"/>
-    </beans:bean>
- -->
+		<!-- 파일 업로드를 위한 MutipartResolver 구현체 CommonsMultipartResolver bean 등록 주희 -->
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+		<beans:property name="maxUploadSize" value="10485760" />
+		<beans:property name="defaultEncoding" value="utf-8" />
+
+	</beans:bean>
 	
 	<context:component-scan base-package="com.weed.wws" />
 	

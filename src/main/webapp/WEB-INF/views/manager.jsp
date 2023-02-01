@@ -2645,9 +2645,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                         <c:forEach var="contact" items="${list}">
+                                         <c:forEach var="contact" items="${list}" varStatus="status">
 												<tr>
-													<td>${i}</td>
+													<td><button onclick="getContent(${contact.req_seq})">${status.count}</td>
 													<td>${contact.req_type}</td>
 													<td>${contact.company}</td>
 												</tr>
@@ -2659,7 +2659,8 @@
                     </div>
 
                     <!-- 목록 세부내용 -->
-                    <div class="input_group" style="height:70%;">
+                    <c:forEach var="contact" items="${list}" varStatus="status">
+                    <div class="input_group content${contact.req_seq}" style="height:70%; display:none;">
                         <form id="frm" method="post" action="/requst-post-normal" target="ifrm" novalidate="novalidate">
                             <input name="table" type="hidden" value="contact" autocomplete="off">
                             <div class="group">
@@ -2671,7 +2672,7 @@
 
                                     <tr>
                                         <td>문의유형</td>
-                                        <td>기술개발</td>
+                                        <td>${contact.req_type}</td>
                                     </tr>
 
                                     <tr>
@@ -2679,7 +2680,7 @@
                                             E-mail
                                         </td>
                                         <td>
-                                            위드컴
+                                            ${contact.email}
                                         </td>
                                     </tr>
                                     <tr>
@@ -2687,7 +2688,7 @@
                                             업체명
                                         </td>
                                         <td>
-                                            위드컵
+                                            ${contact.company}
                                         </td>
                                     </tr>
                                     <tr>
@@ -2695,7 +2696,7 @@
                                             담당자
                                         </td>
                                         <td>
-                                            한가연
+                                            ${contact.name}
                                         </td>
                                     </tr>
                                     <tr>
@@ -2703,7 +2704,7 @@
                                             전화번호
                                         </td>
                                         <td>
-                                            010-7771-1241
+                                            ${contact.name}
                                         </td>
                                     </tr>
                                     <tr>
@@ -2711,22 +2712,40 @@
                                             프로젝트내용
                                         </td>
                                         <td>
-                                            aldkfaljgkdaldgkjaldfkadlfalkdfjaldkfjal;dfkjaldfjaldkfajfld
+                                            ${contact.req_content}
                                         </td>
                                     </tr>
                                 </table>
                             </div>
                         </form>
                         <div class="btn_bottom">
-                            <button type="submit" class="b_type4">삭제하기</button>
+                            <button type="submit" class="b_type4"  >삭제하기</button>
                         </div>
+                        
                     </div>
+                         <div class="modal_clear">
+							<div class="bg"></div>
+								<div class="container">
+									<i class="xi-close-thin"></i>`
+									<div class="content_info">
+										<h2>삭제 하시겠습니까?</h2>
+										<ul>
+											<div class="btn_bottom">
+												<button type="submit" class="b_type2" onclick="deleteContent(${contact.req_seq}); location.href='Manager.do'">네</button>
+												<button type="submit" class="b_type1" onclick="location.href=''">아니오</button>
+											</div>
+										</ul>
+									</div>
+								</div>
+							</div> 
+                    </c:forEach>
 
                 </div>
             </section>
 
-
-            <!-- 로그아웃 -->
+			
+			
+			<!-- 로그아웃 -->
 			<div class="modal_logout">
 				<div class="bg"></div>
 				<div class="container">
@@ -2739,22 +2758,7 @@
 									onclick="location.href='logout.do'">네</button>
 								<button type="submit" class="b_type1" onclick="location.href=''">아니오</button>
 							</div>
-						</ul>
-					</div>
-				</div>
-			</div>
-
-			<div class="modal_clear">
-				<div class="bg"></div>
-				<div class="container">
-					<i class="xi-close-thin"></i>`
-					<div class="content_info">
-						<h2>삭제 하시겠습니까?</h2>
-						<ul>
-							<div class="btn_bottom">
-								<button type="submit" class="b_type2" onclick="location.href=''">네</button>
-								<button type="submit" class="b_type1" onclick="location.href=''">아니오</button>
-							</div>
+							
 						</ul>
 					</div>
 				</div>
@@ -2785,6 +2789,7 @@
                     $('.modal_logout .bg').click(function () {
                         $('.modal_logout').removeClass('on')
                     });
+                    
                     
                  // modal_clear는 삭제
                     $('.input_group .b_type4').click(function () {
@@ -2842,7 +2847,56 @@
                         email: { required: true, email: true },
                         content: { required: true, },
                     }
-                })
+                });
+                
+                // 상세 의뢰서 작성
+                function getContent(req_seq) {
+					//데이터 확인버튼 클릭 => 바로 아래 쪽에 있는 tr 태그를 보이게 할 것
+					// 다시 한번 더 버튼 클릭시 tr태그 안보이게 할 것 
+					if($('.content'+req_seq).css('display')=='none'){
+						$('.content'+req_seq).show();
+						$.ajax({
+							url: 'detailGetAsync.do', //요청 경로
+							data: {req_seq:req_seq} , //요청 데이터
+							type : 'get', //값을 불러올때는 get방식
+							success: function(res) { //요청, 응답이 성공했을 때 실행하는 함수
+								console.log(res);
+								//td 에 내용 넣어주고 tr에 추가
+								let content = '<td>내용 : '+res.content+'</td>'
+								//js => .innerHtml / innerText
+								//j쿼리 => .html/ text
+								$('.content'+req_seq).html(content);
+							},
+							error: function () { //요청,응답이 실패했을때 실행
+								console.log('fail');
+							}
+						});
+					}else{
+						$('.content'+req_seq).hide();
+					}
+				}
+                
+                // 의뢰서 삭제
+                 function deleteContent(req_seq) {
+					//boardDeleteAsync.do 요청
+					// 요청 데이터 : 게시물 번호
+					// get 요청
+						$.ajax({
+						url: 'DeleteAsync.do', //요청 경로
+						data: {req_seq:req_seq} ,
+						type : 'get', 
+						success: function(res) { //요청, 응답이 성공했을 때 실행하는 함수
+							console.log(res);
+							//새로고침
+							location.reload();
+						},
+						error: function () { //요청,응답이 실패했을때 실행
+							console.log('fail');
+						}
+					});
+					//성공 - 삭제성공 -> 새로고침
+					
+				} 
             </script>
             <footer>
                 <div class="f_top">

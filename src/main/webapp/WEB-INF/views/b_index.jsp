@@ -3160,8 +3160,8 @@
                                         </div>
                                         <div class="txt_box">
                                             <h2 class="tit">
-                                                <span class="desc1"><b>윈디자인</b>은 다양한 경험을 바탕으로</span>
-                                                <span class="desc2">브랜드에 힘이 되는 <b>웹사이트</b>를 제작합니다.</span>
+                                                <span class="desc1"><b>위드컴퍼니</b>는 다양한 데이터셋을 바탕으로</span>
+                                                <span class="desc2">객체 인식 기술 <b>PANOPTIC SEGMENTATION</b>를 구현합니다.</span>
                                             </h2>
                                             <div class="btn_bottom" style="z-index: 100;">
                                                 <button type="submit" class="b_type3" onclick="">Sign Up</button>
@@ -3248,8 +3248,8 @@
                                         </div>
                                         <div class="txt_box">
                                             <h2 class="tit">
-                                                <span class="desc1"><b>윈디자인</b>은 다양한 경험을 바탕으로</span>
-                                                <span class="desc2">브랜드에 힘이 되는 <b>웹사이트</b>를 제작합니다.</span>
+                                               <span class="desc1"><b>위드컴퍼니</b>는 다양한 데이터셋을 바탕으로</span>
+                                                <span class="desc2">객체 인식 기술 <b>PANOPTIC SEGMENTATION</b>를 구현합니다.</span>
                                             </h2>
                                             <p class="en">WEB · UX/UI · MOBILE · GRAPHIC</p>
                                         </div>
@@ -3286,6 +3286,9 @@
                         <div class="tit_group">
                             <div class="tit">
                                 <h2 class="h_type1 en"><span>Developer</span></h2>
+                                   <p>객체 분할으로만 끝나지 않고 프로그램 소스, 데이터베이스 관리부터 객체 라벨링까지 책임지고 해드립니다.
+                                            AI 기술은 구현보다 관리가 더 중요합니다.
+                                   </p>
                             </div>
                         </div>
                         <div class="content" style="positive:relative;">
@@ -3294,34 +3297,35 @@
                                     <div class="swiper-slide item swiper-slide-active"
                                         style="width: 427.5px; margin-right: 30px;" data-swiper-slide-index="0">
                                         <div class="title1">
-                                        <h3>Test</h3>
+                                        <h3>Image Test</h3>
                                         </div>
                                         <div class="text1">
-                                        <p>전 직원이 의사결정에 자발적으로 참여하게 유도함으로써 개개인의 창의력을 최대한 발휘하게 하고 있습니다..</p>
+                                        <p>당신이 가진 이미지로 객체 인식 기술을 체험해보세요</p>
+<!--                                    <p>전 직원이 의사결정에 자발적으로 참여하게 유도함으로써 개개인의 창의력을 최대한 발휘하게 하고 있습니다..</p> -->
                                         
                                     </div>
                                     </div>
                                     <div class="swiper-slide item swiper-slide-next"
                                         style="width: 427.5px; margin-right: 30px;" data-swiper-slide-index="1">
                                         <div class="title2">
-                                            <h3>City API</h3>
+                                            <h3>Panoptic Segmentation</h3>
                                             </div>
                                         <div class="text2">
-                                        <p>자율성을 바탕으로 직원 개개인의 업무에 책임을 부여함으로써 직원들의 성취감과 회사의 효율성을 동시에 추구하고 고객
+                                        <p>저희가 사용한 기술에 대해 자세히 알아보세요.
+                                        객체 인식 분할 방식 중 가장 최신 기술인 Panoptic Segmentation</p>
+                                       <!--  <p>자율성을 바탕으로 직원 개개인의 업무에 책임을 부여함으로써 직원들의 성취감과 회사의 효율성을 동시에 추구하고 고객
                                             위주의 서비스로 고객의
-                                            입장에서 생각하고 실천하는 회사입니다.</p>
+                                            입장에서 생각하고 실천하는 회사입니다.</p> -->
                                   
                                     </div>
                                     </div>
                                     <div class="swiper-slide item swiper-slide-duplicate-prev"
                                         style="width: 427.5px; margin-right: 30px;" data-swiper-slide-index="2">
                                         <div class="title3">
-                                            <h3>시연 영상</h3>
+                                            <h3>Streaming Test</h3>
                                             </div>
                                             <div class="text3">
-                                        <p>만든 것으로만 끝나지 않고 프로그램 소스, 이미지, 데이터베이스 관리부터 광고 컨설팅까지 책임지고 해드립니다.
-                                            홈페이지는 제작보다 관리가
-                                            더 중요합니다. 소홀히 방치하면 방문자는 그 사이트를 외면하게 됩니다.</p>
+                                        <p>당신이 가진 카메라 IP 로 객체 인식 기술을 실시간으로 체험해보세요</p>
              
                                     </div>
                                 </div>
@@ -3609,7 +3613,7 @@
                             <input name="table" type="hidden" value="contact" autocomplete="off">
                             <div class="group">
                                 <ul>
-                                    <li data="인증키"><input name="managerkey" type="text" placeholder="관리자 인증키"
+                                    <li data="인증키"><input name="managerkey" type="password" placeholder="관리자 인증키"
                                             autocomplete="off">
                                 </ul>
                             </div>

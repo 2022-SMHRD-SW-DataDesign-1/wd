@@ -92,7 +92,8 @@
 					<artifactId>jmxri</artifactId>
 				</exclusion>
 			</exclusions>
-			<scope>runtime</scope>
+			<!-- 2023-02-01 Log4j 활성화시키기위한 주석처리_김지수 -->
+			<!-- <scope>runtime</scope> -->
 		</dependency>
 
 		<!-- @Inject -->

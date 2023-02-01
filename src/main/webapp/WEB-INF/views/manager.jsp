@@ -2083,7 +2083,8 @@
             transform: translate(-100%, -50%);
         }
 
-        .modal_logout {
+        .modal_logout,
+        .modal_clear {
             position: fixed;
             left: 50%;
             top: 50%;
@@ -2100,12 +2101,15 @@
             transition: all .3s ease;
         }
 
-        .modal_logout.on {
+        .modal_logout.on,
+        .modal_clear.on {
             visibility: inherit;
             opacity: 1;
         }
 
-        .modal_logout .bg {
+        .modal_logout .bg,
+        .modal_clear .bg
+         {
             background: var(--color-000);
             opacity: .75;
             width: 100%;
@@ -2118,7 +2122,8 @@
             z-index: -1;
         }
 
-        .modal_logout .container {
+        .modal_logout .container,
+        .modal_clear .container {
             display: flex;
             background: var(--color-1a1e23);
             border: 4px solid var(--color-000);
@@ -2135,11 +2140,13 @@
             transform: translateY(-100%);
         }
 
-        .modal_logout.on .container {
+        .modal_logout.on .container,
+        .modal_clear.on .container {
             transform: translateY(0);
         }
 
-        .modal_logout .container .xi-close-thin {
+        .modal_logout .container .xi-close-thin,
+        .modal_clear .container .xi-close-thin {
             position: absolute;
             left: 50%;
             top: 0;
@@ -2157,41 +2164,48 @@
             cursor: pointer;
         }
 
-        .modal_logout .container .xi-close-thin::before {
+        .modal_logout .container .xi-close-thin::before,
+        .modal_clear .container .xi-close-thin::before {
             transition: all .3s ease;
         }
 
-        .modal_logout .container .xi-close-thin:hover::before {
+        .modal_logout .container .xi-close-thin:hover::before,
+        .modal_clear .container .xi-close-thin:hover::before {
             transform: rotate(180deg);
         }
 
-        .modal_logout .content_info {
+        .modal_logout .content_info,
+        .modal_clear .content_info {
             display: flex;
             flex-direction: column;
             margin: 0 auto;
         }
 
-        .modal_logout .content_info h2 {
+        .modal_logout .content_info h2,
+        .modal_clear .content_info h2 {
             color: var(--color-fff);
             font-size: 36px;
             font-weight: 700;
             margin-bottom: 30px;
         }
 
-        .modal_logout .content_info ul {
+        .modal_logout .content_info ul,
+        .modal_clear .content_info ul {
             display: flex;
             flex-direction: column;
             gap: 15px 0;
         }
 
-        .modal_logout .content_info ul li {
+        .modal_logout .content_info ul li,
+        .modal_clear .content_info ul li {
             font-size: 18px;
             color: var(--color-fff);
             display: flex;
             gap: 15px;
         }
 
-        .modal_logout .content_info ul li .desc1 {
+        .modal_logout .content_info ul li .desc1,
+        .modal_clear .content_info ul li .desc1 {
             font-weight: 400;
             width: 50px;
             position: relative;
@@ -2200,7 +2214,8 @@
             font-size: 14px;
         }
 
-        .modal_logout .content_info ul li .desc1::after {
+        .modal_logout .content_info ul li .desc1::after,
+        .modal_clear .content_info ul li .desc1::after {
             position: absolute;
             left: 0;
             top: 15px;
@@ -2212,7 +2227,8 @@
             z-index: -1;
         }
 
-        .modal_logout .content_info ul li .desc2 {
+        .modal_logout .content_info ul li .desc2,
+        .modal_clear .content_info ul li .desc2 {
             width: calc(100% - 65px);
             font-weight: 400;
             opacity: .5;

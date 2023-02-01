@@ -48,9 +48,9 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 		
-		<!--multipart-config 추가-->	
+		<!--2023-02-01 multipart-config 추가_김지수-->	
 		<multipart-config>
-			<location>C:\\java\\upload\\temp</location>
+			<location>C:\\Users\\smhrd\\git\\wd\\src\\main\\webapp\\resources\\images\\testimg</location>
 			<max-file-size>20971520</max-file-size> <!--1MB * 20 -->
 			<max-request-size>41943040</max-request-size><!-- 40MB -->
 			<file-size-threshold>20971520</file-size-threshold> <!-- 20MB -->

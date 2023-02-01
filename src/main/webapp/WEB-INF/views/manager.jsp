@@ -1633,51 +1633,80 @@
 
         /* 주히 추가 case 문의 버튼 위치 수정 */
         .b_type2 {
-            margin: auto;
-            padding: 10px 20px;
-            background: var(--color-03f);
-            color: var(--color-fff);
-            text-align: center;
-            border-radius: 100px;
-            min-width: 120px;
-            transition: all .3s ease;
-            display: inline-block;
-            font-size: 18px;
-        }
+                    margin: auto;
+                    padding: 10px 20px;
+                    background: var(- -color-03f);
+                    color: var(- -color-fff);
+                    text-align: center;
+                    border-radius: 100px;
+                    min-width: 120px;
+                    transition: all .3s ease;
+                    display: inline-block;
+                    font-size: 18px;
+                }
 
-        .b_type1 {
-            margin: auto;
-            padding: 10px 20px;
-            background: var(--color-03f);
-            color: var(--color-fff);
-            text-align: center;
-            border-radius: 100px;
-            min-width: 120px;
-            transition: all .3s ease;
-            display: inline-block;
-            margin-right: 5%;
-            font-size: 18px;
-        }
+                .b_type1 {
+                    margin: auto;
+                    padding: 10px 20px;
+                    background: var(- -color-03f);
+                    color: var(- -color-fff);
+                    text-align: center;
+                    border-radius: 100px;
+                    min-width: 120px;
+                    transition: all .3s ease;
+                    display: inline-block;
+                    margin-right: 5%;
+                    font-size: 18px;
+                }
 
-        .b_type3 {
-            margin: auto;
-            padding: 10px 20px;
-            background: var(--color-03f);
-            color: var(--color-fff);
-            text-align: center;
-            border-radius: 100px;
-            min-width: 120px;
-            transition: all .3s ease;
-            display: block;
-            font-size: 18px;
-        }
+                .b_type2 {
+                    margin: auto;
+                    padding: 10px 20px;
+                    background: var(- -color-03f);
+                    color: var(- -color-fff);
+                    text-align: center;
+                    border-radius: 100px;
+                    min-width: 120px;
+                    transition: all .3s ease;
+                    display: inline-block;
+                    margin-right: 5%;
+                    font-size: 18px;
+                }
 
-        .b_type1:hover,
-        .b_type2:hover,
-        .b_type3:hover {
-            color: #fff;
-            box-shadow: var(--box-shadow-S-03f);
-        }
+                .b_type3 {
+                    margin: auto;
+                    padding: 10px 20px;
+                    background: var(- -color-03f);
+                    color: var(- -color-fff);
+                    text-align: center;
+                    border-radius: 100px;
+                    min-width: 120px;
+                    transition: all .3s ease;
+                    display: block;
+                    font-size: 18px;
+                }
+
+                .b_type4 {
+                    margin: auto;
+                    padding: 10px 20px;
+                    background: var(- -color-03f);
+                    color: var(- -color-fff);
+                    text-align: center;
+                    border-radius: 100px;
+                    min-width: 120px;
+                    transition: all .3s ease;
+                    display: block;
+                    font-size: 18px;
+                }
+
+                .b_type1:hover,
+                .b_type2:hover,
+                .b_type3:hover,
+                .b_type4:hover {
+                    color: #fff;
+                    box-shadow: var(- -box-shadow-S-03f);
+                }
+
 
         .main_wrap {
             position: relative;
@@ -2673,7 +2702,7 @@
                             </div>
                         </form>
                         <div class="btn_bottom">
-                            <button type="submit" class="b_type3">삭제하기</button>
+                            <button type="submit" class="b_type4">삭제하기</button>
                         </div>
                     </div>
 
@@ -2682,22 +2711,38 @@
 
 
             <!-- 로그아웃 -->
-            <div class="modal_logout">
-                <div class="bg"></div>
-                <div class="container">
-                    <i class="xi-close-thin"></i>`
-                    <div class="content_info">
-                        <h2>로그아웃 하시겠습니까?</h2>
-                        <ul>
-                            <div class="btn_bottom">
-                                <button type="submit" class="b_type1" onclick="location.href='index.html'">네</button>
-                                <button type="submit" class="b_type2"
-                                    onclick="location.href='manager.html'">아니오</button>
-                            </div>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+			<div class="modal_logout">
+				<div class="bg"></div>
+				<div class="container">
+					<i class="xi-close-thin"></i>`
+					<div class="content_info">
+						<h2>로그아웃 하시겠습니까?</h2>
+						<ul>
+							<div class="btn_bottom">
+								<button type="submit" class="b_type2"
+									onclick="location.href='logout.do'">네</button>
+								<button type="submit" class="b_type1" onclick="location.href=''">아니오</button>
+							</div>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal_clear">
+				<div class="bg"></div>
+				<div class="container">
+					<i class="xi-close-thin"></i>`
+					<div class="content_info">
+						<h2>삭제 하시겠습니까?</h2>
+						<ul>
+							<div class="btn_bottom">
+								<button type="submit" class="b_type2" onclick="location.href=''">네</button>
+								<button type="submit" class="b_type1" onclick="location.href=''">아니오</button>
+							</div>
+						</ul>
+					</div>
+				</div>
+			</div>
 
 
 
@@ -2713,7 +2758,7 @@
                     });
 
                     // modal_logout는 로그아웃
-                    $('.main_wrap .gnb a.en').click(function () {
+                    $('.main_wrap .b_type3').click(function () {
                         $('.modal_logout').addClass('on')
                     });
 
@@ -2724,10 +2769,19 @@
                     $('.modal_logout .bg').click(function () {
                         $('.modal_logout').removeClass('on')
                     });
+                    
+                 // modal_clear는 삭제
+                    $('.input_group .b_type4').click(function () {
+                        $('.modal_clear').addClass('on')
+                    });
 
-                    $('.main_wrap .fix_menu > i').click(function () {
-                        $('.main_wrap .fix_menu').toggleClass('on')
-                    })
+                    $('.modal_clear .container .xi-close-thin').click(function () {
+                        $('.modal_clear').removeClass('on')
+                    });
+
+                    $('.modal_clear .bg').click(function () {
+                        $('.modal_clear').removeClass('on')
+                    });
                 });
 
 

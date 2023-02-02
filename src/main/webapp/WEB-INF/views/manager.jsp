@@ -2647,9 +2647,9 @@
                                     <tbody>
                                          <c:forEach var="contact" items="${list}" varStatus="status">
 												<tr>
-													<td><button onclick="getContent(${contact.req_seq})">${status.count}</td>
-													<td>${contact.req_type}</td>
-													<td>${contact.company}</td>
+													<td><button onclick="getContent(${contact.req_seq})" style="background-color:transparent;">${status.count}</td>
+													<td><button onclick="getContent(${contact.req_seq})" style="background-color:transparent;">${contact.req_type}</td>
+													<td><button onclick="getContent(${contact.req_seq})" style="background-color:transparent;">${contact.company}</td>
 												</tr>
 											</c:forEach>
                                     </tbody>

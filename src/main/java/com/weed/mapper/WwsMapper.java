@@ -18,7 +18,7 @@ public interface WwsMapper {
 	@Insert("insert into t_request (req_type,email,company,name,phone,req_content) values(#{req_type, jdbcType=CHAR},#{email, jdbcType=VARCHAR},#{company, jdbcType=VARCHAR},#{name, jdbcType=VARCHAR},#{phone, jdbcType=VARCHAR},#{req_content, jdbcType=VARCHAR})")
 	public int insertContact(WeedDTO dto);
 	// 관리자 페이지 등장과 동시에 의뢰서 목록 조회
-	@Select("select * from t_request")
+	@Select("select * from t_request order by req_seq desc")
 	public List<WeedDTO> getContact();
 	// 의뢰서 상세 조회
 	@Select("select * from t_request where req_seq = #{req_seq}")

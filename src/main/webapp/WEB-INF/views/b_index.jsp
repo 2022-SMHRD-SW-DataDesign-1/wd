@@ -3311,16 +3311,16 @@
                                         <div class="title1">
                                         <h3>Image Test</h3>
                                         </div>
-                                        <div class="text1">
+                                        <div class="text1" style="text-align:center;display: flex;justify-content: center;align-items: center;">
                                         <p>당신이 가진 이미지로 객체 인식 기술을 체험해보세요</p>
 <!--                                    <p>전 직원이 의사결정에 자발적으로 참여하게 유도함으로써 개개인의 창의력을 최대한 발휘하게 하고 있습니다..</p> -->
                                         
-                                    </div>
+                                    	</div>
                                     </div>
                                     <div class="swiper-slide item swiper-slide-next"
                                         style="width: 427.5px; margin-right: 30px;" data-swiper-slide-index="1">
                                         <div class="title2">
-                                            <h3>Panoptic Segmentation</h3>
+                                            <h3>Panoptic</h3>
                                             </div>
                                         <div class="text2">
                                         <p>저희가 사용한 기술에 대해 자세히 알아보세요.
@@ -3329,7 +3329,7 @@
                                             위주의 서비스로 고객의
                                             입장에서 생각하고 실천하는 회사입니다.</p> -->
                                   
-                                    </div>
+                                    	</div>
                                     </div>
                                     <div class="swiper-slide item swiper-slide-duplicate-prev"
                                         style="width: 427.5px; margin-right: 30px;" data-swiper-slide-index="2">
@@ -3341,11 +3341,9 @@
              
                                     </div>
                                 </div>
-                                 <div style="position:absolute; top:-10%; background-color: rgba(27, 28, 28, 0.8); height:110%; width:110%;">
-                                    <p style="color:var(--color-fff);position: absolute;
-                                    left: 50%;
-                                    top: 50%;
-                                    transform: translate(-50%, -50%);font-size:x-large;"> 로그인 후 이용가능합니다.</p>
+                                 <div style="position:absolute; top:-10%; background-color: rgba(27, 28, 28, 0.9); height:110%; width:110%; text-align:center">
+                                    <p style="color:var(--color-fff);position: absolute;left: 50%; top: 50%; transform: translate(-50%, -50%);font-size:xx-large;font-weight:bolder; align:center;">
+                                     로그인 후 이용가능합니다.</p>
                                 </div>
                             </div>
                         </div>
@@ -3530,11 +3528,10 @@
                                 <div class="btn_bottom">
                                     <button type="submit" class="b_type3" onclick="">Sign Up</button>
                                 </div>
-                                <div style="position:absolute;top:25%; background-color: rgba(27, 28, 28, 0.8); height:55%; width:34%;">
-                                    <p style="color:var(--color-fff);position: absolute;
-                                    left: 50%;
-                                    top: 50%;
-                                    transform: translate(-50%, -50%);font-size:x-large;"> 로그인 후 이용가능합니다.</p>
+                                <div style="position:absolute;top:23%; background-color: rgba(27, 28, 28, 0.5); height:55%; width:34%;text-align:center;">
+                                    <p style="color:var(--color-fff); position: absolute; left: 50%; top: 50%;
+                                    transform: translate(-50%, -50%);font-size:xx-large; font-weight:bolder; align:center;"> 
+                                     로그인 후 이용가능합니다.</p>
                                 </div>
                             </div>
                             </form>

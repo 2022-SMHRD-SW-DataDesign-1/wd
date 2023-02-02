@@ -2524,7 +2524,17 @@
             gap: 0 30px;
             margin-bottom: 5%;
         }
+        .sec2 .tit * {
+            line-height: 1;
+        }
 
+        .sec2 .tit p {
+            font-size: 16px;
+            color: var(--color-fff);
+            opacity: .5;
+            transform: translateY(-7px);
+            line-height: 1.4;
+        }
         .sec2 .container {
             max-width: 1400px;
             width: 100%;
@@ -3140,8 +3150,8 @@
                                         </div>
                                         <div class="txt_box">
                                             <h2 class="tit">
-                                                <span class="desc1"><b>윈디자인</b>은 다양한 경험을 바탕으로</span>
-                                                <span class="desc2">브랜드에 힘이 되는 <b>웹사이트</b>를 제작합니다.</span>
+                                            	<span class="desc1"><b>위드컴퍼니</b>는 다양한 데이터셋을 바탕으로</span>
+                                                <span class="desc2">객체 인식 기술 <b>PANOPTIC SEGMENTATION</b>를 구현합니다.</span>
                                             </h2>
                                             <div class="btn_bottom" style="z-index: 100;">
                                                 <button type="submit" class="b_type3" onclick="">로그아웃</button>
@@ -3228,8 +3238,8 @@
                                         </div>
                                         <div class="txt_box">
                                             <h2 class="tit">
-                                                <span class="desc1"><b>윈디자인</b>은 다양한 경험을 바탕으로</span>
-                                                <span class="desc2">브랜드에 힘이 되는 <b>웹사이트</b>를 제작합니다.</span>
+                                            	<span class="desc1"><b>위드컴퍼니</b>는 다양한 데이터셋을 바탕으로</span>
+                                                <span class="desc2">객체 인식 기술 <b>PANOPTIC SEGMENTATION</b>를 구현합니다.</span>
                                             </h2>
                                             <p class="en">WEB · UX/UI · MOBILE · GRAPHIC</p>
                                         </div>
@@ -3266,6 +3276,9 @@
                         <div class="tit_group">
                             <div class="tit">
                                 <h2 class="h_type1 en"><span>Developer</span></h2>
+                                <p>객체 분할으로만 끝나지 않고 프로그램 소스, 데이터베이스 관리부터 객체 라벨링까지 책임지고 해드립니다.
+                                            AI 기술은 구현보다 관리가 더 중요합니다.
+                                </p>
                             </div>
                         </div>
                         <div class="content">
@@ -3275,46 +3288,43 @@
                                     <div class="swiper-slide item swiper-slide-active"
                                         style="width: 427.5px; margin-right: 30px;" data-swiper-slide-index="0">
                                         <div class="title1">
-                                        <h3>Test</h3>
+                                        <h3>Image Test</h3>
                                         </div>
                                         <div class="text1">
-                                        <p>전 직원이 의사결정에 자발적으로 참여하게 유도함으로써 개개인의 창의력을 최대한 발휘하게 하고 있습니다..</p>
-                                        <div class="btn_bottom">
-                                            <button type="submit" class="b_type2"
-                                                onclick="location.href='Test.do'" style="display: block;">실행</button>
-                                        </div>
-                                    </div>
+                                        	<p>당신이 가진 이미지로 객체 인식 기술을 체험해보세요</p>
+	                                        <div class="btn_bottom">
+	                                            <button type="submit" class="b_type2"
+	                                                onclick="location.href='Test.do'" style="display: block;">실행</button>
+	                                        </div>
+                                    	</div>
                                     </div>
                                     <div class="swiper-slide item swiper-slide-next"
                                         style="width: 427.5px; margin-right: 30px;" data-swiper-slide-index="1">
                                         <div class="title2">
-                                            <h3>City API</h3>
-                                            </div>
-                                        <div class="text2">
-                                        <p>자율성을 바탕으로 직원 개개인의 업무에 책임을 부여함으로써 직원들의 성취감과 회사의 효율성을 동시에 추구하고 고객
-                                            위주의 서비스로 고객의
-                                            입장에서 생각하고 실천하는 회사입니다.</p>
-                                        <div class="btn_bottom">
-                                            <button type="submit" class="b_type2"
-                                                onclick="location.href='Document.do'" style="display: block;">Document</button>
+                                            <h3>Panoptic</h3>
                                         </div>
-                                    </div>
+                                        <div class="text2">
+	                                        <p>저희가 사용한 기술에 대해 자세히 알아보세요.
+	                                        객체 인식 분할 방식 중 가장 최신 기술인 Panoptic Segmentation 입니다.</p>
+	                                        <div class="btn_bottom">
+	                                            <button type="submit" class="b_type2"
+	                                                onclick="location.href='Document.do'" style="display: block;">Document</button>
+	                                        </div>
+                                    	</div>
                                     </div>
                                     <div class="swiper-slide item swiper-slide-duplicate-prev"
                                         style="width: 427.5px; margin-right: 30px;" data-swiper-slide-index="2">
                                         <div class="title3">
                                             <h3>시연 영상</h3>
-                                            </div>
-                                            <div class="text3">
-                                        <p>만든 것으로만 끝나지 않고 프로그램 소스, 이미지, 데이터베이스 관리부터 광고 컨설팅까지 책임지고 해드립니다.
-                                            홈페이지는 제작보다 관리가
-                                            더 중요합니다. 소홀히 방치하면 방문자는 그 사이트를 외면하게 됩니다.</p>
-                                        <div class="btn_bottom">
-                                            <button type="submit" class="b_type2"
-                                                onclick="location.href='AOR.do'" style="display: block;">보러가기</button>
                                         </div>
-                                    </div>
-                                </div>
+                                            <div class="text3">
+	                                        <p>실시간으로 받아오는 영상을 분석하고 있습니다. 실시간 분석 영상 화면을 시청해보세요.</p>
+	                                        <div class="btn_bottom">
+	                                            <button type="submit" class="b_type2"
+	                                                onclick="location.href='AOR.do'" style="display: block;">보러가기</button>
+	                                        </div>
+                                    		</div>
+                                	</div>
                                 <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                             </div>
                         </div>
@@ -3527,9 +3537,9 @@
                                         </li>
                                         <p>의뢰자 정보*</p>
                                         <li data="E-mail">
-                                        	<input name="email" type="email" class="email" placeholder="이메일" autocomplete="off"></li>
+                                        	<input name="email" type="email" class="email" placeholder="${member.email}" value="${member.email}" autocomplete="off"></li>
                                         <li data="Company">
-                                        	<input name="company" type="text" placeholder="업체명" autocomplete="off"></li>
+                                        	<input name="company" type="text" placeholder="${member.company}" value="${member.company}"  autocomplete="off"></li>
                                         <li data="Name">
                                         	<input name="name" type="text" placeholder="담당자" autocomplete="off"></li>
                                         <li data="Contact Information">
@@ -3608,8 +3618,8 @@
                 });
 
             });
-
-            $(document).ready(function(){
+			// developer hover
+             $(document).ready(function(){
                 $('.sec2 .title1').hover(function(){
                     $('.sec2 .title1').css('display','none');
                     $('.sec2 .text1').css('display','block');
@@ -3618,6 +3628,24 @@
                     $('.sec2 .text1').css('display','none');
                 });
             });
+			
+/*             const div = document.getElementByClassName('sec2');
+            const title1 = document.getElementByClassName('title1');
+            const result = document.getElementByClassName('text1');
+
+            div.addEventListener('mouseover', (event) => {
+              result;
+            });
+
+            div.addEventListener('mouseout', (event) => {
+              result.innerHTML+= '<div>mouseout</div>';
+            });
+
+            clearbtn.addEventListener('click', (event) => {
+              result.innerHTML= '';
+              count = 0;
+            }); */
+			
 
             $(document).ready(function(){
                 $('.sec2 .title2').hover(function(){

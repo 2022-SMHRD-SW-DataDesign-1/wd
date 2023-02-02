@@ -27,6 +27,7 @@ public interface WwsMapper {
 	@Delete("delete from t_request where req_seq = #{req_seq}")
 	public int contactDelete(int num);
 	// 원본 이미지 경로 저장
+	//@Insert("insert into t_processing (email, image) values(#{email, jdbcType=VARCHAR}, #{image, jdbcType=VARCHAR})")
 	@Insert("insert into t_processing (image) values(#{image, jdbcType=VARCHAR})")
 	public int insertImg(String image);
 	

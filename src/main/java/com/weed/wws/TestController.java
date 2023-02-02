@@ -1,7 +1,12 @@
 package com.weed.wws;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,30 +26,52 @@ public class TestController {
 	@Autowired
 	private WwsMapper wwsMapper;
 
+	//폴더 생성
+	private String getFolder() {
+
+		String str = "upload\\";
+		
+		return str;
+	}
+	
 	@PostMapping(value = "/imgSave.do")
-	public String imgSave(MultipartFile[] uploadFile, Model model, WeedDTO dto) {
+	public String imgSave(MultipartFile[] uploadFile, Model model, WeedDTO dto, HttpServletRequest request) {
 		
 		System.out.println("imgSave.do");
+
+		String email = request.getParameter("email");
+	    System.out.println("email: " + email);
 		
-		String uploadFolder = "C:\\Users\\smhrd\\git\\wd\\src\\main\\webapp\\resources\\images\\testimg";
+		String uploadFolder = "C:\\";
 		
-		String uploadName = "";
+		// make folder
+		File uploadPath = new File(uploadFolder, getFolder());
+		System.out.println("upload path: "+uploadPath);
+		
+		if (uploadPath.exists() == false) {
+			uploadPath.mkdirs(); // make folder
+		}
+		
+		String uploadFileName="";
 		for(MultipartFile multipartFile : uploadFile) {
 			log.info("------------------------------------------");
 			log.info("Upload File Name: "+multipartFile.getOriginalFilename()); // 업로드되는 파일의 이름
 			log.info("Upload File Size: "+multipartFile.getSize()); // 업로드되는 파일의 크기
 			
-			uploadName = multipartFile.getOriginalFilename();
+			uploadFileName = multipartFile.getOriginalFilename();
+			
+			uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\")+1);
+			System.out.println("only file name: "+uploadFileName);
 			
 			//UUID 중복 방지
 			UUID uuid = UUID.randomUUID();
 			
-			uploadName = uuid.toString()+"_"+uploadName;
+			uploadFileName = uuid.toString()+"_"+uploadFileName;
 			
-			File imageName = new File(uploadFolder, uploadName); // File(저장폴더, 저장이름)
+			File saveFile = new File(uploadPath, uploadFileName); // File(저장폴더, 저장이름)
 			
 			try {
-				multipartFile.transferTo(imageName); // 파일 저장
+				multipartFile.transferTo(saveFile); // 파일 저장
 				System.out.println("이미지 저장 완료");
 			} catch (Exception e) {
 				log.error(e.getMessage());
@@ -52,7 +79,9 @@ public class TestController {
 			} // end catch
 		} //end for
 		
-		String image = uploadFolder + uploadName;
+		String image = uploadPath+"\\" + uploadFileName;
+		
+
 		wwsMapper.insertImg(image);
 		
 		return "test_result";

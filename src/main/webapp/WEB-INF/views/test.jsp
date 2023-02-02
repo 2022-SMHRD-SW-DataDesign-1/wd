@@ -2375,6 +2375,8 @@
                         <form action="imgSave.do" method="post" enctype="multipart/form-data">
 	                        <div style="width: 100%;">
 	                        	<input type="file" name="uploadFile" onchange="previewImg()"style="width:90%; color:#B4B4B4;">
+	                        	
+	                        	<input type="hidden" name="email" value="${member.email}">
 	                            <input type="submit" class="b_type2" value="실행">
 	                        </div>
                         </form>

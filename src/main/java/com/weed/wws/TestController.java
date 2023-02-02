@@ -13,6 +13,7 @@ import com.weed.mapper.WwsMapper;
 
 import lombok.extern.log4j.Log4j;
 
+
 @Controller
 @Log4j
 public class TestController {
@@ -43,6 +44,6 @@ public class TestController {
 			} // end catch
 		} //end for
 		
-		return "test";
+		return "redirect:/Socket.do";
 	}
 }

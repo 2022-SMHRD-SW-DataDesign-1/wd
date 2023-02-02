@@ -2659,7 +2659,7 @@
                     </div>
 
                     <!-- 목록 세부내용 -->
-                    <div class="input_group" style="height:70%;">
+                    <div class="input_group" style="height:70%; display:none;">
                         <form id="frm" method="post" action="/requst-post-normal" target="ifrm" novalidate="novalidate">
                             <input name="table" type="hidden" value="contact" autocomplete="off">
                             <div class="group">

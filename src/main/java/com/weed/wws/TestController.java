@@ -1,9 +1,12 @@
 package com.weed.wws;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +18,7 @@ import com.weed.entity.WeedDTO;
 import com.weed.mapper.WwsMapper;
 
 import lombok.extern.log4j.Log4j;
+
 
 @Controller
 @Log4j
@@ -75,7 +79,7 @@ public class TestController {
 				System.out.println("error");
 			} // end catch
 		} //end for
-		
+	
 		String image = uploadPath+"\\" + uploadFileName;
 		
 		dto.setImage(image);

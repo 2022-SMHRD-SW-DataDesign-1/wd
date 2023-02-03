@@ -41,11 +41,6 @@ public class IndexController {
 		return "aor";
 	}
 	
-	@RequestMapping(value="/Chart.do")
-	public String chart() {
-		return "chart_test";
-	}
-	
 	
 
 }

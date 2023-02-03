@@ -85,6 +85,6 @@ public class TestController {
 		dto.setImage(image);
 		wwsMapper.insertImg(dto);
 		
-		return "test_result";
+		return "redirect:/Socket.do";
 	}
 }

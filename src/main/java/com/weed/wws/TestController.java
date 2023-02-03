@@ -1,12 +1,9 @@
 package com.weed.wws;
 
 import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -54,9 +51,9 @@ public class TestController {
 		
 		String uploadFileName="";
 		for(MultipartFile multipartFile : uploadFile) {
-			log.info("------------------------------------------");
-			log.info("Upload File Name: "+multipartFile.getOriginalFilename()); // 업로드되는 파일의 이름
-			log.info("Upload File Size: "+multipartFile.getSize()); // 업로드되는 파일의 크기
+			System.out.println("------------------------------------------");
+			System.out.println("Upload File Name: "+multipartFile.getOriginalFilename()); // 업로드되는 파일의 이름
+			System.out.println("Upload File Size: "+multipartFile.getSize()); // 업로드되는 파일의 크기
 			
 			uploadFileName = multipartFile.getOriginalFilename();
 			
@@ -81,8 +78,8 @@ public class TestController {
 		
 		String image = uploadPath+"\\" + uploadFileName;
 		
-
-		wwsMapper.insertImg(image);
+		dto.setImage(image);
+		wwsMapper.insertImg(dto);
 		
 		return "test_result";
 	}

@@ -18,7 +18,7 @@ public class IndexController {
 	
 	@RequestMapping(value="/index.do")
 	public String main() {
-		return "index";
+		return "index";	
 	}
 	
 	@RequestMapping(value="/Manager.do")

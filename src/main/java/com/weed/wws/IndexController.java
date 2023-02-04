@@ -18,7 +18,7 @@ public class IndexController {
 	
 	@RequestMapping(value="/index.do")
 	public String main() {
-		return "index";
+		return "index";	
 	}
 	
 	@RequestMapping(value="/Manager.do")
@@ -45,6 +45,11 @@ public class IndexController {
 	public String tr() {
 		return "test_result";
 	}
+	@RequestMapping(value="/Chart.do")
+	public String chart() {
+		return "chart_test";
 	
 
+	}
+	
 }

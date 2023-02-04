@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.weed.entity.WeedDTO;
 import com.weed.mapper.WwsMapper;
@@ -36,7 +37,7 @@ public class TestController {
 	}
 	
 	@PostMapping(value = "/imgSave.do")
-	public String imgSave(MultipartFile[] uploadFile, Model model, WeedDTO dto, HttpServletRequest request) {
+	public String imgSave(MultipartFile[] uploadFile, Model model, WeedDTO dto, HttpServletRequest request,RedirectAttributes rdat) {
 		
 		System.out.println("imgSave.do");
 
@@ -55,9 +56,9 @@ public class TestController {
 		
 		String uploadFileName="";
 		for(MultipartFile multipartFile : uploadFile) {
-			log.info("------------------------------------------");
-			log.info("Upload File Name: "+multipartFile.getOriginalFilename()); // 업로드되는 파일의 이름
-			log.info("Upload File Size: "+multipartFile.getSize()); // 업로드되는 파일의 크기
+			System.out.println("------------------------------------------");
+			System.out.println("Upload File Name: "+multipartFile.getOriginalFilename()); // 업로드되는 파일의 이름
+			System.out.println("Upload File Size: "+multipartFile.getSize()); // 업로드되는 파일의 크기
 			
 			uploadFileName = multipartFile.getOriginalFilename();
 			
@@ -81,7 +82,12 @@ public class TestController {
 		} //end for
 	
 		String image = uploadPath+"\\" + uploadFileName;
-		wwsMapper.insertImg(image);
+		
+		dto.setImage(image);
+		wwsMapper.insertImg(dto);
+		
+		rdat.addAttribute("image", image);
+		rdat.addAttribute("email", email);
 		
 		return "redirect:/Socket.do";
 	}

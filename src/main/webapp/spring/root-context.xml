@@ -18,7 +18,7 @@
 		<property name="driverClassName"
 			value="oracle.jdbc.driver.OracleDriver"></property>
 		<property name="jdbcUrl"
-			value="jdbc:oracle:thin:@project-db-stu.ddns.net:1524:xe"></property>
+			value="jdbc:oracle:thin:@project-db-stu3.ddns.net:1524:xe"></property>
 		<property name="username" value="weed"></property>
 		<property name="password" value="wws"></property>
 	</bean>

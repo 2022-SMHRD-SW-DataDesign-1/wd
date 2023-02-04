@@ -83,8 +83,12 @@ public class TestController {
 	
 		String image = uploadPath+"\\" + uploadFileName;
 		
+		System.out.println("image" + image);
+		
 		dto.setImage(image);
 		wwsMapper.insertImg(dto);
+		
+		System.out.println("삽입성공");
 		
 		rdat.addAttribute("image", image);
 		rdat.addAttribute("email", email);

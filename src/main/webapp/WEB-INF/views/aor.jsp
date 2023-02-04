@@ -45,6 +45,7 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 <script src="resources/plugins/sweetalert2/sweetalert2.all.min.js"></script>
 
+
  <style>
         .swal2-popup.swal2-toast {
             box-sizing: border-box;
@@ -2320,6 +2321,8 @@
     <script src="resources/js/bootstrap-dialog.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+    <!-- chart.js -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css" rel="stylesheet"
         type="text/css">
     <script src="resources/plugins/ckeditor/ckeditor.js"></script>
@@ -2349,9 +2352,9 @@
                     <span class="en"> <b>WHO WITH SERVICE</b></span>
                 </a>
                 <ul class="gnb">
-                    <li><a href="index.do" class="en"><span>Home</span></a></li>
+                    <li><a href="index.do" class="en"><span onclick="location.href='index.do'">Home</span></a></li>
                     <div class="btn_bottom" style="z-index: 100; margin-top: -10px;">
-                        <button type="submit" class="b_type3" onclick="">Logout</button>
+                        <button type="submit" class="b_type3" onclick="">${member.email}</button>
                     </div>
 
                 </ul>
@@ -2362,11 +2365,6 @@
                 <div class="container">
 
                     <div class="input_group">
-                        <div style="width: 100%;">
-                            <input type="text" placeholder="스트리밍 주소를 입력하시오"
-                                style="padding: 1%; border-radius: 10px; width:90%; background-color: #a7a7a7; margin-right: 5px;">
-                            <button type="submit" class="b_type2" onclick="">전송</button>
-                        </div>
                         <div class="group">
                             <div class="tit1">
                                 <img src="./resources/images/image.jpg" style="width: 600px; height: 320px;">
@@ -2387,11 +2385,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-
-
-
 
             <!-- 로그아웃 -->
             <div class="modal_logout">
@@ -2487,6 +2480,9 @@
                         content: { required: true, },
                     }
                 })
+                
+               
+				                
             </script>
             <footer>
                 <div class="f_top">

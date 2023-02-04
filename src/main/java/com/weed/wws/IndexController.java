@@ -41,6 +41,10 @@ public class IndexController {
 		return "aor";
 	}
 	
+	@RequestMapping(value="/rt.do")
+	public String tr() {
+		return "test_result";
+	}
 	
 
 }

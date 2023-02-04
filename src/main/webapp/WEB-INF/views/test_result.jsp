@@ -2094,7 +2094,7 @@
             height: 100%;
             display: flex;
             align-items: center;
-            gap: 0 100px;
+            gap: 0 15px;
         }
 
         .sec4 .info_group {
@@ -2136,11 +2136,11 @@
             border-radius: 20px;
             background: var(--color-1a1e23);
             box-shadow: var(--box-shadow-M);
-            width: 80%;
+            /* width: 80%; */
             display: flex;
             flex-direction: column;
             gap: 15px 0;
-            margin-right: 50px;
+            /* margin-right: 50px; */
         }
 
         .modal_logout .input_group {
@@ -2319,6 +2319,31 @@
         	width: 530px;
         	height: 320px;
         } */
+        
+        .tit_group {
+         	position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 500px;
+        }
+        .tit {
+            display: flex;
+            align-items: flex-end;
+            gap: 0 30px;
+            margin-bottom: 5%;
+        }
+        .tit * {
+            line-height: 1;
+        }
+
+        .tit p {
+            font-size: 16px;
+            color: var(--color-fff);
+            opacity: .5;
+            transform: translateY(-7px);
+            line-height: 1.4;
+        }
     </style>
 
 
@@ -2328,6 +2353,7 @@
     <script src="resources/js/bootstrap-dialog.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css" rel="stylesheet"
         type="text/css">
     <script src="resources/plugins/ckeditor/ckeditor.js"></script>
@@ -2357,9 +2383,9 @@
                     <span class="en"> <b>WHO WITH SERVICE</b></span>
                 </a>
                 <ul class="gnb">
-                    <li><a href="index.do" class="en"><span>Home</span></a></li>
+                    <li><a href="index.do" class="en" onclick="location.href='index.do'"><span>Home</span></a></li>
                     <div class="btn_bottom" style="z-index: 100; margin-top: -10px;">
-                        <button type="submit" class="b_type3" onclick="">Logout</button>
+                        <button type="submit" class="b_type3" onclick="">${member.email}</button>
                     </div>
 
                 </ul>
@@ -2368,86 +2394,64 @@
             <!-- 추가 -->
             <section class="swiper-slide sec4" style="height: 881px; margin-bottom: 30px;">
                 <div class="container">
-
-                    <div class="input_group" id="testimgdiv">
-	                    
-	                    <!-- 이미지 업로드 -->
-                        <form action="imgSave.do" method="post" enctype="multipart/form-data">
-	                        <div style="width: 100%;">
-	                        	<input type="file" name="uploadFile" onchange="previewImg()"style="width:90%; color:#B4B4B4;">
-	                            <input type="submit" class="b_type2" value="실행">
-	                        </div>
-                        </form>
+                	<!-- 제목 -->
+                	<div class="tit_group" >
+                            <div class="tit">
+                                <h2 class="h_type1 en"><span>Panoptic Analysis</span></h2>
+                                <p>16개 class로 분할한 기술로 Object Count 와 인식 정확도를 Chart로 간편하게 확인하세요.  
+                                </p>
+                            </div>
+                    </div>
                         
+                    <!-- 비디오 위치 -->
+                    <div class="input_group" style="width:400px;height: 553px;margin-top: 10%;">
                         <div class="group">
                             <div class="tit1" id="realTestimg">
-                                <img class="testimg" src="./resources/images/image.jpg" style="width: 600px; height: 320px;">
-                            </div>
-                            <div class="tit">
-                                <h3>원본</h3>
+                                <img class="testimg" src="./resources/images/image.jpg"  style="width: 100%; max-width: 450px; vertical-align: middle">
                             </div>
                         </div>
                         
-                        <script>
-                        /* 이미지 미리보기 */
-                            function previewImg() {
-								let preview = document.querySelector('.testimg');
-								let file = document.querySelector('input[type=file]').files[0];
-								let reader = new FileReader();
-
-								reader.addEventListener(
-									'load',
-									function () {
-										preview.src = reader.result;
-										console.log(reader.result);
-									},
-									false
-								);
-
-								if (file) {
-									reader.readAsDataURL(file);
-									/* console.log(reader.readAsDataURL(file)); */
-								}
-							}
-                            
-							/*  function readURL(obj) {
-
-                                let reader = new FileReader();
-                                if(!obj.files.length) {
-                                    return;
-                                }
-                                reader.readAsDataURL(obj.files[0]);
-                                reader.onload = function (e) {
-                                    let img = $('<img class="testimg"/>');
-                                    $(img).attr('src', e.target.result);
-                                    $('#realTestimg').append(img);
-                                }
-                            } */
-                            
-							/* $("#testimg").change(function(){
-								if(this.files && this.files[0]) {
-									var reader = new FileReader();
-									reader.onload = function(data) {
-										console.log(reader.result);
-										$("#realTestimg img").attr("src", data.target.result);        
-									}
-									reader.readAsDataURL(this.files[0]);
-								}
-							}); */
-                        </script>
-                    </div>
-
-                    <div class="input_group">
                         <div class="group">
-                            <div class="tit1" style="margin-top: 7.85%;">
-                                <img src="./resources/images/image.jpg" style="width: 600px; height: 320px;">
+                            <div class="tit1" >
+                                <img src="./resources/images/image.jpg" style="width: 100%; max-width: 450px; vertical-align: middle">
                             </div>
-                            <div class="tit">
+                           <!--  <div class="tit">
                                 <h3>Panoptic Segmentation</h3>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
+
+                    <!-- chart.js -->
+                    <div class="input_group" style="margin-top: 10%;">
+                        <div class="group">
+                        	<div class="tit" style="align-items: center;">
+                                <h3>Object Table</h3>
+                            </div>
+                            <div class="chartCard">
+							  <div class="chartBox">
+							    <canvas id="myChart" style="width: 600px;  height: 415px;"></canvas>
+							  </div>
+							</div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="input_group" style="margin-top: 10%;">
+                        <div class="group">
+                        	<div class="tit" style="align-items: center;">
+                                <h3>Stuff Table</h3>
+                            </div>
+		                    <div class="chartCard">
+							  <div class="chartBox">
+							    <canvas id="DChart" style="width: 353px;  height: 430px; display:block;"></canvas>
+							  </div>
+							</div>
+                        </div>
+                    </div>
+                
                 </div>
+                
+            
             </section>
 
 
@@ -2504,50 +2508,157 @@
                     })
                 });
 
-
-
-                /* 2023-01-13 Cossia */
-                /* main page slide S */
-                const main_page = new Swiper(".main_swiper", {
-                    direction: "vertical",
-                    slidesPerView: 1,
-                    spaceBetween: 30,
-                    mousewheel: true,
-                    speed: 800,
-                    pagination: {
-                        el: ".main_pagination,.main_nav",
-                        clickable: true,
-                    },
-                    breakpoints: {
-                        1024: {}
-                    },
-                    on: {
-                        slideChange: function () {
-                            $('.gnb li').removeClass('on');
-                            $('.gnb li').eq(this.realIndex).addClass('on');
-                        }
-                    }
-                });
-                /* main menu click */
-                $(document).on('click', '.gnb li', function () {
-                    main_page.slideTo($('.gnb li').index(this));
-                });
-                /* footer right ... click */
-                // $(document).on('click', '.fix_menu', function(){
-                //     main_page.slideTo( 3 );
-                // });
-                /* main page slide E */
-
-                $('#frm').validate({
-                    rules: {
-                        name: { required: true, },
-                        manager: { required: true, },
-                        phone: { required: true, },
-                        email: { required: true, email: true },
-                        content: { required: true, },
-                    }
-                })
             </script>
+            
+            <script>
+                     /* 이미지 미리보기 */
+                         function previewImg() {
+					let preview = document.querySelector('.testimg');
+					let file = document.querySelector('input[type=file]').files[0];
+					let reader = new FileReader();
+
+					reader.addEventListener(
+						'load',
+						function () {
+							preview.src = reader.result;
+							console.log(reader.result);
+						},
+						false
+					);
+
+					if (file) {
+						reader.readAsDataURL(file);
+						/* console.log(reader.readAsDataURL(file)); */
+					}
+				}
+                         
+            </script>
+            <script>
+			    // scatter setup 
+			    const data = {
+			      labels: ['person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle'],
+			      datasets: [{
+			        label: 'Object Count',
+			        data: [18, 12, 6, 9, 12, 3, 9,10],
+			        backgroundColor: [
+			          'rgba(255, 26, 104, 0.2)',
+			          'rgba(54, 162, 235, 0.2)',
+			          'rgba(255, 206, 86, 0.2)',
+			          'rgba(75, 192, 192, 0.2)',
+			          'rgba(153, 102, 255, 0.2)',
+			          'rgba(255, 159, 64, 0.2)',
+			          'rgba(0, 0, 0, 0.2)'
+			        ],
+			        borderColor: [
+			          'rgba(255, 26, 104, 1)',
+			          'rgba(54, 162, 235, 1)',
+			          'rgba(255, 206, 86, 1)',
+			          'rgba(75, 192, 192, 1)',
+			          'rgba(153, 102, 255, 1)',
+			          'rgba(255, 159, 64, 1)',
+			          'rgba(0, 0, 0, 1)'
+			        ],
+			        borderWidth: 1
+			      },{
+			          label: 'Object Accuracy',
+			          data: [80, 95, 70, 66, 90, 98, 30,50],
+			          backgroundColor: [
+			            'rgba(255, 26, 104, 0.2)',
+			            'rgba(54, 162, 235, 0.2)',
+			            'rgba(255, 206, 86, 0.2)',
+			            'rgba(75, 192, 192, 0.2)',
+			            'rgba(153, 102, 255, 0.2)',
+			            'rgba(255, 159, 64, 0.2)',
+			            'rgba(0, 0, 0, 0.2)'
+			          ],
+			          borderColor: [
+			            'rgba(255, 26, 104, 1)',
+			            'rgba(54, 162, 235, 1)',
+			            'rgba(255, 206, 86, 1)',
+			            'rgba(75, 192, 192, 1)',
+			            'rgba(153, 102, 255, 1)',
+			            'rgba(255, 159, 64, 1)',
+			            'rgba(0, 0, 0, 1)'
+			          ],
+			          type : 'line'
+			        }]
+			    };
+			
+			    // config 
+			    const config = {
+			      type: 'bar',
+			      data,
+			      options: {
+			        scales: {
+			          responsive: false,
+			          y: {
+			            beginAtZero: true
+			          }
+			        }
+			      }
+			    };
+			
+			    // render init block
+			    const myChart = new Chart(
+			      document.getElementById('myChart'),
+			      config
+			    );
+			 </script>
+			 
+			 
+			 
+			 
+			 <script>
+			    // doughnut setup 
+			    const d_data = {
+			      labels: ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic light', 'traffic sign', 'vegetation', 'terrain', 'sky'],
+			      datasets: [{
+			        label: 'Stuff Accuracy',
+			        data: [80, 95, 70, 66, 90, 98, 30,50,70,77,90],
+			        backgroundColor: [
+			          'rgba(255, 26, 104, 0.2)',
+			          'rgba(54, 162, 235, 0.2)',
+			          'rgba(255, 206, 86, 0.2)',
+			          'rgba(75, 192, 192, 0.2)',
+			          'rgba(153, 102, 255, 0.2)',
+			          'rgba(200, 159, 64, 0.2)',
+			          'rgba(102, 159, 64, 0.2)',
+			          'rgba(55, 159, 64, 0.2)',
+			          'rgba(5, 159, 64, 0.2)',
+			          'rgba(45, 159, 64, 0.2)',
+			          'rgba(0, 0, 0, 0.2)'
+			        ],
+			        borderColor: [
+				          'rgba(255, 26, 104, 1)',
+				          'rgba(54, 162, 235, 1)',
+				          'rgba(255, 206, 86, 1)',
+				          'rgba(75, 192, 192, 1)',
+				          'rgba(153, 102, 255, 1)',
+				          'rgba(200, 159, 64, 1)',
+				          'rgba(102, 159, 64, 1)',
+				          'rgba(55, 159, 64, 1)',
+				          'rgba(5, 159, 64, 1)',
+				          'rgba(45, 159, 64, 1)',
+				          'rgba(0, 0, 0, 1)'
+			        ],
+			        borderWidth: 1
+			      }]
+			    };
+			
+			    // config 
+			    const d_config = {
+			      type: 'doughnut',
+			      data: d_data,
+			      options: {
+					responsive: false
+			      }
+			    };
+			
+			    // render init block
+			    const DChart = new Chart(document.getElementById('DChart'),
+			      d_config
+			    );
+			 </script>
             <footer>
                 <div class="f_top">
                     <ul>

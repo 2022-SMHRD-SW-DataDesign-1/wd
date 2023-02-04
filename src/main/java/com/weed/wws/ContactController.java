@@ -53,7 +53,7 @@ public class ContactController {
 
 		return dto;
 	}
-
+	// 의뢰서 삭제
 	@GetMapping(value = "/DeleteAsync.do")
 	public boolean DeleteAsync(@RequestParam("req_seq") int req_seq) {
 		System.out.println("삭제신청컨트롤러");

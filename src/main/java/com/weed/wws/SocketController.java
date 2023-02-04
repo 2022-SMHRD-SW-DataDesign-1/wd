@@ -58,6 +58,8 @@ public class SocketController {
 			ByteArrayOutputStream bos = new ByteArrayOutputStream();
 			ImageIO.write(bImage,file,bos);
 			byte[] data = bos.toByteArray();
+			String result = new String(data);
+			System.out.println(result);
 			dout.write(data);
 			
 			dout.flush();

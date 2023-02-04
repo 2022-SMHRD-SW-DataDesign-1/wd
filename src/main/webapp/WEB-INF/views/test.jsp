@@ -2439,7 +2439,7 @@
                         </script>
                     </div>
 
-                    <div class="input_group">
+<!--                     <div class="input_group">
                         <div class="group">
                             <div class="tit1" style="margin-top: 7.85%;">
                                 <img src="./resources/images/image.jpg" style="width: 600px; height: 320px;">
@@ -2448,7 +2448,7 @@
                                 <h3>Panoptic Segmentation</h3>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </section>
 

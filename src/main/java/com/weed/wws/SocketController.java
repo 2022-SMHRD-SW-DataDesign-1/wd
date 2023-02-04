@@ -33,7 +33,7 @@ public class SocketController {
 	private WwsMapper wwsMapper;
 
 	@RequestMapping(value = "/Socket.do")
-	public void Socket(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public String Socket(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		System.out.println("socket통신");
 
 		try {
@@ -65,8 +65,11 @@ public class SocketController {
 			soc.close();
 			System.out.println("닫힘");
 			
+			return "redirect:/rt.do";
+			
 		} catch (Exception e) {
 			e.printStackTrace();
+			return "redirect:/Test.do";
 		}
 
 	}

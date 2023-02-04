@@ -1694,7 +1694,7 @@
             background: var(- -color-03f);
             color: var(- -color-fff);
             text-align: center;
-            border-radius: 10px;
+            border-radius: 100px;
             min-width: 50px;
             transition: all .3s ease;
             display: inline-block;
@@ -2095,6 +2095,7 @@
             display: flex;
             align-items: center;
             gap: 0 100px;
+            position: relative;
         }
 
         .sec4 .info_group {
@@ -2103,6 +2104,7 @@
             gap: 20px;
             width: 50%;
             margin-bottom: 120px;
+            
         }
 
         .sec4 .info_group ul {
@@ -2139,8 +2141,9 @@
             width: 80%;
             display: flex;
             flex-direction: column;
-            gap: 15px 0;
-            margin-right: 50px;
+            gap: 30px 0;
+            position: absolute;
+            margin-left:9%
         }
 
         .modal_logout .input_group {
@@ -2352,14 +2355,14 @@
     <div class="main_wrap">
         <div class="swiper main_swiper swiper-container-initialized swiper-container-vertical">
             <div class="main_header">
-                <a href="" class="logo">
+                <a href="index.do" class="logo">
                     <div class="img"><img src="./resources/images/weed_log2.jpg"></div>
                     <span class="en"> <b>WHO WITH SERVICE</b></span>
                 </a>
                 <ul class="gnb">
-                    <li><a href="index.do" class="en"><span>Home</span></a></li>
+                    <li><a href="index.do" class="en" onclick="location.href='index.do'"><span>Home</span></a></li>
                     <div class="btn_bottom" style="z-index: 100; margin-top: -10px;">
-                        <button type="submit" class="b_type3" onclick="">Logout</button>
+                        <button type="submit" class="b_type3" onclick="">${member.email}</button>
                     </div>
 
                 </ul>
@@ -2371,25 +2374,26 @@
 
                     <div class="input_group" id="testimgdiv">
 	                    
-	                    <!-- 이미지 업로드 -->
-                        <form action="imgSave.do" method="post" enctype="multipart/form-data">
-	                        <div style="width: 100%;">
-	                        	<input type="file" name="uploadFile" onchange="previewImg()"style="width:90%; color:#B4B4B4;">
-	                        	
-	                        	<input type="hidden" name="email" value="${member.email}">
-	                            <input type="submit" class="b_type2" value="실행">
-	                        </div>
-                        </form>
                         
                         <div class="group">
-                            <div class="tit1" id="realTestimg">
-                                <img class="testimg" src="./resources/images/testimg.png" style="width: 600px; height: 320px;">
-                            </div>
                             <div class="tit">
-                                <h3>원본</h3>
+                                <h3>도로 환경 사진으로 테스트 해보세요</h3>
                             </div>
                         </div>
                         
+	                    <!-- 이미지 업로드 -->
+                        <form action="imgSave.do" method="post" enctype="multipart/form-data">
+	                        <div style="width: 100%; text-align:center;">
+	                        	
+	                        	<input type="file" name="uploadFile" onchange="previewImg()"style="width:90%; height:90%; max-height: 320px;max-width: 500px; color:#B4B4B4;display: none;"> 
+								<img class="testimg" src="./resources/images/testimg.png" style="width: 90%; height:90%; max-height: 320px;max-width: 500px; vertical-align: middle border:0;" onclick="document.all.uploadFile.click();">
+	                        	<input type="hidden" name="email" value="${member.email}">
+	                        	
+	                        </div>
+	                        	<div style="text-align:center; margin-top:2%;">
+	                            	<input type="submit" class="b_type2" value=" >> 분석 시작 >> " >
+	                            </div>
+                        </form>
                         <script>
                         /* 이미지 미리보기 */
                             function previewImg() {
@@ -2452,9 +2456,6 @@
                 </div>
             </section>
 
-
-
-
             <!-- 로그아웃 -->
             <div class="modal_logout">
                 <div class="bg"></div>
@@ -2474,7 +2475,6 @@
 
             <!-- 홈 -->
             <!-- 홈버튼 누르면 처음 페이지 -->
-
 
             <script>
                 $(document).ready(function () {

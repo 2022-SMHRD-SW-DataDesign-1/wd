@@ -14,7 +14,6 @@
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <!--css-->
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -37,15 +36,16 @@
 <link rel="stylesheet" href="resources/css/default.css">
 <link rel="stylesheet" href="resources/css/main.css">
 
-
+<!-- combo -->
+<link rel="stylesheet" href="https://www.jqwidgets.com/public/jqwidgets/styles/jqx.base.css" type="text/css" />
+<link rel="stylesheet" href="https://www.jqwidgets.com/public/jqwidgets/styles/jqx.energyblue.css" type="text/css" />
+<script type="text/javascript" src="https://www.jqwidgets.com/public/jqwidgets/jqx-all.js"></script>
 <!--javascript-->
 <script src="resources/plugins/jquery/jquery.min.js"></script>
-<script
-	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 <script src="resources/plugins/sweetalert2/sweetalert2.all.min.js"></script>
-
- <style>
+<style>
         .swal2-popup.swal2-toast {
             box-sizing: border-box;
             grid-column: 1/4 !important;
@@ -2344,6 +2344,31 @@
             transform: translateY(-7px);
             line-height: 1.4;
         }
+/*          .chartMenu {
+		    width: 100vw;
+		    height: 40px;
+		    background: #1A1A1A;
+		    color: rgba(54, 162, 235, 1);
+		}
+		  .chartMenu p {
+		    padding: 10px;
+		    font-size: 20px;
+		}
+		  .chartCard {
+		    width: 100vw;
+		    height: calc(100vh - 40px);
+		    background: rgba(54, 162, 235, 0.2);
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+		}
+		  .chartBox {
+		    width: 400px;
+		    padding: 20px;
+		    border-radius: 20px;
+		    border: solid 3px rgba(54, 162, 235, 1);
+		    background: white;
+		} */
     </style>
 
 
@@ -2375,10 +2400,11 @@
 </head>
 
 <body>
+
     <div class="main_wrap">
         <div class="swiper main_swiper swiper-container-initialized swiper-container-vertical">
             <div class="main_header">
-                <a href="index.do" class="logo">
+                <a href="index.do" onclick="location.href='index.do'" class="logo">
                     <div class="img"><img src="./resources/images/weed_log2.jpg"></div>
                     <span class="en"> <b>WHO WITH SERVICE</b></span>
                 </a>
@@ -2398,13 +2424,19 @@
                 	<div class="tit_group" >
                             <div class="tit">
                                 <h2 class="h_type1 en"><span>Panoptic Analysis</span></h2>
-                                <p>16개 class로 분할한 기술로 Object Count 와 인식 정확도를 Chart로 간편하게 확인하세요.  
+                                <p>19개 class로 분할한 기술로 Object Count 와 인식 정확도를 Chart로 간편하게 확인하세요.  
                                 </p>
                             </div>
                     </div>
                         
                     <!-- 비디오 위치 -->
                     <div class="input_group" style="width:400px;height: 553px;margin-top: 10%;">
+	                    
+	                    <div id='jqxComboBox'></div>
+						<div>
+						   <input style="margin-top: 20px;" type="button" id='jqxButton' value="확인하기" /> 
+						</div>
+						
                         <div class="group">
                             <div class="tit1" id="realTestimg">
                                 <img class="testimg" src="./resources/images/image.jpg"  style="width: 100%; max-width: 450px; vertical-align: middle">
@@ -2415,9 +2447,6 @@
                             <div class="tit1" >
                                 <img src="./resources/images/image.jpg" style="width: 100%; max-width: 450px; vertical-align: middle">
                             </div>
-                           <!--  <div class="tit">
-                                <h3>Panoptic Segmentation</h3>
-                            </div> -->
                         </div>
                     </div>
 
@@ -2535,59 +2564,57 @@
             </script>
             <script>
 			    // scatter setup 
-			    const data = {
+			    const L_data = {
 			      labels: ['person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle'],
 			      datasets: [{
 			        label: 'Object Count',
 			        data: [18, 12, 6, 9, 12, 3, 9,10],
 			        backgroundColor: [
-			          'rgba(255, 26, 104, 0.2)',
-			          'rgba(54, 162, 235, 0.2)',
-			          'rgba(255, 206, 86, 0.2)',
-			          'rgba(75, 192, 192, 0.2)',
-			          'rgba(153, 102, 255, 0.2)',
-			          'rgba(255, 159, 64, 0.2)',
-			          'rgba(0, 0, 0, 0.2)'
+			          'rgba(255,107,107,0.2)',
+			          'rgba(255,159,67, 0.2)',
+			          'rgba(254,202,87, 0.2)',
+			          'rgba(243,104,224, 0.2)',
+			          'rgba(16,172,132, 0.2)',
+			          'rgba(0,210,211, 0.2)',
+			          'rgba(46,134,222, 0.2)',
+			          'rgba(200,214,229, 0.2)'
 			        ],
 			        borderColor: [
-			          'rgba(255, 26, 104, 1)',
-			          'rgba(54, 162, 235, 1)',
-			          'rgba(255, 206, 86, 1)',
-			          'rgba(75, 192, 192, 1)',
-			          'rgba(153, 102, 255, 1)',
-			          'rgba(255, 159, 64, 1)',
-			          'rgba(0, 0, 0, 1)'
+		             'rgba(255,107,107,1)',
+			          'rgba(255,159,67, 1)',
+			          'rgba(254,202,87, 1)',
+			          'rgba(243,104,224, 1)',
+			          'rgba(16,172,132, 1)',
+			          'rgba(0,210,211, 1)',
+			          'rgba(46,134,222, 1)',
+			          'rgba(200,214,229, 1)'
 			        ],
 			        borderWidth: 1
 			      },{
+			          type : 'line',
 			          label: 'Object Accuracy',
 			          data: [80, 95, 70, 66, 90, 98, 30,50],
 			          backgroundColor: [
-			            'rgba(255, 26, 104, 0.2)',
-			            'rgba(54, 162, 235, 0.2)',
-			            'rgba(255, 206, 86, 0.2)',
-			            'rgba(75, 192, 192, 0.2)',
-			            'rgba(153, 102, 255, 0.2)',
-			            'rgba(255, 159, 64, 0.2)',
-			            'rgba(0, 0, 0, 0.2)'
+			        	  'rgba(255,107,107,1)',
+				          'rgba(255,159,67, 1)',
+				          'rgba(254,202,87, 1)',
+				          'rgba(243,104,224, 1)',
+				          'rgba(16,172,132, 1)',
+				          'rgba(0,210,211, 1)',
+				          'rgba(46,134,222, 1)',
+				          'rgba(200,214,229, 1)'
 			          ],
 			          borderColor: [
-			            'rgba(255, 26, 104, 1)',
-			            'rgba(54, 162, 235, 1)',
-			            'rgba(255, 206, 86, 1)',
-			            'rgba(75, 192, 192, 1)',
-			            'rgba(153, 102, 255, 1)',
-			            'rgba(255, 159, 64, 1)',
-			            'rgba(0, 0, 0, 1)'
-			          ],
-			          type : 'line'
+			        	  'rgba(84,160,255,1)'
+
+			          ]
 			        }]
 			    };
 			
 			    // config 
-			    const config = {
+			    const L_config = {
 			      type: 'bar',
-			      data,
+			      data: L_data,
 			      options: {
 			        scales: {
 			          responsive: false,
@@ -2601,64 +2628,145 @@
 			    // render init block
 			    const myChart = new Chart(
 			      document.getElementById('myChart'),
-			      config
+			      L_config
 			    );
 			 </script>
 			 
-			 
-			 
-			 
+			 <!-- 도넛차트 -->
 			 <script>
-			    // doughnut setup 
-			    const d_data = {
-			      labels: ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic light', 'traffic sign', 'vegetation', 'terrain', 'sky'],
-			      datasets: [{
-			        label: 'Stuff Accuracy',
-			        data: [80, 95, 70, 66, 90, 98, 30,50,70,77,90],
-			        backgroundColor: [
-			          'rgba(255, 26, 104, 0.2)',
-			          'rgba(54, 162, 235, 0.2)',
-			          'rgba(255, 206, 86, 0.2)',
-			          'rgba(75, 192, 192, 0.2)',
-			          'rgba(153, 102, 255, 0.2)',
-			          'rgba(200, 159, 64, 0.2)',
-			          'rgba(102, 159, 64, 0.2)',
-			          'rgba(55, 159, 64, 0.2)',
-			          'rgba(5, 159, 64, 0.2)',
-			          'rgba(45, 159, 64, 0.2)',
-			          'rgba(0, 0, 0, 0.2)'
-			        ],
-			        borderColor: [
-				          'rgba(255, 26, 104, 1)',
-				          'rgba(54, 162, 235, 1)',
-				          'rgba(255, 206, 86, 1)',
-				          'rgba(75, 192, 192, 1)',
-				          'rgba(153, 102, 255, 1)',
-				          'rgba(200, 159, 64, 1)',
-				          'rgba(102, 159, 64, 1)',
-				          'rgba(55, 159, 64, 1)',
-				          'rgba(5, 159, 64, 1)',
-				          'rgba(45, 159, 64, 1)',
-				          'rgba(0, 0, 0, 1)'
-			        ],
-			        borderWidth: 1
-			      }]
-			    };
+				let selectedDatasetIndex = undefined;
+				let selectedIndex = undefined;
+				
 			
-			    // config 
-			    const d_config = {
-			      type: 'doughnut',
-			      data: d_data,
-			      options: {
-					responsive: false
-			      }
-			    };
+				// setup 
+				const data = {
+						labels: ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic light', 'traffic sign', 'vegetation', 'terrain', 'sky'],
+					    datasets: [{
+						    label: 'Stuff Accuracy',
+				    	    data: [80, 95, 70, 66, 90, 98, 30,50,70,77,90],
+				        	backgroundColor: [
+					          'rgba(255, 26, 104, 0.2)',
+					          'rgba(54, 162, 235, 0.2)',
+					          'rgba(255, 206, 86, 0.2)',
+					          'rgba(75, 192, 192, 0.2)',
+					          'rgba(153, 102, 255, 0.2)',
+					          'rgba(200, 159, 64, 0.2)',
+					          'rgba(102, 159, 64, 0.2)',
+					          'rgba(55, 159, 64, 0.2)',
+					          'rgba(5, 159, 64, 0.2)',
+					          'rgba(45, 159, 64, 0.2)',
+					          'rgba(0, 0, 0, 0.2)'
+					        ],
+					        borderColor: [
+						          'rgba(255, 26, 104, 1)',
+						          'rgba(54, 162, 235, 1)',
+						          'rgba(255, 206, 86, 1)',
+						          'rgba(75, 192, 192, 1)',
+						          'rgba(153, 102, 255, 1)',
+						          'rgba(200, 159, 64, 1)',
+						          'rgba(102, 159, 64, 1)',
+						          'rgba(55, 159, 64, 1)',
+						          'rgba(5, 159, 64, 1)',
+						          'rgba(45, 159, 64, 1)',
+						          'rgba(0, 0, 0, 1)'
+					        ],
+						    borderWidth: 1,
+						    cutout: '70%',
+						    borderRadius: 5,
+						    offset: 10
+				  	}]
+				};		
+				
+				// clickLabel pugin block
+		  		const clickLabel = {
+					id: 'clickLabel',
+					afterDraw: (chart, args, options) => {
+						const { ctx, chartArea: { width, height, top } } = chart;
+						
+						
+						
+						if(selectedDatasetIndex >= 0) {
+							console.log(chart.data.datasets[selectedDatasetIndex].data[selectedIndex]);
+							const sum = chart._metasets[selectedDatasetIndex].total;
+							const value = chart._metasets[selectedDatasetIndex]._parsed[selectedIndex];
+							const color = chart.data.datasets[selectedDatasetIndex].borderColor[selectedIndex];
+							const percentage = value / sum * 100;
+							const accuracy = chart.data.datasets[selectedDatasetIndex].data[selectedIndex];
 			
-			    // render init block
-			    const DChart = new Chart(document.getElementById('DChart'),
-			      d_config
-			    );
-			 </script>
+							ctx.save();
+							ctx.font = 'bolder 60px Arial';
+							ctx.fillStyle = color;
+							ctx.textAlign = 'center';
+							ctx.textBaseline = 'middle';
+							ctx.fillText(accuracy + '%', width/2, height/2 + top);
+							ctx.restore();
+						}
+					}
+				} 
+				
+				// config 
+				const config = {
+					type: 'doughnut',
+				    data:data,
+				    options: {
+				    	responsive: false,
+						mainTainAspectRatio: false,
+		 				plugins: {
+							legend: {
+								display: true,
+								position: 'bottom'
+							}
+				 		},
+						onClick(click, element, chart) {
+							//console.log(element[0].datasetIndex)
+							if(element[0]) {
+								selectedDatasetIndex = element[0].datasetIndex;
+								selectedIndex = element[0].index;
+								chart.draw();
+							}
+						}
+					},
+					plugins: [clickLabel]
+				};
+				
+				// render init block
+				const DChart = new Chart(
+				   document.getElementById('DChart'),
+				   config
+				);
+			</script>
+	       
+	         <script type="text/javascript">
+	         
+		        var source = [
+		            "안녕",
+		            "지수야",
+		            "나는",
+		            "가연",
+		            "승호바보",
+		            "예쁜 이승호",
+		            "기염둥이 지슈",
+		            "지뚜",
+		            "메롱"];
+		
+		        // Create a jqxComboBox
+		        $("#jqxComboBox").jqxComboBox({
+		            source: source,
+		            theme: 'Material',
+		            width: '200px',
+		            height: '300px',
+		            checkboxes: true
+		        });
+		        $("#jqxButton").jqxButton({
+		            theme:'energyblue'
+		        });
+		
+		       $('#jqxButton').on('click', function () {
+		            $("#jqxComboBox").jqxComboBox('checkItem',"Breve");
+		        });
+		       
+	        </script>
+			 
             <footer>
                 <div class="f_top">
                     <ul>

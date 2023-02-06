@@ -1,5 +1,6 @@
 package com.weed.wws;
 
+import java.io.IOException;
 import java.lang.reflect.Member;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,7 +30,9 @@ public class JoinController {
 	// 회원가입
 
 	@PostMapping(value = "/Join.do")
-	public String JoinInsert(WeedDTO dto) {
+	public String JoinInsert(WeedDTO dto) throws IOException {
+		
+		try {
 		System.out.println("ttttt");
 		System.out.println(dto.getEmail());
 		System.out.println(dto.getCompany());
@@ -37,6 +40,10 @@ public class JoinController {
 		joinMapper.Join(dto);
 		System.out.println("회원가입성공");
 		return "redirect:/Main.do";
+		}catch (Exception e) {
+			e.printStackTrace();
+			return "redirect:/Main.do";
+		}
 		
 	}
 

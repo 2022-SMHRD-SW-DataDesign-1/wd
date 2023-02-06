@@ -2367,7 +2367,7 @@
 
                 </ul>
             </div>
-
+			
             <!-- 추가 -->
             <section class="swiper-slide sec4" style="height: 881px; margin-bottom: 30px;">
                 <div class="container">
@@ -2550,6 +2550,7 @@
                     }
                 })
             </script>
+            
             <footer>
                 <div class="f_top">
                     <ul>

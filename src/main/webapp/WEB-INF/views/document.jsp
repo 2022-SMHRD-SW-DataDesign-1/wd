@@ -1,98 +1,84 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-
-<!-- chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
-
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-  }
-  .chartMenu {
-    width: 100vw;
-    height: 40px;
-    background: #1A1A1A;
-    color: rgba(54, 162, 235, 1);
-  }
-  .chartMenu p {
-    padding: 10px;
-    font-size: 20px;
-  }
-  .chartCard {
-    width: 100vw;
-    height: calc(100vh - 40px);
-    background: rgba(54, 162, 235, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .chartBox {
-    width: 700px;
-    padding: 20px;
-    border-radius: 20px;
-    border: solid 3px rgba(54, 162, 235, 1);
-    background: white;
-  }
-</style>
- 
-
+    <title>jQuery ComboBox</title>
+    <link rel="stylesheet" href="https://www.jqwidgets.com/public/jqwidgets/styles/jqx.base.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.jqwidgets.com/public/jqwidgets/styles/jqx.energyblue.css" type="text/css" />
+    <script type="text/javascript" src="https://www.jqwidgets.com/public/jqwidgets/jqx-all.js"></script>
+<!--     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxcore.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxbuttons.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="../../jqwidgets/jqxlistbox.js"></script>-->
+    
 </head>
 <body>
-<div class="chartCard">
-  <div class="chartBox">
-    <canvas id="myChart"></canvas>
-  </div>
+<div id='jqxComboBox'></div>
+<div>
+   <input style="margin-top: 20px;" type="button" id='jqxButton' value="확인하기" /> 
 </div>
-<script>
-    // setup 
-    const data = {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-      datasets: [{
-        label: 'Weekly Sales',
-        data: [18, 12, 6, 9, 12, 3, 9],
-        backgroundColor: [
-          'rgba(255, 26, 104, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-          'rgba(0, 0, 0, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255, 26, 104, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-          'rgba(0, 0, 0, 1)'
-        ],
-        borderWidth: 1
-      },]
-    };
 
-    // config 
-    const config = {
-      type: 'doughnut',
-      data,
-      options: {
+ <form>
+       <select name = "Appia" multiple size=20>
+          <option value = "Python" selected>파이썬</option>
+          <option value = "Python" >파이썬</option>
+          <option value = "Python" >파이썬</option>
+          <option value = "MATLAB">매트랩</option>
+          <option value = "HTML">HTML</option>
+          <option value = "HTML">HTML</option>
+          <option value = "HTML">HTML</option>
+          <option value = "HTML">HTML</option>
+          <option value = "HTML">HTML</option>
+          <option value = "HTML">HTML</option>
+          <option value = "HTML">HTML</option>
+          <option value = "HTML">HTML</option>
+          <option value = "HTML">HTML</option>
+          <option value = "HTML">HTML</option>
+          <option value = "HTML">HTML</option>
+          <option value = "HTML">HTML</option>
+          <option value = "HTML">HTML</option>
+          <option value = "HTML">HTML</option>
+          <option value = "HTML">HTML</option>
+          <option value = "HTML">HTML</option>
+          <option value = "HTML">HTML</option>
+          <option value = "HTML">HTML</option>
+          <option value = "HTML">HTML</option>
+       </select>
+    </form>
 
-      }
-    };
 
-    // render init block
-    const myChart = new Chart(
-      document.getElementById('myChart'),
-      config
-    );
- </script>
+
+        <script type="text/javascript">
+        var source = [
+            "안녕",
+            "지수야",
+            "나는",
+            "가연",
+            "승호바보",
+            "예쁜 이승호",
+            "기염둥이 지슈",
+            "지뚜",
+            "메롱"];
+
+        // Create a jqxComboBox
+        $("#jqxComboBox").jqxComboBox({
+            source: source,
+            theme: 'Material',
+            width: '200px',
+            height: '25px',
+            checkboxes: true
+        });
+        $("#jqxButton").jqxButton({
+            theme:'energyblue'
+        });
+
+       $('#jqxButton').on('click', function () {
+            $("#jqxComboBox").jqxComboBox('checkItem',"Breve");
+        });
+        </script>
+
 </body>
 </html>

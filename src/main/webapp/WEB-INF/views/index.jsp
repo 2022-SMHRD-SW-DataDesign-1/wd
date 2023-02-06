@@ -3081,7 +3081,7 @@
     <div class="main_wrap">
         <div class="swiper main_swiper swiper-container-initialized swiper-container-vertical">
             <div class="main_header">
-                <a href="" class="logo">
+                <a href="index.do" class="logo">
                     <div class="img"><img src="./resources/images/weed_log2.jpg"></div>
                     <span class="en"> <b>WHO WITH SERVICE</b></span>
                 </a>

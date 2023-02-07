@@ -1,125 +1,183 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<!-- chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
-
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-  }
-  .chartMenu {
-    width: 100vw;
-    height: 40px;
-    background: #1A1A1A;
-    color: rgba(54, 162, 235, 1);
-  }
-  .chartMenu p {
-    padding: 10px;
-    font-size: 20px;
-  }
-  .chartCard {
-    width: 100vw;
-    height: calc(100vh - 40px);
-    background: rgba(54, 162, 235, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .chartBox {
-    width: 400px;
-    padding: 20px;
-    border-radius: 20px;
-    border: solid 3px rgba(54, 162, 235, 1);
-    background: white;
-  }
-</style>
- 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 
 </head>
 <body>
-<div class="chartCard">
-  <div class="chartBox">
-    <canvas id="myChart"></canvas>
-  </div>
-</div>
+	<div class="chart-container" style="position: relative; height:200px; width:60vw">
+		<canvas id="myChart"></canvas>
+	</div>
+	<button type="button" id="reData">데이터 변경</button>
+	<button type="button" id="addData">데이터 추가</button>
+	<button type="button" id="addDataSet">데이터셋 추가</button>
+	<button type="button" id="delData">데이터 삭제</button>
+	<button type="button" id="delDataset">데이터셋 삭제</button>
+
+
+
+
+
+
 <script>
-    // setup 
-    const data = {
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-      datasets: [{
-        label: 'Stuff Accuracy',
-        data: [18, 12, 6, 9, 12, 3, 9],
-        backgroundColor: [
-          'rgba(255, 26, 104, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-          'rgba(0, 0, 0, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255, 26, 104, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-          'rgba(0, 0, 0, 1)'
-        ],
-        borderWidth: 1,
-        cutout: '90%',
-        borderRadius: 20,
-        offset: 10
-      }]
-    };
 
-    // doughnutLabelsLine plugin
-    const doughnutLabelsLine = {
-    	id: 'doughnutLabelsLine',
-    	afterDraw(chart, args, options){
-    		const { ctx, chartArea: { top, bottom, left, right, width, height} } = chart;
-    		
-    		chart.data.datasets.forEach((dataset, i) => {
-    			chart.getDatasetMeta(i).data.forEach((datapoint, index) => {
-    				//console.log(datapoint.tooltipPositon())
-    				const{ x, y } = datapoint.tooltipPositon();
-    				
-    				ctx.fillStyle = 'black';
-    				ctx.rectStyle(x, y, 10, 10);
-    			})
-    		})
-    	
-    	}
-    }
-    
-    // config 
-    const config = {
-      type: 'doughnut',
-      data,
-      options: {
-    	  plugins: {
-    		  legend: {
-    			  display : false // 범례 없애기
-    		  }
-    	  }
-      },
-      plugins: [doughnutLabelsLine]
-    };
+var ctx = document.getElementById('myChart'); // 차트가 그려지는 영역
 
-    // render init block
-    const myChart = new Chart(
-      document.getElementById('myChart'),
-      config
-    );
- </script>
+var config = {
+	type: 'bar',
+	data: {
+		labels: [ // Date Objects
+			'person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle'
+		],
+		datasets: [{
+			label: 'My First dataset',
+			backgroundColor: 'rgba(75, 192, 192, 1)',
+			borderColor: [
+	          'rgba(255,107,107,0.2)',
+	          'rgba(255,159,67, 0.2)',
+	          'rgba(254,202,87, 0.2)',
+	          'rgba(243,104,224, 0.2)',
+	          'rgba(16,172,132, 0.2)',
+	          'rgba(0,210,211, 0.2)',
+	          'rgba(46,134,222, 0.2)',
+	          'rgba(200,214,229, 0.2)'
+		    ],
+			fill: false,
+			data: [
+				Math.floor(Math.random() * 50),
+				Math.floor(Math.random() * 50),
+				Math.floor(Math.random() * 50),
+				Math.floor(Math.random() * 50),
+				Math.floor(Math.random() * 50),
+				Math.floor(Math.random() * 50),
+				Math.floor(Math.random() * 50)
+			],
+		}, {
+			label: 'My Second dataset',
+			backgroundColor: 'rgba(255, 99, 132, 1)',
+			borderColor: 'rgba(255, 99, 132, 1)',
+			fill: false,
+			data: [
+				Math.floor(Math.random() * 50),
+				Math.floor(Math.random() * 50),
+				Math.floor(Math.random() * 50),
+				Math.floor(Math.random() * 50),
+				Math.floor(Math.random() * 50),
+				Math.floor(Math.random() * 50),
+				Math.floor(Math.random() * 50)
+			],
+		}]
+	},
+	options: {
+		maintainAspectRatio: false,
+		title: {
+			text: 'Chart.js Time Scale'
+		},
+		scales: {
+			yAxes: [{
+				scaleLabel: {
+					display: true,
+					labelString: '차트'
+				}
+			}]
+		},
+	}
+};
+ 
+//차트 그리기
+const myChart = new Chart(ctx, config);
+ 
+
+
+
+
+
+//데이터 변경
+document.getElementById('reData').onclick = function(){
+	
+	//데이터셋 수 만큼 반복
+	var dataset = config.data.datasets;
+	for(var i=0; i<dataset.length; i++){
+		console.log(dataset);
+		//데이터 갯수 만큼 반복
+		var data = dataset[i].data;
+		for(var j=0 ; j < data.length ; j++){
+			data[j] = Math.floor(Math.random() * 50);
+		}
+	}
+	
+	myChart.update();	//차트 업데이트
+}
+
+//데이터 추가
+document.getElementById('addData').onclick = function(){
+	
+	//라벨추가
+	config.data.labels.push('data'+config.data.labels.length)
+	
+	//데이터셋 수 만큼 반복
+	var dataset = config.data.datasets;
+	for(var i=0; i<dataset.length; i++){
+		//데이터셋의 데이터 추가
+		dataset[i].data.push(Math.floor(Math.random() * 50));
+	}
+	myChart.update();	//차트 업데이트
+}
+
+//데이터셋 추가
+document.getElementById('addDataSet').onclick = function(){
+	var color1 = Math.floor(Math.random() * 256);
+	var color2 = Math.floor(Math.random() * 256);
+	var color3 = Math.floor(Math.random() * 256);
+	
+	console.log(color1 + " " + color2 + " " + color3)
+	
+	var newDataset = {
+		label: 'new Dataset'+config.data.datasets.length,
+		borderColor : 'rgba('+color1+', '+color2+', '+color3+', 1)',
+		backgroundColor : 'rgba('+color1+', '+color2+', '+color3+', 1)',
+		data: [],
+		fill: false
+	}
+	
+	// newDataset에 데이터 삽입
+	for (var i=0; i< config.data.labels.length; i++){
+		var num = Math.floor(Math.random() * 50);
+		newDataset.data.push(num);
+	}
+	
+	// chart에 newDataset 푸쉬
+	config.data.datasets.push(newDataset);
+	
+	myChart.update();	//차트 업데이트
+}
+
+//데이터 삭제
+document.getElementById('delData').onclick = function(){
+	
+	config.data.labels.splice(-1,1);//라벨 삭제
+	
+	//데이터 삭제
+	config.data.datasets.forEach(function(dataset) {
+		dataset.data.pop();
+	});
+	
+	myChart.update();	//차트 업데이트
+}
+
+//데이터셋 삭제
+document.getElementById('delDataset').onclick = function(){
+	config.data.datasets.splice(-1,1);
+	myChart.update();	//차트 업데이트
+}
+</script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -36,10 +36,6 @@
 <link rel="stylesheet" href="resources/css/default.css">
 <link rel="stylesheet" href="resources/css/main.css">
 
-<!-- combo -->
-<link rel="stylesheet" href="https://www.jqwidgets.com/public/jqwidgets/styles/jqx.base.css" type="text/css" />
-<link rel="stylesheet" href="https://www.jqwidgets.com/public/jqwidgets/styles/jqx.energyblue.css" type="text/css" />
-<script type="text/javascript" src="https://www.jqwidgets.com/public/jqwidgets/jqx-all.js"></script>
 <!--javascript-->
 <script src="resources/plugins/jquery/jquery.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -2201,7 +2197,7 @@
             position: relative;
         }
 
-        .sec4 .input_group ul li::after {
+/*         .sec4 .input_group ul li::after {
             position: absolute;
             left: 15px;
             top: 0;
@@ -2211,7 +2207,7 @@
             font-size: 10px;
             color: var(--color-a7a7a7);
             background: var(--color-1a1e23);
-        }
+        } */
 
         .sec4 .input_group ul li input,
         .sec4 .input_group ul li textarea,
@@ -2344,31 +2340,91 @@
             transform: translateY(-7px);
             line-height: 1.4;
         }
-/*          .chartMenu {
-		    width: 100vw;
-		    height: 40px;
-		    background: #1A1A1A;
-		    color: rgba(54, 162, 235, 1);
+        /* li { list-style:none;} */
+        /* select */
+        .selectBox2 * { box-sizing: border-box; }
+		.selectBox2 {
+		  position: relative;
+		  width: 300px;
+		  height: 35px;
+		  border-radius: 4px;
+		  border: 2px solid #a9aaac;
+		  background-size: 20px;
+		  cursor: pointer;
+		  display:-webkit-inline-box;
 		}
-		  .chartMenu p {
-		    padding: 10px;
-		    font-size: 20px;
+		
+		.selectBox2:after {
+		  content: '';
+		  display: block;
+		  width: 2px;
+		  height: 100%; 
+		  position: absolute; 
+		  top: 0; 
+		  right: 35px;
+		  background: #a9aaac;
 		}
-		  .chartCard {
-		    width: 100vw;
-		    height: calc(100vh - 40px);
-		    background: rgba(54, 162, 235, 0.2);
-		    display: flex;
-		    align-items: center;
-		    justify-content: center;
+		
+		.selectBox2 .label {
+		  display: flex;
+		  align-items: center;
+		  width: inherit;
+		  height: inherit;
+		  border: 0 none;
+		  outline: 0 none;
+		  padding-left: 20px;
+		  background: transparent;
+		  cursor: pointer;
+		  font-size: 14px;
 		}
-		  .chartBox {
-		    width: 400px;
-		    padding: 20px;
-		    border-radius: 20px;
-		    border: solid 3px rgba(54, 162, 235, 1);
-		    background: white;
-		} */
+		
+		.selectBox2 .optionList {
+		  position: absolute; 
+		  top: 28px;
+		  left: 0;
+		  width: 100%;
+		  background: #a9aaacf7;
+    	  color: #373636;
+		  list-style-type: none;
+		  padding: 0;
+		  border-radius: 6px;
+		  overflow: auto;
+		  max-height: 0;
+		  transition: .3s ease-in;
+		}
+		
+		.selectBox2.active .optionList {
+		  max-height: 500px;
+		}
+		
+		.selectBox2 .optionItem {
+		  border-bottom: 1px dashed #777;
+		  padding: 5px 15px 5px;
+		  transition: .1s;
+		  font-size: x-large;
+		}
+		
+		.selectBox2 .optionItem:hover {
+		  background: rgba(77, 109, 239, 0.25);
+		}
+		
+		.selectBox2 .optionItem:last-child {
+		  border-bottom: 0 none;
+		}
+		.selectBnt{
+			display: -webkit-box;
+		    margin-left: 5px;
+		    border-radius: inherit;
+		    background-color: a9aaac;
+		    width: 38px;
+		}
+		
+		// 스크롤 커스텀
+		.selectBox2 .optionList::-webkit-scrollbar {width: 6px;}
+		.selectBox2 .optionList::-webkit-scrollbar-track {background: transparent; }
+		.selectBox2 .optionList::-webkit-scrollbar-thumb {background: #303030; border-radius: 45px;}
+		.selectBox2 .optionList::-webkit-scrollbar-thumb:hover {background: #303030;}
+		
     </style>
 
 
@@ -2428,29 +2484,73 @@
                                 </p>
                             </div>
                     </div>
-                        
                     <!-- 비디오 위치 -->
-                    <div class="input_group" style="width:400px;height: 553px;margin-top: 10%;">
-	                    
-	                    <div id='jqxComboBox'></div>
-						<div>
-						   <input style="margin-top: 20px;" type="button" id='jqxButton' value="확인하기" /> 
-						</div>
+					<div class="input_group"
+						style="width: 400px; height: 553px; margin-top: 10%;">
+					<!-- select  -->
+						<div class="selectBox2 ">
+							<button class="label">객체선택 🍊</button>
 						
-                        <div class="group">
-                            <div class="tit1" id="realTestimg">
-                                <img class="testimg" src="./resources/images/image.jpg"  style="width: 100%; max-width: 450px; vertical-align: middle">
-                            </div>
-                        </div>
-                        
-                        <div class="group">
-                            <div class="tit1" >
-                                <img src="./resources/images/image.jpg" style="width: 100%; max-width: 450px; vertical-align: middle">
-                            </div>
-                        </div>
-                    </div>
+							<ul class="optionList">
+								<li class="optionItem"><input type='checkbox' name='object'
+									value='0' style="width: 20px; height: 20px;" /> road</li>
+								<li class="optionItem"><input type='checkbox' name='object'
+									value='1' style="width: 20px; height: 20px;" /> sidewalk</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='2'
+									style="width: 20px; height: 20px;" /> building</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='3'
+									style="width: 20px; height: 20px;" /> wall</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='4'
+									style="width: 20px; height: 20px;" /> fence</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='5'
+									style="width: 20px; height: 20px;" /> pole</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='6'
+									style="width: 20px; height: 20px;" /> traffic light</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='7'
+									style="width: 20px; height: 20px;" /> traffic sign</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='8'
+									style="width: 20px; height: 20px;" /> vegetation</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='9'
+									style="width: 20px; height: 20px;" /> terrain</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='10'
+									style="width: 20px; height: 20px;" /> sky</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='11'
+									style="width: 20px; height: 20px;" /> person</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='12'
+									style="width: 20px; height: 20px;" /> rider</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='13'
+									style="width: 20px; height: 20px;" /> car</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='14'
+									style="width: 20px; height: 20px;" /> truck</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='15'
+									style="width: 20px; height: 20px;" /> bus</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='16'
+									style="width: 20px; height: 20px;" /> train</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='17'
+									style="width: 20px; height: 20px;" /> motorcycle</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='18'
+									style="width: 20px; height: 20px;" /> bicycle</li>
+							</ul>
+							<button type="submit" id="submit" class="selectBnt" onclick='getCheckboxValue()'>Apply</button>
+						</div>
 
-                    <!-- chart.js -->
+                        
+						<div class="group">
+							<div class="tit1" id="realTestimg">
+								<img class="testimg" src="./resources/images/image.jpg"
+									style="width: 100%; max-width: 450px; vertical-align: middle">
+							</div>
+						</div>
+
+						<div class="group">
+							<div class="tit1">
+								<img src="./resources/images/image.jpg"
+									style="width: 100%; max-width: 450px; vertical-align: middle">
+							</div>
+						</div>
+					</div>
+
+					<!-- chart.js -->
                     <div class="input_group" style="margin-top: 10%;">
                         <div class="group">
                         	<div class="tit" style="align-items: center;">
@@ -2593,16 +2693,9 @@
 			      },{
 			          type : 'line',
 			          label: 'Object Accuracy',
-			          data: [80, 95, 70, 66, 90, 98, 30,50],
+			          data: [80, 95, 70, 66, 90, 98, 88,50],
 			          backgroundColor: [
-			        	  'rgba(255,107,107,1)',
-				          'rgba(255,159,67, 1)',
-				          'rgba(254,202,87, 1)',
-				          'rgba(243,104,224, 1)',
-				          'rgba(16,172,132, 1)',
-				          'rgba(0,210,211, 1)',
-				          'rgba(46,134,222, 1)',
-				          'rgba(200,214,229, 1)'
+			        	  'rgba(84,160,255,0.2)'
 			          ],
 			          borderColor: [
 			        	  'rgba(84,160,255,1)'
@@ -2735,38 +2828,64 @@
 				   config
 				);
 			</script>
-	       
-	         <script type="text/javascript">
-	         
-		        var source = [
-		            "안녕",
-		            "지수야",
-		            "나는",
-		            "가연",
-		            "승호바보",
-		            "예쁜 이승호",
-		            "기염둥이 지슈",
-		            "지뚜",
-		            "메롱"];
-		
-		        // Create a jqxComboBox
-		        $("#jqxComboBox").jqxComboBox({
-		            source: source,
-		            theme: 'Material',
-		            width: '200px',
-		            height: '300px',
-		            checkboxes: true
-		        });
-		        $("#jqxButton").jqxButton({
-		            theme:'energyblue'
-		        });
-		
-		       $('#jqxButton').on('click', function () {
-		            $("#jqxComboBox").jqxComboBox('checkItem',"Breve");
-		        });
-		       
-	        </script>
+			
+			
+			<!-- 다중체크박스  -->
+			<script type="text/javascript">
+			const label = document.querySelector('.label');
+			const options = document.querySelectorAll('.optionItem');
+
+			label.addEventListener('click', function(){
+			  if(label.parentNode.classList.contains('active')) {
+			    label.parentNode.classList.remove('active');
+			  } else {
+			    label.parentNode.classList.add('active');
+			  }
+			});
+			//value 값만 나옴
+ 			function getCheckboxValue()  {
+				  // 선택된 목록 가져오기
+				  const query = 'input[name="object"]:checked';
+				  const selectedEls = 
+				      document.querySelectorAll(query);
+				  
+				  // 선택된 목록에서 value 찾기
+				  let result = '';
+				  selectedEls.forEach((el) => {
+				    result += el.value + ' ';
+				  });
+				  // 출력
+				  console.log(result);
+				  
+			 	  $.ajax({
+						url : "ArrSocket.do",
+						type : 'post',
+						data : result,
+						success : function(data) {
+							console.log("데이터 전송 성공이야");
+			     		}/* ,
+			     		error function() {
+			     			alert("error");
+			     		} */
+				});
+				  
+			}; 
+				
+			//배열에 담음 
+/* 			    function getCheckboxValue(){
+			        var obj = $("[name=object]");
+			        var chkArray = new Array(); // 배열 선언
 			 
+			        $('input:checkbox[name=object]:checked').each(function() { // 체크된 체크박스의 value 값을 가지고 온다.
+			            chkArray.push(this.value);
+			        });
+			        
+			        console.log(chkArray);
+			        
+			    } */
+			    
+			</script>
+			
             <footer>
                 <div class="f_top">
                     <ul>

@@ -40,16 +40,7 @@ var config = {
 		datasets: [{
 			label: 'My First dataset',
 			backgroundColor: 'rgba(75, 192, 192, 1)',
-			borderColor: [
-	          'rgba(255,107,107,0.2)',
-	          'rgba(255,159,67, 0.2)',
-	          'rgba(254,202,87, 0.2)',
-	          'rgba(243,104,224, 0.2)',
-	          'rgba(16,172,132, 0.2)',
-	          'rgba(0,210,211, 0.2)',
-	          'rgba(46,134,222, 0.2)',
-	          'rgba(200,214,229, 0.2)'
-		    ],
+			borderColor: 'rgba(75, 192, 192, 1)',
 			fill: false,
 			data: [
 				Math.floor(Math.random() * 50),

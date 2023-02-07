@@ -1,6 +1,7 @@
 package com.weed.wws;
 
 import java.io.File;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
@@ -45,7 +46,7 @@ public class TestController {
 	    System.out.println("email: " + email);
 		
 		String uploadFolder = "C:\\";
-		
+
 		// make folder
 		File uploadPath = new File(uploadFolder, getFolder());
 		System.out.println("upload path: "+uploadPath);

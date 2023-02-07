@@ -36,10 +36,6 @@
 <link rel="stylesheet" href="resources/css/default.css">
 <link rel="stylesheet" href="resources/css/main.css">
 
-<!-- combo -->
-<link rel="stylesheet" href="https://www.jqwidgets.com/public/jqwidgets/styles/jqx.base.css" type="text/css" />
-<link rel="stylesheet" href="https://www.jqwidgets.com/public/jqwidgets/styles/jqx.energyblue.css" type="text/css" />
-<script type="text/javascript" src="https://www.jqwidgets.com/public/jqwidgets/jqx-all.js"></script>
 <!--javascript-->
 <script src="resources/plugins/jquery/jquery.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -2432,20 +2428,15 @@
                     <!-- 비디오 위치 -->
                     <div class="input_group" style="width:400px;height: 553px;margin-top: 10%;">
 	                    
-	                    <div id='jqxComboBox'></div>
-						<div>
-						   <input style="margin-top: 20px;" type="button" id='jqxButton' value="확인하기" /> 
-						</div>
-						
                         <div class="group">
                             <div class="tit1" id="realTestimg">
-                                <img class="testimg" src="./resources/images/image.jpg"  style="width: 100%; max-width: 450px; vertical-align: middle">
+                                <img class="testimg" src="/upload/${image}" style="width: 100%; max-width: 450px; vertical-align: middle">
                             </div>
                         </div>
                         
                         <div class="group">
                             <div class="tit1" >
-                                <img src="./resources/images/image.jpg" style="width: 100%; max-width: 450px; vertical-align: middle">
+                                <img src="/upload/${fileload}" style="width: 100%; max-width: 450px; vertical-align: middle">
                             </div>
                         </div>
                     </div>
@@ -2735,38 +2726,7 @@
 				   config
 				);
 			</script>
-	       
-	         <script type="text/javascript">
-	         
-		        var source = [
-		            "안녕",
-		            "지수야",
-		            "나는",
-		            "가연",
-		            "승호바보",
-		            "예쁜 이승호",
-		            "기염둥이 지슈",
-		            "지뚜",
-		            "메롱"];
-		
-		        // Create a jqxComboBox
-		        $("#jqxComboBox").jqxComboBox({
-		            source: source,
-		            theme: 'Material',
-		            width: '200px',
-		            height: '300px',
-		            checkboxes: true
-		        });
-		        $("#jqxButton").jqxButton({
-		            theme:'energyblue'
-		        });
-		
-		       $('#jqxButton').on('click', function () {
-		            $("#jqxComboBox").jqxComboBox('checkItem',"Breve");
-		        });
-		       
-	        </script>
-			 
+	    
             <footer>
                 <div class="f_top">
                     <ul>

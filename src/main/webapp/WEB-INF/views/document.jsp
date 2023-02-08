@@ -4,131 +4,157 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <title>jQuery ComboBox</title>
-    <link rel="stylesheet" href="https://www.jqwidgets.com/public/jqwidgets/styles/jqx.base.css" type="text/css" />
-    <link rel="stylesheet" href="https://www.jqwidgets.com/public/jqwidgets/styles/jqx.energyblue.css" type="text/css" />
-    <script type="text/javascript" src="https://www.jqwidgets.com/public/jqwidgets/jqx-all.js"></script>
-<!--     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script type="text/javascript" src="../../jqwidgets/jqxcore.js"></script>
-    <script type="text/javascript" src="../../jqwidgets/jqxbuttons.js"></script>
-    <script type="text/javascript" src="../../jqwidgets/jqxscrollbar.js"></script>
-    <script type="text/javascript" src="../../jqwidgets/jqxlistbox.js"></script>-->
-    
+<title>jQuery ComboBox</title>
+<script src="resources/plugins/jquery/jquery.min.js"></script>
+	
+<script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>   
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+  .chartMenu {
+    width: 100vw;
+    height: 40px;
+    background: #1A1A1A;
+    color: rgba(54, 162, 235, 1);
+  }
+  .chartMenu p {
+    padding: 10px;
+    font-size: 20px;
+  }
+  .chartCard {
+    width: 100vw;
+    height: calc(100vh - 40px);
+    background: rgba(54, 162, 235, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .chartBox {
+    width: 400px;
+    padding: 20px;
+    border-radius: 20px;
+    border: solid 3px rgba(54, 162, 235, 1);
+    background: white;
+  }
+</style>
+ 
 </head>
 <body>
+	<div class="chartCard">
+		<div class="chartBox">
+			<canvas id="DChart" style="width: 353px;  height: 430px; display:block;"></canvas>
+		</div>
+	</div>
+	
+	<script>
+		setTimeout(function(){
+			location.reload();
+		}, 50000);
+	</script>
+	
+	 <script>
+	let selectedDatasetIndex = undefined;
+	let selectedIndex = undefined;
+	
 
-<h2 align=center>Auto Video Stream to Still Image</h2>
+	// setup 
+	let data = {
+			labels: ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic light', 'traffic sign', 'vegetation', 'terrain', 'sky'],
+		    datasets: [{
+			    label: 'Stuff Accuracy',
+	    	    data: [80, 95, 70, 66, 90, 98, 30,50,70,77,90],
+	        	backgroundColor: [
+		          'rgba(255, 26, 104, 0.2)',
+		          'rgba(54, 162, 235, 0.2)',
+		          'rgba(255, 206, 86, 0.2)',
+		          'rgba(75, 192, 192, 0.2)',
+		          'rgba(153, 102, 255, 0.2)',
+		          'rgba(200, 159, 64, 0.2)',
+		          'rgba(102, 159, 64, 0.2)',
+		          'rgba(55, 159, 64, 0.2)',
+		          'rgba(5, 159, 64, 0.2)',
+		          'rgba(45, 159, 64, 0.2)',
+		          'rgba(0, 0, 0, 0.2)'
+		        ],
+		        borderColor: [
+			          'rgba(255, 26, 104, 1)',
+			          'rgba(54, 162, 235, 1)',
+			          'rgba(255, 206, 86, 1)',
+			          'rgba(75, 192, 192, 1)',
+			          'rgba(153, 102, 255, 1)',
+			          'rgba(200, 159, 64, 1)',
+			          'rgba(102, 159, 64, 1)',
+			          'rgba(55, 159, 64, 1)',
+			          'rgba(5, 159, 64, 1)',
+			          'rgba(45, 159, 64, 1)',
+			          'rgba(0, 0, 0, 1)'
+		        ],
+			    borderWidth: 1,
+			    cutout: '70%',
+			    borderRadius: 5,
+			    offset: 10
+	  	}]
+	};		
+	
+	// clickLabel pugin block
+ 		let clickLabel = {
+		id: 'clickLabel',
+		afterDraw: (chart, args, options) => {
+			const { ctx, chartArea: { width, height, top } } = chart;
+			
+			
+			
+			if(selectedDatasetIndex >= 0) {
+				console.log(chart.data.datasets[selectedDatasetIndex].data[selectedIndex]);
+				let sum = chart._metasets[selectedDatasetIndex].total;
+				let value = chart._metasets[selectedDatasetIndex]._parsed[selectedIndex];
+				let color = chart.data.datasets[selectedDatasetIndex].borderColor[selectedIndex];
+				let percentage = value / sum * 100;
+				let accuracy = chart.data.datasets[selectedDatasetIndex].data[selectedIndex];
 
-<video  id="myVideo" width="400" height="300" style="border: 1px solid #ddd;"></video>
-<canvas id="myCanvas" width="160" height="140" style="border: 1px solid #ddd;"></canvas><br>
-
-<input type=button value="get Video" onclick="{getVideo()}">
-<input type=button value="get Pic" onclick="{takeSnapshot()}"><br>
-Take snapshot every <input type=number id="myInterval"  value="3000"> milliseconds
-<input type=button value="Auto" onclick="{takeAuto()}">
-
-<script type="text/javascript">
-var myVideoStream = document.getElementById('myVideo')     // make it a global variable
-var myStoredInterval = 0
-
-function getVideo(){
-navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-navigator.getMedia({video: true, audio: false},
-                   
-	function(stream) {
-	  myVideoStream.srcObject = stream   
-	  myVideoStream.play();
-	}, 
-                   
-	function(error) {
-	  alert('webcam not working');
-	});
-}
-
-function takeSnapshot() {
-	var myCanvasElement = document.getElementById('myCanvas');
-	var myCTX = myCanvasElement.getContext('2d');
-	myCTX.drawImage(myVideoStream, 0, 0, myCanvasElement.width, myCanvasElement.height);
-}
-
-function takeAuto() {
-  takeSnapshot() // get snapshot right away then wait and repeat
-  clearInterval(myStoredInterval)
-  myStoredInterval = setInterval(function(){                                                                                         
-     takeSnapshot()
- }, document.getElementById('myInterval').value);        
-}
-
-
-</script>
-
-
-
-
-
-<!-- <div id='jqxComboBox'></div>
-<div>
-   <input style="margin-top: 20px;" type="button" id='jqxButton' value="확인하기" /> 
-</div>
-
- <form>
-       <select name = "Appia" multiple size=20>
-          <option value = "Python" selected>파이썬</option>
-          <option value = "Python" >파이썬</option>
-          <option value = "Python" >파이썬</option>
-          <option value = "MATLAB">매트랩</option>
-          <option value = "HTML">HTML</option>
-          <option value = "HTML">HTML</option>
-          <option value = "HTML">HTML</option>
-          <option value = "HTML">HTML</option>
-          <option value = "HTML">HTML</option>
-          <option value = "HTML">HTML</option>
-          <option value = "HTML">HTML</option>
-          <option value = "HTML">HTML</option>
-          <option value = "HTML">HTML</option>
-          <option value = "HTML">HTML</option>
-          <option value = "HTML">HTML</option>
-          <option value = "HTML">HTML</option>
-          <option value = "HTML">HTML</option>
-          <option value = "HTML">HTML</option>
-          <option value = "HTML">HTML</option>
-          <option value = "HTML">HTML</option>
-          <option value = "HTML">HTML</option>
-          <option value = "HTML">HTML</option>
-          <option value = "HTML">HTML</option>
-       </select>
-    </form>
-
-
-
-        <script type="text/javascript">
-        var source = [
-            "안녕",
-            "지수야",
-            "나는",
-            "가연",
-            "승호바보",
-            "예쁜 이승호",
-            "기염둥이 지슈",
-            "지뚜",
-            "메롱"];
-
-        // Create a jqxComboBox
-        $("#jqxComboBox").jqxComboBox({
-            source: source,
-            theme: 'Material',
-            width: '200px',
-            height: '25px',
-            checkboxes: true
-        });
-        $("#jqxButton").jqxButton({
-            theme:'energyblue'
-        });
-
-       $('#jqxButton').on('click', function () {
-            $("#jqxComboBox").jqxComboBox('checkItem',"Breve");
-        });
-        </script>
- -->
+				ctx.save();
+				ctx.font = 'bolder 60px Arial';
+				ctx.fillStyle = color;
+				ctx.textAlign = 'center';
+				ctx.textBaseline = 'middle';
+				ctx.fillText(accuracy + '%', width/2, height/2 + top);
+				ctx.restore();
+			}
+		}
+	} 
+	
+	// config 
+	let d_config = {
+		type: 'doughnut',
+	    data:data,
+	    options: {
+			mainTainAspectRatio: false,
+				plugins: {
+				legend: {
+					display: true,
+					position: 'bottom'
+				}
+	 		},
+			onClick(click, element, chart) {
+				//console.log(element[0].datasetIndex)
+				if(element[0]) {
+					selectedDatasetIndex = element[0].datasetIndex;
+					selectedIndex = element[0].index;
+					chart.draw();
+				}
+			}
+		},
+		plugins: [clickLabel]
+	};
+	
+	// render init block
+	let DChart = new Chart(
+	   document.getElementById('DChart'),
+	   d_config
+	);
+	</script>
 </body>
 </html>

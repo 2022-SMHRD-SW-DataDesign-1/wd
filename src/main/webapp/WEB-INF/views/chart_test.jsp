@@ -47,23 +47,12 @@
 </style>
 </head>
 <body>
-<!-- 	<div class="chart-container" style="position: relative; height:200px; width:60vw">
-		<canvas id="myChart"></canvas>
-	</div>
-	<button type="button" id="reData">데이터 변경</button>
-	<button type="button" id="addData">데이터 추가</button>
-	<button type="button" id="addDataSet">데이터셋 추가</button>
-	<button type="button" id="delData">데이터 삭제</button>
-	<button type="button" id="delDataset">데이터셋 삭제</button> -->
 
 <div class="chartCard">
-	<div class="chartBox" id="myChartDiv">
+	<div class="chartBox">
 		<canvas id="myChart" style="width: 600px;  height: 415px;"></canvas>
 	</div>
 </div>
-
-
-
 
 <script>
 
@@ -97,11 +86,14 @@ function test(){
 		
 		// ajax 선언, 성공 함수, 넘어오는 data를 넣어주기
 		$.ajax({
-			url : "",
-			success: function(data) {
+			url : 'ChartSocket.do',
+			type: 'get',
+			/* dataType:'text', */
+			success: function() {
+				console.log()
 				
 				// 넘어오는 data 대입
-				rdNum1 =  [
+				rdNum1 = [
 					Math.floor(Math.random() * 50),
 					Math.floor(Math.random() * 50),
 					Math.floor(Math.random() * 50),
@@ -111,7 +103,7 @@ function test(){
 					Math.floor(Math.random() * 50),
 					Math.floor(Math.random() * 50)
 				];
-				rdNum2 =  [
+				rdNum2 = [
 					Math.floor(Math.random() * 100),
 					Math.floor(Math.random() * 100),
 					Math.floor(Math.random() * 100),
@@ -171,17 +163,16 @@ function test(){
 				);
 				
 				return test();
-				/* 	reloadCanvas; */
 				
-			},
+			}, // success end
 			error : function() {
 				console.log()
-			}
+			} // error end
 		
-		})// ajax end
+		});// ajax end
 	     
-	}, 5000);
-}
+	}, 5000); // timr end
+};// test end
 
 test(); // 페이지 업로드 된 후 실행되는 함수
 
@@ -237,8 +228,8 @@ let myChart = new Chart(
 	document.getElementById('myChart'),
 	L_config
 );
- 
-
 </script>
+
+
 </body>
 </html>

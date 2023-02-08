@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -19,6 +18,9 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import com.weed.mapper.WwsMapper;
 
@@ -86,7 +88,6 @@ public class SocketController {
 			// 파이썬에서 보내는 값
 			System.out.println("값 받아오기");
 			in.read(data);
-			System.out.println("밍라ㅓ미아러");
 			System.out.println(data);
 			
 			
@@ -99,19 +100,75 @@ public class SocketController {
 			ImageIO.write(p_image, "jpg", new File(defaultfile+name[2]));
 			String fileload = name[2];
 			System.out.println(fileload);
+			
+			int idx = image.indexOf("_"); 
+			String filename = image.substring(idx+5);
+			System.out.println(filename);
 
 			// dout.flush();
 			dout.close();
 			soc.close();
 			
-			int idx = image.indexOf("_"); 
-			String filename = image.substring(idx+5);
-			System.out.println(filename);
-			
 			model.addAttribute("filename", filename);
 			model.addAttribute("fileload",fileload);
 			System.out.println("닫힘");
+			
+			try {
+				System.out.println("새로 열기");
+				
+				Socket listsoc = new Socket("localhost", 123);
+				DataInputStream listin = new DataInputStream(listsoc.getInputStream());
+						
+				System.out.println("리스트값");
+				
+				byte[] all = new byte[8000];
+				listin.read(all);
+				System.out.println(all);
+				
+				String result_list = new String(all,"utf-8");
+				System.out.println(result_list);
+
+				listsoc.close();
+				
+				String[] list_type = result_list.split("/");
+				String cs_list = list_type[0];
+				String ct_list = list_type[1];
+				String se_list = list_type[2];
+				
+				System.out.println("cs_list:" + cs_list);
+				System.out.println("ct_list:" +ct_list);
+				System.out.println("se_list:" +se_list);
+				
+				String[] cl = cs_list.split(" ");
+				String[] ct = ct_list.split(" ");
+				String[] st = se_list.split(" ");
+				
+				List<String> class_list = Arrays.asList(cl);
+				
+				List<Integer> count_list = new ArrayList<Integer>();
+				int[] co_list = new int[ct.length];
+				for (int i = 0; i < ct.length; i++) {
+		            co_list[i] = Integer.parseInt(ct[i]);
+		            count_list.add(co_list[i]);
+		        }
+				
+				List<Float> score_list = new ArrayList<Float>();
+				float[] sc_list = new float[st.length];
+				for (int i = 0; i < st.length; i++) {
+		            sc_list[i] = Float.parseFloat(st[i]);
+		            score_list.add(sc_list[i]);
+		        }
+				
+				System.out.println("class_list:" + class_list);
+				System.out.println("count_list:" + count_list);
+				System.out.println("score_list:" + score_list);
+				
+			} catch (Exception e) {
+				System.out.println("오류");
+			}
 			return "test_result";
+			
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -1,6 +1,7 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -14,7 +15,6 @@
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <!--css-->
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -37,15 +37,12 @@
 <link rel="stylesheet" href="resources/css/default.css">
 <link rel="stylesheet" href="resources/css/main.css">
 
-
 <!--javascript-->
 <script src="resources/plugins/jquery/jquery.min.js"></script>
-<script
-	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 <script src="resources/plugins/sweetalert2/sweetalert2.all.min.js"></script>
-
- <style>
+<style>
         .swal2-popup.swal2-toast {
             box-sizing: border-box;
             grid-column: 1/4 !important;
@@ -2132,7 +2129,7 @@
         }
 
         .sec4 .input_group {
-            padding: 30px;
+            padding: 20px 33px;
             border-radius: 20px;
             background: var(--color-1a1e23);
             box-shadow: var(--box-shadow-M);
@@ -2201,7 +2198,7 @@
             position: relative;
         }
 
-        .sec4 .input_group ul li::after {
+/*         .sec4 .input_group ul li::after {
             position: absolute;
             left: 15px;
             top: 0;
@@ -2211,7 +2208,7 @@
             font-size: 10px;
             color: var(--color-a7a7a7);
             background: var(--color-1a1e23);
-        }
+        } */
 
         .sec4 .input_group ul li input,
         .sec4 .input_group ul li textarea,
@@ -2344,6 +2341,91 @@
             transform: translateY(-7px);
             line-height: 1.4;
         }
+        /* li { list-style:none;} */
+        /* select */
+        .selectBox2 * { box-sizing: border-box; }
+		.selectBox2 {
+		  position: relative;
+		  width: 273px;
+		  height: 35px;
+		  border-radius: 4px;
+		  border: 2px solid #a9aaac;
+		  background-size: 20px;
+		  cursor: pointer;
+		  display:-webkit-inline-box;
+		}
+		
+		.selectBox2:after {
+		  content: '';
+		  display: block;
+		  width: 2px;
+		  height: 100%; 
+		  position: absolute; 
+		  top: 0; 
+		  right: 35px;
+		  background: #a9aaac;
+		}
+		
+		.selectBox2 .label {
+		  display: flex;
+		  align-items: center;
+		  width: inherit;
+		  height: inherit;
+		  border: 0 none;
+		  outline: 0 none;
+		  padding-left: 20px;
+		  background: transparent;
+		  cursor: pointer;
+		  font-size: 14px;
+		}
+		
+		.selectBox2 .optionList {
+		  position: absolute; 
+		  top: 28px;
+		  left: 0;
+		  width: 100%;
+		  background: #a9aaacf7;
+    	  color: #373636;
+		  list-style-type: none;
+		  padding: 0;
+		  border-radius: 6px;
+		  overflow: auto;
+		  max-height: 0;
+		  transition: .3s ease-in;
+		}
+		
+		.selectBox2.active .optionList {
+		  max-height: 500px;
+		}
+		
+		.selectBox2 .optionItem {
+		  border-bottom: 1px dashed #777;
+		  padding: 5px 15px 5px;
+		  transition: .1s;
+		  font-size: x-large;
+		}
+		
+		.selectBox2 .optionItem:hover {
+		  background: rgba(77, 109, 239, 0.25);
+		}
+		
+		.selectBox2 .optionItem:last-child {
+		  border-bottom: 0 none;
+		}
+		.selectBnt{
+			display: -webkit-box;
+		    margin-left: 5px;
+		    border-radius: inherit;
+		    background-color: a9aaac;
+		    width: 38px;
+		}
+		
+		// 스크롤 커스텀
+		.selectBox2 .optionList::-webkit-scrollbar {width: 6px;}
+		.selectBox2 .optionList::-webkit-scrollbar-track {background: transparent; }
+		.selectBox2 .optionList::-webkit-scrollbar-thumb {background: #303030; border-radius: 45px;}
+		.selectBox2 .optionList::-webkit-scrollbar-thumb:hover {background: #303030;}
+		
     </style>
 
 
@@ -2375,10 +2457,11 @@
 </head>
 
 <body>
+
     <div class="main_wrap">
         <div class="swiper main_swiper swiper-container-initialized swiper-container-vertical">
             <div class="main_header">
-                <a href="index.do" class="logo">
+                <a href="index.do" onclick="location.href='index.do'" class="logo">
                     <div class="img"><img src="./resources/images/weed_log2.jpg"></div>
                     <span class="en"> <b>WHO WITH SERVICE</b></span>
                 </a>
@@ -2398,30 +2481,77 @@
                 	<div class="tit_group" >
                             <div class="tit">
                                 <h2 class="h_type1 en"><span>Panoptic Analysis</span></h2>
-                                <p>16개 class로 분할한 기술로 Object Count 와 인식 정확도를 Chart로 간편하게 확인하세요.  
+                                <p>19개 class로 분할한 기술로 Object Count 와 인식 정확도를 Chart로 간편하게 확인하세요.  
                                 </p>
                             </div>
                     </div>
-                        
                     <!-- 비디오 위치 -->
-                    <div class="input_group" style="width:400px;height: 553px;margin-top: 10%;">
-                        <div class="group">
-                            <div class="tit1" id="realTestimg">
-                                <img class="testimg" src="./resources/images/image.jpg"  style="width: 100%; max-width: 450px; vertical-align: middle">
-                            </div>
-                        </div>
-                        
-                        <div class="group">
-                            <div class="tit1" >
-                                <img src="./resources/images/image.jpg" style="width: 100%; max-width: 450px; vertical-align: middle">
-                            </div>
-                           <!--  <div class="tit">
-                                <h3>Panoptic Segmentation</h3>
-                            </div> -->
-                        </div>
-                    </div>
+					<div class="input_group"
+						style="width: 400px; height: 553px; margin-top: 10%;">
+					<!-- select  -->
+						<div class="selectBox2 ">
+							<button class="label">객체선택 🍊</button>
+						
+							<ul class="optionList">
+								<li class="optionItem"><input type='checkbox' name='object'
+									value='0' style="width: 20px; height: 20px;"checked="checked" /> road</li>
+								<li class="optionItem"><input type='checkbox' name='object'
+									value='1' style="width: 20px; height: 20px;" checked="checked"/> sidewalk</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='2'
+									style="width: 20px; height: 20px;"checked="checked" /> building</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='3'
+									style="width: 20px; height: 20px;" checked="checked"/> wall</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='4'
+									style="width: 20px; height: 20px;"checked="checked" /> fence</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='5'
+									style="width: 20px; height: 20px;"checked="checked" /> pole</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='6'
+									style="width: 20px; height: 20px;"checked="checked" /> traffic light</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='7'
+									style="width: 20px; height: 20px;"checked="checked" /> traffic sign</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='8'
+									style="width: 20px; height: 20px;" checked="checked"/> vegetation</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='9'
+									style="width: 20px; height: 20px;"checked="checked" /> terrain</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='10'
+									style="width: 20px; height: 20px;"checked="checked" /> sky</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='11'
+									style="width: 20px; height: 20px;" checked="checked"/> person</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='12'
+									style="width: 20px; height: 20px;" checked="checked"/> rider</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='13'
+									style="width: 20px; height: 20px;" checked="checked"/> car</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='14'
+									style="width: 20px; height: 20px;"checked="checked" /> truck</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='15'
+									style="width: 20px; height: 20px;" checked="checked"/> bus</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='16'
+									style="width: 20px; height: 20px;" checked="checked"/> train</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='17'
+									style="width: 20px; height: 20px;" checked="checked"/> motorcycle</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='18'
+									style="width: 20px; height: 20px;" checked="checked"/> bicycle</li>
+							</ul>
+							<button type="submit" id="submit" class="selectBnt" onclick='getCheckboxValue()'>Apply</button>
+						</div>
 
-                    <!-- chart.js -->
+                        
+						<div class="group">
+							<div class="tit1" id="realTestimg">
+								<img class="testimg" src="./resources/images/image.jpg"
+									style="width: 100%; max-width: 450px; vertical-align: middle; max-height: 217px;height: 100%;">
+							</div>
+						</div>
+
+						<div class="group">
+							<div class="tit1">
+								<img src="./resources/images/image.jpg"
+									style="width: 100%; max-width: 450px; vertical-align: middle; max-height: 217px;height: 100%;">
+							</div>
+						</div>
+					</div>
+
+					<!-- chart.js -->
                     <div class="input_group" style="margin-top: 10%;">
                         <div class="group">
                         	<div class="tit" style="align-items: center;">
@@ -2429,7 +2559,7 @@
                             </div>
                             <div class="chartCard">
 							  <div class="chartBox">
-							    <canvas id="myChart" style="width: 600px;  height: 415px;"></canvas>
+							    <canvas id="myChart" style="width: 600px;  height: 433px;"></canvas>
 							  </div>
 							</div>
                         </div>
@@ -2443,7 +2573,7 @@
                             </div>
 		                    <div class="chartCard">
 							  <div class="chartBox">
-							    <canvas id="DChart" style="width: 353px;  height: 430px; display:block;"></canvas>
+							    <canvas id="DChart" style="width: 353px;  height: 447px; display:block;"></canvas>
 							  </div>
 							</div>
                         </div>
@@ -2535,59 +2665,50 @@
             </script>
             <script>
 			    // scatter setup 
-			    const data = {
+			    const L_data = {
 			      labels: ['person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle'],
 			      datasets: [{
 			        label: 'Object Count',
 			        data: [18, 12, 6, 9, 12, 3, 9,10],
 			        backgroundColor: [
-			          'rgba(255, 26, 104, 0.2)',
-			          'rgba(54, 162, 235, 0.2)',
-			          'rgba(255, 206, 86, 0.2)',
-			          'rgba(75, 192, 192, 0.2)',
-			          'rgba(153, 102, 255, 0.2)',
-			          'rgba(255, 159, 64, 0.2)',
-			          'rgba(0, 0, 0, 0.2)'
+			          'rgba(255,107,107,0.2)',
+			          'rgba(255,159,67, 0.2)',
+			          'rgba(254,202,87, 0.2)',
+			          'rgba(243,104,224, 0.2)',
+			          'rgba(16,172,132, 0.2)',
+			          'rgba(0,210,211, 0.2)',
+			          'rgba(46,134,222, 0.2)',
+			          'rgba(200,214,229, 0.2)'
 			        ],
 			        borderColor: [
-			          'rgba(255, 26, 104, 1)',
-			          'rgba(54, 162, 235, 1)',
-			          'rgba(255, 206, 86, 1)',
-			          'rgba(75, 192, 192, 1)',
-			          'rgba(153, 102, 255, 1)',
-			          'rgba(255, 159, 64, 1)',
-			          'rgba(0, 0, 0, 1)'
+		             'rgba(255,107,107,1)',
+			          'rgba(255,159,67, 1)',
+			          'rgba(254,202,87, 1)',
+			          'rgba(243,104,224, 1)',
+			          'rgba(16,172,132, 1)',
+			          'rgba(0,210,211, 1)',
+			          'rgba(46,134,222, 1)',
+			          'rgba(200,214,229, 1)'
 			        ],
 			        borderWidth: 1
 			      },{
+			          type : 'line',
 			          label: 'Object Accuracy',
-			          data: [80, 95, 70, 66, 90, 98, 30,50],
+			          data: [80, 95, 70, 66, 90, 98, 88,50],
 			          backgroundColor: [
-			            'rgba(255, 26, 104, 0.2)',
-			            'rgba(54, 162, 235, 0.2)',
-			            'rgba(255, 206, 86, 0.2)',
-			            'rgba(75, 192, 192, 0.2)',
-			            'rgba(153, 102, 255, 0.2)',
-			            'rgba(255, 159, 64, 0.2)',
-			            'rgba(0, 0, 0, 0.2)'
+			        	  'rgba(84,160,255,0.2)'
 			          ],
 			          borderColor: [
-			            'rgba(255, 26, 104, 1)',
-			            'rgba(54, 162, 235, 1)',
-			            'rgba(255, 206, 86, 1)',
-			            'rgba(75, 192, 192, 1)',
-			            'rgba(153, 102, 255, 1)',
-			            'rgba(255, 159, 64, 1)',
-			            'rgba(0, 0, 0, 1)'
-			          ],
-			          type : 'line'
+			        	  'rgba(84,160,255,1)'
+
+			          ]
 			        }]
 			    };
 			
 			    // config 
-			    const config = {
+			    const L_config = {
 			      type: 'bar',
-			      data,
+			      data: L_data,
 			      options: {
 			        scales: {
 			          responsive: false,
@@ -2601,64 +2722,159 @@
 			    // render init block
 			    const myChart = new Chart(
 			      document.getElementById('myChart'),
-			      config
+			      L_config
 			    );
 			 </script>
 			 
-			 
-			 
-			 
+			 <!-- 도넛차트 -->
 			 <script>
-			    // doughnut setup 
-			    const d_data = {
-			      labels: ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic light', 'traffic sign', 'vegetation', 'terrain', 'sky'],
-			      datasets: [{
-			        label: 'Stuff Accuracy',
-			        data: [80, 95, 70, 66, 90, 98, 30,50,70,77,90],
-			        backgroundColor: [
-			          'rgba(255, 26, 104, 0.2)',
-			          'rgba(54, 162, 235, 0.2)',
-			          'rgba(255, 206, 86, 0.2)',
-			          'rgba(75, 192, 192, 0.2)',
-			          'rgba(153, 102, 255, 0.2)',
-			          'rgba(200, 159, 64, 0.2)',
-			          'rgba(102, 159, 64, 0.2)',
-			          'rgba(55, 159, 64, 0.2)',
-			          'rgba(5, 159, 64, 0.2)',
-			          'rgba(45, 159, 64, 0.2)',
-			          'rgba(0, 0, 0, 0.2)'
-			        ],
-			        borderColor: [
-				          'rgba(255, 26, 104, 1)',
-				          'rgba(54, 162, 235, 1)',
-				          'rgba(255, 206, 86, 1)',
-				          'rgba(75, 192, 192, 1)',
-				          'rgba(153, 102, 255, 1)',
-				          'rgba(200, 159, 64, 1)',
-				          'rgba(102, 159, 64, 1)',
-				          'rgba(55, 159, 64, 1)',
-				          'rgba(5, 159, 64, 1)',
-				          'rgba(45, 159, 64, 1)',
-				          'rgba(0, 0, 0, 1)'
-			        ],
-			        borderWidth: 1
-			      }]
-			    };
+				let selectedDatasetIndex = undefined;
+				let selectedIndex = undefined;
+				
 			
-			    // config 
-			    const d_config = {
-			      type: 'doughnut',
-			      data: d_data,
-			      options: {
-					responsive: false
-			      }
-			    };
+				// setup 
+				const data = {
+						labels: ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic light', 'traffic sign', 'vegetation', 'terrain', 'sky'],
+					    datasets: [{
+						    label: 'Stuff Accuracy',
+				    	    data: [80, 95, 70, 66, 90, 98, 30,50,70,77,90],
+				        	backgroundColor: [
+					          'rgba(255, 26, 104, 0.2)',
+					          'rgba(54, 162, 235, 0.2)',
+					          'rgba(255, 206, 86, 0.2)',
+					          'rgba(75, 192, 192, 0.2)',
+					          'rgba(153, 102, 255, 0.2)',
+					          'rgba(200, 159, 64, 0.2)',
+					          'rgba(102, 159, 64, 0.2)',
+					          'rgba(55, 159, 64, 0.2)',
+					          'rgba(5, 159, 64, 0.2)',
+					          'rgba(45, 159, 64, 0.2)',
+					          'rgba(0, 0, 0, 0.2)'
+					        ],
+					        borderColor: [
+						          'rgba(255, 26, 104, 1)',
+						          'rgba(54, 162, 235, 1)',
+						          'rgba(255, 206, 86, 1)',
+						          'rgba(75, 192, 192, 1)',
+						          'rgba(153, 102, 255, 1)',
+						          'rgba(200, 159, 64, 1)',
+						          'rgba(102, 159, 64, 1)',
+						          'rgba(55, 159, 64, 1)',
+						          'rgba(5, 159, 64, 1)',
+						          'rgba(45, 159, 64, 1)',
+						          'rgba(0, 0, 0, 1)'
+					        ],
+						    borderWidth: 1,
+						    cutout: '70%',
+						    borderRadius: 5,
+						    offset: 10
+				  	}]
+				};		
+				
+				// clickLabel pugin block
+		  		const clickLabel = {
+					id: 'clickLabel',
+					afterDraw: (chart, args, options) => {
+						const { ctx, chartArea: { width, height, top } } = chart;
+						
+						
+						
+						if(selectedDatasetIndex >= 0) {
+							console.log(chart.data.datasets[selectedDatasetIndex].data[selectedIndex]);
+							const sum = chart._metasets[selectedDatasetIndex].total;
+							const value = chart._metasets[selectedDatasetIndex]._parsed[selectedIndex];
+							const color = chart.data.datasets[selectedDatasetIndex].borderColor[selectedIndex];
+							const percentage = value / sum * 100;
+							const accuracy = chart.data.datasets[selectedDatasetIndex].data[selectedIndex];
 			
-			    // render init block
-			    const DChart = new Chart(document.getElementById('DChart'),
-			      d_config
-			    );
-			 </script>
+							ctx.save();
+							ctx.font = 'bolder 60px Arial';
+							ctx.fillStyle = color;
+							ctx.textAlign = 'center';
+							ctx.textBaseline = 'middle';
+							ctx.fillText(accuracy + '%', width/2, height/2 + top);
+							ctx.restore();
+						}
+					}
+				} 
+				
+				// config 
+				const config = {
+					type: 'doughnut',
+				    data:data,
+				    options: {
+				    	responsive: false,
+						mainTainAspectRatio: false,
+		 				plugins: {
+							legend: {
+								display: true,
+								position: 'bottom'
+							}
+				 		},
+						onClick(click, element, chart) {
+							//console.log(element[0].datasetIndex)
+							if(element[0]) {
+								selectedDatasetIndex = element[0].datasetIndex;
+								selectedIndex = element[0].index;
+								chart.draw();
+							}
+						}
+					},
+					plugins: [clickLabel]
+				};
+				
+				// render init block
+				const DChart = new Chart(
+				   document.getElementById('DChart'),
+				   config
+				);
+			</script>
+			
+			
+			<!-- 다중체크박스  -->
+			<script type="text/javascript">
+			const label = document.querySelector('.label');
+			const options = document.querySelectorAll('.optionItem');
+
+			label.addEventListener('click', function(){
+			  if(label.parentNode.classList.contains('active')) {
+			    label.parentNode.classList.remove('active');
+			  } else {
+			    label.parentNode.classList.add('active');
+			  }
+			});
+			
+			 //value 값만 나옴
+ 			function getCheckboxValue()  {
+ 				label.parentNode.classList.remove('active');
+				  // 선택된 목록 가져오기
+				  const query = 'input[name="object"]:checked';
+				  const selectedEls = 
+				      document.querySelectorAll(query);
+				  
+				  // 선택된 목록에서 value 찾기
+				  let valueResult = '';
+				  selectedEls.forEach((el) => {
+				    valueResult += el.value +',';
+				  });
+				  // 출력
+				  console.log(valueResult);
+				  console.log(typeof 'valueResult');
+				  
+			 	  $.ajax({
+						url : "ArrSocket.do",
+						type : 'post',
+						dataType : 'json',
+						data : {valueResult:valueResult},
+						success : function(data) {
+							console.log("데이터 전송 성공이야");
+			     		}
+				});
+				  
+			};  
+				
+			</script>
+			
             <footer>
                 <div class="f_top">
                     <ul>

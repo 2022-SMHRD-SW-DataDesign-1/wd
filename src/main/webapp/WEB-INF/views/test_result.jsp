@@ -2129,7 +2129,7 @@
         }
 
         .sec4 .input_group {
-            padding: 30px;
+            padding: 20px 33px;
             border-radius: 20px;
             background: var(--color-1a1e23);
             box-shadow: var(--box-shadow-M);
@@ -2346,7 +2346,7 @@
         .selectBox2 * { box-sizing: border-box; }
 		.selectBox2 {
 		  position: relative;
-		  width: 300px;
+		  width: 273px;
 		  height: 35px;
 		  border-radius: 4px;
 		  border: 2px solid #a9aaac;
@@ -2559,7 +2559,7 @@
                             </div>
                             <div class="chartCard">
 							  <div class="chartBox">
-							    <canvas id="myChart" style="width: 600px;  height: 415px;"></canvas>
+							    <canvas id="myChart" style="width: 600px;  height: 433px;"></canvas>
 							  </div>
 							</div>
                         </div>
@@ -2573,7 +2573,7 @@
                             </div>
 		                    <div class="chartCard">
 							  <div class="chartBox">
-							    <canvas id="DChart" style="width: 353px;  height: 430px; display:block;"></canvas>
+							    <canvas id="DChart" style="width: 353px;  height: 447px; display:block;"></canvas>
 							  </div>
 							</div>
                         </div>
@@ -2843,6 +2843,7 @@
 			    label.parentNode.classList.add('active');
 			  }
 			});
+			
 			 //value 값만 나옴
  			function getCheckboxValue()  {
  				label.parentNode.classList.remove('active');

@@ -2647,7 +2647,6 @@
                                     <tbody>
                                          <c:forEach var="contact" items="${list}" varStatus="status">
 												<tr>
-													<td><button onclick="getContent(${contact.req_seq})" style="background-color:transparent;">${contact.req_seq}</td>
 													<td><button onclick="getContent(${contact.req_seq})" style="background-color:transparent;">${status.count}</td>
 													<td><button onclick="getContent(${contact.req_seq})" style="background-color:transparent;">${contact.req_type}</td>
 													<td><button onclick="getContent(${contact.req_seq})" style="background-color:transparent;">${contact.company}</td>
@@ -2671,10 +2670,6 @@
                                 <table class="notice"
                                     style="border-collapse: collapse; width : 100%; table-layout: fixed; color:#a7a7a7;">
 
-                                    <tr>
-                                        <td>test</td>
-                                        <td>${contact.req_seq}</td>
-                                    </tr>
                                     <tr>
                                         <td>문의유형</td>
                                         <td>${contact.req_type}</td>

@@ -39,10 +39,28 @@
     border: solid 3px rgba(54, 162, 235, 1);
     background: white;
   }
+  
+  #area {
+  position: relative; /* absolute는 부모가 relative일 때 부모를 따라간다. */
+  width: 450px;
+  height:327px;
+  padding-bottom: 56.25%; /* 16:9 비율 */
+}
+
+#video {
+  position: absolute;
+  width: 100%; /* 부모에 맞게 꽉 채운다. */
+  height: 100%;
+}
 </style>
  
 </head>
 <body>
+<div id="area">
+  <iframe id="video" src="http://172.30.1.6:5000/stream" />
+</div>
+
+
 	<div class="chartCard">
 		<div class="chartBox">
 			<canvas id="DChart" style="width: 353px;  height: 430px; display:block;"></canvas>

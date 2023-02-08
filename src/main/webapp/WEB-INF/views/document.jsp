@@ -5,142 +5,156 @@
 <html lang="ko">
 <head>
 <title>jQuery ComboBox</title>
-<link rel="stylesheet"
-	href="https://www.jqwidgets.com/public/jqwidgets/styles/jqx.base.css"
-	type="text/css" />
-<link rel="stylesheet"
-	href="https://www.jqwidgets.com/public/jqwidgets/styles/jqx.energyblue.css"
-	type="text/css" />
-<script type="text/javascript"
-	src="https://www.jqwidgets.com/public/jqwidgets/jqx-all.js"></script>
-<!--     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-    <script type="text/javascript" src="../../jqwidgets/jqxcore.js"></script>
-    <script type="text/javascript" src="../../jqwidgets/jqxbuttons.js"></script>
-    <script type="text/javascript" src="../../jqwidgets/jqxscrollbar.js"></script>
-    <script type="text/javascript" src="../../jqwidgets/jqxlistbox.js"></script>-->
-<style type="text/css">
-li {
-	list-style: none;
-}
-
-       /* form */
-/*        #Div{
-            position: absolute;
-            visibility: hidden;
-            font-size: 12px;
-            background-color: whitesmoke;
-
-            width: 200px;
-        }
-       ul{
-            border: 1px solid black;
-            height: 100%;
-            margin: 0px;
-            padding: 0px;
-        }
-        li{
-            list-style: none;
-            border : 1px solid white;
-
-            display: flex;
-        }
-
-        li * {
-            border:  1px solid pink;
-        }
-
-        .section1{
-            flex-grow : 1;
-        }
-
-        .section2 {
-            flex-grow: 9;
-        } */
+<script src="resources/plugins/jquery/jquery.min.js"></script>
+	
+<script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>   
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+  .chartMenu {
+    width: 100vw;
+    height: 40px;
+    background: #1A1A1A;
+    color: rgba(54, 162, 235, 1);
+  }
+  .chartMenu p {
+    padding: 10px;
+    font-size: 20px;
+  }
+  .chartCard {
+    width: 100vw;
+    height: calc(100vh - 40px);
+    background: rgba(54, 162, 235, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .chartBox {
+    width: 400px;
+    padding: 20px;
+    border-radius: 20px;
+    border: solid 3px rgba(54, 162, 235, 1);
+    background: white;
+  }
 </style>
+ 
 </head>
 <body>
-
-	<!-- <div class="input_group"
-		style="width: 100px; height: 553px; margin-top: 10%;">
-		<ul>
-			<li><input type='checkbox' name='object' value='0'
-				style="width: 20px; height: 20px;" /> road</li>
-			<li><input type='checkbox' name='object' value='1'
-				style="width: 20px; height: 20px;" /> sidewalk</li>
-			<li><input type='checkbox' name='object' value='2'
-				style="width: 20px; height: 20px;" /> building</li>
-			<li><input type='checkbox' name='object' value='3'
-				style="width: 20px; height: 20px;" /> wall</li>
-			<li><input type='checkbox' name='object' value='4'
-				style="width: 20px; height: 20px;" /> fence</li>
-			<li><input type='checkbox' name='object' value='5'
-				style="width: 20px; height: 20px;" /> pole</li>
-			<li><input type='checkbox' name='object' value='6'
-				style="width: 20px; height: 20px;" /> traffic light</li>
-			<li><input type='checkbox' name='object' value='7'
-				style="width: 20px; height: 20px;" /> traffic sign</li>
-			<li><input type='checkbox' name='object' value='8'
-				style="width: 20px; height: 20px;" /> vegetation</li>
-			<li><input type='checkbox' name='object' value='9'
-				style="width: 20px; height: 20px;" /> terrain</li>
-			<li><input type='checkbox' name='object' value='10'
-				style="width: 20px; height: 20px;" /> sky</li>
-			<li><input type='checkbox' name='object' value='11'
-				style="width: 20px; height: 20px;" /> person</li>
-			<li><input type='checkbox' name='object' value='12'
-				style="width: 20px; height: 20px;" /> rider</li>
-			<li><input type='checkbox' name='object' value='13'
-				style="width: 20px; height: 20px;" /> car</li>
-			<li><input type='checkbox' name='object' value='14'
-				style="width: 20px; height: 20px;" /> truck</li>
-			<li><input type='checkbox' name='object' value='15'
-				style="width: 20px; height: 20px;" /> bus</li>
-			<li><input type='checkbox' name='object' value='16'
-				style="width: 20px; height: 20px;" /> train</li>
-			<li><input type='checkbox' name='object' value='17'
-				style="width: 20px; height: 20px;" /> motorcycle</li>
-			<li><input type='checkbox' name='object' value='18'
-				style="width: 20px; height: 20px;" /> bicycle</li>
-		</ul>
-
-	</div> -->
-
-	<form name="form1">
-		<table cellpadding="0" cellspacing="0" style="cursor: pointer"
-			onClick="multiSelect('OPEN')">
-			<tr>
-				<td align="center" width="200"
-					style="border: 1px solid; font-size: 12px;">선택 객체</td>
-				<td><input type="button" value="▼"></td>
-			</tr>
-		</table>
-
-		<div id="Div"style="position: absolute; visibility: hidden; font-size: 12px;">
-			<ul>
-				<li><input type="checkbox" name="chk1" id="chk1">1</li>
-				<li><input type="checkbox" name="chk2" id="chk2">2</li>
-				<li><input type="checkbox" name="chk3" id="chk3">3</li>
-				<li><input type="checkbox" name="chk4" id="chk4">4</li>
-				<li><input type="checkbox" name="chk5" id="chk5">5</li>
-				<li><input type="checkbox" name="chk6" id="chk6">6</li>
-				<li><input type="checkbox" name="chk7" id="chk7">7</li>
-			</ul>
-			<div style="padding-top: 3px; text-align: right">
-				<input type="button" value="확인" onClick="multiSelect('CLOSE')">
-			</div>
+	<div class="chartCard">
+		<div class="chartBox">
+			<canvas id="DChart" style="width: 353px;  height: 430px; display:block;"></canvas>
 		</div>
-	</form>
-
-
-
-	<!-- 다중체크박스  -->
+	</div>
+	
 	<script>
-		function multiSelect(value) {
-			if (value == "OPEN")
-				Div.style.visibility = "visible";
-			else
-				Div.style.visibility = "hidden";
+		setTimeout(function(){
+			location.reload();
+		}, 50000);
+	</script>
+	
+	 <script>
+	let selectedDatasetIndex = undefined;
+	let selectedIndex = undefined;
+	
+
+	// setup 
+	let data = {
+			labels: ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic light', 'traffic sign', 'vegetation', 'terrain', 'sky'],
+		    datasets: [{
+			    label: 'Stuff Accuracy',
+	    	    data: [80, 95, 70, 66, 90, 98, 30,50,70,77,90],
+	        	backgroundColor: [
+		          'rgba(255, 26, 104, 0.2)',
+		          'rgba(54, 162, 235, 0.2)',
+		          'rgba(255, 206, 86, 0.2)',
+		          'rgba(75, 192, 192, 0.2)',
+		          'rgba(153, 102, 255, 0.2)',
+		          'rgba(200, 159, 64, 0.2)',
+		          'rgba(102, 159, 64, 0.2)',
+		          'rgba(55, 159, 64, 0.2)',
+		          'rgba(5, 159, 64, 0.2)',
+		          'rgba(45, 159, 64, 0.2)',
+		          'rgba(0, 0, 0, 0.2)'
+		        ],
+		        borderColor: [
+			          'rgba(255, 26, 104, 1)',
+			          'rgba(54, 162, 235, 1)',
+			          'rgba(255, 206, 86, 1)',
+			          'rgba(75, 192, 192, 1)',
+			          'rgba(153, 102, 255, 1)',
+			          'rgba(200, 159, 64, 1)',
+			          'rgba(102, 159, 64, 1)',
+			          'rgba(55, 159, 64, 1)',
+			          'rgba(5, 159, 64, 1)',
+			          'rgba(45, 159, 64, 1)',
+			          'rgba(0, 0, 0, 1)'
+		        ],
+			    borderWidth: 1,
+			    cutout: '70%',
+			    borderRadius: 5,
+			    offset: 10
+	  	}]
+	};		
+	
+	// clickLabel pugin block
+ 		let clickLabel = {
+		id: 'clickLabel',
+		afterDraw: (chart, args, options) => {
+			const { ctx, chartArea: { width, height, top } } = chart;
+			
+			
+			
+			if(selectedDatasetIndex >= 0) {
+				console.log(chart.data.datasets[selectedDatasetIndex].data[selectedIndex]);
+				let sum = chart._metasets[selectedDatasetIndex].total;
+				let value = chart._metasets[selectedDatasetIndex]._parsed[selectedIndex];
+				let color = chart.data.datasets[selectedDatasetIndex].borderColor[selectedIndex];
+				let percentage = value / sum * 100;
+				let accuracy = chart.data.datasets[selectedDatasetIndex].data[selectedIndex];
+
+				ctx.save();
+				ctx.font = 'bolder 60px Arial';
+				ctx.fillStyle = color;
+				ctx.textAlign = 'center';
+				ctx.textBaseline = 'middle';
+				ctx.fillText(accuracy + '%', width/2, height/2 + top);
+				ctx.restore();
+			}
 		}
+	} 
+	
+	// config 
+	let d_config = {
+		type: 'doughnut',
+	    data:data,
+	    options: {
+			mainTainAspectRatio: false,
+				plugins: {
+				legend: {
+					display: true,
+					position: 'bottom'
+				}
+	 		},
+			onClick(click, element, chart) {
+				//console.log(element[0].datasetIndex)
+				if(element[0]) {
+					selectedDatasetIndex = element[0].datasetIndex;
+					selectedIndex = element[0].index;
+					chart.draw();
+				}
+			}
+		},
+		plugins: [clickLabel]
+	};
+	
+	// render init block
+	let DChart = new Chart(
+	   document.getElementById('DChart'),
+	   d_config
+	);
 	</script>
 </body>
 </html>

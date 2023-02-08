@@ -57,6 +57,7 @@ public class ContactController {
 	@GetMapping(value = "/DeleteAsync.do")
 	public boolean DeleteAsync(@RequestParam("req_seq") int req_seq) {
 		System.out.println("삭제신청컨트롤러");
+		System.out.println(req_seq);
 		int res = wwsMapper.contactDelete(req_seq);
 		if (res > 0) {
 			System.out.println("삭제성공");

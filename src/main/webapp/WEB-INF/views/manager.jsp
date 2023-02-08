@@ -2647,6 +2647,7 @@
                                     <tbody>
                                          <c:forEach var="contact" items="${list}" varStatus="status">
 												<tr>
+													<td><button onclick="getContent(${contact.req_seq})" style="background-color:transparent;">${contact.req_seq}</td>
 													<td><button onclick="getContent(${contact.req_seq})" style="background-color:transparent;">${status.count}</td>
 													<td><button onclick="getContent(${contact.req_seq})" style="background-color:transparent;">${contact.req_type}</td>
 													<td><button onclick="getContent(${contact.req_seq})" style="background-color:transparent;">${contact.company}</td>
@@ -2670,6 +2671,10 @@
                                 <table class="notice"
                                     style="border-collapse: collapse; width : 100%; table-layout: fixed; color:#a7a7a7;">
 
+                                    <tr>
+                                        <td>test</td>
+                                        <td>${contact.req_seq}</td>
+                                    </tr>
                                     <tr>
                                         <td>문의유형</td>
                                         <td>${contact.req_type}</td>
@@ -2731,8 +2736,8 @@
 										<h2>삭제 하시겠습니까?</h2>
 										<ul>
 											<div class="btn_bottom">
-												<button type="submit" class="b_type2" onclick="deleteContent(${contact.req_seq}); location.href='Manager.do'">네</button>
-												<button type="submit" class="b_type1" onclick="location.href=''">아니오</button>
+												<button class="b_type2" onclick="deleteContent(${contact.req_seq}); location.href='Manager.do'">네</button>
+												<button class="b_type1" onclick="location.href=''">아니오</button>
 											</div>
 										</ul>
 									</div>
@@ -2767,6 +2772,7 @@
 
 
             <script>
+            let choiceCout =0;
                 $(document).ready(function () {
                     $('.main_wrap .side_menu .mode_change').click(function () {
                         $(this).toggleClass('on')
@@ -2849,10 +2855,13 @@
                     }
                 });
                 
+           
+                
                 // 상세 의뢰서 작성
                 function getContent(req_seq) {
 					//데이터 확인버튼 클릭 => 바로 아래 쪽에 있는 tr 태그를 보이게 할 것
 					// 다시 한번 더 버튼 클릭시 tr태그 안보이게 할 것 
+					choiceCout = req_seq;
 					if($('.content'+req_seq).css('display')=='none'){
 						$('.content'+req_seq).show();
 						$.ajax({
@@ -2881,14 +2890,16 @@
 					//boardDeleteAsync.do 요청
 					// 요청 데이터 : 게시물 번호
 					// get 요청
+					
+						console.log(choiceCout);
 						$.ajax({
 						url: 'DeleteAsync.do', //요청 경로
-						data: {req_seq:req_seq} ,
+						data: {req_seq:choiceCout} ,
 						type : 'get', 
 						success: function(res) { //요청, 응답이 성공했을 때 실행하는 함수
 							console.log(res);
 							//새로고침
-							location.reload();
+							// location.reload();
 						},
 						error: function () { //요청,응답이 실패했을때 실행
 							console.log('fail');

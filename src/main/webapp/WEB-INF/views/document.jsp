@@ -16,7 +16,57 @@
     
 </head>
 <body>
-<div id='jqxComboBox'></div>
+
+<h2 align=center>Auto Video Stream to Still Image</h2>
+
+<video  id="myVideo" width="400" height="300" style="border: 1px solid #ddd;"></video>
+<canvas id="myCanvas" width="160" height="140" style="border: 1px solid #ddd;"></canvas><br>
+
+<input type=button value="get Video" onclick="{getVideo()}">
+<input type=button value="get Pic" onclick="{takeSnapshot()}"><br>
+Take snapshot every <input type=number id="myInterval"  value="3000"> milliseconds
+<input type=button value="Auto" onclick="{takeAuto()}">
+
+<script type="text/javascript">
+var myVideoStream = document.getElementById('myVideo')     // make it a global variable
+var myStoredInterval = 0
+
+function getVideo(){
+navigator.getMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+navigator.getMedia({video: true, audio: false},
+                   
+	function(stream) {
+	  myVideoStream.srcObject = stream   
+	  myVideoStream.play();
+	}, 
+                   
+	function(error) {
+	  alert('webcam not working');
+	});
+}
+
+function takeSnapshot() {
+	var myCanvasElement = document.getElementById('myCanvas');
+	var myCTX = myCanvasElement.getContext('2d');
+	myCTX.drawImage(myVideoStream, 0, 0, myCanvasElement.width, myCanvasElement.height);
+}
+
+function takeAuto() {
+	takeSnapshot() // get snapshot right away then wait and repeat
+	clearInterval(myStoredInterval)
+	myStoredInterval = setInterval(function(){                                                                                         
+		takeSnapshot()
+	}, document.getElementById('myInterval').value);        
+}
+
+
+</script>
+
+
+
+
+
+<!-- <div id='jqxComboBox'></div>
 <div>
    <input style="margin-top: 20px;" type="button" id='jqxButton' value="확인하기" /> 
 </div>
@@ -79,6 +129,6 @@
             $("#jqxComboBox").jqxComboBox('checkItem',"Breve");
         });
         </script>
-
+ -->
 </body>
 </html>

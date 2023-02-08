@@ -85,20 +85,30 @@ public class SocketController {
 					
 			// 파이썬에서 보내는 값
 			System.out.println("값 받아오기");
-			in.readFully(data);
+			in.read(data);
+			System.out.println("밍라ㅓ미아러");
+			System.out.println(data);
 			
-			String l = "C:\\upload\\";
+			
+			String l = request.getSession().getServletContext().getRealPath("/");
+			String defaultfile = l+"resources\\images\\result_img\\";
+			System.out.println(defaultfile);
+			
 			ByteArrayInputStream input_stream = new ByteArrayInputStream(data);
 			BufferedImage p_image = ImageIO.read(input_stream);
-			ImageIO.write(p_image, "jpg", new File(l+name[1]));
-			String fileload = name[1];
+			ImageIO.write(p_image, "jpg", new File(defaultfile+name[2]));
+			String fileload = name[2];
 			System.out.println(fileload);
 
 			// dout.flush();
 			dout.close();
 			soc.close();
 			
-			model.addAttribute("image", image);
+			int idx = image.indexOf("_"); 
+			String filename = image.substring(idx+5);
+			System.out.println(filename);
+			
+			model.addAttribute("filename", filename);
 			model.addAttribute("fileload",fileload);
 			System.out.println("닫힘");
 			return "test_result";

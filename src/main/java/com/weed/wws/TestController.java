@@ -1,7 +1,8 @@
 package com.weed.wws;
 
 import java.io.File;
-
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
@@ -32,7 +33,7 @@ public class TestController {
 	//폴더 생성
 	private String getFolder() {
 
-		String str = "upload\\";
+		String str = "original_img\\";
 		
 		return str;
 	}
@@ -44,11 +45,13 @@ public class TestController {
 
 		String email = request.getParameter("email");
 	    System.out.println("email: " + email);
-		
-		String uploadFolder = "C:\\";
+
+		String l = request.getSession().getServletContext().getRealPath("/");
+		String defaultfile = l+"resources\\images\\";
+		System.out.println(defaultfile);	    
 
 		// make folder
-		File uploadPath = new File(uploadFolder, getFolder());
+		File uploadPath = new File(defaultfile, getFolder());
 		System.out.println("upload path: "+uploadPath);
 		
 		if (uploadPath.exists() == false) {

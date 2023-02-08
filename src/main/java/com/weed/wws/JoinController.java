@@ -1,6 +1,7 @@
 package com.weed.wws;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.lang.reflect.Member;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,21 +29,26 @@ public class JoinController {
 	private JoinMapper joinMapper;
 	
 	// 회원가입
-
 	@PostMapping(value = "/Join.do")
-	public String JoinInsert(WeedDTO dto) throws IOException {
+	public String JoinInsert(WeedDTO dto, HttpServletResponse response) throws IOException {
 		
 		try {
-		System.out.println("ttttt");
-		System.out.println(dto.getEmail());
-		System.out.println(dto.getCompany());
-		System.out.println(dto.getPassword());
-		joinMapper.Join(dto);
-		System.out.println("회원가입성공");
-		return "redirect:/Main.do";
+			System.out.println("ttttt");
+			System.out.println(dto.getEmail());
+			System.out.println(dto.getCompany());
+			System.out.println(dto.getPassword());
+			joinMapper.Join(dto);
+			System.out.println("회원가입성공");
+			return "redirect:/Main.do";
 		}catch (Exception e) {
 			e.printStackTrace();
-			return "redirect:/Main.do";
+			/*
+			 * response.setContentType("text/html; charset=utf-8"); PrintWriter w =
+			 * response.getWriter();
+			 * w.write("<script>alert('빈 칸 없이 작성해주세요');history.go(-1);</script>");
+			 * w.flush(); w.close();
+			 */
+			return "";
 		}
 		
 	}

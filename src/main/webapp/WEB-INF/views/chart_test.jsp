@@ -7,168 +7,229 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
+<script src="resources/plugins/jquery/jquery.min.js"></script>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+  }
+  .chartMenu {
+    width: 100vw;
+    height: 40px;
+    background: #1A1A1A;
+    color: rgba(54, 162, 235, 1);
+  }
+  .chartMenu p {
+    padding: 10px;
+    font-size: 20px;
+  }
+  .chartCard {
+    width: 100vw;
+    height: calc(100vh - 40px);
+    background: rgba(54, 162, 235, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .chartBox {
+    width: 400px;
+    padding: 20px;
+    border-radius: 20px;
+    border: solid 3px rgba(54, 162, 235, 1);
+    background: white;
+  }
+</style>
 </head>
 <body>
-	<div class="chart-container" style="position: relative; height:200px; width:60vw">
-		<canvas id="myChart"></canvas>
+
+<div class="chartCard">
+	<div class="chartBox">
+		<canvas id="myChart" style="width: 600px;  height: 415px;"></canvas>
 	</div>
-	<button type="button" id="reData">데이터 변경</button>
-	<button type="button" id="addData">데이터 추가</button>
-	<button type="button" id="addDataSet">데이터셋 추가</button>
-	<button type="button" id="delData">데이터 삭제</button>
-	<button type="button" id="delDataset">데이터셋 삭제</button>
-
-
-
-
-
+</div>
 
 <script>
 
-var ctx = document.getElementById('myChart'); // 차트가 그려지는 영역
+// test 차트
+let barDataset =  [
+	Math.floor(Math.random() * 50),
+	Math.floor(Math.random() * 50),
+	Math.floor(Math.random() * 50),
+	Math.floor(Math.random() * 50),
+	Math.floor(Math.random() * 50),
+	Math.floor(Math.random() * 50),
+	Math.floor(Math.random() * 50),
+	Math.floor(Math.random() * 50)
+];
 
-var config = {
+let lineDataset =  [
+	Math.floor(Math.random() * 100),
+	Math.floor(Math.random() * 100),
+	Math.floor(Math.random() * 100),
+	Math.floor(Math.random() * 100),
+	Math.floor(Math.random() * 100),
+	Math.floor(Math.random() * 100),
+	Math.floor(Math.random() * 100),
+	Math.floor(Math.random() * 100)
+];
+
+
+// 지정한 시각마다 reload
+function test(){
+	setTimeout(function(){	
+		
+		// ajax 선언, 성공 함수, 넘어오는 data를 넣어주기
+		$.ajax({
+			url : 'ChartSocket.do',
+			type: 'get',
+			/* dataType:'text', */
+			success: function() {
+				console.log()
+				
+				// 넘어오는 data 대입
+				rdNum1 = [
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50)
+				];
+				rdNum2 = [
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100)
+				];
+				
+				console.log(rdNum1);
+				console.log(rdNum2);
+				
+				L_data = {
+					labels: [ 
+						'person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle' // x축 라벨
+					],
+					datasets: [{
+						label: 'Object Count', // 범례 이름
+						backgroundColor: 'rgba(75, 192, 192, 1)',
+						borderColor: 'rgba(75, 192, 192, 1)',
+						data: rdNum1,
+						borderWidth: 1
+					}, {
+						type:'line',
+						label: 'Object Accuracy',
+						backgroundColor: 'rgba(255, 99, 132, 1)',
+						borderColor: 'rgba(255, 99, 132, 1)',
+						fill: false,
+						data: rdNum2,
+					}]
+				}
+				
+		
+				L_config = {
+					type: 'bar',
+					data: L_data,
+					options: {
+						maintainAspectRatio: false,
+						title: {
+							text: 'Chart.js Time Scale'
+						},
+						scales: {
+							resposive: false, // default값 true, 차트 크기를 변경하기 위해 false로 변경
+							y: {
+								beginAtZero: true // y축 값 0부터 시작
+							}
+						}
+					} // options end
+				};
+		
+		
+				myChart.destroy();
+				myChart = new Chart(
+					document.getElementById('myChart'),
+					L_config
+				);
+				
+				return test();
+				
+			}, // success end
+			error : function() {
+				console.log()
+			} // error end
+		
+		});// ajax end
+	     
+	}, 2000); // timr end
+};// test end
+
+test(); // 페이지 업로드 된 후 실행되는 함수
+
+
+// 차트 초기 데이터
+let rdNum1 = [0, 0, 0, 0, 0, 0, 0, 0 ];
+let rdNum2 = [0, 0, 0, 0, 0, 0, 0, 0 ];
+let zeroNum = [0, 0, 0, 0, 0, 0, 0, 0 ];
+
+
+// 차트 전체 data
+let L_data = {
+	labels: [ 
+		'person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle' // x축 라벨
+	],
+	datasets: [{
+		label: 'Object Count', // 범례 이름
+		backgroundColor: 'rgba(75, 192, 192, 1)',
+		borderColor: 'rgba(75, 192, 192, 1)',
+		data: zeroNum,
+		borderWidth: 1
+	}, {
+		type:'line',
+		label: 'Object Accuracy',
+		backgroundColor: 'rgba(255, 99, 132, 1)',
+		borderColor: 'rgba(255, 99, 132, 1)',
+		fill: false,
+		data: zeroNum
+	}]
+}// L_data end
+
+
+// 차트 설정
+let L_config = {
 	type: 'bar',
-	data: {
-		labels: [ // Date Objects
-			'person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle'
-		],
-		datasets: [{
-			label: 'My First dataset',
-			backgroundColor: 'rgba(75, 192, 192, 1)',
-			borderColor: 'rgba(75, 192, 192, 1)',
-			fill: false,
-			data: [
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50)
-			],
-		}, {
-			label: 'My Second dataset',
-			backgroundColor: 'rgba(255, 99, 132, 1)',
-			borderColor: 'rgba(255, 99, 132, 1)',
-			fill: false,
-			data: [
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50)
-			],
-		}]
-	},
+	data: L_data,
 	options: {
 		maintainAspectRatio: false,
 		title: {
 			text: 'Chart.js Time Scale'
 		},
 		scales: {
-			yAxes: [{
-				scaleLabel: {
-					display: true,
-					labelString: '차트'
-				}
-			}]
-		},
-	}
-};
- 
-//차트 그리기
-const myChart = new Chart(ctx, config);
- 
-
-
-
-
-
-//데이터 변경
-document.getElementById('reData').onclick = function(){
-	
-	//데이터셋 수 만큼 반복
-	var dataset = config.data.datasets;
-	for(var i=0; i<dataset.length; i++){
-		console.log(dataset);
-		//데이터 갯수 만큼 반복
-		var data = dataset[i].data;
-		for(var j=0 ; j < data.length ; j++){
-			data[j] = Math.floor(Math.random() * 50);
+			resposive: false, // default값 true, 차트 크기를 변경하기 위해 false로 변경
+			y: {
+				beginAtZero: true // y축 값 0부터 시작
+			}
 		}
-	}
-	
-	myChart.update();	//차트 업데이트
-}
-
-//데이터 추가
-document.getElementById('addData').onclick = function(){
-	
-	//라벨추가
-	config.data.labels.push('data'+config.data.labels.length)
-	
-	//데이터셋 수 만큼 반복
-	var dataset = config.data.datasets;
-	for(var i=0; i<dataset.length; i++){
-		//데이터셋의 데이터 추가
-		dataset[i].data.push(Math.floor(Math.random() * 50));
-	}
-	myChart.update();	//차트 업데이트
-}
-
-//데이터셋 추가
-document.getElementById('addDataSet').onclick = function(){
-	var color1 = Math.floor(Math.random() * 256);
-	var color2 = Math.floor(Math.random() * 256);
-	var color3 = Math.floor(Math.random() * 256);
-	
-	console.log(color1 + " " + color2 + " " + color3)
-	
-	var newDataset = {
-		label: 'new Dataset'+config.data.datasets.length,
-		borderColor : 'rgba('+color1+', '+color2+', '+color3+', 1)',
-		backgroundColor : 'rgba('+color1+', '+color2+', '+color3+', 1)',
-		data: [],
-		fill: false
-	}
-	
-	// newDataset에 데이터 삽입
-	for (var i=0; i< config.data.labels.length; i++){
-		var num = Math.floor(Math.random() * 50);
-		newDataset.data.push(num);
-	}
-	
-	// chart에 newDataset 푸쉬
-	config.data.datasets.push(newDataset);
-	
-	myChart.update();	//차트 업데이트
-}
-
-//데이터 삭제
-document.getElementById('delData').onclick = function(){
-	
-	config.data.labels.splice(-1,1);//라벨 삭제
-	
-	//데이터 삭제
-	config.data.datasets.forEach(function(dataset) {
-		dataset.data.pop();
-	});
-	
-	myChart.update();	//차트 업데이트
-}
-
-//데이터셋 삭제
-document.getElementById('delDataset').onclick = function(){
-	config.data.datasets.splice(-1,1);
-	myChart.update();	//차트 업데이트
-}
+	} // options end
+}; // config end
+ 
+// 차트 그리기
+let myChart = new Chart(
+	document.getElementById('myChart'),
+	L_config
+);
 </script>
+
+
 </body>
 </html>

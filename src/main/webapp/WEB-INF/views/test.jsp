@@ -37,7 +37,6 @@
 <link rel="stylesheet" href="resources/css/default.css">
 <link rel="stylesheet" href="resources/css/main.css">
 
-
 <!--javascript-->
 <script src="resources/plugins/jquery/jquery.min.js"></script>
 <script
@@ -2412,47 +2411,10 @@
 
 								if (file) {
 									reader.readAsDataURL(file);
-									/* console.log(reader.readAsDataURL(file)); */
 								}
 							}
-                            
-							/*  function readURL(obj) {
-
-                                let reader = new FileReader();
-                                if(!obj.files.length) {
-                                    return;
-                                }
-                                reader.readAsDataURL(obj.files[0]);
-                                reader.onload = function (e) {
-                                    let img = $('<img class="testimg"/>');
-                                    $(img).attr('src', e.target.result);
-                                    $('#realTestimg').append(img);
-                                }
-                            } */
-                            
-							/* $("#testimg").change(function(){
-								if(this.files && this.files[0]) {
-									var reader = new FileReader();
-									reader.onload = function(data) {
-										console.log(reader.result);
-										$("#realTestimg img").attr("src", data.target.result);        
-									}
-									reader.readAsDataURL(this.files[0]);
-								}
-							}); */
                         </script>
                     </div>
-
-<!--                     <div class="input_group">
-                        <div class="group">
-                            <div class="tit1" style="margin-top: 7.85%;">
-                                <img src="./resources/images/image.jpg" style="width: 600px; height: 320px;">
-                            </div>
-                            <div class="tit">
-                                <h3>Panoptic Segmentation</h3>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </section>
 

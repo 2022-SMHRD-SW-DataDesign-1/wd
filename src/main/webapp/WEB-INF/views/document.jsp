@@ -52,11 +52,11 @@ function takeSnapshot() {
 }
 
 function takeAuto() {
-	takeSnapshot() // get snapshot right away then wait and repeat
-	clearInterval(myStoredInterval)
-	myStoredInterval = setInterval(function(){                                                                                         
-		takeSnapshot()
-	}, document.getElementById('myInterval').value);        
+  takeSnapshot() // get snapshot right away then wait and repeat
+  clearInterval(myStoredInterval)
+  myStoredInterval = setInterval(function(){                                                                                         
+     takeSnapshot()
+ }, document.getElementById('myInterval').value);        
 }
 
 

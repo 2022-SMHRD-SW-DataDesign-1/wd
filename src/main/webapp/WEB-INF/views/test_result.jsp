@@ -1,3 +1,4 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
@@ -2484,7 +2485,7 @@
                                 </p>
                             </div>
                     </div>
-
+                    <!-- 비디오 위치 -->
 					<div class="input_group"
 						style="width: 400px; height: 553px; margin-top: 10%;">
 					<!-- select  -->
@@ -2493,61 +2494,61 @@
 						
 							<ul class="optionList">
 								<li class="optionItem"><input type='checkbox' name='object'
-									value='0' style="width: 20px; height: 20px;" /> road</li>
+									value='0' style="width: 20px; height: 20px;"checked="checked" /> road</li>
 								<li class="optionItem"><input type='checkbox' name='object'
-									value='1' style="width: 20px; height: 20px;" /> sidewalk</li>
+									value='1' style="width: 20px; height: 20px;" checked="checked"/> sidewalk</li>
 								<li class="optionItem"><input type='checkbox' name='object' value='2'
-									style="width: 20px; height: 20px;" /> building</li>
+									style="width: 20px; height: 20px;"checked="checked" /> building</li>
 								<li class="optionItem"><input type='checkbox' name='object' value='3'
-									style="width: 20px; height: 20px;" /> wall</li>
+									style="width: 20px; height: 20px;" checked="checked"/> wall</li>
 								<li class="optionItem"><input type='checkbox' name='object' value='4'
-									style="width: 20px; height: 20px;" /> fence</li>
+									style="width: 20px; height: 20px;"checked="checked" /> fence</li>
 								<li class="optionItem"><input type='checkbox' name='object' value='5'
-									style="width: 20px; height: 20px;" /> pole</li>
+									style="width: 20px; height: 20px;"checked="checked" /> pole</li>
 								<li class="optionItem"><input type='checkbox' name='object' value='6'
-									style="width: 20px; height: 20px;" /> traffic light</li>
+									style="width: 20px; height: 20px;"checked="checked" /> traffic light</li>
 								<li class="optionItem"><input type='checkbox' name='object' value='7'
-									style="width: 20px; height: 20px;" /> traffic sign</li>
+									style="width: 20px; height: 20px;"checked="checked" /> traffic sign</li>
 								<li class="optionItem"><input type='checkbox' name='object' value='8'
-									style="width: 20px; height: 20px;" /> vegetation</li>
+									style="width: 20px; height: 20px;" checked="checked"/> vegetation</li>
 								<li class="optionItem"><input type='checkbox' name='object' value='9'
-									style="width: 20px; height: 20px;" /> terrain</li>
+									style="width: 20px; height: 20px;"checked="checked" /> terrain</li>
 								<li class="optionItem"><input type='checkbox' name='object' value='10'
-									style="width: 20px; height: 20px;" /> sky</li>
+									style="width: 20px; height: 20px;"checked="checked" /> sky</li>
 								<li class="optionItem"><input type='checkbox' name='object' value='11'
-									style="width: 20px; height: 20px;" /> person</li>
+									style="width: 20px; height: 20px;" checked="checked"/> person</li>
 								<li class="optionItem"><input type='checkbox' name='object' value='12'
-									style="width: 20px; height: 20px;" /> rider</li>
+									style="width: 20px; height: 20px;" checked="checked"/> rider</li>
 								<li class="optionItem"><input type='checkbox' name='object' value='13'
-									style="width: 20px; height: 20px;" /> car</li>
+									style="width: 20px; height: 20px;" checked="checked"/> car</li>
 								<li class="optionItem"><input type='checkbox' name='object' value='14'
-									style="width: 20px; height: 20px;" /> truck</li>
+									style="width: 20px; height: 20px;"checked="checked" /> truck</li>
 								<li class="optionItem"><input type='checkbox' name='object' value='15'
-									style="width: 20px; height: 20px;" /> bus</li>
+									style="width: 20px; height: 20px;" checked="checked"/> bus</li>
 								<li class="optionItem"><input type='checkbox' name='object' value='16'
-									style="width: 20px; height: 20px;" /> train</li>
+									style="width: 20px; height: 20px;" checked="checked"/> train</li>
 								<li class="optionItem"><input type='checkbox' name='object' value='17'
-									style="width: 20px; height: 20px;" /> motorcycle</li>
+									style="width: 20px; height: 20px;" checked="checked"/> motorcycle</li>
 								<li class="optionItem"><input type='checkbox' name='object' value='18'
-									style="width: 20px; height: 20px;" /> bicycle</li>
+									style="width: 20px; height: 20px;" checked="checked"/> bicycle</li>
 							</ul>
 							<button type="submit" id="submit" class="selectBnt" onclick='getCheckboxValue()'>Apply</button>
 						</div>
-						
-                    <div class="input_group" style="width:350px;height: 553px;">
-	                    
-                        <div class="group">
-                            <div class="tit1" id="realTestimg">
-                                <img class="testimg" src="./resources/images/original_img/${filename}" style="width: 100%; max-width: 450px; vertical-align: middle">
-                            </div>
-                        </div>
+
                         
-                        <div class="group">
-                            <div class="tit1" >
-                                <img src="./resources/images/result_img/${fileload}" style="width: 100%; max-width: 450px; vertical-align: middle">
-                            </div>
-                        </div>
-                    </div>
+						<div class="group">
+							<div class="tit1" id="realTestimg">
+								<img class="testimg" src="./resources/images/image.jpg"
+									style="width: 100%; max-width: 450px; vertical-align: middle">
+							</div>
+						</div>
+
+						<div class="group">
+							<div class="tit1">
+								<img src="./resources/images/image.jpg"
+									style="width: 100%; max-width: 450px; vertical-align: middle">
+							</div>
+						</div>
 					</div>
 
 					<!-- chart.js -->
@@ -2827,9 +2828,8 @@
 				   document.getElementById('DChart'),
 				   config
 				);
-
-	    
-	
+			</script>
+			
 			
 			<!-- 다중체크박스  -->
 			<script type="text/javascript">
@@ -2843,51 +2843,37 @@
 			    label.parentNode.classList.add('active');
 			  }
 			});
-			//value 값만 나옴
+			 //value 값만 나옴
  			function getCheckboxValue()  {
+ 				label.parentNode.classList.remove('active');
 				  // 선택된 목록 가져오기
 				  const query = 'input[name="object"]:checked';
 				  const selectedEls = 
 				      document.querySelectorAll(query);
 				  
 				  // 선택된 목록에서 value 찾기
-				  let result = '';
+				  let valueResult = '';
 				  selectedEls.forEach((el) => {
-				    result += el.value + ' ';
+				    valueResult += el.value +',';
 				  });
 				  // 출력
-				  console.log(result);
+				  console.log(valueResult);
+				  console.log(typeof 'valueResult');
 				  
 			 	  $.ajax({
 						url : "ArrSocket.do",
 						type : 'post',
-						data : result,
+						dataType : 'json',
+						data : {valueResult:valueResult},
 						success : function(data) {
 							console.log("데이터 전송 성공이야");
-			     		}/* ,
-			     		error function() {
-			     			alert("error");
-			     		} */
+			     		}
 				});
 				  
-			}; 
+			};  
 				
-			//배열에 담음 
-/* 			    function getCheckboxValue(){
-			        var obj = $("[name=object]");
-			        var chkArray = new Array(); // 배열 선언
-			 
-			        $('input:checkbox[name=object]:checked').each(function() { // 체크된 체크박스의 value 값을 가지고 온다.
-			            chkArray.push(this.value);
-			        });
-			        
-			        console.log(chkArray);
-			        
-			    } */
-			    
 			</script>
 			
-
             <footer>
                 <div class="f_top">
                     <ul>
@@ -2926,4 +2912,3 @@
 </body>
 
 </html>
-

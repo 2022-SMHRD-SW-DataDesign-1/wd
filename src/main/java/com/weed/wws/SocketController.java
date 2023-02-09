@@ -29,6 +29,15 @@ public class SocketController {
 
 	@Autowired
 	private WwsMapper wwsMapper;
+	
+	//폴더 생성
+	private String getFolders() {
+
+		String str = "result_img\\";
+		
+		return str;
+	}
+	
 
 	@RequestMapping(value = "/Socket.do")
 	public String Socket(HttpServletRequest request, HttpServletResponse response, MultipartFile multipartFile, Model model)
@@ -90,14 +99,21 @@ public class SocketController {
 			in.read(data);
 			System.out.println(data);
 			
-			
 			String l = request.getSession().getServletContext().getRealPath("/");
-			String defaultfile = l+"resources\\images\\result_img\\";
+			String defaultfile = l+"resources\\images\\";
 			System.out.println(defaultfile);
 			
+			// make folder
+			File uploadPath = new File(defaultfile, getFolders());
+			System.out.println("upload path: "+uploadPath);
+			
+			if (uploadPath.exists() == false) {
+				uploadPath.mkdirs(); // make folder
+			}
+
 			ByteArrayInputStream input_stream = new ByteArrayInputStream(data);
 			BufferedImage p_image = ImageIO.read(input_stream);
-			ImageIO.write(p_image, "jpg", new File(defaultfile+name[2]));
+			ImageIO.write(p_image, "jpg", new File(uploadPath+"\\"+name[2]));
 			String fileload = name[2];
 			System.out.println(fileload);
 			

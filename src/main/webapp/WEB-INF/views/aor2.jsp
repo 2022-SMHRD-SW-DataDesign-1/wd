@@ -2667,8 +2667,7 @@
 				}
                          
             </script>
-            
-            
+<c:out value="${class_list }" />
 <script>
 
 // test 차트
@@ -2695,6 +2694,9 @@ let lineDataset =  [
 ];
 
 
+
+
+
 // 지정한 시각마다 reload
 function test(){
 	//setTimeout(function(){	
@@ -2706,9 +2708,6 @@ function test(){
 			/* dataType:'text', */
 			success: function() {
 				console.log()
-				consol.log(${class_list});
-				consol.log(${count_list});
-				consol.log(${score_list});
 
 				// 넘어오는 data 대입
 				rdNum1 = [

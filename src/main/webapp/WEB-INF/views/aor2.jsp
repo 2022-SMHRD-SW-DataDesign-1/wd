@@ -2706,7 +2706,10 @@ function test(){
 			/* dataType:'text', */
 			success: function() {
 				console.log()
-				
+				consol.log(${class_list});
+				consol.log(${count_list});
+				consol.log(${score_list});
+
 				// 넘어오는 data 대입
 				rdNum1 = [
 					Math.floor(Math.random() * 50),
@@ -2796,7 +2799,6 @@ test(); // 페이지 업로드 된 후 실행되는 함수
 let rdNum1 = [0, 0, 0, 0, 0, 0, 0, 0 ];
 let rdNum2 = [0, 0, 0, 0, 0, 0, 0, 0 ];
 let zeroNum = [0, 0, 0, 0, 0, 0, 0, 0 ];
-
 
 // 차트 전체 data
 let L_data = {

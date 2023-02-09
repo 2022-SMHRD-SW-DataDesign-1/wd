@@ -2667,68 +2667,187 @@
 				}
                          
             </script>
-            <script>
-			    // scatter setup 
-			    const L_data = {
-			      labels: ['person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle'],
-			      datasets: [{
-			        label: 'Object Count',
-			        data: [18, 12, 6, 9, 12, 3, 9,10],
-			        backgroundColor: [
-			          'rgba(255,107,107,0.2)',
-			          'rgba(255,159,67, 0.2)',
-			          'rgba(254,202,87, 0.2)',
-			          'rgba(243,104,224, 0.2)',
-			          'rgba(16,172,132, 0.2)',
-			          'rgba(0,210,211, 0.2)',
-			          'rgba(46,134,222, 0.2)',
-			          'rgba(200,214,229, 0.2)'
-			        ],
-			        borderColor: [
-		             'rgba(255,107,107,1)',
-			          'rgba(255,159,67, 1)',
-			          'rgba(254,202,87, 1)',
-			          'rgba(243,104,224, 1)',
-			          'rgba(16,172,132, 1)',
-			          'rgba(0,210,211, 1)',
-			          'rgba(46,134,222, 1)',
-			          'rgba(200,214,229, 1)'
-			        ],
-			        borderWidth: 1
-			      },{
-			          type : 'line',
-			          label: 'Object Accuracy',
-			          data: [80, 95, 70, 66, 90, 98, 88,50],
-			          backgroundColor: [
-			        	  'rgba(84,160,255,0.2)'
-			          ],
-			          borderColor: [
-			        	  'rgba(84,160,255,1)'
+            
+            
+<script>
 
-			          ]
-			        }]
-			    };
-			
-			    // config 
-			    const L_config = {
-			      type: 'bar',
-			      data: L_data,
-			      options: {
-			        scales: {
-			          responsive: false,
-			          y: {
-			            beginAtZero: true
-			          }
-			        }
-			      }
-			    };
-			
-			    // render init block
-			    const myChart = new Chart(
-			      document.getElementById('myChart'),
-			      L_config
-			    );
-			 </script>
+// test 차트
+let barDataset =  [
+	Math.floor(Math.random() * 50),
+	Math.floor(Math.random() * 50),
+	Math.floor(Math.random() * 50),
+	Math.floor(Math.random() * 50),
+	Math.floor(Math.random() * 50),
+	Math.floor(Math.random() * 50),
+	Math.floor(Math.random() * 50),
+	Math.floor(Math.random() * 50)
+];
+
+let lineDataset =  [
+	Math.floor(Math.random() * 100),
+	Math.floor(Math.random() * 100),
+	Math.floor(Math.random() * 100),
+	Math.floor(Math.random() * 100),
+	Math.floor(Math.random() * 100),
+	Math.floor(Math.random() * 100),
+	Math.floor(Math.random() * 100),
+	Math.floor(Math.random() * 100)
+];
+
+
+// 지정한 시각마다 reload
+function test(){
+	setTimeout(function(){	
+		
+		// ajax 선언, 성공 함수, 넘어오는 data를 넣어주기
+		$.ajax({
+			url : 'ChartSocket.do',
+			type: 'get',
+			/* dataType:'text', */
+			success: function() {
+				console.log()
+				
+				// 넘어오는 data 대입
+				rdNum1 = [
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50)
+				];
+				rdNum2 = [
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100)
+				];
+				
+				console.log(rdNum1);
+				console.log(rdNum2);
+				
+				L_data = {
+					labels: [ 
+						'person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle' // x축 라벨
+					],
+					datasets: [{
+						label: 'Object Count', // 범례 이름
+						backgroundColor: 'rgba(75, 192, 192, 1)',
+						borderColor: 'rgba(75, 192, 192, 1)',
+						data: rdNum1,
+						borderWidth: 1
+					}, {
+						type:'line',
+						label: 'Object Accuracy',
+						backgroundColor: 'rgba(255, 99, 132, 1)',
+						borderColor: 'rgba(255, 99, 132, 1)',
+						fill: false,
+						data: rdNum2,
+					}]
+				}
+				
+		
+				L_config = {
+					type: 'bar',
+					data: L_data,
+					options: {
+						maintainAspectRatio: false,
+						title: {
+							text: 'Chart.js Time Scale'
+						},
+						scales: {
+							resposive: false, // default값 true, 차트 크기를 변경하기 위해 false로 변경
+							y: {
+								beginAtZero: true // y축 값 0부터 시작
+							}
+						}
+					} // options end
+				};
+		
+		
+				myChart.destroy();
+				myChart = new Chart(
+					document.getElementById('myChart'),
+					L_config
+				);
+				
+				return test();
+				
+			}, // success end
+			error : function() {
+				console.log()
+			} // error end
+		
+		});// ajax end
+	     
+	}, 5000); // timr end
+};// test end
+
+test(); // 페이지 업로드 된 후 실행되는 함수
+
+
+// 차트 초기 데이터
+let rdNum1 = [0, 0, 0, 0, 0, 0, 0, 0 ];
+let rdNum2 = [0, 0, 0, 0, 0, 0, 0, 0 ];
+let zeroNum = [0, 0, 0, 0, 0, 0, 0, 0 ];
+
+
+// 차트 전체 data
+let L_data = {
+	labels: [ 
+		'person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle' // x축 라벨
+	],
+	datasets: [{
+		label: 'Object Count', // 범례 이름
+		backgroundColor: 'rgba(75, 192, 192, 1)',
+		borderColor: 'rgba(75, 192, 192, 1)',
+		data: zeroNum,
+		borderWidth: 1
+	}, {
+		type:'line',
+		label: 'Object Accuracy',
+		backgroundColor: 'rgba(255, 99, 132, 1)',
+		borderColor: 'rgba(255, 99, 132, 1)',
+		fill: false,
+		data: zeroNum
+	}]
+}// L_data end
+
+
+// 차트 설정
+let L_config = {
+	type: 'bar',
+	data: L_data,
+	options: {
+		maintainAspectRatio: false,
+		title: {
+			text: 'Chart.js Time Scale'
+		},
+		scales: {
+			resposive: false, // default값 true, 차트 크기를 변경하기 위해 false로 변경
+			y: {
+				beginAtZero: true // y축 값 0부터 시작
+			}
+		}
+	} // options end
+}; // config end
+ 
+// 차트 그리기
+let myChart = new Chart(
+	document.getElementById('myChart'),
+	L_config
+);
+</script>            
+
+            
+           <!-- <!--  --> --> 
+
 			 
 			 <!-- 도넛차트 -->
 			 <script>

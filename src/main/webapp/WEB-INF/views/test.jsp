@@ -1689,15 +1689,15 @@
         /* 주히 추가 case 문의 버튼 위치 수정 */
         .b_type2 {
             margin: auto;
-            padding: 6px 5px;
-            background: var(- -color-03f);
-            color: var(- -color-fff);
+            padding: 10px 20px;
+            background: var(--color-03f);
+            color: var(--color-fff);
             text-align: center;
             border-radius: 100px;
-            min-width: 50px;
+            min-width: 120px;
             transition: all .3s ease;
             display: inline-block;
-            font-size: 15px;
+            font-size: 18px;
         }
 
         .b_type3 {
@@ -2321,6 +2321,27 @@
         	width: 530px;
         	height: 320px;
         } */
+        
+        #loading {
+        width: 50%;
+        height: 50%;
+        position: fixed;
+        display: flex;
+        opacity: 0.8;
+        background: white;
+        z-index: 100000;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        }
+        
+        #loading > img {
+        top:50%;
+        left:50%;
+        position: absolute;
+        z-index: 100000;
+        transform: translate(-50%, -50%);
+        }
     </style>
 
 
@@ -2360,20 +2381,24 @@
                 </a>
                 <ul class="gnb">
                     <li><a href="index.do" class="en" onclick="location.href='index.do'"><span>Home</span></a></li>
-                    <div class="btn_bottom" style="z-index: 100; margin-top: -10px;">
+                    <div class="btn_bottom" style="margin-top: -10px;">
                         <button type="submit" class="b_type3" onclick="">${member.email}</button>
                     </div>
 
                 </ul>
             </div>
+
 			
             <!-- 추가 -->
             <section class="swiper-slide sec4" style="height: 881px; margin-bottom: 30px;">
                 <div class="container">
 
                     <div class="input_group" id="testimgdiv">
+                     
+            			<div id="loading">
+            				<img src="./resources/images/loading.gif" alt="loading">
+            			</div>
 	                    
-                        
                         <div class="group">
                             <div class="tit">
                                 <h3>도로 환경 사진으로 테스트 해보세요</h3>
@@ -2381,13 +2406,11 @@
                         </div>
                         
 	                    <!-- 이미지 업로드 -->
-                        <form action="imgSave.do" method="post" enctype="multipart/form-data">
+                        <form action="imgSave.do" method="post" enctype="multipart/form-data" id="next">
 	                        <div style="width: 100%; text-align:center;">
-	                        	
 	                        	<input type="file" name="uploadFile" onchange="previewImg()"style="width:90%; height:90%; max-height: 320px;max-width: 500px; color:#B4B4B4;display: none;"> 
 								<img class="testimg" src="./resources/images/testimg.png" style="width: 90%; height:90%; max-height: 320px;max-width: 500px; vertical-align: middle border:0;" onclick="document.all.uploadFile.click();">
 	                        	<input type="hidden" name="email" value="${member.email}">
-	                        	
 	                        </div>
 	                        	<div style="text-align:center; margin-top:2%;">
 	                            	<input type="submit" class="b_type2" value=" >> 분석 시작 >> " >
@@ -2513,6 +2536,17 @@
                 })
             </script>
             
+            <script>
+            $(document).ready(function() {
+            	$('#loading').hide();
+            	
+            	$('#next').submit(function(){
+            		$('#loading').show();
+            		return true;
+            		});
+            	});
+            </script>
+            
             <footer>
                 <div class="f_top">
                     <ul>
@@ -2549,5 +2583,6 @@
 
 
 </body>
+
 
 </html>

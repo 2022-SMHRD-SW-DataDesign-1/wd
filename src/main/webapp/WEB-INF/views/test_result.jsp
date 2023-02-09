@@ -2485,6 +2485,7 @@
                                 </p>
                             </div>
                     </div>
+                    
                     <!-- 비디오 위치 -->
 					<div class="input_group"
 						style="width: 400px; height: 553px; margin-top: 10%;">
@@ -2538,14 +2539,14 @@
                         
 						<div class="group">
 							<div class="tit1" id="realTestimg">
-								<img class="testimg" src="./resources/images/image.jpg"
+								<img class="testimg" src="./resources/images/original_img/${filename}"
 									style="width: 100%; max-width: 450px; vertical-align: middle">
 							</div>
 						</div>
 
 						<div class="group">
 							<div class="tit1">
-								<img src="./resources/images/image.jpg"
+								<img src="./resources/images/result_img/${fileload}"
 									style="width: 100%; max-width: 450px; vertical-align: middle">
 							</div>
 						</div>

@@ -2697,16 +2697,19 @@ let lineDataset =  [
 
 // 지정한 시각마다 reload
 function test(){
-	setTimeout(function(){	
+	//setTimeout(function(){	
 		
 		// ajax 선언, 성공 함수, 넘어오는 data를 넣어주기
 		$.ajax({
-			url : 'ChartSocket.do',
+			url : 'ChartSocket2.do',
 			type: 'get',
 			/* dataType:'text', */
 			success: function() {
 				console.log()
-				
+				consol.log(${class_list});
+				consol.log(${count_list});
+				consol.log(${score_list});
+
 				// 넘어오는 data 대입
 				rdNum1 = [
 					Math.floor(Math.random() * 50),
@@ -2786,7 +2789,7 @@ function test(){
 		
 		});// ajax end
 	     
-	}, 5000); // timr end
+	//}, 5000); // timr end
 };// test end
 
 test(); // 페이지 업로드 된 후 실행되는 함수
@@ -2796,7 +2799,6 @@ test(); // 페이지 업로드 된 후 실행되는 함수
 let rdNum1 = [0, 0, 0, 0, 0, 0, 0, 0 ];
 let rdNum2 = [0, 0, 0, 0, 0, 0, 0, 0 ];
 let zeroNum = [0, 0, 0, 0, 0, 0, 0, 0 ];
-
 
 // 차트 전체 data
 let L_data = {
@@ -3009,7 +3011,7 @@ let myChart = new Chart(
 				   
 				   
 				};
-				doPopupopen();
+				//doPopupopen();
 			</script>
 			
 			

@@ -3126,7 +3126,7 @@
                                                 <span class="desc2"><b>결과물</b>을 만듭니다.</span>
                                             </h2>
                                             <div class="btn_bottom" style="z-index: 100;">
-                                                <button type="submit" class="b_type3" onclick="">로그아웃</button>
+                                                <button type="submit" class="b_type3" onclick="">Logout</button>
                                             </div>
                                         </div>
                                     </div>
@@ -3155,7 +3155,7 @@
                                                 <span class="desc2">객체 인식 기술 <b>PANOPTIC SEGMENTATION</b>를 구현합니다.</span>
                                             </h2>
                                             <div class="btn_bottom" style="z-index: 100;">
-                                                <button type="submit" class="b_type3" onclick="">로그아웃</button>
+                                                <button type="submit" class="b_type3" onclick="">Logout</button>
                                             </div>
                                         </div>
                                     </div>
@@ -3185,7 +3185,7 @@
                                                 <span class="desc2">시도하고 <b>변화할 것</b> 입니다.</span>
                                             </h2>
                                             <div class="btn_bottom" style="z-index: 100;">
-                                                <button type="submit" class="b_type3" onclick="">로그아웃</button>
+                                                <button type="submit" class="b_type3" onclick="">Logout</button>
                                             </div>
                                         </div>
                                     </div>
@@ -3214,7 +3214,7 @@
                                                 <span class="desc2"><b>결과물</b>을 만듭니다.</span>
                                             </h2>
                                             <div class="btn_bottom" style="z-index: 100;">
-                                                <button type="submit" class="b_type3" onclick="">로그아웃</button>
+                                                <button type="submit" class="b_type3" onclick="">Logout</button>
                                             </div>
                                         </div>
                                     </div>
@@ -3292,7 +3292,7 @@
                                         <h3>Image Test</h3>
                                         </div>
                                         <div class="text1">
-                                        	<p>당신이 가진 이미지로 객체 인식 기술을 체험해보세요</p>
+                                        	<p  style="text-align: center; padding: 100px 0px;">당신이 가진 이미지로 객체 인식 기술을 체험해보세요</p>
 	                                        <div class="btn_bottom">
 	                                            <button type="submit" class="b_type2"
 	                                                onclick="location.href='Test.do'" style="display: block;">실행</button>
@@ -3305,11 +3305,11 @@
                                             <h3>Panoptic</h3>
                                         </div>
                                         <div class="text2">
-	                                        <p>저희가 사용한 기술에 대해 자세히 알아보세요.
+	                                        <p  style="text-align: center; padding: 50px 0px;">저희가 사용한 기술에 대해 자세히 알아보세요.
 	                                        객체 인식 분할 방식 중 가장 최신 기술인 Panoptic Segmentation 입니다.</p>
 	                                        <div class="btn_bottom">
 	                                            <button type="submit" class="b_type2"
-	                                                onclick="location.href='Document.do'" style="display: block;">Document</button>
+	                                                onclick="location.href='https://github.com/google-research/deeplab2/blob/main/g3doc/projects/panoptic_deeplab.md'" style="display: block;">Document</button>
 	                                        </div>
                                     	</div>
                                     </div>
@@ -3319,7 +3319,7 @@
                                             <h3>시연 영상</h3>
                                         </div>
                                             <div class="text3">
-	                                        <p>실시간으로 받아오는 영상을 분석하고 있습니다. 실시간 분석 영상 화면을 시청해보세요.</p>
+	                                        <p  style="text-align: center; padding: 100px 0px;">실시간으로 받아오는 영상을 분석하고 있습니다. 실시간 분석 영상 화면을 시청해보세요.</p>
 	                                        <div class="btn_bottom">
 	                                            <button type="submit" class="b_type2"
 	                                                onclick="location.href='AOR.do'" style="display: block;">보러가기</button>

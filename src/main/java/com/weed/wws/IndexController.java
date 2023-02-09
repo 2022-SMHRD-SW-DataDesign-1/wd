@@ -41,6 +41,11 @@ public class IndexController {
 		return "aor";
 	}
 	
+	@RequestMapping(value="/AOR_test.do")
+	public String aor2() {
+		return "aor2";
+	}
+	
 	
 	@RequestMapping(value="/rt.do")
 	public String tr() {
@@ -51,6 +56,12 @@ public class IndexController {
 		return "chart_test";
 	
 
+	}
+	@RequestMapping(value="/pop.do")
+	public String pop() {
+		return "pop";
+		
+		
 	}
 	
 }

@@ -2323,16 +2323,18 @@
         } */
         
         #loading {
-        width: 50%;
-        height: 50%;
+        width: 39%;
+        height: 49%;
         position: fixed;
-        display: flex;
-        opacity: 0.8;
-        background: white;
+        display: inline-block;
+        opacity: 0.9;
+        background: #252526;
         z-index: 100000;
         text-align: center;
-        align-items: center;
-        justify-content: center;
+        border-radius:50px;
+        margin:inherit;
+        border-style: 2px dashed white;
+        
         }
         
         #loading > img {
@@ -2396,7 +2398,7 @@
                     <div class="input_group" id="testimgdiv">
                      
             			<div id="loading">
-            				<img src="./resources/images/loading.gif" alt="loading">
+            				<img src="./resources/images/lo1.gif" alt="loading" style="border-radius:50%; width:300px; height:300px;">
             			</div>
 	                    
                         <div class="group">

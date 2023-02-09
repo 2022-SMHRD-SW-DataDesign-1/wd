@@ -3119,14 +3119,13 @@
                                                 <div class="next" tabindex="0" role="button" aria-label="Next slide">
                                                     NEXT</div>
                                             </div>
-                                        </div>
                                         <div class="txt_box">
                                             <h2 class="tit">
                                                 <span class="desc1">우리는 <b>수준 높은</b></span>
                                                 <span class="desc2"><b>결과물</b>을 만듭니다.</span>
                                             </h2>
                                             <div class="btn_bottom" style="z-index: 100;">
-                                                <button type="submit" class="b_type3" onclick="">로그아웃</button>
+                                                <button type="submit" class="b_type3" onclick="">Logout</button>
                                             </div>
                                         </div>
                                     </div>
@@ -3711,6 +3710,8 @@
                 }
             })
         </script>
+    
+			
         <footer>
             <div class="f_top">
                 <ul>

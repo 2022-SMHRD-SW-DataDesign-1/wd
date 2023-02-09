@@ -47,8 +47,8 @@
 #area {
 	position: relative; /* absolute는 부모가 relative일 때 부모를 따라간다. */
 	width: 450px;
-	height: 400px;
-	/* padding-bottom: 56.25%; /* 16:9 비율 */ */
+	height:217px;
+	/* padding-bottom: 56.25%; /* 16:9 비율 */ */ 
 }
 
 #video {
@@ -61,9 +61,14 @@
 </head>
 <body>
 <div id="area">
-  <iframe id="video" src="http://172.30.1.6:5000/stream" />
+  <iframe id="video" src="http://172.30.1.6:5000/stream" scrolling="no" />
+<!-- <iframe id='frame' 
+    src='http://172.30.1.6:5000/stream'
+    frameborder='0'
+    scrolling='no' 
+    style='width: 100%;'
+    onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';"></iframe> -->
 </div>
-
 
 	<div class="chartCard">
 		<div class="chartBox">

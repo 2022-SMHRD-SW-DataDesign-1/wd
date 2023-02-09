@@ -2536,12 +2536,16 @@
 						</div>
 
                         
-						<div class="group">
+				<!-- 		<div class="group">
 							<div class="tit1" id="realTestimg">
-								<img class="testimg" src="./resources/images/image.jpg"
-									style="width: 100%; max-width: 450px; vertical-align: middle; max-height: 217px;height: 100%;">
+								<video controls width="250">
+    							<source src="http://172.30.1.6:5000/stream" type="video/webm">
+    							</video>
+    							
+								<iframe class="testimg" id="video" src="http://172.30.1.6:5000/stream" scrolling="no" 
+								style="width: 100%; max-width: 450px; vertical-align: middle; max-height: 217px;height: 100%;"/>
 							</div>
-						</div>
+						</div> -->
 
 						<div class="group">
 							<div class="tit1">
@@ -2874,6 +2878,21 @@
 			};  
 				
 			</script>
+			
+			<!-- 팝업창 -->
+			<script type="text/javascript">
+				function doPopupopen() {
+					
+				  var url = "pop.do";
+			      var name = "popup";
+			      var option = "width = 660, height = 500, top = 100, left = 200, location = no"
+				  window.open(url, name, option);
+				   
+				   
+				};
+				doPopupopen();
+			</script>
+			
 			
             <footer>
                 <div class="f_top">

@@ -2540,14 +2540,14 @@
 						<div class="group">
 							<div class="tit1" id="realTestimg">
 								<img class="testimg" src="./resources/images/original_img/${filename}"
-									style="width: 100%; max-width: 450px; vertical-align: middle">
+									style="width: 100%; max-width: 450px; vertical-align: middle; max-height: 217px;height: 100%;">
 							</div>
 						</div>
 
 						<div class="group">
 							<div class="tit1">
 								<img src="./resources/images/result_img/${fileload}"
-									style="width: 100%; max-width: 450px; vertical-align: middle">
+									style="width: 100%; max-width: 450px; vertical-align: middle;  max-height: 217px;height: 100%;">
 							</div>
 						</div>
 					</div>

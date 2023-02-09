@@ -1,6 +1,7 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -14,7 +15,6 @@
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <!--css-->
 <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -39,12 +39,10 @@
 
 <!--javascript-->
 <script src="resources/plugins/jquery/jquery.min.js"></script>
-<script
-	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 <script src="resources/plugins/sweetalert2/sweetalert2.all.min.js"></script>
-
- <style>
+<style>
         .swal2-popup.swal2-toast {
             box-sizing: border-box;
             grid-column: 1/4 !important;
@@ -1689,15 +1687,15 @@
         /* 주히 추가 case 문의 버튼 위치 수정 */
         .b_type2 {
             margin: auto;
-            padding: 10px 20px;
-            background: var(--color-03f);
-            color: var(--color-fff);
+            padding: 6px 5px;
+            background: var(- -color-03f);
+            color: var(- -color-fff);
             text-align: center;
-            border-radius: 100px;
-            min-width: 120px;
+            border-radius: 10px;
+            min-width: 50px;
             transition: all .3s ease;
             display: inline-block;
-            font-size: 18px;
+            font-size: 15px;
         }
 
         .b_type3 {
@@ -2093,8 +2091,7 @@
             height: 100%;
             display: flex;
             align-items: center;
-            gap: 0 100px;
-            position: relative;
+            gap: 0 15px;
         }
 
         .sec4 .info_group {
@@ -2103,7 +2100,6 @@
             gap: 20px;
             width: 50%;
             margin-bottom: 120px;
-            
         }
 
         .sec4 .info_group ul {
@@ -2133,16 +2129,15 @@
         }
 
         .sec4 .input_group {
-            padding: 30px;
+            padding: 20px 33px;
             border-radius: 20px;
             background: var(--color-1a1e23);
             box-shadow: var(--box-shadow-M);
-            width: 80%;
+            /* width: 80%; */
             display: flex;
             flex-direction: column;
-            gap: 30px 0;
-            position: absolute;
-            margin-left:9%
+            gap: 15px 0;
+            /* margin-right: 50px; */
         }
 
         .modal_logout .input_group {
@@ -2203,7 +2198,7 @@
             position: relative;
         }
 
-        .sec4 .input_group ul li::after {
+/*         .sec4 .input_group ul li::after {
             position: absolute;
             left: 15px;
             top: 0;
@@ -2213,7 +2208,7 @@
             font-size: 10px;
             color: var(--color-a7a7a7);
             background: var(--color-1a1e23);
-        }
+        } */
 
         .sec4 .input_group ul li input,
         .sec4 .input_group ul li textarea,
@@ -2322,28 +2317,115 @@
         	height: 320px;
         } */
         
-        #loading {
-        width: 39%;
-        height: 49%;
-        position: fixed;
-        display: inline-block;
-        opacity: 0.9;
-        background: #252526;
-        z-index: 100000;
-        text-align: center;
-        border-radius:50px;
-        margin:inherit;
-        border-style: 2px dashed white;
-        
+        .tit_group {
+         	position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 500px;
         }
-        
-        #loading > img {
-        top:50%;
-        left:50%;
-        position: absolute;
-        z-index: 100000;
-        transform: translate(-50%, -50%);
+        .tit {
+            display: flex;
+            align-items: flex-end;
+            gap: 0 30px;
+            margin-bottom: 5%;
         }
+        .tit * {
+            line-height: 1;
+        }
+
+        .tit p {
+            font-size: 16px;
+            color: var(--color-fff);
+            opacity: .5;
+            transform: translateY(-7px);
+            line-height: 1.4;
+        }
+        /* li { list-style:none;} */
+        /* select */
+        .selectBox2 * { box-sizing: border-box; }
+		.selectBox2 {
+		  position: relative;
+		  width: 273px;
+		  height: 35px;
+		  border-radius: 4px;
+		  border: 2px solid #a9aaac;
+		  background-size: 20px;
+		  cursor: pointer;
+		  display:-webkit-inline-box;
+		}
+		
+		.selectBox2:after {
+		  content: '';
+		  display: block;
+		  width: 2px;
+		  height: 100%; 
+		  position: absolute; 
+		  top: 0; 
+		  right: 35px;
+		  background: #a9aaac;
+		}
+		
+		.selectBox2 .label {
+		  display: flex;
+		  align-items: center;
+		  width: inherit;
+		  height: inherit;
+		  border: 0 none;
+		  outline: 0 none;
+		  padding-left: 20px;
+		  background: transparent;
+		  cursor: pointer;
+		  font-size: 14px;
+		}
+		
+		.selectBox2 .optionList {
+		  position: absolute; 
+		  top: 28px;
+		  left: 0;
+		  width: 100%;
+		  background: #a9aaacf7;
+    	  color: #373636;
+		  list-style-type: none;
+		  padding: 0;
+		  border-radius: 6px;
+		  overflow: auto;
+		  max-height: 0;
+		  transition: .3s ease-in;
+		}
+		
+		.selectBox2.active .optionList {
+		  max-height: 500px;
+		}
+		
+		.selectBox2 .optionItem {
+		  border-bottom: 1px dashed #777;
+		  padding: 5px 15px 5px;
+		  transition: .1s;
+		  font-size: x-large;
+		}
+		
+		.selectBox2 .optionItem:hover {
+		  background: rgba(77, 109, 239, 0.25);
+		}
+		
+		.selectBox2 .optionItem:last-child {
+		  border-bottom: 0 none;
+		}
+		.selectBnt{
+			display: -webkit-box;
+		    margin-left: 5px;
+		    border-radius: inherit;
+		    background-color: a9aaac;
+		    width: 38px;
+		}
+		
+		// 스크롤 커스텀
+		.selectBox2 .optionList::-webkit-scrollbar {width: 6px;}
+		.selectBox2 .optionList::-webkit-scrollbar-track {background: transparent; }
+		.selectBox2 .optionList::-webkit-scrollbar-thumb {background: #303030; border-radius: 45px;}
+		.selectBox2 .optionList::-webkit-scrollbar-thumb:hover {background: #303030;}
+		
     </style>
 
 
@@ -2353,6 +2435,7 @@
     <script src="resources/js/bootstrap-dialog.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css" rel="stylesheet"
         type="text/css">
     <script src="resources/plugins/ckeditor/ckeditor.js"></script>
@@ -2374,74 +2457,139 @@
 </head>
 
 <body>
+
     <div class="main_wrap">
         <div class="swiper main_swiper swiper-container-initialized swiper-container-vertical">
             <div class="main_header">
-                <a href="index.do" class="logo">
+                <a href="index.do" onclick="location.href='index.do'" class="logo">
                     <div class="img"><img src="./resources/images/weed_log2.jpg"></div>
                     <span class="en"> <b>WHO WITH SERVICE</b></span>
                 </a>
                 <ul class="gnb">
                     <li><a href="index.do" class="en" onclick="location.href='index.do'"><span>Home</span></a></li>
-                    <div class="btn_bottom" style="margin-top: -10px;">
+                    <div class="btn_bottom" style="z-index: 100; margin-top: -10px;">
                         <button type="submit" class="b_type3" onclick="">${member.email}</button>
                     </div>
 
                 </ul>
             </div>
 
-			
             <!-- 추가 -->
             <section class="swiper-slide sec4" style="height: 881px; margin-bottom: 30px;">
                 <div class="container">
-
-                    <div class="input_group" id="testimgdiv">
-                     
-            			<div id="loading">
-            				<img src="./resources/images/lo1.gif" alt="loading" style="border-radius:50%; width:300px; height:300px;">
-            			</div>
-	                    
-                        <div class="group">
+                	<!-- 제목 -->
+                	<div class="tit_group" >
                             <div class="tit">
-                                <h3>도로 환경 사진으로 테스트 해보세요</h3>
+                                <h2 class="h_type1 en"><span>Panoptic Analysis</span></h2>
+                                <p>19개 class로 분할한 기술로 Object Count 와 인식 정확도를 Chart로 간편하게 확인하세요.  
+                                </p>
                             </div>
-                        </div>
-                        
-	                    <!-- 이미지 업로드 -->
-                        <form action="imgSave.do" method="post" enctype="multipart/form-data" id="next">
-	                        <div style="width: 100%; text-align:center;">
-	                        	<input type="file" name="uploadFile" onchange="previewImg()"style="width:90%; height:90%; max-height: 320px;max-width: 500px; color:#B4B4B4;display: none;"> 
-								<img class="testimg" src="./resources/images/testimg.png" style="width: 90%; height:90%; max-height: 320px;max-width: 500px; vertical-align: middle border:0;" onclick="document.all.uploadFile.click();">
-	                        	<input type="hidden" name="email" value="${member.email}">
-	                        </div>
-	                        	<div style="text-align:center; margin-top:2%;">
-	                            	<input type="submit" class="b_type2" value=" >> 분석 시작 >> " >
-	                            </div>
-                        </form>
-                        <script>
-                        /* 이미지 미리보기 */
-                            function previewImg() {
-								let preview = document.querySelector('.testimg');
-								let file = document.querySelector('input[type=file]').files[0];
-								let reader = new FileReader();
-
-								reader.addEventListener(
-									'load',
-									function () {
-										preview.src = reader.result;
-										console.log(reader.result);
-									},
-									false
-								);
-
-								if (file) {
-									reader.readAsDataURL(file);
-								}
-							}
-                        </script>
                     </div>
+                    <!-- 비디오 위치 -->
+					<div class="input_group"
+						style="width: 400px; height: 553px; margin-top: 10%;">
+					<!-- select  -->
+						<div class="selectBox2 ">
+							<button class="label">객체선택 🍊</button>
+						
+							<ul class="optionList">
+								<li class="optionItem"><input type='checkbox' name='object'
+									value='0' style="width: 20px; height: 20px;"checked="checked" /> road</li>
+								<li class="optionItem"><input type='checkbox' name='object'
+									value='1' style="width: 20px; height: 20px;" checked="checked"/> sidewalk</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='2'
+									style="width: 20px; height: 20px;"checked="checked" /> building</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='3'
+									style="width: 20px; height: 20px;" checked="checked"/> wall</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='4'
+									style="width: 20px; height: 20px;"checked="checked" /> fence</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='5'
+									style="width: 20px; height: 20px;"checked="checked" /> pole</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='6'
+									style="width: 20px; height: 20px;"checked="checked" /> traffic light</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='7'
+									style="width: 20px; height: 20px;"checked="checked" /> traffic sign</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='8'
+									style="width: 20px; height: 20px;" checked="checked"/> vegetation</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='9'
+									style="width: 20px; height: 20px;"checked="checked" /> terrain</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='10'
+									style="width: 20px; height: 20px;"checked="checked" /> sky</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='11'
+									style="width: 20px; height: 20px;" checked="checked"/> person</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='12'
+									style="width: 20px; height: 20px;" checked="checked"/> rider</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='13'
+									style="width: 20px; height: 20px;" checked="checked"/> car</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='14'
+									style="width: 20px; height: 20px;"checked="checked" /> truck</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='15'
+									style="width: 20px; height: 20px;" checked="checked"/> bus</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='16'
+									style="width: 20px; height: 20px;" checked="checked"/> train</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='17'
+									style="width: 20px; height: 20px;" checked="checked"/> motorcycle</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='18'
+									style="width: 20px; height: 20px;" checked="checked"/> bicycle</li>
+							</ul>
+							<button type="submit" id="submit" class="selectBnt" onclick='getCheckboxValue()'>Apply</button>
+						</div>
+
+                        
+				<!-- 		<div class="group">
+							<div class="tit1" id="realTestimg">
+								<video controls width="250">
+    							<source src="http://172.30.1.6:5000/stream" type="video/webm">
+    							</video>
+    							
+								<iframe class="testimg" id="video" src="http://172.30.1.6:5000/stream" scrolling="no" 
+								style="width: 100%; max-width: 450px; vertical-align: middle; max-height: 217px;height: 100%;"/>
+							</div>
+						</div> -->
+
+						<div class="group">
+							<div class="tit1">
+								<img src="./resources/images/image.jpg"
+									style="width: 100%; max-width: 450px; vertical-align: middle; max-height: 217px;height: 100%;">
+							</div>
+						</div>
+					</div>
+
+					<!-- chart.js -->
+                    <div class="input_group" style="margin-top: 10%;">
+                        <div class="group">
+                        	<div class="tit" style="align-items: center;">
+                                <h3>Object Table</h3>
+                            </div>
+                            <div class="chartCard">
+							  <div class="chartBox">
+							    <canvas id="myChart" style="width: 600px;  height: 433px;"></canvas>
+							  </div>
+							</div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="input_group" style="margin-top: 10%;">
+                        <div class="group">
+                        	<div class="tit" style="align-items: center;">
+                                <h3>Stuff Table</h3>
+                            </div>
+		                    <div class="chartCard">
+							  <div class="chartBox">
+							    <canvas id="DChart" style="width: 353px;  height: 447px; display:block;"></canvas>
+							  </div>
+							</div>
+                        </div>
+                    </div>
+                
                 </div>
+                
+            
             </section>
+
+
+
 
             <!-- 로그아웃 -->
             <div class="modal_logout">
@@ -2462,6 +2610,7 @@
 
             <!-- 홈 -->
             <!-- 홈버튼 누르면 처음 페이지 -->
+
 
             <script>
                 $(document).ready(function () {
@@ -2493,62 +2642,379 @@
                     })
                 });
 
-
-
-                /* 2023-01-13 Cossia */
-                /* main page slide S */
-                const main_page = new Swiper(".main_swiper", {
-                    direction: "vertical",
-                    slidesPerView: 1,
-                    spaceBetween: 30,
-                    mousewheel: true,
-                    speed: 800,
-                    pagination: {
-                        el: ".main_pagination,.main_nav",
-                        clickable: true,
-                    },
-                    breakpoints: {
-                        1024: {}
-                    },
-                    on: {
-                        slideChange: function () {
-                            $('.gnb li').removeClass('on');
-                            $('.gnb li').eq(this.realIndex).addClass('on');
-                        }
-                    }
-                });
-                /* main menu click */
-                $(document).on('click', '.gnb li', function () {
-                    main_page.slideTo($('.gnb li').index(this));
-                });
-                /* footer right ... click */
-                // $(document).on('click', '.fix_menu', function(){
-                //     main_page.slideTo( 3 );
-                // });
-                /* main page slide E */
-
-                $('#frm').validate({
-                    rules: {
-                        name: { required: true, },
-                        manager: { required: true, },
-                        phone: { required: true, },
-                        email: { required: true, email: true },
-                        content: { required: true, },
-                    }
-                })
             </script>
             
             <script>
-            $(document).ready(function() {
-            	$('#loading').hide();
-            	
-            	$('#next').submit(function(){
-            		$('#loading').show();
-            		return true;
-            		});
-            	});
+                     /* 이미지 미리보기 */
+                         function previewImg() {
+					let preview = document.querySelector('.testimg');
+					let file = document.querySelector('input[type=file]').files[0];
+					let reader = new FileReader();
+
+					reader.addEventListener(
+						'load',
+						function () {
+							preview.src = reader.result;
+							console.log(reader.result);
+						},
+						false
+					);
+
+					if (file) {
+						reader.readAsDataURL(file);
+						/* console.log(reader.readAsDataURL(file)); */
+					}
+				}
+                         
             </script>
             
+            
+<script>
+
+// test 차트
+let barDataset =  [
+	Math.floor(Math.random() * 50),
+	Math.floor(Math.random() * 50),
+	Math.floor(Math.random() * 50),
+	Math.floor(Math.random() * 50),
+	Math.floor(Math.random() * 50),
+	Math.floor(Math.random() * 50),
+	Math.floor(Math.random() * 50),
+	Math.floor(Math.random() * 50)
+];
+
+let lineDataset =  [
+	Math.floor(Math.random() * 100),
+	Math.floor(Math.random() * 100),
+	Math.floor(Math.random() * 100),
+	Math.floor(Math.random() * 100),
+	Math.floor(Math.random() * 100),
+	Math.floor(Math.random() * 100),
+	Math.floor(Math.random() * 100),
+	Math.floor(Math.random() * 100)
+];
+
+
+// 지정한 시각마다 reload
+function test(){
+	//setTimeout(function(){	
+		
+		// ajax 선언, 성공 함수, 넘어오는 data를 넣어주기
+		$.ajax({
+			url : 'ChartSocket2.do',
+			type: 'get',
+			/* dataType:'text', */
+			success: function() {
+				console.log()
+				consol.log(${class_list});
+				consol.log(${count_list});
+				consol.log(${score_list});
+
+				// 넘어오는 data 대입
+				rdNum1 = [
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50),
+					Math.floor(Math.random() * 50)
+				];
+				rdNum2 = [
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100)
+				];
+				
+				console.log(rdNum1);
+				console.log(rdNum2);
+				
+				L_data = {
+					labels: [ 
+						'person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle' // x축 라벨
+					],
+					datasets: [{
+						label: 'Object Count', // 범례 이름
+						backgroundColor: 'rgba(75, 192, 192, 1)',
+						borderColor: 'rgba(75, 192, 192, 1)',
+						data: rdNum1,
+						borderWidth: 1
+					}, {
+						type:'line',
+						label: 'Object Accuracy',
+						backgroundColor: 'rgba(255, 99, 132, 1)',
+						borderColor: 'rgba(255, 99, 132, 1)',
+						fill: false,
+						data: rdNum2,
+					}]
+				}
+				
+		
+				L_config = {
+					type: 'bar',
+					data: L_data,
+					options: {
+						maintainAspectRatio: false,
+						title: {
+							text: 'Chart.js Time Scale'
+						},
+						scales: {
+							resposive: false, // default값 true, 차트 크기를 변경하기 위해 false로 변경
+							y: {
+								beginAtZero: true // y축 값 0부터 시작
+							}
+						}
+					} // options end
+				};
+		
+		
+				myChart.destroy();
+				myChart = new Chart(
+					document.getElementById('myChart'),
+					L_config
+				);
+				
+				return test();
+				
+			}, // success end
+			error : function() {
+				console.log()
+			} // error end
+		
+		});// ajax end
+	     
+	//}, 5000); // timr end
+};// test end
+
+test(); // 페이지 업로드 된 후 실행되는 함수
+
+
+// 차트 초기 데이터
+let rdNum1 = [0, 0, 0, 0, 0, 0, 0, 0 ];
+let rdNum2 = [0, 0, 0, 0, 0, 0, 0, 0 ];
+let zeroNum = [0, 0, 0, 0, 0, 0, 0, 0 ];
+
+// 차트 전체 data
+let L_data = {
+	labels: [ 
+		'person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle' // x축 라벨
+	],
+	datasets: [{
+		label: 'Object Count', // 범례 이름
+		backgroundColor: 'rgba(75, 192, 192, 1)',
+		borderColor: 'rgba(75, 192, 192, 1)',
+		data: zeroNum,
+		borderWidth: 1
+	}, {
+		type:'line',
+		label: 'Object Accuracy',
+		backgroundColor: 'rgba(255, 99, 132, 1)',
+		borderColor: 'rgba(255, 99, 132, 1)',
+		fill: false,
+		data: zeroNum
+	}]
+}// L_data end
+
+
+// 차트 설정
+let L_config = {
+	type: 'bar',
+	data: L_data,
+	options: {
+		maintainAspectRatio: false,
+		title: {
+			text: 'Chart.js Time Scale'
+		},
+		scales: {
+			resposive: false, // default값 true, 차트 크기를 변경하기 위해 false로 변경
+			y: {
+				beginAtZero: true // y축 값 0부터 시작
+			}
+		}
+	} // options end
+}; // config end
+ 
+// 차트 그리기
+let myChart = new Chart(
+	document.getElementById('myChart'),
+	L_config
+);
+</script>            
+
+            
+           <!-- <!--  --> --> 
+
+			 
+			 <!-- 도넛차트 -->
+			 <script>
+				let selectedDatasetIndex = undefined;
+				let selectedIndex = undefined;
+				
+			
+				// setup 
+				const data = {
+						labels: ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic light', 'traffic sign', 'vegetation', 'terrain', 'sky'],
+					    datasets: [{
+						    label: 'Stuff Accuracy',
+				    	    data: [80, 95, 70, 66, 90, 98, 30,50,70,77,90],
+				        	backgroundColor: [
+					          'rgba(255, 26, 104, 0.2)',
+					          'rgba(54, 162, 235, 0.2)',
+					          'rgba(255, 206, 86, 0.2)',
+					          'rgba(75, 192, 192, 0.2)',
+					          'rgba(153, 102, 255, 0.2)',
+					          'rgba(200, 159, 64, 0.2)',
+					          'rgba(102, 159, 64, 0.2)',
+					          'rgba(55, 159, 64, 0.2)',
+					          'rgba(5, 159, 64, 0.2)',
+					          'rgba(45, 159, 64, 0.2)',
+					          'rgba(0, 0, 0, 0.2)'
+					        ],
+					        borderColor: [
+						          'rgba(255, 26, 104, 1)',
+						          'rgba(54, 162, 235, 1)',
+						          'rgba(255, 206, 86, 1)',
+						          'rgba(75, 192, 192, 1)',
+						          'rgba(153, 102, 255, 1)',
+						          'rgba(200, 159, 64, 1)',
+						          'rgba(102, 159, 64, 1)',
+						          'rgba(55, 159, 64, 1)',
+						          'rgba(5, 159, 64, 1)',
+						          'rgba(45, 159, 64, 1)',
+						          'rgba(0, 0, 0, 1)'
+					        ],
+						    borderWidth: 1,
+						    cutout: '70%',
+						    borderRadius: 5,
+						    offset: 10
+				  	}]
+				};		
+				
+				// clickLabel pugin block
+		  		const clickLabel = {
+					id: 'clickLabel',
+					afterDraw: (chart, args, options) => {
+						const { ctx, chartArea: { width, height, top } } = chart;
+						
+						
+						
+						if(selectedDatasetIndex >= 0) {
+							console.log(chart.data.datasets[selectedDatasetIndex].data[selectedIndex]);
+							const sum = chart._metasets[selectedDatasetIndex].total;
+							const value = chart._metasets[selectedDatasetIndex]._parsed[selectedIndex];
+							const color = chart.data.datasets[selectedDatasetIndex].borderColor[selectedIndex];
+							const percentage = value / sum * 100;
+							const accuracy = chart.data.datasets[selectedDatasetIndex].data[selectedIndex];
+			
+							ctx.save();
+							ctx.font = 'bolder 60px Arial';
+							ctx.fillStyle = color;
+							ctx.textAlign = 'center';
+							ctx.textBaseline = 'middle';
+							ctx.fillText(accuracy + '%', width/2, height/2 + top);
+							ctx.restore();
+						}
+					}
+				} 
+				
+				// config 
+				const config = {
+					type: 'doughnut',
+				    data:data,
+				    options: {
+				    	responsive: false,
+						mainTainAspectRatio: false,
+		 				plugins: {
+							legend: {
+								display: true,
+								position: 'bottom'
+							}
+				 		},
+						onClick(click, element, chart) {
+							//console.log(element[0].datasetIndex)
+							if(element[0]) {
+								selectedDatasetIndex = element[0].datasetIndex;
+								selectedIndex = element[0].index;
+								chart.draw();
+							}
+						}
+					},
+					plugins: [clickLabel]
+				};
+				
+				// render init block
+				const DChart = new Chart(
+				   document.getElementById('DChart'),
+				   config
+				);
+			</script>
+			
+			
+			<!-- 다중체크박스  -->
+			<script type="text/javascript">
+			const label = document.querySelector('.label');
+			const options = document.querySelectorAll('.optionItem');
+
+			label.addEventListener('click', function(){
+			  if(label.parentNode.classList.contains('active')) {
+			    label.parentNode.classList.remove('active');
+			  } else {
+			    label.parentNode.classList.add('active');
+			  }
+			});
+			
+			 //value 값만 나옴
+ 			function getCheckboxValue()  {
+ 				label.parentNode.classList.remove('active');
+				  // 선택된 목록 가져오기
+				  const query = 'input[name="object"]:checked';
+				  const selectedEls = 
+				      document.querySelectorAll(query);
+				  
+				  // 선택된 목록에서 value 찾기
+				  let valueResult = '';
+				  selectedEls.forEach((el) => {
+				    valueResult += el.value +',';
+				  });
+				  // 출력
+				  console.log(valueResult);
+				  console.log(typeof 'valueResult');
+				  
+			 	  $.ajax({
+						url : "ArrSocket.do",
+						type : 'post',
+						dataType : 'json',
+						data : {valueResult:valueResult},
+						success : function(data) {
+							console.log("데이터 전송 성공이야");
+			     		}
+				});
+				  
+			};  
+				
+			</script>
+			
+			<!-- 팝업창 -->
+			<script type="text/javascript">
+				function doPopupopen() {
+					
+				  var url = "pop.do";
+			      var name = "popup";
+			      var option = "width = 660, height = 500, top = 100, left = 200, location = no"
+				  window.open(url, name, option);
+				   
+				   
+				};
+				//doPopupopen();
+			</script>
+			
+			
             <footer>
                 <div class="f_top">
                     <ul>
@@ -2585,6 +3051,5 @@
 
 
 </body>
-
 
 </html>

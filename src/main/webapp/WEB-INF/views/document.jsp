@@ -56,19 +56,12 @@
 	width: 100%; /* 부모에 맞게 꽉 채운다. */
 	height: 100%;
 }
+
 </style>
  
 </head>
 <body>
-<div id="area">
-  <iframe id="video" src="http://172.30.1.6:5000/stream" scrolling="no" />
-<!-- <iframe id='frame' 
-    src='http://172.30.1.6:5000/stream'
-    frameborder='0'
-    scrolling='no' 
-    style='width: 100%;'
-    onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';"></iframe> -->
-</div>
+
 
 	<div class="chartCard">
 		<div class="chartBox">

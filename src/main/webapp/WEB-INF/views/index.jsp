@@ -1592,22 +1592,23 @@
         }
     </style>
 
-    <script src="/plugins/validation/jquery.validate.min.js"></script>
-    <script src="/plugins/validation/additional-methods.min.js"></script>
+   <script src="resources/plugins/validation/jquery.validate.min.js"></script>
+    <script src="resources/plugins/validation/additional-methods.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="/js/bootstrap-dialog.js"></script>
+    <script src="resources/js/bootstrap-dialog.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css" rel="stylesheet"
         type="text/css">
-    <script src="/plugins/ckeditor/ckeditor.js"></script>
-    <script src="/js/jquery.fullPage.js?20230117122237"></script>
-    <script src="/js/common.js?20230117122237"></script>
-    <script src="/js/front-board.js?20230117122237"></script>
-    <script src="/js/default.js?20230117122237"></script>
-    <script src="/js/front.js?20230117122237"></script>
+    <script src="resources/plugins/ckeditor/ckeditor.js"></script>
+    <script src="resources/js/jquery.fullPage.js?20230117122237"></script>
+    <script src="resources/js/common.js?20230117122237"></script>
+    <script src="resources/js/front-board.js?20230117122237"></script>
+    <script src="resources/js/default.js?20230117122237"></script>
+    <script src="resourcesz/js/front.js?20230117122237"></script>
     <link rel="shortcut icon" href="resources/images/favicon.png">
-    <link rel="icon" href="/images/favicon.png">
+    <link rel="icon" href="resources/images/favicon.png">
+    
     <script>
         if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
             window.location.href = "microsoft-edge:" + window.location.href;
@@ -3118,14 +3119,13 @@
                                                 <div class="next" tabindex="0" role="button" aria-label="Next slide">
                                                     NEXT</div>
                                             </div>
-                                        </div>
                                         <div class="txt_box">
                                             <h2 class="tit">
                                                 <span class="desc1">우리는 <b>수준 높은</b></span>
                                                 <span class="desc2"><b>결과물</b>을 만듭니다.</span>
                                             </h2>
                                             <div class="btn_bottom" style="z-index: 100;">
-                                                <button type="submit" class="b_type3" onclick="">로그아웃</button>
+                                                <button type="submit" class="b_type3" onclick="">Logout</button>
                                             </div>
                                         </div>
                                     </div>
@@ -3710,6 +3710,8 @@
                 }
             })
         </script>
+    
+			
         <footer>
             <div class="f_top">
                 <ul>

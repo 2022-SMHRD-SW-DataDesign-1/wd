@@ -52,5 +52,11 @@ public class IndexController {
 	
 
 	}
+	@RequestMapping(value="/pop.do")
+	public String pop() {
+		return "pop";
+		
+		
+	}
 	
 }

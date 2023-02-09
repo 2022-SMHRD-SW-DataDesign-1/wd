@@ -2129,7 +2129,7 @@
         }
 
         .sec4 .input_group {
-            padding: 30px;
+            padding: 20px 33px;
             border-radius: 20px;
             background: var(--color-1a1e23);
             box-shadow: var(--box-shadow-M);
@@ -2346,7 +2346,7 @@
         .selectBox2 * { box-sizing: border-box; }
 		.selectBox2 {
 		  position: relative;
-		  width: 300px;
+		  width: 273px;
 		  height: 35px;
 		  border-radius: 4px;
 		  border: 2px solid #a9aaac;
@@ -2485,6 +2485,7 @@
                                 </p>
                             </div>
                     </div>
+                    
                     <!-- 비디오 위치 -->
 					<div class="input_group"
 						style="width: 400px; height: 553px; margin-top: 10%;">
@@ -2538,15 +2539,15 @@
                         
 						<div class="group">
 							<div class="tit1" id="realTestimg">
-								<img class="testimg" src="./resources/images/image.jpg"
-									style="width: 100%; max-width: 450px; vertical-align: middle">
+								<img class="testimg" src="./resources/images/original_img/${filename}"
+									style="width: 100%; max-width: 450px; vertical-align: middle; max-height: 217px;height: 100%;">
 							</div>
 						</div>
 
 						<div class="group">
 							<div class="tit1">
-								<img src="./resources/images/image.jpg"
-									style="width: 100%; max-width: 450px; vertical-align: middle">
+								<img src="./resources/images/result_img/${fileload}"
+									style="width: 100%; max-width: 450px; vertical-align: middle;  max-height: 217px;height: 100%;">
 							</div>
 						</div>
 					</div>
@@ -2559,7 +2560,7 @@
                             </div>
                             <div class="chartCard">
 							  <div class="chartBox">
-							    <canvas id="myChart" style="width: 600px;  height: 415px;"></canvas>
+							    <canvas id="myChart" style="width: 600px;  height: 433px;"></canvas>
 							  </div>
 							</div>
                         </div>
@@ -2573,7 +2574,7 @@
                             </div>
 		                    <div class="chartCard">
 							  <div class="chartBox">
-							    <canvas id="DChart" style="width: 353px;  height: 430px; display:block;"></canvas>
+							    <canvas id="DChart" style="width: 353px;  height: 447px; display:block;"></canvas>
 							  </div>
 							</div>
                         </div>
@@ -2843,6 +2844,7 @@
 			    label.parentNode.classList.add('active');
 			  }
 			});
+			
 			 //value 값만 나옴
  			function getCheckboxValue()  {
  				label.parentNode.classList.remove('active');

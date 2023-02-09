@@ -1592,20 +1592,20 @@
         }
     </style>
 
-    <script src="/plugins/validation/jquery.validate.min.js"></script>
-    <script src="/plugins/validation/additional-methods.min.js"></script>
+    <script src="resources/plugins/validation/jquery.validate.min.js"></script>
+    <script src="resources/plugins/validation/additional-methods.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="/js/bootstrap-dialog.js"></script>
+    <script src="resources/js/bootstrap-dialog.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css" rel="stylesheet"
         type="text/css">
-    <script src="/plugins/ckeditor/ckeditor.js"></script>
-    <script src="/js/jquery.fullPage.js?20230117122237"></script>
-    <script src="/js/common.js?20230117122237"></script>
-    <script src="/js/front-board.js?20230117122237"></script>
-    <script src="/js/default.js?20230117122237"></script>
-    <script src="/js/front.js?20230117122237"></script>
+    <script src="resources/plugins/ckeditor/ckeditor.js"></script>
+    <script src="resources/js/jquery.fullPage.js?20230117122237"></script>
+    <script src="resources/js/common.js?20230117122237"></script>
+    <script src="resources/js/front-board.js?20230117122237"></script>
+    <script src="resources/js/default.js?20230117122237"></script>
+    <script src="resourcesz/js/front.js?20230117122237"></script>
     <link rel="shortcut icon" href="resources/images/favicon.png">
     <link rel="icon" href="resources/images/favicon.png">
     <script>
@@ -3341,7 +3341,7 @@
              
                                     </div>
                                 </div>
-                                 <div style="position:absolute; top:-10%; background-color: rgba(27, 28, 28, 0.9); height:110%; width:110%; text-align:center">
+                                 <div  class="b_type3" style="position:absolute; top:-10%; background-color: rgba(27, 28, 28, 0.9); height:110%; width:110%; text-align:center">
                                     <p style="color:var(--color-fff);position: absolute;left: 50%; top: 50%; transform: translate(-50%, -50%);font-size:xx-large;font-weight:bolder; align:center;">
                                      로그인 후 이용가능합니다.</p>
                                 </div>
@@ -3494,8 +3494,7 @@
                         </div>
 
                         <div class="input_group">
-                            <form id="frm" method="post" action="/requst-post-normal" target="ifrm"
-                                novalidate="novalidate">
+                            <form method="post" action="/requst-post-normal" target="ifrm">
                                 <input type="hidden" name="csrf_cossia_token" value="9e1df29c77b7a592462f8a7808050758"
                                     autocomplete="off">
                                 <input name="table" type="hidden" value="contact" autocomplete="off">
@@ -3528,7 +3527,7 @@
                                 <div class="btn_bottom">
                                     <button type="submit" class="b_type3" onclick="">Sign Up</button>
                                 </div>
-                                <div style="position:absolute;top:23%; background-color: rgba(27, 28, 28, 0.5); height:55%; width:34%;text-align:center;">
+                                <div  class="b_type3" style="position:absolute;top:22%; background-color: rgba(27, 28, 28, 0.75); height:56%; width:34%;text-align:center;border-radius:9px;">
                                     <p style="color:var(--color-fff); position: absolute; left: 50%; top: 50%;
                                     transform: translate(-50%, -50%);font-size:xx-large; font-weight:bolder; align:center;"> 
                                      로그인 후 이용가능합니다.</p>
@@ -3557,7 +3556,7 @@
                 <i class="xi-close-thin"></i>`
                 <div class="content_info">
                     <h2>Sign In</h2>
-                    <div class="input_group">
+                    <div class="input_group" >
                         <form method="post" action="Login.do">
                             <input name="table" type="hidden" value="contact" autocomplete="off">
                             <div class="group">
@@ -3586,13 +3585,13 @@
                 <div class="content_info">
                     <h2>Sign Up</h2>
                     <div class="input_group">
-                        <form method="post" action="Join.do">
+                        <form method="post" action="Join.do" id="frm"  target="ifrm">
                             <input name="table" type="hidden" value="contact" autocomplete="off">
                             <div class="group">
                                 <ul>
-                                    <li data="E-mail"><input name="email" type="email" class="email" placeholder="이메일"
+                                    <li data="E-mail"><input name="email" type="email" class="email" placeholder="email"
                                             autocomplete="off"></li>
-                                    <li data="Company"><input name="company" type="text" placeholder="업체명"
+                                    <li data="Company"><input name="company" type="text" placeholder="company"
                                             autocomplete="off"></li>
                                     <li data="password"><input name="password" type="password" placeholder="password"
                                             autocomplete="off"></li>
@@ -3734,11 +3733,9 @@
 
             $('#frm').validate({
                 rules: {
-                    name: { required: true, },
-                    manager: { required: true, },
-                    phone: { required: true, },
                     email: { required: true, email: true },
-                    content: { required: true, },
+                    company: { required: true, },
+                    password: { required: true, }
                 }
             })
         </script>

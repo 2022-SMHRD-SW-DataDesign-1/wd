@@ -9,48 +9,52 @@
 	
 <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>   
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-  }
-  .chartMenu {
-    width: 100vw;
-    height: 40px;
-    background: #1A1A1A;
-    color: rgba(54, 162, 235, 1);
-  }
-  .chartMenu p {
-    padding: 10px;
-    font-size: 20px;
-  }
-  .chartCard {
-    width: 100vw;
-    height: calc(100vh - 40px);
-    background: rgba(54, 162, 235, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .chartBox {
-    width: 400px;
-    padding: 20px;
-    border-radius: 20px;
-    border: solid 3px rgba(54, 162, 235, 1);
-    background: white;
-  }
-  
-  #area {
-  position: relative; /* absolute는 부모가 relative일 때 부모를 따라간다. */
-  width: 450px;
-  height:327px;
-  padding-bottom: 56.25%; /* 16:9 비율 */
+* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+.chartMenu {
+	width: 100vw;
+	height: 40px;
+	background: #1A1A1A;
+	color: rgba(54, 162, 235, 1);
+}
+
+.chartMenu p {
+	padding: 10px;
+	font-size: 20px;
+}
+
+.chartCard {
+	width: 100vw;
+	height: calc(100vh - 40px);
+	background: rgba(54, 162, 235, 0.2);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.chartBox {
+	width: 400px;
+	padding: 20px;
+	border-radius: 20px;
+	border: solid 3px rgba(54, 162, 235, 1);
+	background: white;
+}
+
+#area {
+	position: relative; /* absolute는 부모가 relative일 때 부모를 따라간다. */
+	width: 450px;
+	height: 400px;
+	/* padding-bottom: 56.25%; /* 16:9 비율 */ */
 }
 
 #video {
-  position: absolute;
-  width: 100%; /* 부모에 맞게 꽉 채운다. */
-  height: 100%;
+	position: absolute;
+	width: 100%; /* 부모에 맞게 꽉 채운다. */
+	height: 100%;
 }
 </style>
  

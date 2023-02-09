@@ -171,7 +171,7 @@ function test(){
 		
 		});// ajax end
 	     
-	}, 2000); // timr end
+	}, 5000); // timr end
 };// test end
 
 test(); // 페이지 업로드 된 후 실행되는 함수

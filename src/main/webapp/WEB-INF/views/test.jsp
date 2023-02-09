@@ -2323,19 +2323,17 @@
         } */
         
         #loading {
-        position: absolute;
-        width: 40%;
-        height: 48%;
+        width: 39%;
+        height: 49%;
         position: fixed;
         display: inline-block;
-        /* opacity: 0.8; */
-        background: 1a1e234d;
+        opacity: 0.9;
+        background: #252526;
         z-index: 100000;
         text-align: center;
-        align-items: center;
-        justify-content: center;
         border-radius:50px;
-        margin-left:9%;
+        margin:inherit;
+        border-style: 2px dashed white;
         
         }
         
@@ -2400,7 +2398,7 @@
                     <div class="input_group" id="testimgdiv">
                      
             			<div id="loading">
-            				<img src="./resources/images/lololololo.gif" alt="loading" style="border-radius:50%; width:300px; height:300px;">
+            				<img src="./resources/images/lo1.gif" alt="loading" style="border-radius:50%; width:300px; height:300px;">
             			</div>
 	                    
                         <div class="group">

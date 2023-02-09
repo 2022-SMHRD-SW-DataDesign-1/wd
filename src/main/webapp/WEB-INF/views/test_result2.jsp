@@ -1,42 +1,48 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>위드컴퍼니 관리자</title>
-    <meta name="X-CSRF-TOKEN" content="9e1df29c77b7a592462f8a7808050758">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>위드컴퍼니</title>
+<meta name="X-CSRF-TOKEN" content="9e1df29c77b7a592462f8a7808050758">
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--css-->
+<link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+<link rel="stylesheet" href="resources/css/jquery.fullpage.css">
+<link rel="stylesheet" href="resources/css/jquery.ui.min.css">
+<link rel="stylesheet"
+	href="//pro.fontawesome.com/releases/v5.10.0/css/all.css">
+<link rel="stylesheet"
+	href="resources/plugins/sweetalert2/sweetalert2.min.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="resources/plugins/ckeditor/plugins/codesnippet/lib/highlight/styles/monokai_sublime.css">
+<link rel="stylesheet" href="resources/css/bootstrap-dialog.css"
+	type="text/css">
+<link rel="stylesheet"
+	href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<link rel="stylesheet" href="resources/css/front.css">
+<link rel="stylesheet" href="resources/css/board.css">
+<link rel="stylesheet" href="resources/css/default.css">
+<link rel="stylesheet" href="resources/css/main.css">
 
-    <!--css-->
-    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
-    <link rel="stylesheet" href="resources/css/jquery.fullpage.css">
-    <link rel="stylesheet" href="resources/css/jquery.ui.min.css">
-    <link rel="stylesheet" href="//pro.fontawesome.com/releases/v5.10.0/css/all.css">
-    <link rel="stylesheet" href="resources/plugins/sweetalert2/sweetalert2.min.css" type="text/css">
-    <link rel="stylesheet" href="resources/plugins/ckeditor/plugins/codesnippet/lib/highlight/styles/monokai_sublime.css">
-    <link rel="stylesheet" href="resources/css/bootstrap-dialog.css" type="text/css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
-    <link rel="stylesheet" href="resources/css/front.css">
-    <link rel="stylesheet" href="resources/css/board.css">
-    <link rel="stylesheet" href="resources/css/default.css">
-    <link rel="stylesheet" href="resources/css/main.css">
-
-
-    <!--javascript-->
-    <script src="resources/plugins/jquery/jquery.min.js"></script>
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script src="resources/plugins/sweetalert2/sweetalert2.all.min.js"></script>
-
-    <style>
+<!--javascript-->
+<script src="resources/plugins/jquery/jquery.min.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="resources/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+<style>
         .swal2-popup.swal2-toast {
             box-sizing: border-box;
             grid-column: 1/4 !important;
@@ -1587,6 +1593,10 @@
             left: auto
         }
 
+        .cke {
+            visibility: hidden;
+        }
+
         * {
             word-break: keep-all;
         }
@@ -1631,82 +1641,97 @@
             background: var(--color-fff);
         }
 
+        .swiper {
+            overflow: hidden;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            background: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: var(--color-fff);
+            border: 1px solid var(--color-fff);
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            display: none;
+        }
+
+
+
+        .b_type1 {
+            margin: 0 auto;
+            padding: 10px 20px;
+            background: var(--color-03f);
+            color: var(--color-fff);
+            text-align: center;
+            border-radius: 100px;
+            min-width: 120px;
+            transition: all .3s ease;
+            font-size: 18px;
+        }
+
         /* 주히 추가 case 문의 버튼 위치 수정 */
         .b_type2 {
-                    margin: auto;
-                    padding: 10px 20px;
-                    background: var(- -color-03f);
-                    color: var(- -color-fff);
-                    text-align: center;
-                    border-radius: 100px;
-                    min-width: 120px;
-                    transition: all .3s ease;
-                    display: inline-block;
-                    font-size: 18px;
-                }
+            margin: auto;
+            padding: 6px 5px;
+            background: var(- -color-03f);
+            color: var(- -color-fff);
+            text-align: center;
+            border-radius: 10px;
+            min-width: 50px;
+            transition: all .3s ease;
+            display: inline-block;
+            font-size: 15px;
+        }
 
-                .b_type1 {
-                    margin: auto;
-                    padding: 10px 20px;
-                    background: var(- -color-03f);
-                    color: var(- -color-fff);
-                    text-align: center;
-                    border-radius: 100px;
-                    min-width: 120px;
-                    transition: all .3s ease;
-                    display: inline-block;
-                    margin-right: 5%;
-                    font-size: 18px;
-                }
+        .b_type3 {
+            margin: auto;
+            padding: 10px 20px;
+            background: var(--color-03f);
+            color: var(--color-fff);
+            text-align: center;
+            border-radius: 100px;
+            min-width: 120px;
+            transition: all .3s ease;
+            display: inline-block;
+            font-size: 18px;
+        }
 
-                .b_type2 {
-                    margin: auto;
-                    padding: 10px 20px;
-                    background: var(- -color-03f);
-                    color: var(- -color-fff);
-                    text-align: center;
-                    border-radius: 100px;
-                    min-width: 120px;
-                    transition: all .3s ease;
-                    display: inline-block;
-                    margin-right: 5%;
-                    font-size: 18px;
-                }
+        .b_type4 {
+            margin: auto;
+            padding: 10px 20px;
+            background: var(--color-03f);
+            color: var(--color-fff);
+            text-align: center;
+            border-radius: 100px;
+            min-width: 120px;
+            transition: all .3s ease;
+            display: inline-block;
+            margin-right: 5%;
+            font-size: 18px;
+        }
 
-                .b_type3 {
-                    margin: auto;
-                    padding: 10px 20px;
-                    background: var(- -color-03f);
-                    color: var(- -color-fff);
-                    text-align: center;
-                    border-radius: 100px;
-                    min-width: 120px;
-                    transition: all .3s ease;
-                    display: block;
-                    font-size: 18px;
-                }
-
-                .b_type4 {
-                    margin: auto;
-                    padding: 10px 20px;
-                    background: var(- -color-03f);
-                    color: var(- -color-fff);
-                    text-align: center;
-                    border-radius: 100px;
-                    min-width: 120px;
-                    transition: all .3s ease;
-                    display: block;
-                    font-size: 18px;
-                }
-
-                .b_type1:hover,
-                .b_type2:hover,
-                .b_type3:hover,
-                .b_type4:hover {
-                    color: #fff;
-                    box-shadow: var(- -box-shadow-S-03f);
-                }
-
+        .b_type1:hover,
+        .b_type2:hover,
+        .b_type3:hover,
+        .b_type:hover {
+            color: #fff;
+            box-shadow: var(--box-shadow-S-03f);
+        }
 
         .main_wrap {
             position: relative;
@@ -1801,81 +1826,6 @@
             margin-left: 0;
         }
 
-        .main_wrap .fix_menu {
-            position: absolute;
-            z-index: 1000000;
-            width: 60px;
-            height: 60px;
-            right: 40px;
-            bottom: 40px;
-        }
-
-        .main_wrap .fix_menu>i {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--color-fff);
-            color: var(--color-fff);
-            border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .main_wrap .fix_menu ul {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            content: '';
-            width: 100%;
-            height: 100%;
-        }
-
-        .main_wrap .fix_menu ul li {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--color-dcdcde);
-            border-radius: 50%;
-            transition: all .3s ease;
-            cursor: pointer;
-            visibility: hidden;
-            opacity: 0;
-        }
-
-        .main_wrap .fix_menu ul li:last-child {
-            visibility: inherit;
-            opacity: 1;
-        }
-
-        .main_wrap .fix_menu ul li i {
-            font-size: 24px;
-            color: var(--color-dcdcde);
-            transition: all .3s ease;
-        }
-
-        .main_wrap .fix_menu ul li:hover {
-            background: var(--color-fff);
-        }
-
-        .main_wrap .fix_menu ul li:hover i {
-            color: var(--color-1a1e23);
-        }
-
         .main_wrap .copy {
             position: absolute;
             left: 40px;
@@ -1903,186 +1853,6 @@
             margin-right: 10px;
         }
 
-        @media(max-width:768px) {
-
-            .main_wrap .fix_menu ul li:last-child {
-                display: none;
-            }
-
-            .main_wrap .fix_menu.on ul li {
-                border: 1px solid var(--color-fff);
-                opacity: 1;
-                visibility: inherit;
-            }
-
-            .main_wrap .fix_menu>i {
-                opacity: 1;
-                visibility: inherit;
-                transition: all .3s ease;
-            }
-
-            .main_wrap .fix_menu.on>i {
-                background: var(--color-fff);
-                color: var(--color-1a1e23);
-                transform: translate(-50%, -50%) rotate(45deg);
-            }
-
-            .main_wrap .fix_menu.on ul li:nth-child(1) {
-                top: -10px;
-                transform: translate(-50%, -100%);
-            }
-
-            .main_wrap .fix_menu.on ul li:nth-child(2) {
-                top: -20px;
-                transform: translate(-50%, -200%);
-            }
-
-            .main_wrap .fix_menu.on ul li:nth-child(3) {
-                top: -30px;
-                transform: translate(-50%, -300%);
-                display: none;
-            }
-
-        }
-
-        @media(max-width:540px) {
-            .main_wrap .fix_menu {
-                right: 20px;
-                bottom: 20px;
-            }
-
-            .main_wrap .copy {
-                left: 20px;
-                font-size: 14px;
-                bottom: 20px;
-            }
-        }
-
-        .main_wrap .side_menu {
-            width: 100px;
-            margin-right: 40px;
-            border: 4px solid var(--color-000);
-            border-radius: 30px;
-            box-shadow: var(--box-shadow-L);
-            position: relative;
-            background: var(--color-1a1e23);
-        }
-
-        .main_wrap .side_menu>i {
-            position: absolute;
-            left: 50%;
-            top: 40px;
-            transform: translate(-50%, 0);
-            content: '';
-            width: 24px;
-            height: 24px;
-            border: 1px solid red;
-        }
-
-        .main_wrap .side_menu .container {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .main_wrap .side_menu ul {
-            display: flex;
-            flex-direction: column;
-            gap: 30px 0;
-        }
-
-        .main_wrap .side_menu ul li {
-            position: relative;
-        }
-
-        .main_wrap .side_menu ul li::before {
-            position: absolute;
-            left: calc(100% + 0px);
-            top: 50%;
-            transform: translateY(-50%);
-            content: attr(data);
-            width: 100px;
-            background: var(--color-03f);
-            color: var(--color-dcdcde);
-            padding: 7px 10px;
-            border-radius: 100px;
-            z-index: 1000000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            box-shadow: var(--box-shadow-S);
-            opacity: 0;
-            visibility: hidden;
-            transition: all .3s ease;
-        }
-
-        .main_wrap .side_menu ul li::after {
-            position: absolute;
-            left: calc(100% + 0px);
-            top: 50%;
-            transform: translate(-50%, -50%) rotate(45deg);
-            width: 7px;
-            height: 7px;
-            background: var(--color-03f);
-            content: '';
-            z-index: 1000000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all .3s ease;
-        }
-
-        .main_wrap .side_menu ul li:hover::before,
-        .main_wrap .side_menu ul li:hover::after {
-            left: calc(100% + 20px);
-            visibility: inherit;
-            opacity: 1;
-        }
-
-        .main_wrap .side_menu ul li i {
-            font-size: 24px;
-            color: var(--color-fff);
-            opacity: .25;
-            cursor: pointer;
-            transition: all .3s ease;
-        }
-
-        .main_wrap .side_menu ul li:hover i {
-            opacity: 1;
-        }
-
-        .main_wrap .side_menu .mode_change {
-            position: absolute;
-            left: 50%;
-            bottom: 30px;
-            transform: translate(-50%, 0);
-            width: 25px;
-            height: 7px;
-            border-radius: 100px;
-            background: var(--color-dcdcde);
-            cursor: pointer;
-        }
-
-        .main_wrap .side_menu .mode_change span {
-            position: absolute;
-            top: 50%;
-            left: -2px;
-            transform: translate(0, -50%);
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: var(--color-dcdcde);
-            border: 1px solid var(--color-1a1e23);
-            transition: all .3s ease;
-        }
-
-        .main_wrap .side_menu .mode_change.on span {
-            left: calc(100% + 3px);
-            transform: translate(-100%, -50%);
-        }
-
         .modal_logout {
             position: fixed;
             left: 50%;
@@ -2099,31 +1869,13 @@
             opacity: 0;
             transition: all .3s ease;
         }
-        
-        .modal_clear {
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            content: '';
-            width: 100vw;
-            z-index: 9999999999999999999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            visibility: hidden;
-            opacity: 0;
-            transition: all .3s ease;
-        }
 
-        .modal_logout.on,
-        .modal_clear.on {
+        .modal_logout.on {
             visibility: inherit;
             opacity: 1;
         }
 
-        .modal_logout .bg
-         {
+        .modal_logout .bg {
             background: var(--color-000);
             opacity: .75;
             width: 100%;
@@ -2135,29 +1887,15 @@
             content: '';
             z-index: -1;
         }
-        
-        .modal_clear .bg
-         {
-            background: var(--color-000);
-            opacity: .75;
-            height: 100%;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            content: '';
-            z-index: -1;
-        }
 
-        .modal_logout .container,
-        .modal_clear .container {
-            display: flex;
+        .modal_logout .container {
             background: var(--color-1a1e23);
             border: 4px solid var(--color-000);
             border-radius: 30px;
             padding: 60px;
             z-index: 1;
             box-shadow: var(--box-shadow-M);
+            gap: 60px;
             align-items: center;
             position: relative;
             max-width: 1200px;
@@ -2165,15 +1903,15 @@
             margin: 0 auto;
             transition: all .3s ease;
             transform: translateY(-100%);
+            text-align: center;
+            margin: 0 auto;
         }
 
-        .modal_logout.on .container,
-        .modal_clear.on .container {
+        .modal_logout.on .container {
             transform: translateY(0);
         }
 
-        .modal_logout .container .xi-close-thin,
-        .modal_clear .container .xi-close-thin {
+        .modal_logout .container .xi-close-thin {
             position: absolute;
             left: 50%;
             top: 0;
@@ -2191,76 +1929,38 @@
             cursor: pointer;
         }
 
-        .modal_logout .container .xi-close-thin::before,
-        .modal_clear .container .xi-close-thin::before {
+        .modal_logout .container .xi-close-thin::before {
             transition: all .3s ease;
         }
 
-        .modal_logout .container .xi-close-thin:hover::before,
-        .modal_clear .container .xi-close-thin:hover::before {
+        .modal_logout .container .xi-close-thin:hover::before {
             transform: rotate(180deg);
         }
 
-        .modal_logout .content_info,
-        .modal_clear .content_info {
+        .modal_logout .content_info {
             display: flex;
             flex-direction: column;
-            margin: 0 auto;
         }
 
-        .modal_logout .content_info h2,
-        .modal_clear .content_info h2 {
+        .modal_logout .content_info h2 {
             color: var(--color-fff);
             font-size: 36px;
             font-weight: 700;
             margin-bottom: 30px;
         }
 
-        .modal_logout .content_info ul,
-        .modal_clear .content_info ul {
+        .modal_logout .content_info ul {
             display: flex;
             flex-direction: column;
-            gap: 15px 0;
+            display: block;
         }
 
-        .modal_logout .content_info ul li,
-        .modal_clear .content_info ul li {
+        .modal_logout .content_info ul li {
             font-size: 18px;
-            color: var(--color-fff);
-            display: flex;
-            gap: 15px;
+            display: list-item;
+            text-align: -webkit-match-parent;
         }
 
-        .modal_logout .content_info ul li .desc1,
-        .modal_clear .content_info ul li .desc1 {
-            font-weight: 400;
-            width: 50px;
-            position: relative;
-            z-index: 1;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        .modal_logout .content_info ul li .desc1::after,
-        .modal_clear .content_info ul li .desc1::after {
-            position: absolute;
-            left: 0;
-            top: 15px;
-            content: '';
-            width: 100%;
-            height: 6px;
-            background: var(--color-03f);
-            transition: all .3s ease;
-            z-index: -1;
-        }
-
-        .modal_logout .content_info ul li .desc2,
-        .modal_clear .content_info ul li .desc2 {
-            width: calc(100% - 65px);
-            font-weight: 400;
-            opacity: .5;
-            word-break: keep-all;
-        }
 
         /* main_start */
         .main_wrap .main_swiper {
@@ -2367,7 +2067,7 @@
         }
 
         .sec4 {
-            background: url(.resources/images/sec4_bg.jpg) no-repeat center / cover;
+            background: url(./resources/images/sec4_bg.jpg) no-repeat center / cover;
             position: relative;
             z-index: 1;
         }
@@ -2380,18 +2080,18 @@
             content: '';
             width: 100%;
             height: 100%;
-            background: url(.resources/images/big_img1_blur.png) no-repeat center / 100% 100%;
+            background: url(./resources/images/big_img1_blur.png) no-repeat center / 100% 100%;
             z-index: -1;
         }
 
         .sec4 .container {
-            max-width: 1240px;
+            max-width: 1500px;
             width: 100%;
             margin: 0 auto;
             height: 100%;
             display: flex;
             align-items: center;
-            gap: 0 60px;
+            gap: 0 15px;
         }
 
         .sec4 .info_group {
@@ -2429,17 +2129,30 @@
         }
 
         .sec4 .input_group {
-            padding: 30px;
+            padding: 20px 33px;
             border-radius: 20px;
             background: var(--color-1a1e23);
             box-shadow: var(--box-shadow-M);
+            /* width: 80%; */
+            display: flex;
+            flex-direction: column;
+            gap: 15px 0;
+            /* margin-right: 50px; */
+        }
+
+        .modal_logout .input_group {
+            padding: 30px;
+            border-radius: 20px;
+            background: var(--color-1a1e23);
             width: 50%;
             display: flex;
             flex-direction: column;
             gap: 15px 0;
+            margin: 0 auto;
         }
 
-        .sec4 .input_group .group {
+        .sec4 .input_group .group,
+        .modal_logout .input_group .group {
             display: flex;
             flex-direction: column;
             gap: 30px 0;
@@ -2449,6 +2162,15 @@
             display: flex;
             flex-direction: column;
             gap: 10px 0;
+            text-align: center
+        }
+
+
+		/* 2023-01-31 border color 변경_지수 */
+        .sec4 .input_group .tit1 {
+            border: 1px solid #1F2429;
+            text-align: center;
+
         }
 
         .sec4 .input_group .tit h3 {
@@ -2464,17 +2186,19 @@
             opacity: .5;
         }
 
-        .sec4 .input_group ul {
+        .sec4 .input_group ul,
+        .modal_logout .input_group ul {
             display: flex;
             flex-direction: column;
             gap: 15px 0;
         }
 
-        .sec4 .input_group ul li {
+        .sec4 .input_group ul li,
+        .modal_logout .input_group ul li {
             position: relative;
         }
 
-        .sec4 .input_group ul li::after {
+/*         .sec4 .input_group ul li::after {
             position: absolute;
             left: 15px;
             top: 0;
@@ -2484,10 +2208,11 @@
             font-size: 10px;
             color: var(--color-a7a7a7);
             background: var(--color-1a1e23);
-        }
+        } */
 
         .sec4 .input_group ul li input,
-        .sec4 .input_group ul li textarea {
+        .sec4 .input_group ul li textarea,
+        .modal_logout .input_group ul li input {
             background: none;
             width: 100%;
             border-radius: 5px;
@@ -2497,7 +2222,8 @@
             outline: var(--color-fff);
         }
 
-        .sec4 .input_group ul li input {
+        .sec4 .input_group ul li input,
+        .modal_logout .input_group ul li input {
             height: 45px;
         }
 
@@ -2512,6 +2238,15 @@
             justify-content: center;
             margin-top: 15px;
             transition: all .3s ease;
+        }
+
+        .modal_logout .input_group .btn_bottom {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            transition: all .3s ease;
+
         }
 
         @media (max-width:1550px) {
@@ -2575,60 +2310,163 @@
         .main_wrap.white {
             background: var(--color-f2f2f2);
         }
-
-        /*  추가 */
-        .list th {
-            text-align: center;
-            color: #a7a7a7;
+        
+        /* 지수 추가 */
+/*         .testimg{
+        	width: 530px;
+        	height: 320px;
+        } */
+        
+        .tit_group {
+         	position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 500px;
+        }
+        .tit {
+            display: flex;
+            align-items: flex-end;
+            gap: 0 30px;
+            margin-bottom: 5%;
+        }
+        .tit * {
+            line-height: 1;
         }
 
-        .list tr {
-            border-bottom: 1px solid #a7a7a7;
-            height: 40px;
-            text-align: center;
+        .tit p {
+            font-size: 16px;
+            color: var(--color-fff);
+            opacity: .5;
+            transform: translateY(-7px);
+            line-height: 1.4;
         }
-
-        .notice th {
-            text-align: center;
-            color: #a7a7a7;
-        }
-
-        .notice tr {
-            height: 40px;
-            text-align: center;
-        }
-
-        .notice td {
-            padding: 3%;
-            text-align: left;
-        }
-
-        .btn_bottom {
-            text-align: center;
-            height: 100%;
-        }
+        /* li { list-style:none;} */
+        /* select */
+        .selectBox2 * { box-sizing: border-box; }
+		.selectBox2 {
+		  position: relative;
+		  width: 273px;
+		  height: 35px;
+		  border-radius: 4px;
+		  border: 2px solid #a9aaac;
+		  background-size: 20px;
+		  cursor: pointer;
+		  display:-webkit-inline-box;
+		}
+		
+		.selectBox2:after {
+		  content: '';
+		  display: block;
+		  width: 2px;
+		  height: 100%; 
+		  position: absolute; 
+		  top: 0; 
+		  right: 35px;
+		  background: #a9aaac;
+		}
+		
+		.selectBox2 .label {
+		  display: flex;
+		  align-items: center;
+		  width: inherit;
+		  height: inherit;
+		  border: 0 none;
+		  outline: 0 none;
+		  padding-left: 20px;
+		  background: transparent;
+		  cursor: pointer;
+		  font-size: 14px;
+		}
+		
+		.selectBox2 .optionList {
+		  position: absolute; 
+		  top: 28px;
+		  left: 0;
+		  width: 100%;
+		  background: #a9aaacf7;
+    	  color: #373636;
+		  list-style-type: none;
+		  padding: 0;
+		  border-radius: 6px;
+		  overflow: auto;
+		  max-height: 0;
+		  transition: .3s ease-in;
+		}
+		
+		.selectBox2.active .optionList {
+		  max-height: 500px;
+		}
+		
+		.selectBox2 .optionItem {
+		  border-bottom: 1px dashed #777;
+		  padding: 5px 15px 5px;
+		  transition: .1s;
+		  font-size: x-large;
+		}
+		
+		.selectBox2 .optionItem:hover {
+		  background: rgba(77, 109, 239, 0.25);
+		}
+		
+		.selectBox2 .optionItem:last-child {
+		  border-bottom: 0 none;
+		}
+		.selectBnt{
+			display: -webkit-box;
+		    margin-left: 5px;
+		    border-radius: inherit;
+		    background-color: a9aaac;
+		    width: 38px;
+		}
+		
+		 /* 스크롤 커스텀 */
+		.selectBox2 .optionList::-webkit-scrollbar {width: 6px;}
+		.selectBox2 .optionList::-webkit-scrollbar-track {background: transparent; }
+		.selectBox2 .optionList::-webkit-scrollbar-thumb {background: #303030; border-radius: 45px;}
+		.selectBox2 .optionList::-webkit-scrollbar-thumb:hover {background: #303030;}
+		
+		}
+		
+		/* 차트추가 */
+  .chartMenu {
+    width: 100vw;
+    height: 40px;
+    background: #1A1A1A;
+    color: rgba(54, 162, 235, 1);
+  }
+  .chartMenu p {
+    padding: 10px;
+    font-size: 20px;
+  }
+  .chartBox {
+    width: 400px;
+    padding: 20px;
+    border-radius: 20px;
+    border: solid 3px rgba(54, 162, 235, 1);
+    background: white;
+  }
+		
     </style>
-    <script src="/plugins/validation/jquery.validate.min.js"></script>
-    <script src="/plugins/validation/additional-methods.min.js"></script>
+
+
+    <script src="resources/plugins/validation/jquery.validate.min.js"></script>
+    <script src="resources/plugins/validation/additional-methods.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script src="/js/bootstrap-dialog.js"></script>
+    <script src="resources/js/bootstrap-dialog.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.umd.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/css/swiper.min.css" rel="stylesheet"
         type="text/css">
-    <script src="/plugins/ckeditor/ckeditor.js"></script>
-    <style>
-        .cke {
-            visibility: hidden;
-        }
-    </style>
-    <script src="/js/jquery.fullPage.js?20230117122237"></script>
-    <script src="/js/common.js?20230117122237"></script>
-    <script src="/js/front-board.js?20230117122237"></script>
-    <script src="/js/default.js?20230117122237"></script>
-    <script src="/js/front.js?20230117122237"></script>
+    <script src="resources/plugins/ckeditor/ckeditor.js"></script>
+    <script src="resources/js/jquery.fullPage.js"></script>
+    <script src="resources/js/common.js"></script>
+    <script src="resources/js/front-board.js"></script>
+    <script src="resources/js/default.js"></script>
+    <script src="resources/js/front.js"></script>
     <link rel="shortcut icon" href="/resources/images/favicon.png">
-    <link rel="icon" href="/resources/images/favicon.png">
+    <link rel="icon" href="resources/images/favicon.png">
     <script>
         if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
             window.location.href = "microsoft-edge:" + window.location.href;
@@ -2641,160 +2479,158 @@
 
 <body>
 
-   <div class="main_wrap">
+    <div class="main_wrap">
         <div class="swiper main_swiper swiper-container-initialized swiper-container-vertical">
             <div class="main_header">
-                <a href="" class="logo">
+                <a href="index.do" onclick="location.href='index.do'" class="logo">
                     <div class="img"><img src="./resources/images/weed_log2.jpg"></div>
                     <span class="en"> <b>WHO WITH SERVICE</b></span>
                 </a>
                 <ul class="gnb">
+                    <li><a href="index.do" class="en" onclick="location.href='index.do'"><span>Home</span></a></li>
                     <div class="btn_bottom" style="z-index: 100; margin-top: -10px;">
-						<button type="submit" class="b_type3" onclick="">로그아웃</button>
-					</div>
+                        <button type="submit" class="b_type3" onclick="">${member.email}</button>
+                    </div>
+
                 </ul>
             </div>
 
             <!-- 추가 -->
             <section class="swiper-slide sec4" style="height: 881px; margin-bottom: 30px;">
                 <div class="container">
-                    <div class="input_group" style="height:70%;">
-                        <div class="group">
-                            <div class="tit" style="gap: 30px 0;">
-                                <h3 style="color: rgb(217, 217, 217);">의뢰 목록</h3>
-                                <table class="list"
-                                    style="border-collapse: collapse; width : 100%; table-layout: fixed; color:#a7a7a7;">
-                                    <thead>
-                                        <tr>
-                                            <th>번호</th>
-                                            <th>문의유형</th>
-                                            <th>업체명</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                         <c:forEach var="contact" items="${list}" varStatus="status">
-												<tr>
-													<td><button onclick="getContent(${contact.req_seq})" style="background-color:transparent;">${status.count}</td>
-													<td><button onclick="getContent(${contact.req_seq})" style="background-color:transparent;">${contact.req_type}</td>
-													<td><button onclick="getContent(${contact.req_seq})" style="background-color:transparent;">${contact.company}</td>
-												</tr>
-											</c:forEach>
-                                    </tbody>
-                                </table>
+                	<!-- 제목 -->
+                	<div class="tit_group" >
+                            <div class="tit">
+                                <h2 class="h_type1 en"><span>Panoptic Analysis</span></h2>
+                                <p>19개 class로 분할한 기술로 Object Count 와 인식 정확도를 Chart로 간편하게 확인하세요.  
+                                </p>
                             </div>
-                        </div>
                     </div>
+                    
+                    <!-- 비디오 위치 -->
+					<div class="input_group"
+						style="width: 400px; height: 553px; margin-top: 10%;">
+					<!-- select  -->
+						<div class="selectBox2 ">
+							<button class="label">객체선택 🍊</button>
+						
+							<ul class="optionList">
+								<li class="optionItem"><input type='checkbox' name='object'
+									value='0' style="width: 20px; height: 20px;"checked="checked" /> road</li>
+								<li class="optionItem"><input type='checkbox' name='object'
+									value='1' style="width: 20px; height: 20px;" checked="checked"/> sidewalk</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='2'
+									style="width: 20px; height: 20px;"checked="checked" /> building</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='3'
+									style="width: 20px; height: 20px;" checked="checked"/> wall</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='4'
+									style="width: 20px; height: 20px;"checked="checked" /> fence</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='5'
+									style="width: 20px; height: 20px;"checked="checked" /> pole</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='6'
+									style="width: 20px; height: 20px;"checked="checked" /> traffic light</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='7'
+									style="width: 20px; height: 20px;"checked="checked" /> traffic sign</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='8'
+									style="width: 20px; height: 20px;" checked="checked"/> vegetation</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='9'
+									style="width: 20px; height: 20px;"checked="checked" /> terrain</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='10'
+									style="width: 20px; height: 20px;"checked="checked" /> sky</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='11'
+									style="width: 20px; height: 20px;" checked="checked"/> person</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='12'
+									style="width: 20px; height: 20px;" checked="checked"/> rider</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='13'
+									style="width: 20px; height: 20px;" checked="checked"/> car</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='14'
+									style="width: 20px; height: 20px;"checked="checked" /> truck</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='15'
+									style="width: 20px; height: 20px;" checked="checked"/> bus</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='16'
+									style="width: 20px; height: 20px;" checked="checked"/> train</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='17'
+									style="width: 20px; height: 20px;" checked="checked"/> motorcycle</li>
+								<li class="optionItem"><input type='checkbox' name='object' value='18'
+									style="width: 20px; height: 20px;" checked="checked"/> bicycle</li>
+							</ul>
+							<button type="submit" id="submit" class="selectBnt" onclick='getCheckboxValue()'>Apply</button>
+						</div>
 
-                    <!-- 목록 세부내용 -->
-                    <c:forEach var="contact" items="${list}" varStatus="status">
-                    <div class="input_group content${contact.req_seq}" style="height:70%; display:none;">
-                        <form id="frm" method="post" action="/requst-post-normal" target="ifrm" novalidate="novalidate">
-                            <input name="table" type="hidden" value="contact" autocomplete="off">
-                            <div class="group">
-                                <div class="tit">
-                                    <h3 style="color: rgb(217, 217, 217)">의뢰 신청서</h3>
-                                </div>
-                                <table class="notice"
-                                    style="border-collapse: collapse; width : 100%; table-layout: fixed; color:#a7a7a7;">
-
-                                    <tr>
-                                        <td>문의유형</td>
-                                        <td>${contact.req_type}</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            E-mail
-                                        </td>
-                                        <td>
-                                            ${contact.email}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            업체명
-                                        </td>
-                                        <td>
-                                            ${contact.company}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            담당자
-                                        </td>
-                                        <td>
-                                            ${contact.name}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            전화번호
-                                        </td>
-                                        <td>
-                                            ${contact.name}
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            프로젝트내용
-                                        </td>
-                                        <td>
-                                            ${contact.req_content}
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </form>
-                        <div class="btn_bottom">
-                            <button type="submit" class="b_type4"  >삭제하기</button>
-                        </div>
                         
-                    </div>
-                         <div class="modal_clear">
-							<div class="bg"></div>
-								<div class="container">
-									<i class="xi-close-thin"></i>`
-									<div class="content_info">
-										<h2>삭제 하시겠습니까?</h2>
-										<ul>
-											<div class="btn_bottom">
-												<button class="b_type2" onclick="deleteContent(${contact.req_seq}); location.href='Manager.do'">네</button>
-												<button class="b_type1" onclick="location.href=''">아니오</button>
-											</div>
-										</ul>
-									</div>
-								</div>
-							</div> 
-                    </c:forEach>
+						<div class="group">
+							<div class="tit1" id="realTestimg">
+								<img class="testimg" src="./resources/images/original_img/${filename}"
+									style="width: 100%; max-width: 450px; vertical-align: middle">
+							</div>
+						</div>
 
+						<div class="group">
+							<div class="tit1">
+								<img src="./resources/images/result_img/${fileload}"
+									style="width: 100%; max-width: 450px; vertical-align: middle">
+							</div>
+						</div>
+					</div>
+
+					<!-- chart.js -->
+                    <div class="input_group" style="margin-top: 10%;">
+                        <div class="group">
+                        	<div class="tit" style="align-items: center;">
+                                <h3>Object Table</h3>
+                            </div>
+                            <div class="chartCard">
+								<div class="chartBox">
+									<canvas id="myChart" style="width: 600px;  height: 415px;"></canvas>
+								</div>
+							</div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="input_group" style="margin-top: 10%;">
+                        <div class="group">
+                        	<div class="tit" style="align-items: center;">
+                                <h3>Stuff Table</h3>
+                            </div>
+		                    <div class="chartCard">
+							  <div class="chartBox">
+							    <canvas id="DChart" style="width: 353px;  height: 447px; display:block;"></canvas>
+							  </div>
+							</div>
+                        </div>
+                    </div>
+                
                 </div>
+                
+            
             </section>
 
-			
-			
-			<!-- 로그아웃 -->
-			<div class="modal_logout">
-				<div class="bg"></div>
-				<div class="container">
-					<i class="xi-close-thin"></i>`
-					<div class="content_info">
-						<h2>로그아웃 하시겠습니까?</h2>
-						<ul>
-							<div class="btn_bottom">
-								<button type="submit" class="b_type2"
-									onclick="location.href='logout.do'">네</button>
-								<button type="submit" class="b_type1" onclick="location.href=''">아니오</button>
-							</div>
-							
-						</ul>
-					</div>
-				</div>
-			</div>
 
+
+
+            <!-- 로그아웃 -->
+            <div class="modal_logout">
+                <div class="bg"></div>
+                <div class="container">
+                    <i class="xi-close-thin"></i>`
+                    <div class="content_info">
+                        <h2>로그아웃 하시겠습니까?</h2>
+                        <ul>
+                            <div class="btn_bottom">
+                                <button type="submit" class="b_type4" onclick="location.href='Main.do'">네</button>
+                                <button type="submit" class="b_type1" onclick="location.href=''">아니오</button>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 홈 -->
+            <!-- 홈버튼 누르면 처음 페이지 -->
 
 
             <script>
-            let choiceCout =0;
                 $(document).ready(function () {
                     $('.main_wrap .side_menu .mode_change').click(function () {
                         $(this).toggleClass('on')
@@ -2817,120 +2653,284 @@
                     $('.modal_logout .bg').click(function () {
                         $('.modal_logout').removeClass('on')
                     });
-                    
-                    
-                 // modal_clear는 삭제
-                    $('.input_group .b_type4').click(function () {
-                        $('.modal_clear').addClass('on')
-                    });
 
-                    $('.modal_clear .container .xi-close-thin').click(function () {
-                        $('.modal_clear').removeClass('on')
-                    });
 
-                    $('.modal_clear .bg').click(function () {
-                        $('.modal_clear').removeClass('on')
-                    });
+                    $('.main_wrap .fix_menu > i').click(function () {
+                        $('.main_wrap .fix_menu').toggleClass('on')
+                    })
                 });
 
+            </script>
+            
+            <script>
+                     /* 이미지 미리보기 */
+                         function previewImg() {
+					let preview = document.querySelector('.testimg');
+					let file = document.querySelector('input[type=file]').files[0];
+					let reader = new FileReader();
 
+					reader.addEventListener(
+						'load',
+						function () {
+							preview.src = reader.result;
+							console.log(reader.result);
+						},
+						false
+					);
 
-                /* 2023-01-13 Cossia */
-                /* main page slide S */
-                const main_page = new Swiper(".main_swiper", {
-                    direction: "vertical",
-                    slidesPerView: 1,
-                    spaceBetween: 30,
-                    mousewheel: true,
-                    speed: 800,
-                    pagination: {
-                        el: ".main_pagination,.main_nav",
-                        clickable: true,
-                    },
-                    breakpoints: {
-                        1024: {}
-                    },
-                    on: {
-                        slideChange: function () {
-                            $('.gnb li').removeClass('on');
-                            $('.gnb li').eq(this.realIndex).addClass('on');
-                        }
-                    }
-                });
-                /* main menu click */
-                $(document).on('click', '.gnb li', function () {
-                    main_page.slideTo($('.gnb li').index(this));
-                });
-                /* footer right ... click */
-                // $(document).on('click', '.fix_menu', function(){
-                //     main_page.slideTo( 3 );
-                // });
-                /* main page slide E */
-
-                $('#frm').validate({
-                    rules: {
-                        name: { required: true, },
-                        manager: { required: true, },
-                        phone: { required: true, },
-                        email: { required: true, email: true },
-                        content: { required: true, },
-                    }
-                });
-                
-           
-                
-                // 상세 의뢰서 작성
-                function getContent(req_seq) {
-					//데이터 확인버튼 클릭 => 바로 아래 쪽에 있는 tr 태그를 보이게 할 것
-					// 다시 한번 더 버튼 클릭시 tr태그 안보이게 할 것 
-					choiceCout = req_seq;
-					if($('.content'+req_seq).css('display')=='none'){
-						$('.content'+req_seq).show();
-						$.ajax({
-							url: 'detailGetAsync.do', //요청 경로
-							data: {req_seq:req_seq} , //요청 데이터
-							type : 'get', //값을 불러올때는 get방식
-							success: function(res) { //요청, 응답이 성공했을 때 실행하는 함수
-								console.log(res);
-								//td 에 내용 넣어주고 tr에 추가
-								let content = '<td>내용 : '+res.content+'</td>'
-								//js => .innerHtml / innerText
-								//j쿼리 => .html/ text
-								$('.content'+req_seq).html(content);
-							},
-							error: function () { //요청,응답이 실패했을때 실행
-								console.log('fail');
-							}
-						});
-					}else{
-						$('.content'+req_seq).hide();
+					if (file) {
+						reader.readAsDataURL(file);
+						/* console.log(reader.readAsDataURL(file)); */
 					}
 				}
-                
-                // 의뢰서 삭제
-                 function deleteContent(req_seq) {
-					//boardDeleteAsync.do 요청
-					// 요청 데이터 : 게시물 번호
-					// get 요청
-					
-						console.log(choiceCout);
-						$.ajax({
-						url: 'DeleteAsync.do', //요청 경로
-						data: {req_seq:choiceCout} ,
-						type : 'get', 
-						success: function(res) { //요청, 응답이 성공했을 때 실행하는 함수
-							console.log(res);
-							//새로고침
-							// location.reload();
-						},
-						error: function () { //요청,응답이 실패했을때 실행
-							console.log('fail');
-						}
-					});
-					//성공 - 삭제성공 -> 새로고침
-					
-				} 
+                         
             </script>
+            <script>
+            let object_data = ['person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle'];
+            let class_list = ${class_list};
+            let count_list = ${count_list};
+            let score_list = ${score_list};
+            
+            // 갯수
+            let barDataset =  [];
+            
+            // 정확도
+            let lineDataset =  [];
+            
+            // 클래스
+            let objectlabels = [];
+            
+            // 값 받기
+            console.log(object_data);
+            console.log(class_list);
+            console.log(count_list);
+            console.log(score_list);
+            
+            console.log(object_data.length);
+            console.log(class_list.length);
+            console.log(count_list.length);
+            console.log(score_list.length);
+            
+            for(var i =0;i<class_list.length;i++){
+            	console.log(i+" : " + class_list[i]);
+            }
+            for(var i =0;i<count_list.length;i++){
+            	console.log(i+" : " + count_list[i]);
+            }
+            for(var i =0;i<score_list.length;i++){
+            	console.log(i+" : " + score_list[i]);
+            }
+            
+            for(var i=0; i<object_data.length;i++){
+            	for(var j=0;j<class_list.length;j++){
+            		if(object_data[i] == class_list[j]){
+            			console.log(j+" : "+class_list[j] + " " + count_list[j] + " " + score_list[j]);
+            			objectlabels.push(class_list[j]);
+            			barDataset.push(count_list[j]);
+            			lineDataset.push(score_list[j]);
+            		}
+            	}
+            }
+            
+            console.log("class : " + objectlabels);
+            console.log("count : " + barDataset);
+            console.log("score : " + lineDataset);
+            
+
+            
+            // 차트 전체 data
+            let L_data = {
+            		labels: objectlabels,
+		datasets: [{
+			label: 'Object Count', // 범례 이름
+			backgroundColor: 'rgba(75, 192, 192, 1)',
+			borderColor: 'rgba(75, 192, 192, 1)',
+			data: barDataset,
+			borderWidth: 1
+			}, {
+				type:'line',
+				label: 'Object Accuracy',
+				backgroundColor: 'rgba(255, 99, 132, 1)',
+				borderColor: 'rgba(255, 99, 132, 1)',
+				fill: false,
+				data: lineDataset
+				}]
+            }// L_data end
+            
+            // 차트 설정
+            let L_config = {
+            		type: 'bar',
+            		data: L_data,
+            		options: {
+            			maintainAspectRatio: false,
+            			title: {
+            				text: 'Chart.js Time Scale'
+            				},
+            				scales: {
+            					resposive: false, // default값 true, 차트 크기를 변경하기 위해 false로 변경
+            					y: {
+            						beginAtZero: false // y축 값 0부터 시작
+            						}
+            				}
+            				} // options end
+            				}; // config end
+
+            				// 차트 그리기
+            				let myChart = new Chart(
+            						document.getElementById('myChart'),
+            						L_config
+            						);
+            				</script>
+			 
+			 <!-- 도넛차트 -->
+			 <script>
+				let selectedDatasetIndex = undefined;
+				let selectedIndex = undefined;
+				
+			
+				// setup 
+				const data = {
+						labels: ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic_light', 'traffic_sign', 'vegetation', 'terrain', 'sky'],
+					    datasets: [{
+						    label: 'Stuff Accuracy',
+				    	    data: [80, 95, 70, 66, 90, 98, 30,50,70,77,90],
+				        	backgroundColor: [
+					          'rgba(255, 26, 104, 0.2)',
+					          'rgba(54, 162, 235, 0.2)',
+					          'rgba(255, 206, 86, 0.2)',
+					          'rgba(75, 192, 192, 0.2)',
+					          'rgba(153, 102, 255, 0.2)',
+					          'rgba(200, 159, 64, 0.2)',
+					          'rgba(102, 159, 64, 0.2)',
+					          'rgba(55, 159, 64, 0.2)',
+					          'rgba(5, 159, 64, 0.2)',
+					          'rgba(45, 159, 64, 0.2)',
+					          'rgba(0, 0, 0, 0.2)'
+					        ],
+					        borderColor: [
+						          'rgba(255, 26, 104, 1)',
+						          'rgba(54, 162, 235, 1)',
+						          'rgba(255, 206, 86, 1)',
+						          'rgba(75, 192, 192, 1)',
+						          'rgba(153, 102, 255, 1)',
+						          'rgba(200, 159, 64, 1)',
+						          'rgba(102, 159, 64, 1)',
+						          'rgba(55, 159, 64, 1)',
+						          'rgba(5, 159, 64, 1)',
+						          'rgba(45, 159, 64, 1)',
+						          'rgba(0, 0, 0, 1)'
+					        ],
+						    borderWidth: 1,
+						    cutout: '70%',
+						    borderRadius: 5,
+						    offset: 10
+				  	}]
+				};		
+				
+				// clickLabel pugin block
+		  		const clickLabel = {
+					id: 'clickLabel',
+					afterDraw: (chart, args, options) => {
+						const { ctx, chartArea: { width, height, top } } = chart;
+						
+						
+						
+						if(selectedDatasetIndex >= 0) {
+							console.log(chart.data.datasets[selectedDatasetIndex].data[selectedIndex]);
+							const sum = chart._metasets[selectedDatasetIndex].total;
+							const value = chart._metasets[selectedDatasetIndex]._parsed[selectedIndex];
+							const color = chart.data.datasets[selectedDatasetIndex].borderColor[selectedIndex];
+							const percentage = value / sum * 100;
+							const accuracy = chart.data.datasets[selectedDatasetIndex].data[selectedIndex];
+			
+							ctx.save();
+							ctx.font = 'bolder 60px Arial';
+							ctx.fillStyle = color;
+							ctx.textAlign = 'center';
+							ctx.textBaseline = 'middle';
+							ctx.fillText(accuracy + '%', width/2, height/2 + top);
+							ctx.restore();
+						}
+					}
+				} 
+				
+				// config 
+				const config = {
+					type: 'doughnut',
+				    data:data,
+				    options: {
+				    	responsive: false,
+						mainTainAspectRatio: false,
+		 				plugins: {
+							legend: {
+								display: true,
+								position: 'bottom'
+							}
+				 		},
+						onClick(click, element, chart) {
+							//console.log(element[0].datasetIndex)
+							if(element[0]) {
+								selectedDatasetIndex = element[0].datasetIndex;
+								selectedIndex = element[0].index;
+								chart.draw();
+							}
+						}
+					},
+					plugins: [clickLabel]
+				};
+				
+				// render init block
+				const DChart = new Chart(
+				   document.getElementById('DChart'),
+				   config
+				);
+			</script>
+			
+			
+			<!-- 다중체크박스  -->
+			<script type="text/javascript">
+			const label = document.querySelector('.label');
+			const options = document.querySelectorAll('.optionItem');
+
+			label.addEventListener('click', function(){
+			  if(label.parentNode.classList.contains('active')) {
+			    label.parentNode.classList.remove('active');
+			  } else {
+			    label.parentNode.classList.add('active');
+			  }
+			});
+			
+			 //value 값만 나옴
+ 			function getCheckboxValue()  {
+ 				label.parentNode.classList.remove('active');
+				  // 선택된 목록 가져오기
+				  const query = 'input[name="object"]:checked';
+				  const selectedEls = 
+				      document.querySelectorAll(query);
+				  
+				  // 선택된 목록에서 value 찾기
+				  let valueResult = '';
+				  selectedEls.forEach((el) => {
+				    valueResult += el.value +',';
+				  });
+				  // 출력
+				  console.log(valueResult);
+				  console.log(typeof 'valueResult');
+				  
+			 	  $.ajax({
+						url : "ArrSocket.do",
+						type : 'post',
+						dataType : 'json',
+						data : {valueResult:valueResult},
+						success : function(data) {
+							console.log("데이터 전송 성공이야");
+			     		}
+				});
+				  
+			};  
+				
+			</script>
+			
             <footer>
                 <div class="f_top">
                     <ul>
@@ -2969,4 +2969,3 @@
 </body>
 
 </html>
-

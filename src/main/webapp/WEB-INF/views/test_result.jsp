@@ -2420,11 +2420,32 @@
 		    width: 38px;
 		}
 		
-		// 스크롤 커스텀
+		 /* 스크롤 커스텀 */
 		.selectBox2 .optionList::-webkit-scrollbar {width: 6px;}
 		.selectBox2 .optionList::-webkit-scrollbar-track {background: transparent; }
 		.selectBox2 .optionList::-webkit-scrollbar-thumb {background: #303030; border-radius: 45px;}
 		.selectBox2 .optionList::-webkit-scrollbar-thumb:hover {background: #303030;}
+		
+		}
+		
+		/* 차트추가 */
+  .chartMenu {
+    width: 100vw;
+    height: 40px;
+    background: #1A1A1A;
+    color: rgba(54, 162, 235, 1);
+  }
+  .chartMenu p {
+    padding: 10px;
+    font-size: 20px;
+  }
+  .chartBox {
+    width: 400px;
+    padding: 20px;
+    border-radius: 20px;
+    border: solid 3px rgba(54, 162, 235, 1);
+    background: white;
+  }
 		
     </style>
 
@@ -2559,9 +2580,9 @@
                                 <h3>Object Table</h3>
                             </div>
                             <div class="chartCard">
-							  <div class="chartBox">
-							    <canvas id="myChart" style="width: 600px;  height: 433px;"></canvas>
-							  </div>
+								<div class="chartBox">
+									<canvas id="myChart" style="width: 600px;  height: 415px;"></canvas>
+								</div>
 							</div>
                         </div>
                     </div>
@@ -2665,67 +2686,119 @@
                          
             </script>
             <script>
-			    // scatter setup 
-			    const L_data = {
-			      labels: ['person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle'],
-			      datasets: [{
-			        label: 'Object Count',
-			        data: [18, 12, 6, 9, 12, 3, 9,10],
-			        backgroundColor: [
-			          'rgba(255,107,107,0.2)',
-			          'rgba(255,159,67, 0.2)',
-			          'rgba(254,202,87, 0.2)',
-			          'rgba(243,104,224, 0.2)',
-			          'rgba(16,172,132, 0.2)',
-			          'rgba(0,210,211, 0.2)',
-			          'rgba(46,134,222, 0.2)',
-			          'rgba(200,214,229, 0.2)'
-			        ],
-			        borderColor: [
-		             'rgba(255,107,107,1)',
-			          'rgba(255,159,67, 1)',
-			          'rgba(254,202,87, 1)',
-			          'rgba(243,104,224, 1)',
-			          'rgba(16,172,132, 1)',
-			          'rgba(0,210,211, 1)',
-			          'rgba(46,134,222, 1)',
-			          'rgba(200,214,229, 1)'
-			        ],
-			        borderWidth: 1
-			      },{
-			          type : 'line',
-			          label: 'Object Accuracy',
-			          data: [80, 95, 70, 66, 90, 98, 88,50],
-			          backgroundColor: [
-			        	  'rgba(84,160,255,0.2)'
-			          ],
-			          borderColor: [
-			        	  'rgba(84,160,255,1)'
+            let object_data = ['person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle'];
+            let stuff_data = ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic_light', 'traffic_sign', 'vegetation', 'terrain', 'sky'];
+            let class_list = ${class_list};
+            let count_list = ${count_list};
+            let score_list = ${score_list};
+            
+            // 갯수
+            let barDataset =  [];
+            
+            // 정확도
+            let lineDataset =  [];
+            
+            // 클래스
+            let objectlabels = [];
+            
+            //
+            let stufflabels=[];
+            
+            //
+            let stuffDataset=[];
+            
+            // 값 받기
+            console.log(object_data);
+            console.log(class_list);
+            console.log(count_list);
+            console.log(score_list);
+            
+            console.log(object_data.length);
+            console.log(class_list.length);
+            console.log(count_list.length);
+            console.log(score_list.length);
+            
+            for(var i =0;i<class_list.length;i++){
+            	console.log(i+" : " + class_list[i]);
+            }
+            for(var i =0;i<count_list.length;i++){
+            	console.log(i+" : " + count_list[i]);
+            }
+            for(var i =0;i<score_list.length;i++){
+            	console.log(i+" : " + score_list[i]);
+            }
+            
+            for(var i=0; i<object_data.length;i++){
+            	for(var j=0;j<class_list.length;j++){
+            		if(object_data[i] == class_list[j]){
+            			console.log(j+" : "+class_list[j] + " " + count_list[j] + " " + score_list[j]);
+            			objectlabels.push(class_list[j]);
+            			barDataset.push(count_list[j]);
+            			lineDataset.push(score_list[j]);
+            		}
+            	}
+            }
+            
+            for(var i=0; i<stuff_data.length;i++){
+            	for(var j=0;j<class_list.length;j++){
+            		if(stuff_data[i] == class_list[j]){
+            			console.log(j+" : "+class_list[j] + " " + count_list[j] + " " + score_list[j]);
+            			stufflabels.push(class_list[j]);
+            			stuffDataset.push(Math.floor(score_list[j]*100));
+            		}
+            	}
+            }
+            
+            console.log("class : " + objectlabels);
+            console.log("count : " + barDataset);
+            console.log("score : " + lineDataset);
+            console.log("stufflabel : " + stufflabels);
+            console.log("stuffdataset : " + stuffDataset);
+            
+            
+            // 차트 전체 data
+            let L_data = {
+            		labels: objectlabels,
+		datasets: [{
+			label: 'Object Count', // 범례 이름
+			backgroundColor: 'rgba(75, 192, 192, 1)',
+			borderColor: 'rgba(75, 192, 192, 1)',
+			data: barDataset,
+			borderWidth: 1
+			}, {
+				type:'line',
+				label: 'Object Accuracy',
+				backgroundColor: 'rgba(255, 99, 132, 1)',
+				borderColor: 'rgba(255, 99, 132, 1)',
+				fill: false,
+				data: lineDataset
+				}]
+            }// L_data end
+            
+            // 차트 설정
+            let L_config = {
+            		type: 'bar',
+            		data: L_data,
+            		options: {
+            			maintainAspectRatio: false,
+            			title: {
+            				text: 'Chart.js Time Scale'
+            				},
+            				scales: {
+            					resposive: false, // default값 true, 차트 크기를 변경하기 위해 false로 변경
+            					y: {
+            						beginAtZero: false // y축 값 0부터 시작
+            						}
+            				}
+            				} // options end
+            				}; // config end
 
-			          ]
-			        }]
-			    };
-			
-			    // config 
-			    const L_config = {
-			      type: 'bar',
-			      data: L_data,
-			      options: {
-			        scales: {
-			          responsive: false,
-			          y: {
-			            beginAtZero: true
-			          }
-			        }
-			      }
-			    };
-			
-			    // render init block
-			    const myChart = new Chart(
-			      document.getElementById('myChart'),
-			      L_config
-			    );
-			 </script>
+            				// 차트 그리기
+            				let myChart = new Chart(
+            						document.getElementById('myChart'),
+            						L_config
+            						);
+            				</script>
 			 
 			 <!-- 도넛차트 -->
 			 <script>
@@ -2735,10 +2808,10 @@
 			
 				// setup 
 				const data = {
-						labels: ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic light', 'traffic sign', 'vegetation', 'terrain', 'sky'],
+						labels: stufflabels,
 					    datasets: [{
 						    label: 'Stuff Accuracy',
-				    	    data: [80, 95, 70, 66, 90, 98, 30,50,70,77,90],
+				    	    data: stuffDataset,
 				        	backgroundColor: [
 					          'rgba(255, 26, 104, 0.2)',
 					          'rgba(54, 162, 235, 0.2)',

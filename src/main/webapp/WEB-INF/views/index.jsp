@@ -3531,7 +3531,7 @@
                                         <p>문의유형*</p>
                                         <li>
                                             <label>
-                                                <input name="req_type" type="radio" value="A"><span>기술 개발</span>
+                                                <input name="req_type" type="radio" value="A" checked><span>기술 개발</span>
                                                 <input name="req_type" type="radio" value="B"><span>맞춤 서비스
                                                 </span>
                                             </label>
@@ -3693,39 +3693,7 @@
                 }
             })
         </script>
-        <footer>
-            <div class="f_top">
-                <ul>
-                    <li><a href="/info/privacy">개인정보 취급방침</a></li>
-                    <li><a href="/info/tos">이용약관</a></li>
-                    <li><a href="/info/email">이메일무단수집거부</a></li>
-                </ul>
-            </div>
 
-            <div class="f_inner">
-
-                <div class="f_info">
-                    <address>
-                        <p>주소 : 위드컴퍼니</p>
-                        <p>대표 : 위드컴퍼니</p>
-                        <p>E-mail : weed@with.com</p>
-                        <p>전화번호 : 010-7771-1241 : </p>
-                    </address>
-                    <p class="cope">Copyright ⓒ WD</p>
-                </div>
-                <div class="f_logo">
-                    <img src="/resources/images/foot-logo.png">
-                </div>
-
-            </div>
-        </footer>
-        <!--- !! 절대 지우지 마세요 !! --->
-        <iframe name="ifrm" style="display: none"></iframe>
-        <script>
-            $(function () {
-            })
-        </script>
-        <!--- !! 절대 지우지 마세요 !! --->
 
 
 </body>

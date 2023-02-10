@@ -1721,7 +1721,6 @@
         .main_wrap .main_header {
             position: absolute;
             top: 40px;
-            z-index: 1000000;
             width: 100%;
             display: flex;
             justify-content: space-between;
@@ -2083,8 +2082,7 @@
             transform: translate(-100%, -50%);
         }
 
-        .modal_logout,
-        .modal_clear {
+        .modal_logout, .modal_clear {
             position: fixed;
             left: 50%;
             top: 50%;
@@ -2108,7 +2106,7 @@
         }
 
         .modal_logout .bg,
-        .modal_clear .bg
+        .modal_clear .background
          {
             background: var(--color-000);
             opacity: .75;
@@ -2121,9 +2119,9 @@
             content: '';
             z-index: -1;
         }
-
+        
         .modal_logout .container,
-        .modal_clear .container {
+        .modal_clear .con {
             display: flex;
             background: var(--color-1a1e23);
             border: 4px solid var(--color-000);
@@ -2141,12 +2139,12 @@
         }
 
         .modal_logout.on .container,
-        .modal_clear.on .container {
+        .modal_clear.on .con {
             transform: translateY(0);
         }
 
         .modal_logout .container .xi-close-thin,
-        .modal_clear .container .xi-close-thin {
+        .modal_clear .con .xi-close-thin {
             position: absolute;
             left: 50%;
             top: 0;
@@ -2165,12 +2163,12 @@
         }
 
         .modal_logout .container .xi-close-thin::before,
-        .modal_clear .container .xi-close-thin::before {
+        .modal_clear .con .xi-close-thin::before {
             transition: all .3s ease;
         }
 
         .modal_logout .container .xi-close-thin:hover::before,
-        .modal_clear .container .xi-close-thin:hover::before {
+        .modal_clear .con .xi-close-thin:hover::before {
             transform: rotate(180deg);
         }
 
@@ -2622,7 +2620,7 @@
                     <span class="en"> <b>WHO WITH SERVICE</b></span>
                 </a>
                 <ul class="gnb">
-                    <div class="btn_bottom" style="z-index: 100; margin-top: -10px;">
+                    <div class="btn_bottom" style="margin-top: -10px;">
 						<button type="submit" class="b_type3" onclick="">로그아웃</button>
 					</div>
                 </ul>
@@ -2721,11 +2719,12 @@
                         <div class="btn_bottom">
                             <button type="submit" class="b_type4"  >삭제하기</button>
                         </div>
-                        
                     </div>
+                    </c:forEach>
+                    
                          <div class="modal_clear">
-							<div class="bg"></div>
-								<div class="container">
+							<div class="background"></div>
+								<div class="con">
 									<i class="xi-close-thin"></i>`
 									<div class="content_info">
 										<h2>삭제 하시겠습니까?</h2>
@@ -2738,7 +2737,7 @@
 									</div>
 								</div>
 							</div> 
-                    </c:forEach>
+                    
 
                 </div>
             </section>
@@ -2797,11 +2796,11 @@
                         $('.modal_clear').addClass('on')
                     });
 
-                    $('.modal_clear .container .xi-close-thin').click(function () {
+                    $('.modal_clear .con .xi-close-thin').click(function () {
                         $('.modal_clear').removeClass('on')
                     });
 
-                    $('.modal_clear .bg').click(function () {
+                    $('.modal_clear .background').click(function () {
                         $('.modal_clear').removeClass('on')
                     });
                 });
@@ -2834,24 +2833,7 @@
                 $(document).on('click', '.gnb li', function () {
                     main_page.slideTo($('.gnb li').index(this));
                 });
-                /* footer right ... click */
-                // $(document).on('click', '.fix_menu', function(){
-                //     main_page.slideTo( 3 );
-                // });
-                /* main page slide E */
-
-                $('#frm').validate({
-                    rules: {
-                        name: { required: true, },
-                        manager: { required: true, },
-                        phone: { required: true, },
-                        email: { required: true, email: true },
-                        content: { required: true, },
-                    }
-                });
-                
            
-                
                 // 상세 의뢰서 작성
                 function getContent(req_seq) {
 					//데이터 확인버튼 클릭 => 바로 아래 쪽에 있는 tr 태그를 보이게 할 것
@@ -2904,39 +2886,7 @@
 					
 				} 
             </script>
-            <footer>
-                <div class="f_top">
-                    <ul>
-                        <li><a href="/info/privacy">개인정보 취급방침</a></li>
-                        <li><a href="/info/tos">이용약관</a></li>
-                        <li><a href="/info/email">이메일무단수집거부</a></li>
-                    </ul>
-                </div>
 
-                <div class="f_inner">
-
-                    <div class="f_info">
-                        <address>
-                            <p>주소 : 위드컴퍼니</p>
-                            <p>대표 : 위드컴퍼니</p>
-                            <p>E-mail : weed@with.com</p>
-                            <p>전화번호 : 010-7771-1241 : </p>
-                        </address>
-                        <p class="cope">Copyright ⓒ WD</p>
-                    </div>
-                    <div class="f_logo">
-                        <img src="/resources/images/foot-logo.png">
-                    </div>
-
-                </div>
-            </footer>
-            <!--- !! 절대 지우지 마세요 !! --->
-            <iframe name="ifrm" style="display: none"></iframe>
-            <script>
-                $(function () {
-                })
-            </script>
-            <!--- !! 절대 지우지 마세요 !! --->
 
 
 </body>

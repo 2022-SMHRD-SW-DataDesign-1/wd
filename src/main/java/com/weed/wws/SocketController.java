@@ -21,6 +21,12 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.weed.mapper.WwsMapper;
 
@@ -56,7 +62,8 @@ public class SocketController {
 			String email = request.getParameter("email");
 			System.out.println(email);
 		     
-			// 이미지 확장자
+			// 이미지 확장자 
+			//640 480
 			int size = image.length();
 			String files = image.substring(size - 3);
 			System.out.println("확장자:" + files);
@@ -155,35 +162,46 @@ public class SocketController {
 				System.out.println("ct_list:" +ct_list);
 				System.out.println("se_list:" +se_list);
 				
-				String[] cl = cs_list.split(" ");
-				String[] ct = ct_list.split(" ");
-				String[] st = se_list.split(" ");
+				String[] class_arr = cs_list.split(" ");
+				String[] count_arr = ct_list.split(" ");
+				String[] score_arr = se_list.split(" ");
 				
-				List<String> class_list = Arrays.asList(cl);
+				List<String> class_list = new ArrayList<String>();
+				String[] class_arr_list = new String[class_arr.length];
+				for(int i=0;i<class_arr.length;i++) {
+					class_arr_list[i]=class_arr[i];
+					System.out.println("c"+i+":"+class_arr_list[i]);
+					class_list.add(class_arr_list[i]);
+				}
 				
 				List<Integer> count_list = new ArrayList<Integer>();
-				int[] co_list = new int[ct.length];
-				for (int i = 0; i < ct.length; i++) {
-		            co_list[i] = Integer.parseInt(ct[i]);
-		            count_list.add(co_list[i]);
-		        }
+				int[] count_arr_list = new int[count_arr.length];
+				for(int i=0;i<count_arr.length;i++) {
+					count_arr_list[i]=Integer.parseInt(count_arr[i]);
+					System.out.println("c"+i+":"+count_arr_list[i]);
+					count_list.add(count_arr_list[i]);
+				}
 				
 				List<Float> score_list = new ArrayList<Float>();
-				float[] sc_list = new float[st.length];
-				for (int i = 0; i < st.length; i++) {
-		            sc_list[i] = Float.parseFloat(st[i]);
-		            score_list.add(sc_list[i]);
-		        }
+				float[] score_arr_list = new float[score_arr.length];
+				for(int i=0;i<score_arr.length;i++) {
+					score_arr_list[i]=Float.parseFloat(score_arr[i]);
+					System.out.println("s"+i+":"+score_arr_list[i]);
+					score_list.add(score_arr_list[i]);
+				}
 				
-				System.out.println("class_list:" + class_list);
-				System.out.println("count_list:" + count_list);
-				System.out.println("score_list:" + score_list);
+				JSONArray class_list_ = new JSONArray(class_list);
+				JSONArray count_list_ = new JSONArray(count_list);
+				JSONArray score_list_ = new JSONArray(score_list);
+				
+				model.addAttribute("class_list",class_list_);
+				model.addAttribute("count_list",count_list_);
+				model.addAttribute("score_list",score_list_);
 				
 			} catch (Exception e) {
 				System.out.println("오류");
 			}
 			return "test_result";
-			
 			
 
 		} catch (Exception e) {

@@ -2485,7 +2485,6 @@
                                 </p>
                             </div>
                     </div>
-                    
                     <!-- 비디오 위치 -->
 					<div class="input_group"
 						style="width: 400px; height: 553px; margin-top: 10%;">
@@ -2664,6 +2663,7 @@
 				}
                          
             </script>
+<<<<<<< HEAD
             <script>
 			    // scatter setup 
 			    const L_data = {
@@ -2701,31 +2701,162 @@
 			          ],
 			          borderColor: [
 			        	  'rgba(84,160,255,1)'
+=======
+            
+            
+<script>
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-SW-DataDesign-1/wd.git
 
-			          ]
-			        }]
-			    };
-			
-			    // config 
-			    const L_config = {
-			      type: 'bar',
-			      data: L_data,
-			      options: {
-			        scales: {
-			          responsive: false,
-			          y: {
-			            beginAtZero: true
-			          }
-			        }
-			      }
-			    };
-			
-			    // render init block
-			    const myChart = new Chart(
-			      document.getElementById('myChart'),
-			      L_config
-			    );
-			 </script>
+let object_data = ['person', 'rider', 'motorcycle', 'bicycle', 'truck', 'train', 'car', 'bus'];
+let stuff_data = ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic_light', 'traffic_sign', 'vegetation', 'terrain', 'sky'];
+let class_list = ${class_list};
+let count_list = ${count_list};
+let score_list = ${score_list};
+
+// 갯수
+let barDataset =  [];
+
+// 정확도
+let lineDataset =  [];
+
+// 클래스
+let objectlabels = [];
+
+//
+let stufflabels=[];
+
+//
+let stuffDataset=[];
+
+// 값 받기
+console.log(object_data);
+console.log(class_list);
+console.log(count_list);
+console.log(score_list);
+
+console.log(object_data.length);
+console.log(class_list.length);
+console.log(count_list.length);
+console.log(score_list.length);
+
+for(var i =0;i<class_list.length;i++){
+	console.log(i+" : " + class_list[i]);
+}
+for(var i =0;i<count_list.length;i++){
+	console.log(i+" : " + count_list[i]);
+}
+for(var i =0;i<score_list.length;i++){
+	console.log(i+" : " + score_list[i]);
+}
+
+for(var i=0; i<object_data.length;i++){
+	for(var j=0;j<class_list.length;j++){
+		if(object_data[i] == class_list[j]){
+			console.log(j+" : "+class_list[j] + " " + count_list[j] + " " + score_list[j]);
+			objectlabels.push(class_list[j]);
+			barDataset.push(count_list[j]);
+			lineDataset.push(score_list[j]);
+		}
+	}
+}
+
+for(var i=0; i<stuff_data.length;i++){
+	for(var j=0;j<class_list.length;j++){
+		if(stuff_data[i] == class_list[j]){
+			console.log(j+" : "+class_list[j] + " " + count_list[j] + " " + score_list[j]);
+			stufflabels.push(class_list[j]);
+			stuffDataset.push(Math.floor(score_list[j]*100));
+		}
+	}
+}
+
+console.log("class : " + objectlabels);
+console.log("count : " + barDataset);
+console.log("score : " + lineDataset);
+console.log("stufflabel : " + stufflabels);
+console.log("stuffdataset : " + stuffDataset);
+
+
+
+// 차트 전체 data
+const L_data = {
+	labels: objectlabels,
+	datasets: [{
+		label: 'Object Accuracy',
+		data: lineDataset,
+		backgroundColor: 'rgba(200, 214, 229, 0.2)',
+		borderColor: 'rgba(200, 214, 229,1)',
+		yAxisID: 'y1'
+	}, {
+		label: 'Object Count', // 범례 이름
+		data: barDataset,
+		backgroundColor: [
+	          'rgba(255,107,107,0.45)',
+	          'rgba(255,159,67, 0.45)',
+	          'rgba(254,202,87, 0.45)',
+	          'rgba(243,104,224, 0.45)',
+	          'rgba(16,172,132, 0.45)',
+	          'rgba(0,210,211, 0.45)',
+	          'rgba(46,134,222, 0.45)',
+	          'rgba(200,214,229, 0.45)'
+	        ],
+	        borderColor: [
+		          'rgba(255,107,107, 1)',
+		          'rgba(255,159,67, 1)',
+		          'rgba(254,202,87, 1)',
+		          'rgba(243,104,224, 1)',
+		          'rgba(16,172,132, 1)',
+		          'rgba(0,210,211, 1)',
+		          'rgba(102, 159, 64, 1)',
+		          'rgba(46,134,222, 1)',
+		          'rgba(200,214,229, 1)'
+	        ],
+	        borderWidth: 1,
+			yAxisID: 'y',
+			type:'bar'
+		
+	}]
+};// L_data end
+
+
+// 차트 설정
+const L_config = {
+	type: 'line',
+	data: L_data,
+	options: {
+		interaction: {
+            intersect: false,
+            mode: 'index',
+        },
+		scales: {
+			y: {
+				type: 'linear',
+				display: true,
+				position: 'left',
+				suggestedMin: 0
+			},
+			y1: {
+				type: 'linear',
+				display: true,
+				position: 'right',
+            	beginAtZero: false
+				//suggestedMin: 0,
+                //suggestedMax: 1// y축 값 0부터 시작
+			}
+		}
+	} // options end
+}; // config end
+ 
+// 차트 그리기
+let myChart = new Chart(
+	document.getElementById('myChart'),
+	L_config
+);
+</script>            
+
+            
+           <!-- <!--  --> --> 
+
 			 
 			 <!-- 도넛차트 -->
 			 <script>
@@ -2735,10 +2866,10 @@
 			
 				// setup 
 				const data = {
-						labels: ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic light', 'traffic sign', 'vegetation', 'terrain', 'sky'],
+						labels: stufflabels,
 					    datasets: [{
 						    label: 'Stuff Accuracy',
-				    	    data: [80, 95, 70, 66, 90, 98, 30,50,70,77,90],
+				    	    data: stuffDataset,
 				        	backgroundColor: [
 					          'rgba(255, 26, 104, 0.2)',
 					          'rgba(54, 162, 235, 0.2)',
@@ -2876,40 +3007,19 @@
 				
 			</script>
 			
-            <footer>
-                <div class="f_top">
-                    <ul>
-                        <li><a href="/info/privacy">개인정보 취급방침</a></li>
-                        <li><a href="/info/tos">이용약관</a></li>
-                        <li><a href="/info/email">이메일무단수집거부</a></li>
-                    </ul>
-                </div>
-
-                <div class="f_inner">
-
-                    <div class="f_info">
-                        <address>
-                            <p>주소 : 위드컴퍼니</p>
-                            <p>대표 : 위드컴퍼니</p>
-                            <p>E-mail : weed@with.com</p>
-                            <p>전화번호 : 010-7771-1241 : </p>
-                        </address>
-                        <p class="cope">Copyright ⓒ WD</p>
-                    </div>
-                    <div class="f_logo">
-                        <img src="/resources/images/foot-logo.png">
-                    </div>
-
-                </div>
-            </footer>
-            <!--- !! 절대 지우지 마세요 !! --->
-            <iframe name="ifrm" style="display: none"></iframe>
-            <script>
-                $(function () {
-                })
-            </script>
-            <!--- !! 절대 지우지 마세요 !! --->
-
+			<!-- 팝업창 -->
+			<script type="text/javascript">
+				function doPopupopen() {
+					
+				  var url = "pop.do";
+			      var name = "popup";
+			      var option = "width = 660, height = 500, top = 100, left = 200, location = no"
+				  window.open(url, name, option);
+				   
+				   
+				};
+				doPopupopen();
+			</script>
 
 </body>
 

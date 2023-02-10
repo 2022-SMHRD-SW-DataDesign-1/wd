@@ -46,7 +46,7 @@ public class ChartController {
 			throws IOException {
 		System.out.println("socket통신 컨트롤러");
 
-			JSONObject jsonobject = null;
+			//JSONObject jsonobject = null;
 			//JSONArray jasonArr = null;
 			Map<String, Object> map = null;
 			
@@ -167,11 +167,11 @@ public class ChartController {
 				System.out.println(filename);
 
 				//사진 경로 담기, json에 담기
-				jsonobject = new JSONObject();
-				jsonobject.put("filename", filename);
-				jsonobject.put("class_list", class_list);
-				jsonobject.put("count_list", count_list);
-				jsonobject.put("score_list", score_list);
+				//jsonobject = new JSONObject();
+				//jsonobject.put("filename", filename);
+				//jsonobject.put("class_list", class_list);
+				//jsonobject.put("count_list", count_list);
+				//jsonobject.put("score_list", score_list);
 				
 				
 				
@@ -181,7 +181,7 @@ public class ChartController {
 				map.put("count_list", count_list);
 				map.put("score_list", score_list);
 				
-				System.out.println(jsonobject.toString());
+				//System.out.println(jsonobject.toString());
 				
 
 				//model.addAttribute("filename", filename);

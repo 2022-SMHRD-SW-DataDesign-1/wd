@@ -2548,8 +2548,8 @@
 						</div> -->
 
 						<div class="group">
-							<div class="tit1" id="accImg">
-								<img src="./resources/images/weed_log2.jpg"
+							<div class="tit1">
+								<img  id="accImg" src="./resources/images/acc_img/[B@b358167.jpg"
 									style="width: 100%; max-width: 450px; vertical-align: middle; max-height: 217px;height: 100%;">
 							</div>
 						</div>
@@ -2672,40 +2672,7 @@
 			<script>
 			
 			// test 차트
-			let barDataset =  [
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50)
-			];
-			
-			let lineDataset =  [
-				Math.floor(Math.random() * 100),
-				Math.floor(Math.random() * 100),
-				Math.floor(Math.random() * 100),
-				Math.floor(Math.random() * 100),
-				Math.floor(Math.random() * 100),
-				Math.floor(Math.random() * 100),
-				Math.floor(Math.random() * 100),
-				Math.floor(Math.random() * 100)
-			];
-			let doughnutDataset =  [
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50),
-				Math.floor(Math.random() * 50)
-			];
+
 			
  			
 			// 지정한 시각마다 reload
@@ -2716,75 +2683,107 @@
 					$.ajax({
 						url : 'ChartSocket.do',
 						type: 'get',
-						dataType:'text',
+						dataType:'json',
 						success: function(data) {
 							console.log('통신성공');
 
 							console.log(data);
 							console.log(typeof(data));
+							console.log(data.class_list)
+							
+							// 차트 고정 라벨
+							let object_data = ['person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle'];
+           					let stuff_data = ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic_light', 'traffic_sign', 'vegetation', 'terrain', 'sky'];
+           					
+           					// 넘어온 데이터 값
+           					let class_list = data.class_list;
+           					let count_list = data.count_list;
+           					let score_list = data.score_list;
 
+           					// ajax로 넘어온 데이터 let 변수에 담아서 출력
+           					console.log("클래스: "+class_list);
+           					console.log("갯수: "+count_list);
+           					console.log("정확도: "+score_list);
+           					
 							
-							//console.log('${filename}');
+           					
+           					// 갯수
+					        let barDataset =  [];
+					          
+					        // 정확도
+					        let lineDataset =  [];
+					          
+					        // 클래스
+					        let objectlabels = [];
+					          
+					        //
+					        let stufflabels=[];
+					          
+					        //
+					        let stuffDataset=[];
+           					
+					        // 값 받기
+           					console.log(object_data.length);
+				            console.log(class_list.length);
+				            console.log(count_list.length);
+				            console.log(score_list.length);
+           					
+				            
+				            for(var i =0;i<class_list.length;i++){
+				            	console.log(i+" : " + class_list[i]);
+				            }
+				            for(var i =0;i<count_list.length;i++){
+				            	console.log(i+" : " + count_list[i]);
+				            }
+				            for(var i =0;i<score_list.length;i++){
+				            	console.log(i+" : " + score_list[i]);
+				            } 
+					          
+					        
+				            for(var i=0; i<object_data.length;i++){
+				            	for(var j=0;j<class_list.length;j++){
+				            		if(object_data[i] == class_list[j]){
+				            			console.log(j+" : "+class_list[j] + " " + count_list[j] + " " + score_list[j]);
+				            			objectlabels.push(class_list[j]);
+				            			barDataset.push(count_list[j]);
+				            			lineDataset.push(score_list[j]);
+				            		}
+				            	}
+				            }
+				            
+				            for(var i=0; i<stuff_data.length;i++){
+				            	for(var j=0;j<class_list.length;j++){
+				            		if(stuff_data[i] == class_list[j]){
+				            			console.log(j+" : "+class_list[j] + " " + count_list[j] + " " + score_list[j]);
+				            			stufflabels.push(class_list[j]);
+				            			stuffDataset.push(Math.floor(score_list[j]*100));
+				            		}
+				            	}
+				            }
+				            
+				            console.log("class : " + objectlabels);
+				            console.log("count : " + barDataset);
+				            console.log("score : " + lineDataset);
+				            console.log("stufflabel : " + stufflabels);
+				            console.log("stuffdataset : " + stuffDataset);
+				            
 
 
-							
-							// 넘어오는 data 대입
-							rdNum1 = [
-								Math.floor(Math.random() * 50),
-								Math.floor(Math.random() * 50),
-								Math.floor(Math.random() * 50),
-								Math.floor(Math.random() * 50),
-								Math.floor(Math.random() * 50),
-								Math.floor(Math.random() * 50),
-								Math.floor(Math.random() * 50),
-								Math.floor(Math.random() * 50)
-							];
-							rdNum2 = [
-								Math.floor(Math.random() * 100),
-								Math.floor(Math.random() * 100),
-								Math.floor(Math.random() * 100),
-								Math.floor(Math.random() * 100),
-								Math.floor(Math.random() * 100),
-								Math.floor(Math.random() * 100),
-								Math.floor(Math.random() * 100),
-								Math.floor(Math.random() * 100)
-							];
-							
-							
-							rdNum3 =  [
-								Math.floor(Math.random() * 100),
-								Math.floor(Math.random() * 100),
-								Math.floor(Math.random() * 100),
-								Math.floor(Math.random() * 100),
-								Math.floor(Math.random() * 100),
-								Math.floor(Math.random() * 100),
-								Math.floor(Math.random() * 100),
-								Math.floor(Math.random() * 100),
-								Math.floor(Math.random() * 100),
-								Math.floor(Math.random() * 100),
-								Math.floor(Math.random() * 100)
-							];
-							
-							console.log(rdNum1);
-							console.log(rdNum2);
-							console.log(rdNum3);
-							
-							
 							// 결과 분석 이미지 출력
-							//console.log(data)
-							//$("#accImg").attr("src", "./resources/images/acc_img/"${data[0].filename}");
+							//let imgurl = "./resources/images/acc_img/"+${data.filename};
+							//$('#accImg').attr("src", imgurl);
+							
+							
 							
 							
 							// 막대 차트
 							L_data = {
-								labels: [ 
-									'person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle' // x축 라벨
-								],
+								labels: objectlabels, // x축 라벨
 								datasets: [{
 									label: 'Object Count', // 범례 이름
 									backgroundColor: 'rgba(75, 192, 192, 1)',
 									borderColor: 'rgba(75, 192, 192, 1)',
-									data: rdNum1,
+									data: barDataset,
 									borderWidth: 1
 								}, {
 									type:'line',
@@ -2792,7 +2791,7 @@
 									backgroundColor: 'rgba(255, 99, 132, 1)',
 									borderColor: 'rgba(255, 99, 132, 1)',
 									fill: false,
-									data: rdNum2,
+									data: lineDataset,
 								}]
 							}
 							
@@ -2817,10 +2816,10 @@
 							
 							//도넛 차트
 							data = {
-								labels: ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic light', 'traffic sign', 'vegetation', 'terrain', 'sky'],
+								labels: stufflabels,
 					    		datasets: [{
 						    		label: 'Stuff Accuracy',
-				    	    		data: rdNum3,
+				    	    		data: stuffDataset,
 				        			backgroundColor: [
 					          			'rgba(255, 26, 104, 0.2)',
 					          			'rgba(54, 162, 235, 0.2)',

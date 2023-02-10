@@ -2549,7 +2549,7 @@
 
 						<div class="group">
 							<div class="tit1">
-								<img src="./resources/images/image.jpg"
+								<img  id="accImg" src="./resources/images/acc_img/[B@b358167.jpg"
 									style="width: 100%; max-width: 450px; vertical-align: middle; max-height: 217px;height: 100%;">
 							</div>
 						</div>
@@ -2646,7 +2646,7 @@
             
             <script>
                      /* 이미지 미리보기 */
-                         function previewImg() {
+               function previewImg() {
 					let preview = document.querySelector('.testimg');
 					let file = document.querySelector('input[type=file]').files[0];
 					let reader = new FileReader();
@@ -2669,198 +2669,338 @@
             </script>
             
             
-<script>
+			<script>
+			
+			// test 차트
 
-// test 차트
-let barDataset =  [
-	Math.floor(Math.random() * 50),
-	Math.floor(Math.random() * 50),
-	Math.floor(Math.random() * 50),
-	Math.floor(Math.random() * 50),
-	Math.floor(Math.random() * 50),
-	Math.floor(Math.random() * 50),
-	Math.floor(Math.random() * 50),
-	Math.floor(Math.random() * 50)
-];
+			
+ 			
+			// 지정한 시각마다 reload
+			function test(){
+				//setTimeout(function(){	
+					
+					// ajax 선언, 성공 함수, 넘어오는 data를 넣어주기
+					$.ajax({
+						url : 'ChartSocket.do',
+						type: 'get',
+						dataType:'json',
+						success: function(data) {
+							console.log('통신성공');
 
-let lineDataset =  [
-	Math.floor(Math.random() * 100),
-	Math.floor(Math.random() * 100),
-	Math.floor(Math.random() * 100),
-	Math.floor(Math.random() * 100),
-	Math.floor(Math.random() * 100),
-	Math.floor(Math.random() * 100),
-	Math.floor(Math.random() * 100),
-	Math.floor(Math.random() * 100)
-];
+							console.log(data);
+							console.log(typeof(data));
+							console.log(data.class_list)
+							
+							// 차트 고정 라벨
+							let object_data = ['person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle'];
+           					let stuff_data = ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic_light', 'traffic_sign', 'vegetation', 'terrain', 'sky'];
+           					
+           					// 넘어온 데이터 값
+           					let class_list = data.class_list;
+           					let count_list = data.count_list;
+           					let score_list = data.score_list;
+
+           					// ajax로 넘어온 데이터 let 변수에 담아서 출력
+           					console.log("클래스: "+class_list);
+           					console.log("갯수: "+count_list);
+           					console.log("정확도: "+score_list);
+           					
+							
+           					
+           					// 갯수
+					        let barDataset =  [];
+					          
+					        // 정확도
+					        let lineDataset =  [];
+					          
+					        // 클래스
+					        let objectlabels = [];
+					          
+					        //
+					        let stufflabels=[];
+					          
+					        //
+					        let stuffDataset=[];
+           					
+					        // 값 받기
+           					console.log(object_data.length);
+				            console.log(class_list.length);
+				            console.log(count_list.length);
+				            console.log(score_list.length);
+           					
+				            
+				            for(var i =0;i<class_list.length;i++){
+				            	console.log(i+" : " + class_list[i]);
+				            }
+				            for(var i =0;i<count_list.length;i++){
+				            	console.log(i+" : " + count_list[i]);
+				            }
+				            for(var i =0;i<score_list.length;i++){
+				            	console.log(i+" : " + score_list[i]);
+				            } 
+					          
+					        
+				            for(var i=0; i<object_data.length;i++){
+				            	for(var j=0;j<class_list.length;j++){
+				            		if(object_data[i] == class_list[j]){
+				            			console.log(j+" : "+class_list[j] + " " + count_list[j] + " " + score_list[j]);
+				            			objectlabels.push(class_list[j]);
+				            			barDataset.push(count_list[j]);
+				            			lineDataset.push(score_list[j]);
+				            		}
+				            	}
+				            }
+				            
+				            for(var i=0; i<stuff_data.length;i++){
+				            	for(var j=0;j<class_list.length;j++){
+				            		if(stuff_data[i] == class_list[j]){
+				            			console.log(j+" : "+class_list[j] + " " + count_list[j] + " " + score_list[j]);
+				            			stufflabels.push(class_list[j]);
+				            			stuffDataset.push(Math.floor(score_list[j]*100));
+				            		}
+				            	}
+				            }
+				            
+				            console.log("class : " + objectlabels);
+				            console.log("count : " + barDataset);
+				            console.log("score : " + lineDataset);
+				            console.log("stufflabel : " + stufflabels);
+				            console.log("stuffdataset : " + stuffDataset);
+				            
 
 
-// 지정한 시각마다 reload
-function test(){
-	setTimeout(function(){	
-		
-		// ajax 선언, 성공 함수, 넘어오는 data를 넣어주기
-		$.ajax({
-			url : 'ChartSocket.do',
-			type: 'get',
-			/* dataType:'text', */
-			success: function() {
-				console.log()
-				
-				// 넘어오는 data 대입
-				rdNum1 = [
-					Math.floor(Math.random() * 50),
-					Math.floor(Math.random() * 50),
-					Math.floor(Math.random() * 50),
-					Math.floor(Math.random() * 50),
-					Math.floor(Math.random() * 50),
-					Math.floor(Math.random() * 50),
-					Math.floor(Math.random() * 50),
-					Math.floor(Math.random() * 50)
-				];
-				rdNum2 = [
-					Math.floor(Math.random() * 100),
-					Math.floor(Math.random() * 100),
-					Math.floor(Math.random() * 100),
-					Math.floor(Math.random() * 100),
-					Math.floor(Math.random() * 100),
-					Math.floor(Math.random() * 100),
-					Math.floor(Math.random() * 100),
-					Math.floor(Math.random() * 100)
-				];
-				
-				console.log(rdNum1);
-				console.log(rdNum2);
-				
-				L_data = {
-					labels: [ 
-						'person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle' // x축 라벨
-					],
-					datasets: [{
-						label: 'Object Count', // 범례 이름
-						backgroundColor: 'rgba(75, 192, 192, 1)',
-						borderColor: 'rgba(75, 192, 192, 1)',
-						data: rdNum1,
-						borderWidth: 1
-					}, {
-						type:'line',
-						label: 'Object Accuracy',
-						backgroundColor: 'rgba(255, 99, 132, 1)',
-						borderColor: 'rgba(255, 99, 132, 1)',
-						fill: false,
-						data: rdNum2,
-					}]
-				}
-				
-		
-				L_config = {
-					type: 'bar',
-					data: L_data,
-					options: {
-						maintainAspectRatio: false,
-						title: {
-							text: 'Chart.js Time Scale'
-						},
-						scales: {
-							resposive: false, // default값 true, 차트 크기를 변경하기 위해 false로 변경
-							y: {
-								beginAtZero: true // y축 값 0부터 시작
+							// 결과 분석 이미지 출력
+							//let imgurl = "./resources/images/acc_img/"+${data.filename};
+							//$('#accImg').attr("src", imgurl);
+							
+							
+							
+							
+							// 막대 차트
+							L_data = {
+								labels: objectlabels, // x축 라벨
+								datasets: [{
+									label: 'Object Count', // 범례 이름
+									backgroundColor: 'rgba(75, 192, 192, 1)',
+									borderColor: 'rgba(75, 192, 192, 1)',
+									data: barDataset,
+									borderWidth: 1
+								}, {
+									type:'line',
+									label: 'Object Accuracy',
+									backgroundColor: 'rgba(255, 99, 132, 1)',
+									borderColor: 'rgba(255, 99, 132, 1)',
+									fill: false,
+									data: lineDataset,
+								}]
 							}
+							
+					
+							L_config = {
+								type: 'bar',
+								data: L_data,
+								options: {
+									maintainAspectRatio: false,
+									title: {
+										text: 'Chart.js Time Scale'
+									},
+									scales: {
+										resposive: false, // default값 true, 차트 크기를 변경하기 위해 false로 변경
+										y: {
+											beginAtZero: true // y축 값 0부터 시작
+										}
+									}
+								} // options end
+							};
+					
+							
+							//도넛 차트
+							data = {
+								labels: stufflabels,
+					    		datasets: [{
+						    		label: 'Stuff Accuracy',
+				    	    		data: stuffDataset,
+				        			backgroundColor: [
+					          			'rgba(255, 26, 104, 0.2)',
+					          			'rgba(54, 162, 235, 0.2)',
+					          			'rgba(255, 206, 86, 0.2)',
+					          			'rgba(75, 192, 192, 0.2)',
+							         	'rgba(153, 102, 255, 0.2)',
+							          	'rgba(200, 159, 64, 0.2)',
+							         	'rgba(102, 159, 64, 0.2)',
+							         	'rgba(55, 159, 64, 0.2)',
+							         	'rgba(5, 159, 64, 0.2)',
+							         	'rgba(45, 159, 64, 0.2)',
+							         	'rgba(0, 0, 0, 0.2)'
+					       			 ],
+							        borderColor: [
+								          'rgba(255, 26, 104, 1)',
+								          'rgba(54, 162, 235, 1)',
+								          'rgba(255, 206, 86, 1)',
+								          'rgba(75, 192, 192, 1)',
+								          'rgba(153, 102, 255, 1)',
+								          'rgba(200, 159, 64, 1)',
+								          'rgba(102, 159, 64, 1)',
+								          'rgba(55, 159, 64, 1)',
+								          'rgba(5, 159, 64, 1)',
+								          'rgba(45, 159, 64, 1)',
+								          'rgba(0, 0, 0, 1)'
+							        ],
+								    borderWidth: 1,
+								    cutout: '70%',
+								    borderRadius: 5,
+								    offset: 10
+				  				}] // datasets end
+							}; // data end
+							
+							clickLabel = {
+								id: 'clickLabel',
+								afterDraw: (chart, args, options) => {
+									let { ctx, chartArea: { width, height, top } } = chart;
+									
+									if(selectedDatasetIndex >= 0) {
+										console.log(chart.data.datasets[selectedDatasetIndex].data[selectedIndex]);
+										let sum = chart._metasets[selectedDatasetIndex].total;
+										let value = chart._metasets[selectedDatasetIndex]._parsed[selectedIndex];
+										let color = chart.data.datasets[selectedDatasetIndex].borderColor[selectedIndex];
+										let percentage = value / sum * 100;
+										let accuracy = chart.data.datasets[selectedDatasetIndex].data[selectedIndex];
+						
+										ctx.save();
+										ctx.font = 'bolder 60px Arial';
+										ctx.fillStyle = color;
+										ctx.textAlign = 'center';
+										ctx.textBaseline = 'middle';
+										ctx.fillText(accuracy + '%', width/2, height/2 + top);
+										ctx.restore();
+									}
+								}
+							}// clickLabel end
+							
+							config = {
+								type: 'doughnut',
+							    data: data,
+							    options: {
+							    	responsive: false,
+									mainTainAspectRatio: false,
+					 				plugins: {
+										legend: {
+											display: true,
+											position: 'bottom'
+										}
+							 		},
+									onClick(click, element, chart) {
+										if(element[0]) {
+											selectedDatasetIndex = element[0].datasetIndex;
+											selectedIndex = element[0].index;
+											chart.draw();
+										}
+									}
+								},
+								plugins: [clickLabel]
+							}; // config end
+							
+							
+							// 차트 그리기
+							myChart.destroy(); 
+							myChart = new Chart(
+								document.getElementById('myChart'),
+								L_config
+							);
+							
+							// render init block
+							DChart.destroy(); 
+ 							DChart = new Chart(
+							   document.getElementById('DChart'),
+							   config
+							);
+							
+													
+							return test();
+							
+						}, // success end
+						error : function() {
+							console.log("비동기 실패")
+						} // error end
+					
+					});// ajax end
+				     
+				//}, 5000); // timr end
+			};// test end
+			
+			test(); // 페이지 업로드 된 후 실행되는 함수
+			
+			
+			// 차트 초기 데이터
+			// 막대 초기 데이터-8개
+			let rdNum1 = [0, 0, 0, 0, 0, 0, 0, 0];
+			let rdNum2 = [0, 0, 0, 0, 0, 0, 0, 0];
+			let zeroNum = [0, 0, 0, 0, 0, 0, 0, 0];
+			
+			// 도넛 초기 데이터-11개
+			let rdNum3 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+			let zero = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; // 도넛 처음 값
+			
+			
+			// 차트 전체 data
+			let L_data = {
+				labels: [ 
+					'person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle' // x축 라벨
+				],
+				datasets: [{
+					label: 'Object Count', // 범례 이름
+					backgroundColor: 'rgba(75, 192, 192, 1)',
+					borderColor: 'rgba(75, 192, 192, 1)',
+					data: zeroNum,
+					borderWidth: 1
+				}, {
+					type:'line',
+					label: 'Object Accuracy',
+					backgroundColor: 'rgba(255, 99, 132, 1)',
+					borderColor: 'rgba(255, 99, 132, 1)',
+					fill: false,
+					data: zeroNum
+				}]
+			}// L_data end
+			
+			
+			// 차트 설정
+			let L_config = {
+				type: 'bar',
+				data: L_data,
+				options: {
+					maintainAspectRatio: false,
+					title: {
+						text: 'Chart.js Time Scale'
+					},
+					scales: {
+						resposive: false, // default값 true, 차트 크기를 변경하기 위해 false로 변경
+						y: {
+							beginAtZero: true // y축 값 0부터 시작
 						}
-					} // options end
-				};
-		
-		
-				myChart.destroy();
-				myChart = new Chart(
-					document.getElementById('myChart'),
-					L_config
-				);
-				
-				return test();
-				
-			}, // success end
-			error : function() {
-				console.log()
-			} // error end
-		
-		});// ajax end
-	     
-	}, 5000); // timr end
-};// test end
-
-test(); // 페이지 업로드 된 후 실행되는 함수
-
-
-// 차트 초기 데이터
-let rdNum1 = [0, 0, 0, 0, 0, 0, 0, 0 ];
-let rdNum2 = [0, 0, 0, 0, 0, 0, 0, 0 ];
-let zeroNum = [0, 0, 0, 0, 0, 0, 0, 0 ];
-
-
-// 차트 전체 data
-let L_data = {
-	labels: [ 
-		'person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle' // x축 라벨
-	],
-	datasets: [{
-		label: 'Object Count', // 범례 이름
-		backgroundColor: 'rgba(75, 192, 192, 1)',
-		borderColor: 'rgba(75, 192, 192, 1)',
-		data: zeroNum,
-		borderWidth: 1
-	}, {
-		type:'line',
-		label: 'Object Accuracy',
-		backgroundColor: 'rgba(255, 99, 132, 1)',
-		borderColor: 'rgba(255, 99, 132, 1)',
-		fill: false,
-		data: zeroNum
-	}]
-}// L_data end
-
-
-// 차트 설정
-let L_config = {
-	type: 'bar',
-	data: L_data,
-	options: {
-		maintainAspectRatio: false,
-		title: {
-			text: 'Chart.js Time Scale'
-		},
-		scales: {
-			resposive: false, // default값 true, 차트 크기를 변경하기 위해 false로 변경
-			y: {
-				beginAtZero: true // y축 값 0부터 시작
-			}
-		}
-	} // options end
-}; // config end
- 
-// 차트 그리기
-let myChart = new Chart(
-	document.getElementById('myChart'),
-	L_config
-);
-</script>            
+					}
+				} // options end
+			}; // config end
+			 
+			// 차트 그리기
+			let myChart = new Chart(
+				document.getElementById('myChart'),
+				L_config
+			);
+			            
 
             
-           <!-- <!--  --> --> 
+           <!-- --------------------------------------------------------------------------------------------------  --> 
 
 			 
 			 <!-- 도넛차트 -->
-			 <script>
-				let selectedDatasetIndex = undefined;
-				let selectedIndex = undefined;
-				
-			
+
 				// setup 
-				const data = {
+				let data = {
 						labels: ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic light', 'traffic sign', 'vegetation', 'terrain', 'sky'],
 					    datasets: [{
 						    label: 'Stuff Accuracy',
-				    	    data: [80, 95, 70, 66, 90, 98, 30,50,70,77,90],
+				    	    data: zero,
 				        	backgroundColor: [
 					          'rgba(255, 26, 104, 0.2)',
 					          'rgba(54, 162, 235, 0.2)',
@@ -2895,20 +3035,25 @@ let myChart = new Chart(
 				};		
 				
 				// clickLabel pugin block
-		  		const clickLabel = {
+				
+				let selectedDatasetIndex = undefined;
+				let selectedIndex = undefined;
+				
+				
+		  		let clickLabel = {
 					id: 'clickLabel',
 					afterDraw: (chart, args, options) => {
-						const { ctx, chartArea: { width, height, top } } = chart;
+						let { ctx, chartArea: { width, height, top } } = chart;
 						
 						
 						
 						if(selectedDatasetIndex >= 0) {
 							console.log(chart.data.datasets[selectedDatasetIndex].data[selectedIndex]);
-							const sum = chart._metasets[selectedDatasetIndex].total;
-							const value = chart._metasets[selectedDatasetIndex]._parsed[selectedIndex];
-							const color = chart.data.datasets[selectedDatasetIndex].borderColor[selectedIndex];
-							const percentage = value / sum * 100;
-							const accuracy = chart.data.datasets[selectedDatasetIndex].data[selectedIndex];
+							let sum = chart._metasets[selectedDatasetIndex].total;
+							let value = chart._metasets[selectedDatasetIndex]._parsed[selectedIndex];
+							let color = chart.data.datasets[selectedDatasetIndex].borderColor[selectedIndex];
+							let percentage = value / sum * 100;
+							let accuracy = chart.data.datasets[selectedDatasetIndex].data[selectedIndex];
 			
 							ctx.save();
 							ctx.font = 'bolder 60px Arial';
@@ -2922,7 +3067,7 @@ let myChart = new Chart(
 				} 
 				
 				// config 
-				const config = {
+				let config = {
 					type: 'doughnut',
 				    data:data,
 				    options: {
@@ -2935,7 +3080,6 @@ let myChart = new Chart(
 							}
 				 		},
 						onClick(click, element, chart) {
-							//console.log(element[0].datasetIndex)
 							if(element[0]) {
 								selectedDatasetIndex = element[0].datasetIndex;
 								selectedIndex = element[0].index;
@@ -2947,11 +3091,13 @@ let myChart = new Chart(
 				};
 				
 				// render init block
-				const DChart = new Chart(
+				let DChart = new Chart(
 				   document.getElementById('DChart'),
 				   config
 				);
 			</script>
+			
+			
 			
 			
 			<!-- 다중체크박스  -->
@@ -3009,7 +3155,9 @@ let myChart = new Chart(
 				   
 				   
 				};
-				doPopupopen();
+				
+				// 주석 임시 처리
+				//doPopupopen();
 			</script>
 			
 			
@@ -3040,11 +3188,11 @@ let myChart = new Chart(
                 </div>
             </footer>
             <!--- !! 절대 지우지 마세요 !! --->
-            <iframe name="ifrm" style="display: none"></iframe>
+<!--             <iframe name="ifrm" style="display: none"></iframe>
             <script>
                 $(function () {
                 })
-            </script>
+            </script> -->
             <!--- !! 절대 지우지 마세요 !! --->
 
 

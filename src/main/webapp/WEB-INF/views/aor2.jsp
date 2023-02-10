@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="org.json.JSONArray"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -2667,7 +2669,8 @@
 				}
                          
             </script>
-<c:out value="${class_list }" />
+
+ 
 <script>
 
 // test 차트
@@ -2695,20 +2698,18 @@ let lineDataset =  [
 
 
 
-
-
 // 지정한 시각마다 reload
 function test(){
 	//setTimeout(function(){	
-		
+
 		// ajax 선언, 성공 함수, 넘어오는 data를 넣어주기
 		$.ajax({
 			url : 'ChartSocket2.do',
 			type: 'get',
-			/* dataType:'text', */
-			success: function() {
-				console.log()
-
+			dataType:'text', 
+			
+			success: function(data) {
+					console.log(data);
 				// 넘어오는 data 대입
 				rdNum1 = [
 					Math.floor(Math.random() * 50),
@@ -2733,6 +2734,7 @@ function test(){
 				
 				console.log(rdNum1);
 				console.log(rdNum2);
+				
 				
 				L_data = {
 					labels: [ 
@@ -2778,7 +2780,7 @@ function test(){
 					document.getElementById('myChart'),
 					L_config
 				);
-				
+					
 				return test();
 				
 			}, // success end

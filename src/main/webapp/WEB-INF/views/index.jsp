@@ -3629,24 +3629,6 @@
                     $('.sec2 .text1').css('display','none');
                 });
             });
-			
-/*             const div = document.getElementByClassName('sec2');
-            const title1 = document.getElementByClassName('title1');
-            const result = document.getElementByClassName('text1');
-
-            div.addEventListener('mouseover', (event) => {
-              result;
-            });
-
-            div.addEventListener('mouseout', (event) => {
-              result.innerHTML+= '<div>mouseout</div>';
-            });
-
-            clearbtn.addEventListener('click', (event) => {
-              result.innerHTML= '';
-              count = 0;
-            }); */
-			
 
             $(document).ready(function(){
                 $('.sec2 .title2').hover(function(){

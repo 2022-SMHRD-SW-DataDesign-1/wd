@@ -2536,14 +2536,10 @@
 						</div>
 
                         
-				<!-- 		<div class="group">
-							<div class="tit1" id="realTestimg">
-								<video controls width="250">
-    							<source src="http://172.30.1.6:5000/stream" type="video/webm">
-    							</video>
-    							
-								<iframe class="testimg" id="video" src="http://172.30.1.6:5000/stream" scrolling="no" 
-								style="width: 100%; max-width: 450px; vertical-align: middle; max-height: 217px;height: 100%;"/>
+				 		<!-- <div class="group">
+							<div class="tit1" id="realTestimg" style="width: 100%; max-width: 450px; vertical-align: middle; max-height: 217px;height: 100%;">
+    							<iframe  width="100%" height="100%" src="http://172.30.1.6:5001/aor" title="stream video" frameborder="0"
+    							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 							</div>
 						</div> -->
 
@@ -2668,6 +2664,30 @@
                          
             </script>
             
+            <script type="text/javascript">
+            function ResizeFrame(name)
+            {
+              // IFRAME 내부의 body 개체
+              var fBody  = document.frames(name).document.body;
+              // IFRAME 개체
+              var fName  = document.all(name);
+
+              // IFRAME 내부의 body개체의 넓이를 계산하여 IFRAME의 넓이를 설정해 준다.
+              fName.style.width 
+                = fBody.scrollWidth + (fBody.offsetWidth - fBody.clientWidth);
+              // IFRAME 내부의 body개체의 높이를 계산하여 IFRAME의 높이를 설정해 준다.
+              fName.style.height 
+                = fBody.scrollHeight + (fBody.offsetHeight - fBody.clientHeight);
+
+              // 만약 IFRAME의 크기 설정에 실패 하였다면 기본크기로 설정한다.
+              if (Frame_name.style.height == "0px" || Frame_name.style.width == "0px")
+              {
+                fName.style.width = "450px";     //기본 iframe 너비
+                fName.style.height = "217px";    //기본 iframe 높이
+              }
+            }
+            
+            </script>
             
 <script>
 
@@ -3039,13 +3059,7 @@ let myChart = new Chart(
 
                 </div>
             </footer>
-            <!--- !! 절대 지우지 마세요 !! --->
-            <iframe name="ifrm" style="display: none"></iframe>
-            <script>
-                $(function () {
-                })
-            </script>
-            <!--- !! 절대 지우지 마세요 !! --->
+        
 
 
 </body>

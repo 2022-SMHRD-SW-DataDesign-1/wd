@@ -1684,20 +1684,6 @@
             font-size: 18px;
         }
 
-        /* 주히 추가 case 문의 버튼 위치 수정 */
-        .b_type2 {
-            margin: auto;
-            padding: 6px 5px;
-            background: var(- -color-03f);
-            color: var(- -color-fff);
-            text-align: center;
-            border-radius: 10px;
-            min-width: 50px;
-            transition: all .3s ease;
-            display: inline-block;
-            font-size: 15px;
-        }
-
         .b_type3 {
             margin: auto;
             padding: 10px 20px;
@@ -1726,7 +1712,6 @@
         }
 
         .b_type1:hover,
-        .b_type2:hover,
         .b_type3:hover,
         .b_type:hover {
             color: #fff;
@@ -2776,56 +2761,70 @@
 							
 							// 막대 차트
 							L_data = {
-								labels: objectlabels, // x축 라벨
-								datasets: [{
-									label: 'Object Accuracy', // 범례 이름
-									backgroundColor: 'rgba(255, 99, 132, 1)',
-									borderColor: 'rgba(255, 99, 132, 1)',
-									data: lineDataset,
-									borderWidth: 1,
-									yAxisID: 'Accuracy'
-								}, {
-									type:'bar',
-									label: 'Object Count',
-									backgroundColor: 'rgba(75, 192, 192, 1)',
-									borderColor: 'rgba(75, 192, 192, 1)',
-									fill: false,
-									data: barDataset,
-									yAxisID:'Count'
-								}]
+									labels: objectlabels,
+									datasets: [{
+										label: 'Object Accuracy',
+										data: lineDataset,
+										backgroundColor: 'rgba(200, 214, 229, 0.2)',
+										borderColor: 'rgba(200, 214, 229,1)',
+										yAxisID: 'y1'
+									}, {
+										label: 'Object Count', // 범례 이름
+										data: barDataset,
+										backgroundColor: [
+									          'rgba(255,107,107,0.45)',
+									          'rgba(255,159,67, 0.45)',
+									          'rgba(254,202,87, 0.45)',
+									          'rgba(243,104,224, 0.45)',
+									          'rgba(16,172,132, 0.45)',
+									          'rgba(0,210,211, 0.45)',
+									          'rgba(46,134,222, 0.45)',
+									          'rgba(200,214,229, 0.45)'
+									        ],
+									        borderColor: [
+										          'rgba(255,107,107, 1)',
+										          'rgba(255,159,67, 1)',
+										          'rgba(254,202,87, 1)',
+										          'rgba(243,104,224, 1)',
+										          'rgba(16,172,132, 1)',
+										          'rgba(0,210,211, 1)',
+										          'rgba(102, 159, 64, 1)',
+										          'rgba(46,134,222, 1)',
+										          'rgba(200,214,229, 1)'
+									        ],
+									        borderWidth: 1,
+											yAxisID: 'y',
+											type:'bar'
+										
+									}]
 							}
 							
 					
 							L_config = {
-								type: 'line',
-								data: L_data,
-								options: {
-									maintainAspectRatio: false,
-									title: {
-										text: 'Chart.js Time Scale'
-									},
-									scales: {
-										//resposive: false, // default값 true, 차트 크기를 변경하기 위해 false로 변경
-										Accuracy: {
-											beginAtZero: true, // y축 값 0부터 시작
-											type: 'linear',
-											position: 'left',
-											ticks: {
-												min : 0,
-												max : 1
-											}
-										},
-										Count: {
-											beginAtZero: false,
-											type: 'linear',
-											position: 'right',
-											ticks: {
-												min : 0,
-												max : 10
+									type: 'line',
+									data: L_data,
+									options: {
+										interaction: {
+								            intersect: false,
+								            mode: 'index',
+								        },
+										scales: {
+											y: {
+												type: 'linear',
+												display: true,
+												position: 'left',
+												suggestedMin: 0
+											},
+											y1: {
+												type: 'linear',
+												display: true,
+												position: 'right',
+								            	beginAtZero: false
+												//suggestedMin: 0,
+								                //suggestedMax: 1// y축 값 0부터 시작
 											}
 										}
-									}
-								} // options end
+									} // options end
 							};
 					
 							
@@ -3174,41 +3173,7 @@
 				// 주석 임시 처리
 				//doPopupopen();
 			</script>
-			
-			
-            <footer>
-                <div class="f_top">
-                    <ul>
-                        <li><a href="/info/privacy">개인정보 취급방침</a></li>
-                        <li><a href="/info/tos">이용약관</a></li>
-                        <li><a href="/info/email">이메일무단수집거부</a></li>
-                    </ul>
-                </div>
 
-                <div class="f_inner">
-
-                    <div class="f_info">
-                        <address>
-                            <p>주소 : 위드컴퍼니</p>
-                            <p>대표 : 위드컴퍼니</p>
-                            <p>E-mail : weed@with.com</p>
-                            <p>전화번호 : 010-7771-1241 : </p>
-                        </address>
-                        <p class="cope">Copyright ⓒ WD</p>
-                    </div>
-                    <div class="f_logo">
-                        <img src="/resources/images/foot-logo.png">
-                    </div>
-
-                </div>
-            </footer>
-            <!--- !! 절대 지우지 마세요 !! --->
-<!--             <iframe name="ifrm" style="display: none"></iframe>
-            <script>
-                $(function () {
-                })
-            </script> -->
-            <!--- !! 절대 지우지 마세요 !! --->
 
 
 </body>

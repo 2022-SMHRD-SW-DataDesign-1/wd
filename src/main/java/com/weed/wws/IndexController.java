@@ -43,10 +43,9 @@ public class IndexController {
 	
 	@RequestMapping(value="/AOR_test.do")
 	public String aor2() {
-		return "aor2";
+		return "aor3";
 	}
-	
-	
+
 	@RequestMapping(value="/rt.do")
 	public String tr() {
 		return "test_result";

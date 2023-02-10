@@ -2549,7 +2549,7 @@
 
 						<div class="group">
 							<div class="tit1">
-								<img  id="accImg" src="./resources/images/acc_img/[B@b358167.jpg"
+								<img  id="accImg" src="./resources/images/acc_img/B@6782ed96.jpg"
 									style="width: 100%; max-width: 450px; vertical-align: middle; max-height: 217px;height: 100%;">
 							</div>
 						</div>
@@ -2688,6 +2688,7 @@
 							console.log('통신성공');
 
 							console.log(data);
+							console.log(data.filename);
 							console.log(typeof(data));
 							console.log(data.class_list)
 							
@@ -2704,8 +2705,6 @@
            					console.log("클래스: "+class_list);
            					console.log("갯수: "+count_list);
            					console.log("정확도: "+score_list);
-           					
-							
            					
            					// 갯수
 					        let barDataset =  [];
@@ -2768,10 +2767,9 @@
 				            console.log("stuffdataset : " + stuffDataset);
 				            
 
-
 							// 결과 분석 이미지 출력
-							//let imgurl = "./resources/images/acc_img/"+${data.filename};
-							//$('#accImg').attr("src", imgurl);
+							let imgurl = "./resources/images/acc_img/"+data.filename;
+							$('#accImg').attr("src", imgurl);
 							
 							
 							
@@ -2780,24 +2778,26 @@
 							L_data = {
 								labels: objectlabels, // x축 라벨
 								datasets: [{
-									label: 'Object Count', // 범례 이름
-									backgroundColor: 'rgba(75, 192, 192, 1)',
-									borderColor: 'rgba(75, 192, 192, 1)',
-									data: barDataset,
-									borderWidth: 1
-								}, {
-									type:'line',
-									label: 'Object Accuracy',
+									label: 'Object Accuracy', // 범례 이름
 									backgroundColor: 'rgba(255, 99, 132, 1)',
 									borderColor: 'rgba(255, 99, 132, 1)',
-									fill: false,
 									data: lineDataset,
+									borderWidth: 1,
+									yAxisID: 'Accuracy'
+								}, {
+									type:'bar',
+									label: 'Object Count',
+									backgroundColor: 'rgba(75, 192, 192, 1)',
+									borderColor: 'rgba(75, 192, 192, 1)',
+									fill: false,
+									data: barDataset,
+									yAxisID:'Count'
 								}]
 							}
 							
 					
 							L_config = {
-								type: 'bar',
+								type: 'line',
 								data: L_data,
 								options: {
 									maintainAspectRatio: false,
@@ -2805,9 +2805,24 @@
 										text: 'Chart.js Time Scale'
 									},
 									scales: {
-										resposive: false, // default값 true, 차트 크기를 변경하기 위해 false로 변경
-										y: {
-											beginAtZero: true // y축 값 0부터 시작
+										//resposive: false, // default값 true, 차트 크기를 변경하기 위해 false로 변경
+										Accuracy: {
+											beginAtZero: true, // y축 값 0부터 시작
+											type: 'linear',
+											position: 'left',
+											ticks: {
+												min : 0,
+												max : 1
+											}
+										},
+										Count: {
+											beginAtZero: false,
+											type: 'linear',
+											position: 'right',
+											ticks: {
+												min : 0,
+												max : 10
+											}
 										}
 									}
 								} // options end

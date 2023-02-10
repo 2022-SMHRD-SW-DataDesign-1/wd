@@ -154,8 +154,15 @@ public class ChartController {
 				
 				// 2. 이미지 변환
 				ByteArrayInputStream input_stream = new ByteArrayInputStream(image);
+				String filename = image+".jpg";
+				System.out.println(filename);
+				
+				// 이미지 이름 [자르기
+				String subfilename = filename.substring(filename.lastIndexOf("[")+1);
+				System.out.println(subfilename);
+				
 				BufferedImage p_image = ImageIO.read(input_stream);
-				boolean tf = ImageIO.write(p_image, "jpg", new File(uploadPath+"\\"+ image+".jpg"));
+				boolean tf = ImageIO.write(p_image, "jpg", new File(uploadPath+"\\"+ subfilename));
 				if (tf) {
 					System.out.println("경로에 이미지 저장 성공");
 				} else {
@@ -163,8 +170,7 @@ public class ChartController {
 				}
 				
 				// 이미지 이름
-				String filename = image+".jpg";
-				System.out.println(filename);
+				
 
 				//사진 경로 담기, json에 담기
 				//jsonobject = new JSONObject();
@@ -176,7 +182,7 @@ public class ChartController {
 				
 				
 				map = new HashMap<String, Object>();
-				map.put("filename", filename);
+				map.put("filename", subfilename);
 				map.put("class_list", class_list);
 				map.put("count_list", count_list);
 				map.put("score_list", score_list);

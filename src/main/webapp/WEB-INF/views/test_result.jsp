@@ -2667,7 +2667,7 @@
             
 <script>
 
-let object_data = ['person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle'];
+let object_data = ['person', 'rider', 'motorcycle', 'bicycle', 'truck', 'train', 'car', 'bus'];
 let stuff_data = ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic_light', 'traffic_sign', 'vegetation', 'terrain', 'sky'];
 let class_list = ${class_list};
 let count_list = ${count_list};
@@ -2739,38 +2739,69 @@ console.log("stuffdataset : " + stuffDataset);
 
 
 // 차트 전체 data
-let L_data = {
+const L_data = {
 	labels: objectlabels,
 	datasets: [{
-		label: 'Object Count', // 범례 이름
-		backgroundColor: 'rgba(75, 192, 192, 1)',
-		borderColor: 'rgba(75, 192, 192, 1)',
-		data: barDataset,
-		borderWidth: 1
-	}, {
-		type:'line',
 		label: 'Object Accuracy',
-		backgroundColor: 'rgba(255, 99, 132, 1)',
-		borderColor: 'rgba(255, 99, 132, 1)',
-		fill: false,
-		data: lineDataset
+		data: lineDataset,
+		backgroundColor: 'rgba(200, 214, 229, 0.2)',
+		borderColor: 'rgba(200, 214, 229,1)',
+		yAxisID: 'y1'
+	}, {
+		label: 'Object Count', // 범례 이름
+		data: barDataset,
+		backgroundColor: [
+	          'rgba(255,107,107,0.45)',
+	          'rgba(255,159,67, 0.45)',
+	          'rgba(254,202,87, 0.45)',
+	          'rgba(243,104,224, 0.45)',
+	          'rgba(16,172,132, 0.45)',
+	          'rgba(0,210,211, 0.45)',
+	          'rgba(46,134,222, 0.45)',
+	          'rgba(200,214,229, 0.45)'
+	        ],
+	        borderColor: [
+		          'rgba(255,107,107, 1)',
+		          'rgba(255,159,67, 1)',
+		          'rgba(254,202,87, 1)',
+		          'rgba(243,104,224, 1)',
+		          'rgba(16,172,132, 1)',
+		          'rgba(0,210,211, 1)',
+		          'rgba(102, 159, 64, 1)',
+		          'rgba(46,134,222, 1)',
+		          'rgba(200,214,229, 1)'
+	        ],
+	        borderWidth: 1,
+			yAxisID: 'y',
+			type:'bar'
+		
 	}]
-}// L_data end
+};// L_data end
 
 
 // 차트 설정
-let L_config = {
-	type: 'bar',
+const L_config = {
+	type: 'line',
 	data: L_data,
 	options: {
-		maintainAspectRatio: false,
-		title: {
-			text: 'Chart.js Time Scale'
-		},
+		interaction: {
+            intersect: false,
+            mode: 'index',
+        },
 		scales: {
-			resposive: false, // default값 true, 차트 크기를 변경하기 위해 false로 변경
 			y: {
-				beginAtZero: false // y축 값 0부터 시작
+				type: 'linear',
+				display: true,
+				position: 'left',
+				suggestedMin: 0
+			},
+			y1: {
+				type: 'linear',
+				display: true,
+				position: 'right',
+            	beginAtZero: false
+				//suggestedMin: 0,
+                //suggestedMax: 1// y축 값 0부터 시작
 			}
 		}
 	} // options end

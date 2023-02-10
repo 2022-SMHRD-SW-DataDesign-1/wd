@@ -2707,10 +2707,10 @@
 				Math.floor(Math.random() * 50)
 			];
 			
-			
+ 			
 			// 지정한 시각마다 reload
 			function test(){
-				setTimeout(function(){	
+				//setTimeout(function(){	
 					
 					// ajax 선언, 성공 함수, 넘어오는 data를 넣어주기
 					$.ajax({
@@ -2719,16 +2719,14 @@
 						dataType:'text',
 						success: function(data) {
 							console.log('통신성공');
-							console.log('이미지경로');
+
 							console.log(data);
 							console.log(typeof(data));
+
 							
-							//var filename;
-	/* 						for(var i=0; i < data.length ; i++){
-								//filename = data[i].filename
-								console.log(data[i][0]);
-							}
-							 */
+							//console.log('${filename}');
+
+
 							
 							// 넘어오는 data 대입
 							rdNum1 = [
@@ -2913,7 +2911,7 @@
 							
 							// render init block
 							DChart.destroy(); 
-							DChart = new Chart(
+ 							DChart = new Chart(
 							   document.getElementById('DChart'),
 							   config
 							);
@@ -2928,7 +2926,7 @@
 					
 					});// ajax end
 				     
-				}, 5000); // timr end
+				//}, 5000); // timr end
 			};// test end
 			
 			test(); // 페이지 업로드 된 후 실행되는 함수
@@ -3191,11 +3189,11 @@
                 </div>
             </footer>
             <!--- !! 절대 지우지 마세요 !! --->
-            <iframe name="ifrm" style="display: none"></iframe>
+<!--             <iframe name="ifrm" style="display: none"></iframe>
             <script>
                 $(function () {
                 })
-            </script>
+            </script> -->
             <!--- !! 절대 지우지 마세요 !! --->
 
 

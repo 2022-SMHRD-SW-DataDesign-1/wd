@@ -13,8 +13,9 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.channels.AsynchronousSocketChannel;
-import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.imageio.ImageIO;
@@ -29,6 +30,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 @Controller
 public class ChartController {
 	
@@ -39,41 +41,95 @@ public class ChartController {
 	}
 	
 	@RequestMapping(value = "/ChartSocket.do",method = RequestMethod.GET)
-	public JSONObject ChartSocket(HttpServletRequest request, HttpServletResponse response, Model model)
+	@ResponseBody
+	public Map<String, Object> ChartSocket(HttpServletRequest request, HttpServletResponse response, Model model)
 			throws IOException {
-		response.setContentType("application/json; charset=UTF-8");
 		System.out.println("socket통신 컨트롤러");
 
-			JSONObject jsonobject;
-			//Map<String, Object> map;
+			JSONObject jsonobject = null;
+			//JSONArray jasonArr = null;
+			Map<String, Object> map = null;
 			
-			DatagramSocket resultDataSocket = new DatagramSocket(50011);
-	        DatagramSocket resultImgDataSocket = new DatagramSocket(50012);
+			System.out.println("map 통과");
+			
+			DatagramSocket resultDataSocket = InitSocketController.resultDataSocket;
+			DatagramSocket resultImgDataSocket = InitSocketController.resultImgDataSocket;
+			
+			//DatagramSocket resultDataSocket = new DatagramSocket(50013);
+	        //DatagramSocket resultImgDataSocket = new DatagramSocket(50014);
 	        System.out.println("Binding complete");
 	        System.out.println("Socket connected");
 	        
 	        byte[] dataBuffer = new byte[1024];	// 분석값
 	        byte[] imgDataBuffer = new byte[65536]; // 분석된 이미지
 	          
-			while (true) {
+		try {
 				System.out.println("socket 연결 대기");
-				
 				// 분석 결과
 				DatagramPacket dataPacket = new DatagramPacket(dataBuffer, dataBuffer.length);
 	            resultDataSocket.receive(dataPacket);
-	            String data = new String(dataPacket.getData(), 0, dataPacket.getLength());
-	            System.out.println("data:"+data);
+	            String byteData = new String(dataPacket.getData(), 0, dataPacket.getLength());
+	            System.out.println("data:"+byteData);
 
 	            
-	            // data 작업해야함 -------------------------------------------------------- //
-	            
-	            
-	            
+	            // data 분석값 -------------------------------------------------------- //
+				
+				  // 1. thing과 stuff를 구분지어서 배열로 만들어 줘야함.
+	            String substringData = byteData.substring(2,byteData.length()-2);
+				  System.out.println("byte_data: "+substringData);
+				  
+				  // 2. 객체 바인딩 
+				  String[] list_type = byteData.split("/");
+				  String cs_list =list_type[0];
+				  String ct_list = list_type[1];
+				  String se_list = list_type[2];
+				  
+				  System.out.println("cs_list:" + cs_list);
+				  System.out.println("ct_list:"+ct_list); 
+				  System.out.println("se_list:" +se_list);
+				  
+				  String[] class_arr = cs_list.split(" ");
+				  String[] count_arr = ct_list.split(" ");
+				  String[] score_arr = se_list.split(" ");
+				  
+				  List<String> class_list = new ArrayList<String>();
+				  String[] class_arr_list = new String[class_arr.length];
+				  for(int i=0;i<class_arr.length;i++) {
+					  class_arr_list[i]=class_arr[i];
+					  System.out.println("c"+i+":"+class_arr_list[i]);
+					  class_list.add(class_arr_list[i]);
+				  }
+				  
+				  List<Integer> count_list = new ArrayList<Integer>();
+				  int[] count_arr_list = new int[count_arr.length];
+				  for(int i=0;i<count_arr.length;i++) {
+					 count_arr_list[i]=Integer.parseInt(count_arr[i]);
+					 System.out.println("c"+i+":"+count_arr_list[i]);
+					 count_list.add(count_arr_list[i]);
+				  }
+				
+				  List<Float> score_list = new ArrayList<Float>();
+				  float[] score_arr_list = new float[score_arr.length];
+				  for(int i=0;i<score_arr.length;i++) {
+					 score_arr_list[i]=Float.parseFloat(score_arr[i]);
+					 System.out.println("s"+i+":"+score_arr_list[i]);
+					 score_list.add(score_arr_list[i]);
+				  }
+
+				 
+				//JSONArray class_list_ = new JSONArray(class_list);
+				//JSONArray count_list_ = new JSONArray(count_list);
+				//JSONArray score_list_ = new JSONArray(score_list);
+				
+				//model.addAttribute("class_list",class_list_);
+				//model.addAttribute("count_list",count_list_);
+				//model.addAttribute("score_list",score_list_);
 	            
 	            
 	            
 	            // ----- -------------------------------------------------------- //
 	            
+				
 	            
 	            // 분석 이미지
 	            DatagramPacket imgDataPacket = new DatagramPacket(imgDataBuffer, imgDataBuffer.length);
@@ -113,22 +169,37 @@ public class ChartController {
 				//사진 경로 담기, json에 담기
 				jsonobject = new JSONObject();
 				jsonobject.put("filename", filename);
-				// model.addAttribute("filename", filename);
+				jsonobject.put("class_list", class_list);
+				jsonobject.put("count_list", count_list);
+				jsonobject.put("score_list", score_list);
 				
-				//map = new HashMap<String, Object>();
-				//map.put("filename", filename);
+				
+				
+				map = new HashMap<String, Object>();
+				map.put("filename", filename);
+				map.put("class_list", class_list);
+				map.put("count_list", count_list);
+				map.put("score_list", score_list);
+				
+				System.out.println(jsonobject.toString());
+				
 
+				//model.addAttribute("filename", filename);
 				System.out.println("이미지 넘김");
 	            
 				//return map;
-				return jsonobject;
-			}
-		
+				
+				
+				return map;
+				
+	
+		} catch (Exception e) {
+			System.out.println("이미지 못 넘김");
+			System.out.println("error:"+ e);
+
+			return map;
+		}
 			
-
-			
-
-
 	}// ChartSocket end
 	
 }

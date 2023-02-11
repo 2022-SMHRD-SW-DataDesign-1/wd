@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>위드컴퍼니</title>
+<title>WD Company</title>
 <meta name="X-CSRF-TOKEN" content="9e1df29c77b7a592462f8a7808050758">
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -2142,7 +2142,7 @@
             flex-direction: column;
             gap: 30px 0;
             position: absolute;
-            margin-left:9%
+            margin-left:11%
         }
 
         .modal_logout .input_group {
@@ -2316,8 +2316,8 @@
             background: var(--color-f2f2f2);
         }
         #loading {
-		width: 100%;
-	    height: 100%;
+		width: 80%;
+	    height: 80%;
 	    position: absolute;
 	    display: inline-block;
 	    opacity: 0.9;
@@ -2325,7 +2325,7 @@
 	    z-index: 100000;
 	    text-align: center;
 	    border-radius: 50px;
-	    margin-top: 5%;
+	    margin-left: 11%;
         
         }
         
@@ -2349,18 +2349,6 @@
 		  cursor: pointer;
 		  display:-webkit-inline-box;
 		}
-		
-/* 		.selectBox2:after {
-		  content: '';
-		  display: none;
-		  width: 2px;
-		  height: 100%; 
-		  position: absolute; 
-		  top: 0; 
-		  right: 35px;
-		  background: #a9aaac;
-		} */
-		
 		.selectBox2 .label {
 		  display: flex;
 		  align-items: center;

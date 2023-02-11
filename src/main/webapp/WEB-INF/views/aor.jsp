@@ -2934,15 +2934,37 @@
 				],
 				datasets: [{
 					label: 'Object Count', // 범례 이름
-					backgroundColor: 'rgba(75, 192, 192, 1)',
-					borderColor: 'rgba(75, 192, 192, 1)',
-					data: zeroNum,
-					borderWidth: 1
+					backgroundColor: [
+				          'rgba(255,107,107,0.45)',
+				          'rgba(255,159,67, 0.45)',
+				          'rgba(254,202,87, 0.45)',
+				          'rgba(243,104,224, 0.45)',
+				          'rgba(16,172,132, 0.45)',
+				          'rgba(0,210,211, 0.45)',
+				          'rgba(46,134,222, 0.45)',
+				          'rgba(200,214,229, 0.45)'
+				        ],
+				        borderColor: [
+					          'rgba(255,107,107, 1)',
+					          'rgba(255,159,67, 1)',
+					          'rgba(254,202,87, 1)',
+					          'rgba(243,104,224, 1)',
+					          'rgba(16,172,132, 1)',
+					          'rgba(0,210,211, 1)',
+					          'rgba(102, 159, 64, 1)',
+					          'rgba(46,134,222, 1)',
+					          'rgba(200,214,229, 1)'
+				        ],
+				        yAxisID: 'y1',
+				        borderWidth: 1,
+						data: zeroNum,
+						borderWidth: 1
 				}, {
 					type:'line',
 					label: 'Object Accuracy',
-					backgroundColor: 'rgba(255, 99, 132, 1)',
-					borderColor: 'rgba(255, 99, 132, 1)',
+					backgroundColor: 'rgba(200, 214, 229, 0.2)',
+					borderColor: 'rgba(200, 214, 229,1)',
+					yAxisID: 'y1',
 					fill: false,
 					data: zeroNum
 				}]

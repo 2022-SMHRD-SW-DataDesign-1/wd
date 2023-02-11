@@ -2737,7 +2737,7 @@
 										backgroundColor: 'rgba(200, 214, 229, 0.2)',
 										borderColor: 'rgba(200, 214, 229,1)',
 										yAxisID: 'y1',
-										tension: 0.5
+										tension: 0.4
 									}, {
 										label: 'Object Count', // 범례 이름
 										data: barDataset,
@@ -2943,7 +2943,7 @@
 					backgroundColor: 'rgba(200, 214, 229, 0.2)',
 					borderColor: 'rgba(200, 214, 229,1)',
 					yAxisID: 'y1',
-					lineTension: 0.5
+					lineTension: 0.4
 				}, {
 					label: 'Object Count',
 					data: zeroNum,

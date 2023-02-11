@@ -2363,14 +2363,6 @@
     <script src="resources/js/front.js"></script>
     <link rel="shortcut icon" href="/resources/images/favicon.png">
     <link rel="icon" href="resources/images/favicon.png">
-    <script>
-        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
-            window.location.href = "microsoft-edge:" + window.location.href;
-            setTimeout(function () {
-                window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
-            }, 1);
-        }
-    </script>
 </head>
 
 <body>
@@ -2389,8 +2381,6 @@
 
                 </ul>
             </div>
-
-			
             <!-- 추가 -->
             <section class="swiper-slide sec4" style="height: 881px; margin-bottom: 30px;">
                 <div class="container">
@@ -2459,10 +2449,8 @@
                     </div>
                 </div>
             </div>
-
             <!-- 홈 -->
             <!-- 홈버튼 누르면 처음 페이지 -->
-
             <script>
                 $(document).ready(function () {
                     $('.main_wrap .side_menu .mode_change').click(function () {

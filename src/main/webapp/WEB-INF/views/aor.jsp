@@ -10,7 +10,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>위드컴퍼니</title>
+<link rel="icon" href="./resources/images/favicon.png">
+<title>WD Company</title>
 <meta name="X-CSRF-TOKEN" content="9e1df29c77b7a592462f8a7808050758">
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -2534,8 +2535,8 @@
                                 <h3>Object Table</h3>
                             </div>
                             <div class="chartCard">
-							  <div class="chartBox">
-							    <canvas id="myChart" style="width: 600px;  height: 433px;"></canvas>
+							  <div class="chartBox" style="width: 600px;  height: 433px;">
+							    <canvas id="myChart"></canvas>
 							  </div>
 							</div>
                         </div>
@@ -2735,7 +2736,8 @@
 										data: lineDataset,
 										backgroundColor: 'rgba(200, 214, 229, 0.2)',
 										borderColor: 'rgba(200, 214, 229,1)',
-										yAxisID: 'y1'
+										yAxisID: 'y1',
+										tension: 0.5
 									}, {
 										label: 'Object Count', // 범례 이름
 										data: barDataset,
@@ -2772,24 +2774,27 @@
 									type: 'line',
 									data: L_data,
 									options: {
+										maintainAspectRatio:false,
 										interaction: {
 								            intersect: false,
 								            mode: 'index',
 								        },
 										scales: {
-											y: {
+											resposive: true,
+											y: { // bar y축
 												type: 'linear',
 												display: true,
 												position: 'left',
-												suggestedMin: 0
+												suggestedMin: 0,
+												suggestedMax: 100
 											},
-											y1: {
+											y1: { // line y축
 												type: 'linear',
 												display: true,
 												position: 'right',
-								            	beginAtZero: false
+								            	beginAtZero: false,
 												//suggestedMin: 0,
-								                //suggestedMax: 1// y축 값 0부터 시작
+								                suggestedMax: 1// y축 값 0부터 시작
 											}
 										}
 									} // options end

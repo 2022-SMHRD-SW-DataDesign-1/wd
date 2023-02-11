@@ -2446,14 +2446,6 @@
     <script src="resources/js/front.js"></script>
     <link rel="shortcut icon" href="/resources/images/favicon.png">
     <link rel="icon" href="resources/images/favicon.png">
-    <script>
-        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
-            window.location.href = "microsoft-edge:" + window.location.href;
-            setTimeout(function () {
-                window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
-            }, 1);
-        }
-    </script>
 </head>
 
 <body>
@@ -2967,19 +2959,6 @@ let myChart = new Chart(
 				
 			</script>
 			
-			<!-- 팝업창 -->
-			<script type="text/javascript">
-				function doPopupopen() {
-					
-				  var url = "pop.do";
-			      var name = "popup";
-			      var option = "width = 660, height = 500, top = 100, left = 200, location = no"
-				  window.open(url, name, option);
-				   
-				   
-				};
-				doPopupopen();
-			</script>
 
 </body>
 

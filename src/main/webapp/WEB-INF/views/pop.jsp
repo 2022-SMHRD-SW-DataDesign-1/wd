@@ -10,6 +10,9 @@ html {overflow:hidden;}
 </style>
 </head>
 <body style="overflow-x:hidden; overflow-y:auto;">
-	<iframe src="http://172.30.1.6:5000/stream" height="480px" width="640px"></iframe>
+<iframe  width="100%" height="100%" src="http://172.30.1.6:5000/stream" title="stream video" frameborder="0"
+    							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
 </body>
 </html>

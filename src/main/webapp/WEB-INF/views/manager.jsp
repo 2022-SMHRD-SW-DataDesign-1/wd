@@ -2600,14 +2600,6 @@
     <script src="/js/front.js?20230117122237"></script>
     <link rel="shortcut icon" href="/resources/images/favicon.png">
     <link rel="icon" href="/resources/images/favicon.png">
-    <script>
-        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
-            window.location.href = "microsoft-edge:" + window.location.href;
-            setTimeout(function () {
-                window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
-            }, 1);
-        }
-    </script>
 </head>
 
 <body>
@@ -2621,7 +2613,7 @@
                 </a>
                 <ul class="gnb">
                     <div class="btn_bottom" style="margin-top: -10px;">
-						<button type="submit" class="b_type3" onclick="">로그아웃</button>
+						<button type="submit" class="b_type3" onclick="">Logout</button>
 					</div>
                 </ul>
             </div>
@@ -2737,13 +2729,8 @@
 									</div>
 								</div>
 							</div> 
-                    
-
                 </div>
             </section>
-
-			
-			
 			<!-- 로그아웃 -->
 			<div class="modal_logout">
 				<div class="bg"></div>
@@ -2762,8 +2749,6 @@
 					</div>
 				</div>
 			</div>
-
-
 
             <script>
             let choiceCout =0;

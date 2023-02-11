@@ -1608,15 +1608,6 @@
     <script src="resourcesz/js/front.js?20230117122237"></script>
     <link rel="shortcut icon" href="resources/images/favicon.png">
     <link rel="icon" href="resources/images/favicon.png">
-    
-    <script>
-        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
-            window.location.href = "microsoft-edge:" + window.location.href;
-            setTimeout(function () {
-                window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
-            }, 1);
-        }
-    </script>
 </head>
 
 <body>
@@ -3629,24 +3620,6 @@
                     $('.sec2 .text1').css('display','none');
                 });
             });
-			
-/*             const div = document.getElementByClassName('sec2');
-            const title1 = document.getElementByClassName('title1');
-            const result = document.getElementByClassName('text1');
-
-            div.addEventListener('mouseover', (event) => {
-              result;
-            });
-
-            div.addEventListener('mouseout', (event) => {
-              result.innerHTML+= '<div>mouseout</div>';
-            });
-
-            clearbtn.addEventListener('click', (event) => {
-              result.innerHTML= '';
-              count = 0;
-            }); */
-			
 
             $(document).ready(function(){
                 $('.sec2 .title2').hover(function(){

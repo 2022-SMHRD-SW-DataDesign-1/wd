@@ -8,7 +8,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>위드컴퍼니 관리자</title>
+    <link rel="icon" href="./resources/images/favicon.png">
+    <title>WD Manager</title>
     <meta name="X-CSRF-TOKEN" content="9e1df29c77b7a592462f8a7808050758">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -1684,6 +1685,7 @@
                     transition: all .3s ease;
                     display: block;
                     font-size: 18px;
+                    
                 }
 
                 .b_type4 {
@@ -2612,7 +2614,7 @@
                     <span class="en"> <b>WHO WITH SERVICE</b></span>
                 </a>
                 <ul class="gnb">
-                    <div class="btn_bottom" style="margin-top: -10px;">
+                    <div class="btn_bottom" id="btn-z" style="margin-top: -10px; z-index: 10">
 						<button type="submit" class="b_type3" onclick="">Logout</button>
 					</div>
                 </ul>
@@ -2778,7 +2780,8 @@
                     
                  // modal_clear는 삭제
                     $('.input_group .b_type4').click(function () {
-                        $('.modal_clear').addClass('on')
+                        $('.modal_clear').addClass('on');
+                        $('#btn-z').css('z-index',0);
                     });
 
                     $('.modal_clear .con .xi-close-thin').click(function () {
@@ -2789,6 +2792,7 @@
                         $('.modal_clear').removeClass('on')
                     });
                 });
+                
 
 
 

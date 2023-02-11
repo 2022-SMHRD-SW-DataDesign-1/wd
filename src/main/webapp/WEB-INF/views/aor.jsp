@@ -2411,9 +2411,8 @@
 		.selectBox2 .optionList::-webkit-scrollbar-thumb {background: #303030; border-radius: 45px;}
 		.selectBox2 .optionList::-webkit-scrollbar-thumb:hover {background: #303030;}
 		
+				
     </style>
-
-
     <script src="resources/plugins/validation/jquery.validate.min.js"></script>
     <script src="resources/plugins/validation/additional-methods.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -2431,14 +2430,6 @@
     <script src="resources/js/front.js"></script>
     <link rel="shortcut icon" href="/resources/images/favicon.png">
     <link rel="icon" href="resources/images/favicon.png">
-    <script>
-        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
-            window.location.href = "microsoft-edge:" + window.location.href;
-            setTimeout(function () {
-                window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
-            }, 1);
-        }
-    </script>
 </head>
 
 <body>
@@ -2519,14 +2510,14 @@
 							</ul>
 							<button type="submit" id="submit" class="selectBnt" onclick='getCheckboxValue()'>Apply</button>
 						</div>
-
                         
-				 		<!-- <div class="group">
-							<div class="tit1" id="realTestimg" style="width: 100%; max-width: 450px; vertical-align: middle; max-height: 217px;height: 100%;">
-    							<iframe  width="100%" height="100%" src="http://172.30.1.6:5001/aor" title="stream video" frameborder="0"
+				 		<div class="group">
+							<div class="tit1" id="realTestimg" style="height:217px">
+								<iframe class="iframe"  src="http://172.30.1.6:5000/stream" title="stream video" frameborder="0" 
+								style="width:100%; height:100%;" scrolling="no"
     							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 							</div>
-						</div> -->
+						</div>
 
 						<div class="group">
 							<div class="tit1">
@@ -2550,7 +2541,6 @@
                         </div>
                     </div>
                     
-                    
                     <div class="input_group" style="margin-top: 10%;">
                         <div class="group">
                         	<div class="tit" style="align-items: center;">
@@ -2565,13 +2555,7 @@
                     </div>
                 
                 </div>
-                
-            
             </section>
-
-
-
-
             <!-- 로그아웃 -->
             <div class="modal_logout">
                 <div class="bg"></div>
@@ -2588,11 +2572,8 @@
                     </div>
                 </div>
             </div>
-
             <!-- 홈 -->
             <!-- 홈버튼 누르면 처음 페이지 -->
-
-
             <script>
                 $(document).ready(function () {
                     $('.main_wrap .side_menu .mode_change').click(function () {
@@ -2649,37 +2630,8 @@
                          
             </script>
             
-            <script type="text/javascript">
-            function ResizeFrame(name)
-            {
-              // IFRAME 내부의 body 개체
-              var fBody  = document.frames(name).document.body;
-              // IFRAME 개체
-              var fName  = document.all(name);
-
-              // IFRAME 내부의 body개체의 넓이를 계산하여 IFRAME의 넓이를 설정해 준다.
-              fName.style.width 
-                = fBody.scrollWidth + (fBody.offsetWidth - fBody.clientWidth);
-              // IFRAME 내부의 body개체의 높이를 계산하여 IFRAME의 높이를 설정해 준다.
-              fName.style.height 
-                = fBody.scrollHeight + (fBody.offsetHeight - fBody.clientHeight);
-
-              // 만약 IFRAME의 크기 설정에 실패 하였다면 기본크기로 설정한다.
-              if (Frame_name.style.height == "0px" || Frame_name.style.width == "0px")
-              {
-                fName.style.width = "450px";     //기본 iframe 너비
-                fName.style.height = "217px";    //기본 iframe 높이
-              }
-            }
-            
-            </script>
-            
 			<script>
-			
 			// test 차트
-
-			
- 			
 			// 지정한 시각마다 reload
 			function test(){
 				//setTimeout(function(){	
@@ -2770,14 +2722,10 @@
 				            console.log("score : " + lineDataset);
 				            console.log("stufflabel : " + stufflabels);
 				            console.log("stuffdataset : " + stuffDataset);
-				            
 
 							// 결과 분석 이미지 출력
 							let imgurl = "./resources/images/acc_img/"+data.filename;
 							$('#accImg').attr("src", imgurl);
-							
-							
-							
 							
 							// 막대 차트
 							L_data = {
@@ -2846,7 +2794,6 @@
 										}
 									} // options end
 							};
-					
 							
 							//도넛 차트
 							data = {
@@ -2964,7 +2911,6 @@
 			
 			test(); // 페이지 업로드 된 후 실행되는 함수
 			
-			
 			// 차트 초기 데이터
 			// 막대 초기 데이터-8개
 			let rdNum1 = [0, 0, 0, 0, 0, 0, 0, 0];
@@ -2997,7 +2943,6 @@
 				}]
 			}// L_data end
 			
-			
 			// 차트 설정
 			let L_config = {
 				type: 'bar',
@@ -3021,11 +2966,6 @@
 				document.getElementById('myChart'),
 				L_config
 			);
-			            
-
-            
-           <!-- --------------------------------------------------------------------------------------------------  --> 
-
 			 
 			 <!-- 도넛차트 -->
 
@@ -3130,10 +3070,6 @@
 				   config
 				);
 			</script>
-			
-			
-			
-			
 			<!-- 다중체크박스  -->
 			<script type="text/javascript">
 			const label = document.querySelector('.label');
@@ -3173,7 +3109,6 @@
 							console.log("데이터 전송 성공이야");
 			     		}
 				});
-				  
 			};  
 				
 			</script>
@@ -3186,35 +3121,11 @@
 			      var name = "popup";
 			      var option = "width = 660, height = 500, top = 100, left = 200, location = no"
 				  window.open(url, name, option);
-				   
-				   
 				};
-				
 				// 주석 임시 처리
 				//doPopupopen();
 			</script>
 
-<<<<<<< HEAD
-                <div class="f_inner">
-
-                    <div class="f_info">
-                        <address>
-                            <p>주소 : 위드컴퍼니</p>
-                            <p>대표 : 위드컴퍼니</p>
-                            <p>E-mail : weed@with.com</p>
-                            <p>전화번호 : 010-7771-1241 : </p>
-                        </address>
-                        <p class="cope">Copyright ⓒ WD</p>
-                    </div>
-                    <div class="f_logo">
-                        <img src="/resources/images/foot-logo.png">
-                    </div>
-
-                </div>
-            </footer>
-        
-=======
->>>>>>> branch 'master' of https://github.com/2022-SMHRD-SW-DataDesign-1/wd.git
 
 
 </body>

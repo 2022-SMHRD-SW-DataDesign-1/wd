@@ -2590,335 +2590,209 @@
 						stuffDataset.push(Math.floor(score_list[j]*100));
 					}
 				}
-            
-<script>
-
-let object_data = ['person', 'rider', 'motorcycle', 'bicycle', 'truck', 'train', 'car', 'bus'];
-let stuff_data = ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic_light', 'traffic_sign', 'vegetation', 'terrain', 'sky'];
-let class_list = ${class_list};
-let count_list = ${count_list};
-let score_list = ${score_list};
-
-// 갯수
-let barDataset =  [];
-
-// 정확도
-let lineDataset =  [];
-
-// 클래스
-let objectlabels = [];
-
-//
-let stufflabels=[];
-
-//
-let stuffDataset=[];
-
-// 값 받기
-console.log(object_data);
-console.log(class_list);
-console.log(count_list);
-console.log(score_list);
-
-console.log(object_data.length);
-console.log(class_list.length);
-console.log(count_list.length);
-console.log(score_list.length);
-
-for(var i =0;i<class_list.length;i++){
-	console.log(i+" : " + class_list[i]);
-}
-for(var i =0;i<count_list.length;i++){
-	console.log(i+" : " + count_list[i]);
-}
-for(var i =0;i<score_list.length;i++){
-	console.log(i+" : " + score_list[i]);
-}
-
-for(var i=0; i<object_data.length;i++){
-	for(var j=0;j<class_list.length;j++){
-		if(object_data[i] == class_list[j]){
-			console.log(j+" : "+class_list[j] + " " + count_list[j] + " " + score_list[j]);
-			objectlabels.push(class_list[j]);
-			barDataset.push(count_list[j]);
-			lineDataset.push(score_list[j]);
-		}
-	}
-}
-
-for(var i=0; i<stuff_data.length;i++){
-	for(var j=0;j<class_list.length;j++){
-		if(stuff_data[i] == class_list[j]){
-			console.log(j+" : "+class_list[j] + " " + count_list[j] + " " + score_list[j]);
-			stufflabels.push(class_list[j]);
-			stuffDataset.push(Math.floor(score_list[j]*100));
-		}
-	}
-}
-
-console.log("class : " + objectlabels);
-console.log("count : " + barDataset);
-console.log("score : " + lineDataset);
-console.log("stufflabel : " + stufflabels);
-console.log("stuffdataset : " + stuffDataset);
-
-
-
-// 차트 전체 data
-const L_data = {
-	labels: objectlabels,
-	datasets: [{
-		label: 'Object Accuracy',
-		data: lineDataset,
-		backgroundColor: 'rgba(200, 214, 229, 0.2)',
-		borderColor: 'rgba(200, 214, 229,1)',
-		yAxisID: 'y1',
-		lineTension: 0.5
-	}, {
-		label: 'Object Count', // 범례 이름
-		data: barDataset,
-		backgroundColor: [
-	          'rgba(255,107,107,0.45)',
-	          'rgba(255,159,67, 0.45)',
-	          'rgba(254,202,87, 0.45)',
-	          'rgba(243,104,224, 0.45)',
-	          'rgba(16,172,132, 0.45)',
-	          'rgba(0,210,211, 0.45)',
-	          'rgba(46,134,222, 0.45)',
-	          'rgba(200,214,229, 0.45)'
-	        ],
-	        borderColor: [
-		          'rgba(255,107,107, 1)',
-		          'rgba(255,159,67, 1)',
-		          'rgba(254,202,87, 1)',
-		          'rgba(243,104,224, 1)',
-		          'rgba(16,172,132, 1)',
-		          'rgba(0,210,211, 1)',
-		          'rgba(102, 159, 64, 1)',
-		          'rgba(46,134,222, 1)',
-		          'rgba(200,214,229, 1)'
-	        ],
-	        borderWidth: 1,
-			yAxisID: 'y',
-			type:'bar'
-		
-	}]
-};// L_data end
-
-
-// 차트 설정
-const L_config = {
-	type: 'line',
-	data: L_data,
-	options: {
-		maintainAspectRatio:false,
-		interaction: {
-            intersect: false,
-            mode: 'index',
-        },
-		scales: {
-			y: {
-				type: 'linear',
-				display: true,
-				position: 'left',
-				suggestedMin: 0,
-				suggestedMax: 100
-			},
-			y1: {
-				type: 'linear',
-				display: true,
-				position: 'right',
-            	beginAtZero: false,
-				//suggestedMin: 0,
-                suggestedMax: 1// y축 값 0부터 시작
 			}
-			
-			console.log("class : " + objectlabels);
-			console.log("count : " + barDataset);
-			console.log("score : " + lineDataset);
-			console.log("stufflabel : " + stufflabels);
-			console.log("stuffdataset : " + stuffDataset);
-			
-			
-			
-			// 차트 전체 data
-			const L_data = {
-				labels: objectlabels,
-				datasets: [{
-					label: 'Object Accuracy',
-					data: lineDataset,
-					backgroundColor: 'rgba(200, 214, 229, 0.2)',
-					borderColor: 'rgba(200, 214, 229,1)',
-					yAxisID: 'y1'
-				}, {
-					label: 'Object Count', // 범례 이름
-					data: barDataset,
-					backgroundColor: [
-				          'rgba(255,107,107,0.45)',
-				          'rgba(255,159,67, 0.45)',
-				          'rgba(254,202,87, 0.45)',
-				          'rgba(243,104,224, 0.45)',
-				          'rgba(16,172,132, 0.45)',
-				          'rgba(0,210,211, 0.45)',
-				          'rgba(46,134,222, 0.45)',
-				          'rgba(200,214,229, 0.45)'
-				        ],
-				        borderColor: [
-					          'rgba(255,107,107, 1)',
-					          'rgba(255,159,67, 1)',
-					          'rgba(254,202,87, 1)',
-					          'rgba(243,104,224, 1)',
-					          'rgba(16,172,132, 1)',
-					          'rgba(0,210,211, 1)',
-					          'rgba(102, 159, 64, 1)',
-					          'rgba(46,134,222, 1)',
-					          'rgba(200,214,229, 1)'
-				        ],
-				        borderWidth: 1,
-						yAxisID: 'y',
-						type:'bar'
-					
-				}]
-			};// L_data end
-			
-			
-			// 차트 설정
-			const L_config = {
-				type: 'line',
-				data: L_data,
-				options: {
-					interaction: {
-			            intersect: false,
-			            mode: 'index',
-			        },
-					scales: {
-						y: {
-							type: 'linear',
-							display: true,
-							position: 'left',
-							suggestedMin: 0
-						},
-						y1: {
-							type: 'linear',
-							display: true,
-							position: 'right',
-			            	beginAtZero: false
-							//suggestedMin: 0,
-			                //suggestedMax: 1// y축 값 0부터 시작
-						}
-					}
-				} // options end
-			}; // config end
-			 
-			// 차트 그리기
-			let myChart = new Chart(
-				document.getElementById('myChart'),
-				L_config
-			);
-			</script>            
-			 <!-- 도넛차트 -->
-			 <script>
-				let selectedDatasetIndex = undefined;
-				let selectedIndex = undefined;
+            
+		
+		
+		
+		console.log("class : " + objectlabels);
+		console.log("count : " + barDataset);
+		console.log("score : " + lineDataset);
+		console.log("stufflabel : " + stufflabels);
+		console.log("stuffdataset : " + stuffDataset);
+		
+		
+		
+		// 차트 전체 data
+		let L_data = {
+			labels: objectlabels,
+			datasets: [{
+				label: 'Object Accuracy',
+				data: lineDataset,
+				backgroundColor: 'rgba(200, 214, 229, 0.2)',
+				borderColor: 'rgba(200, 214, 229,1)',
+				yAxisID: 'y1',
+				lineTension: 0.5
+			}, {
+				label: 'Object Count', // 범례 이름
+				data: barDataset,
+				backgroundColor: [
+			          'rgba(255,107,107,0.45)',
+			          'rgba(255,159,67, 0.45)',
+			          'rgba(254,202,87, 0.45)',
+			          'rgba(243,104,224, 0.45)',
+			          'rgba(16,172,132, 0.45)',
+			          'rgba(0,210,211, 0.45)',
+			          'rgba(46,134,222, 0.45)',
+			          'rgba(200,214,229, 0.45)'
+			        ],
+			        borderColor: [
+				          'rgba(255,107,107, 1)',
+				          'rgba(255,159,67, 1)',
+				          'rgba(254,202,87, 1)',
+				          'rgba(243,104,224, 1)',
+				          'rgba(16,172,132, 1)',
+				          'rgba(0,210,211, 1)',
+				          'rgba(102, 159, 64, 1)',
+				          'rgba(46,134,222, 1)',
+				          'rgba(200,214,229, 1)'
+			        ],
+			        borderWidth: 1,
+					yAxisID: 'y',
+					type:'bar'
 				
-			
-				// setup 
-				const data = {
-						labels: stufflabels,
-					    datasets: [{
-						    label: 'Stuff Accuracy',
-				    	    data: stuffDataset,
-				        	backgroundColor: [
-					          'rgba(255, 26, 104, 0.2)',
-					          'rgba(54, 162, 235, 0.2)',
-					          'rgba(255, 206, 86, 0.2)',
-					          'rgba(75, 192, 192, 0.2)',
-					          'rgba(153, 102, 255, 0.2)',
-					          'rgba(200, 159, 64, 0.2)',
-					          'rgba(102, 159, 64, 0.2)',
-					          'rgba(55, 159, 64, 0.2)',
-					          'rgba(5, 159, 64, 0.2)',
-					          'rgba(45, 159, 64, 0.2)',
-					          'rgba(0, 0, 0, 0.2)'
-					        ],
-					        borderColor: [
-						          'rgba(255, 26, 104, 1)',
-						          'rgba(54, 162, 235, 1)',
-						          'rgba(255, 206, 86, 1)',
-						          'rgba(75, 192, 192, 1)',
-						          'rgba(153, 102, 255, 1)',
-						          'rgba(200, 159, 64, 1)',
-						          'rgba(102, 159, 64, 1)',
-						          'rgba(55, 159, 64, 1)',
-						          'rgba(5, 159, 64, 1)',
-						          'rgba(45, 159, 64, 1)',
-						          'rgba(0, 0, 0, 1)'
-					        ],
-						    borderWidth: 1,
-						    cutout: '70%',
-						    borderRadius: 5,
-						    offset: 10
-				  	}]
-				};		
-				
-				// clickLabel pugin block
-		  		const clickLabel = {
-					id: 'clickLabel',
-					afterDraw: (chart, args, options) => {
-						const { ctx, chartArea: { width, height, top } } = chart;
-						
-						
-						
-						if(selectedDatasetIndex >= 0) {
-							console.log(chart.data.datasets[selectedDatasetIndex].data[selectedIndex]);
-							const sum = chart._metasets[selectedDatasetIndex].total;
-							const value = chart._metasets[selectedDatasetIndex]._parsed[selectedIndex];
-							const color = chart.data.datasets[selectedDatasetIndex].borderColor[selectedIndex];
-							const percentage = value / sum * 100;
-							const accuracy = chart.data.datasets[selectedDatasetIndex].data[selectedIndex];
-			
-							ctx.save();
-							ctx.font = 'bolder 60px Arial';
-							ctx.fillStyle = color;
-							ctx.textAlign = 'center';
-							ctx.textBaseline = 'middle';
-							ctx.fillText(accuracy + '%', width/2, height/2 + top);
-							ctx.restore();
-						}
-					}
-				} 
-				
-				// config 
-				const config = {
-					type: 'doughnut',
-				    data:data,
-				    options: {
-				    	responsive: false,
-						mainTainAspectRatio: false,
-		 				plugins: {
-							legend: {
-								display: true,
-								position: 'bottom'
-							}
-				 		},
-						onClick(click, element, chart) {
-							//console.log(element[0].datasetIndex)
-							if(element[0]) {
-								selectedDatasetIndex = element[0].datasetIndex;
-								selectedIndex = element[0].index;
-								chart.draw();
-							}
-						}
+			}]
+		};// L_data end
+		
+		
+		// 차트 설정
+		let L_config = {
+			type: 'line',
+			data: L_data,
+			options: {
+				maintainAspectRatio:false,
+				interaction: {
+		            intersect: false,
+		            mode: 'index',
+		        },
+				scales: {
+					y: {
+						type: 'linear',
+						display: true,
+						position: 'left',
+						suggestedMin: 0,
+						suggestedMax: 100
 					},
-					plugins: [clickLabel]
-				};
+					y1: {
+						type: 'linear',
+						display: true,
+						position: 'right',
+		            	beginAtZero: false,
+						//suggestedMin: 0,
+		                suggestedMax: 1// y축 값 0부터 시작
+					}
+				}
+		    }// options end
+		} // config end
+			
+
+
+			 
+	// 차트 그리기
+	let myChart = new Chart(
+		document.getElementById('myChart'),
+		L_config
+	);
+			
+			
+			
+			
+</script>      
+
+      
+	 <!-- 도넛차트 -->
+	 <script>
+		let selectedDatasetIndex = undefined;
+		let selectedIndex = undefined;
+		
+	
+		// setup 
+		let data = {
+				labels: stufflabels,
+			    datasets: [{
+				    label: 'Stuff Accuracy',
+		    	    data: stuffDataset,
+		        	backgroundColor: [
+			          'rgba(255, 26, 104, 0.2)',
+			          'rgba(54, 162, 235, 0.2)',
+			          'rgba(255, 206, 86, 0.2)',
+			          'rgba(75, 192, 192, 0.2)',
+			          'rgba(153, 102, 255, 0.2)',
+			          'rgba(200, 159, 64, 0.2)',
+			          'rgba(102, 159, 64, 0.2)',
+			          'rgba(55, 159, 64, 0.2)',
+			          'rgba(5, 159, 64, 0.2)',
+			          'rgba(45, 159, 64, 0.2)',
+			          'rgba(0, 0, 0, 0.2)'
+			        ],
+			        borderColor: [
+				          'rgba(255, 26, 104, 1)',
+				          'rgba(54, 162, 235, 1)',
+				          'rgba(255, 206, 86, 1)',
+				          'rgba(75, 192, 192, 1)',
+				          'rgba(153, 102, 255, 1)',
+				          'rgba(200, 159, 64, 1)',
+				          'rgba(102, 159, 64, 1)',
+				          'rgba(55, 159, 64, 1)',
+				          'rgba(5, 159, 64, 1)',
+				          'rgba(45, 159, 64, 1)',
+				          'rgba(0, 0, 0, 1)'
+			        ],
+				    borderWidth: 1,
+				    cutout: '70%',
+				    borderRadius: 5,
+				    offset: 10
+		  	}]
+		};		
+		
+		// clickLabel pugin block
+  		let clickLabel = {
+			id: 'clickLabel',
+			afterDraw: (chart, args, options) => {
+				let { ctx, chartArea: { width, height, top } } = chart;
 				
-				// render init block
-				const DChart = new Chart(
-				   document.getElementById('DChart'),
-				   config
-				);
-			</script>
+				
+				
+				if(selectedDatasetIndex >= 0) {
+					console.log(chart.data.datasets[selectedDatasetIndex].data[selectedIndex]);
+					let sum = chart._metasets[selectedDatasetIndex].total;
+					let value = chart._metasets[selectedDatasetIndex]._parsed[selectedIndex];
+					let color = chart.data.datasets[selectedDatasetIndex].borderColor[selectedIndex];
+					let percentage = value / sum * 100;
+					let accuracy = chart.data.datasets[selectedDatasetIndex].data[selectedIndex];
+	
+					ctx.save();
+					ctx.font = 'bolder 60px Arial';
+					ctx.fillStyle = color;
+					ctx.textAlign = 'center';
+					ctx.textBaseline = 'middle';
+					ctx.fillText(accuracy + '%', width/2, height/2 + top);
+					ctx.restore();
+				}
+			}
+		} 
+		
+		// config 
+		let config = {
+			type: 'doughnut',
+		    data:data,
+		    options: {
+		    	responsive: false,
+				mainTainAspectRatio: false,
+ 				plugins: {
+					legend: {
+						display: true,
+						position: 'bottom'
+					}
+		 		},
+				onClick(click, element, chart) {
+					//console.log(element[0].datasetIndex)
+					if(element[0]) {
+						selectedDatasetIndex = element[0].datasetIndex;
+						selectedIndex = element[0].index;
+						chart.draw();
+					}
+				}
+			},
+			plugins: [clickLabel]
+		};
+		
+		// render init block
+		let DChart = new Chart(
+		   document.getElementById('DChart'),
+		   config
+		);
+	</script>
 </body>
 
 </html>

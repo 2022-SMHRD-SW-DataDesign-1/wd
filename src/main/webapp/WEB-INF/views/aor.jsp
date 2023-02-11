@@ -2839,6 +2839,11 @@
 				  				}] // datasets end
 							}; // data end
 							
+							
+							selectedDatasetIndex = undefined;
+							selectedIndex = undefined;
+							
+							
 							clickLabel = {
 								id: 'clickLabel',
 								afterDraw: (chart, args, options) => {
@@ -2930,10 +2935,18 @@
 			// 차트 전체 data
 			let L_data = {
 				labels: [ 
-					'person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle' // x축 라벨
+					'person', 'rider', 'motorcycle', 'bicycle', 'truck', 'train', 'car', 'bus' // x축 라벨
 				],
 				datasets: [{
-					label: 'Object Count', // 범례 이름
+					label: 'Object Accuracy', // 범례 이름
+					data: zeroNum,
+					backgroundColor: 'rgba(200, 214, 229, 0.2)',
+					borderColor: 'rgba(200, 214, 229,1)',
+					yAxisID: 'y1',
+					lineTension: 0.5
+				}, {
+					label: 'Object Count',
+					data: zeroNum,
 					backgroundColor: [
 				          'rgba(255,107,107,0.45)',
 				          'rgba(255,159,67, 0.45)',
@@ -2943,46 +2956,49 @@
 				          'rgba(0,210,211, 0.45)',
 				          'rgba(46,134,222, 0.45)',
 				          'rgba(200,214,229, 0.45)'
-				        ],
-				        borderColor: [
-					          'rgba(255,107,107, 1)',
-					          'rgba(255,159,67, 1)',
-					          'rgba(254,202,87, 1)',
-					          'rgba(243,104,224, 1)',
-					          'rgba(16,172,132, 1)',
-					          'rgba(0,210,211, 1)',
-					          'rgba(102, 159, 64, 1)',
-					          'rgba(46,134,222, 1)',
-					          'rgba(200,214,229, 1)'
-				        ],
-				        yAxisID: 'y1',
-				        borderWidth: 1,
-						data: zeroNum,
-						borderWidth: 1
-				}, {
-					type:'line',
-					label: 'Object Accuracy',
-					backgroundColor: 'rgba(200, 214, 229, 0.2)',
-					borderColor: 'rgba(200, 214, 229,1)',
-					yAxisID: 'y1',
-					fill: false,
-					data: zeroNum
+				    ],
+				    borderColor: [
+				          'rgba(255,107,107, 1)',
+				          'rgba(255,159,67, 1)',
+				          'rgba(254,202,87, 1)',
+				          'rgba(243,104,224, 1)',
+				          'rgba(16,172,132, 1)',
+				          'rgba(0,210,211, 1)',
+				          'rgba(102, 159, 64, 1)',
+				          'rgba(46,134,222, 1)',
+				          'rgba(200,214,229, 1)'
+				    ],
+				    borderWidth: 1,
+				    yAxisID: 'y',
+				    type:'bar'
 				}]
 			}// L_data end
 			
 			// 차트 설정
 			let L_config = {
-				type: 'bar',
+				type: 'line',
 				data: L_data,
 				options: {
 					maintainAspectRatio: false,
-					title: {
-						text: 'Chart.js Time Scale'
+					interaction: {
+						intersect: false,
+						mode: 'index',
 					},
 					scales: {
-						resposive: false, // default값 true, 차트 크기를 변경하기 위해 false로 변경
 						y: {
-							beginAtZero: true // y축 값 0부터 시작
+							type: 'linear',
+							display: true,
+							position: 'left',
+							suggestedMin: 0,
+							suggestedMax: 100
+						},
+						y1: {
+							type: 'linear',
+							display: true,
+							position: 'right',
+			            	beginAtZero: false,
+							//suggestedMin: 0,
+			                suggestedMax: 1// y축 값 0부터 시작
 						}
 					}
 				} // options end
@@ -2998,7 +3014,7 @@
 
 				// setup 
 				let data = {
-						labels: ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic light', 'traffic sign', 'vegetation', 'terrain', 'sky'],
+						labels: ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic_light', 'traffic_sign', 'vegetation', 'terrain', 'sky'],
 					    datasets: [{
 						    label: 'Stuff Accuracy',
 				    	    data: zero,

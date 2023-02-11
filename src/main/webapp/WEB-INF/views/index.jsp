@@ -8,7 +8,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>위드컴퍼니</title>
+    <link rel="icon" href="./resources/images/favicon.png">
+    <title>WD Company</title>
     <meta name="X-CSRF-TOKEN" content="9e1df29c77b7a592462f8a7808050758">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -1608,15 +1609,6 @@
     <script src="resourcesz/js/front.js?20230117122237"></script>
     <link rel="shortcut icon" href="resources/images/favicon.png">
     <link rel="icon" href="resources/images/favicon.png">
-    
-    <script>
-        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
-            window.location.href = "microsoft-edge:" + window.location.href;
-            setTimeout(function () {
-                window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
-            }, 1);
-        }
-    </script>
 </head>
 
 <body>
@@ -3531,7 +3523,7 @@
                                         <p>문의유형*</p>
                                         <li>
                                             <label>
-                                                <input name="req_type" type="radio" value="A"><span>기술 개발</span>
+                                                <input name="req_type" type="radio" value="A" checked><span>기술 개발</span>
                                                 <input name="req_type" type="radio" value="B"><span>맞춤 서비스
                                                 </span>
                                             </label>
@@ -3629,24 +3621,6 @@
                     $('.sec2 .text1').css('display','none');
                 });
             });
-			
-/*             const div = document.getElementByClassName('sec2');
-            const title1 = document.getElementByClassName('title1');
-            const result = document.getElementByClassName('text1');
-
-            div.addEventListener('mouseover', (event) => {
-              result;
-            });
-
-            div.addEventListener('mouseout', (event) => {
-              result.innerHTML+= '<div>mouseout</div>';
-            });
-
-            clearbtn.addEventListener('click', (event) => {
-              result.innerHTML= '';
-              count = 0;
-            }); */
-			
 
             $(document).ready(function(){
                 $('.sec2 .title2').hover(function(){
@@ -3711,39 +3685,7 @@
                 }
             })
         </script>
-        <footer>
-            <div class="f_top">
-                <ul>
-                    <li><a href="/info/privacy">개인정보 취급방침</a></li>
-                    <li><a href="/info/tos">이용약관</a></li>
-                    <li><a href="/info/email">이메일무단수집거부</a></li>
-                </ul>
-            </div>
 
-            <div class="f_inner">
-
-                <div class="f_info">
-                    <address>
-                        <p>주소 : 위드컴퍼니</p>
-                        <p>대표 : 위드컴퍼니</p>
-                        <p>E-mail : weed@with.com</p>
-                        <p>전화번호 : 010-7771-1241 : </p>
-                    </address>
-                    <p class="cope">Copyright ⓒ WD</p>
-                </div>
-                <div class="f_logo">
-                    <img src="/resources/images/foot-logo.png">
-                </div>
-
-            </div>
-        </footer>
-        <!--- !! 절대 지우지 마세요 !! --->
-        <iframe name="ifrm" style="display: none"></iframe>
-        <script>
-            $(function () {
-            })
-        </script>
-        <!--- !! 절대 지우지 마세요 !! --->
 
 
 </body>

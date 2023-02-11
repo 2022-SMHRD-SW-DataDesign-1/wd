@@ -9,7 +9,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>위드컴퍼니</title>
+    <link rel="icon" href="./resources/images/favicon.png">
+    <title>WD Company</title>
     <meta name="X-CSRF-TOKEN" content="9e1df29c77b7a592462f8a7808050758">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -1608,14 +1609,6 @@
     <script src="resourcesz/js/front.js?20230117122237"></script>
     <link rel="shortcut icon" href="resources/images/favicon.png">
     <link rel="icon" href="resources/images/favicon.png">
-    <script>
-        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
-            window.location.href = "microsoft-edge:" + window.location.href;
-            setTimeout(function () {
-                window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
-            }, 1);
-        }
-    </script>
 </head>
 
 <body>
@@ -3548,8 +3541,8 @@
             <div class="mode_change" style="z-index: 100;"><span></span></div>
             <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
         </div>
-
-<!-- 로그인 모달 -->
+        
+     <!-- 로그인 모달 -->
      <div class="modal_user">
             <div class="bg"></div>
             <div class="container">
@@ -3557,7 +3550,7 @@
                 <div class="content_info">
                     <h2>Sign In</h2>
                     <div class="input_group" >
-                        <form method="post" action="Login.do">
+                        <form method="post" action="Login.do" id="frms">
                             <input name="table" type="hidden" value="contact" autocomplete="off">
                             <div class="group">
                                 <ul>
@@ -3575,7 +3568,7 @@
                     </div>
                 </div>
             </div>
-        </div>  -->
+        </div>
 
         <!-- 회원가입 모달 -->
         <div class="modal_user_plus">
@@ -3609,7 +3602,7 @@
             </div>
         </div>
         
-<!-- 관리자 모달 -->
+		<!-- 관리자 모달 -->
         <div class="modal_manager">
             <div class="bg"></div>
             <div class="container">
@@ -3737,42 +3730,15 @@
                     company: { required: true, },
                     password: { required: true, }
                 }
+            });
+            
+               $('#frms').validate({
+                rules: {
+                    email: { required: true, email: true },
+                    password: { required: true, }
+                }
             })
         </script>
-        <footer>
-            <div class="f_top">
-                <ul>
-                    <li><a href="/info/privacy">개인정보 취급방침</a></li>
-                    <li><a href="/info/tos">이용약관</a></li>
-                    <li><a href="/info/email">이메일무단수집거부</a></li>
-                </ul>
-            </div>
-
-            <div class="f_inner">
-
-                <div class="f_info">
-                    <address>
-                        <p>주소 : 위드컴퍼니</p>
-                        <p>대표 : 위드컴퍼니</p>
-                        <p>E-mail : weed@with.com</p>
-                        <p>전화번호 : 010-7771-1241 : </p>
-                    </address>
-                    <p class="cope">Copyright ⓒ WD</p>
-                </div>
-                <div class="f_logo">
-                    <img src="./resources/images/foot-logo.png">
-                </div>
-
-            </div>
-        </footer>
-        <!--- !! 절대 지우지 마세요 !! --->
-        <iframe name="ifrm" style="display: none"></iframe>
-        <script>
-            $(function () {
-            })
-        </script>
-        <!--- !! 절대 지우지 마세요 !! --->
-
 
 </body>
 

@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>위드컴퍼니</title>
+<title>WD Company</title>
 <meta name="X-CSRF-TOKEN" content="9e1df29c77b7a592462f8a7808050758">
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -2142,7 +2142,7 @@
             flex-direction: column;
             gap: 30px 0;
             position: absolute;
-            margin-left:9%
+            margin-left:11%
         }
 
         .modal_logout .input_group {
@@ -2195,7 +2195,6 @@
         .modal_logout .input_group ul {
             display: flex;
             flex-direction: column;
-            gap: 15px 0;
         }
 
         .sec4 .input_group ul li,
@@ -2213,6 +2212,7 @@
             font-size: 10px;
             color: var(--color-a7a7a7);
             background: var(--color-1a1e23);
+            display:none;
         }
 
         .sec4 .input_group ul li input,
@@ -2315,25 +2315,17 @@
         .main_wrap.white {
             background: var(--color-f2f2f2);
         }
-        
-        /* 지수 추가 */
-/*         .testimg{
-        	width: 530px;
-        	height: 320px;
-        } */
-        
         #loading {
-        width: 39%;
-        height: 49%;
-        position: fixed;
-        display: inline-block;
-        opacity: 0.9;
-        background: #252526;
-        z-index: 100000;
-        text-align: center;
-        border-radius:50px;
-        margin:inherit;
-        border-style: 2px dashed white;
+		width: 80%;
+	    height: 80%;
+	    position: absolute;
+	    display: inline-block;
+	    opacity: 0.9;
+	    background: #252526;
+	    z-index: 100000;
+	    text-align: center;
+	    border-radius: 50px;
+	    margin-left: 11%;
         
         }
         
@@ -2344,6 +2336,78 @@
         z-index: 100000;
         transform: translate(-50%, -50%);
         }
+        
+         /* select */
+        .selectBox2 * { box-sizing: border-box; }
+		.selectBox2 {
+		  position: relative;
+		  width: 273px;
+		  height: 35px;
+		  border-radius: 4px;
+		  border: 2px solid #a9aaac;
+		  background-size: 20px;
+		  cursor: pointer;
+		  display:-webkit-inline-box;
+		}
+		.selectBox2 .label {
+		  display: flex;
+		  align-items: center;
+		  width: inherit;
+		  height: inherit;
+		  border: 0 none;
+		  outline: 0 none;
+		  padding-left: 20px;
+		  background: transparent;
+		  cursor: pointer;
+		  font-size: 14px;
+		}
+		
+		.selectBox2 .optionList {
+		  position: absolute; 
+		  top: 28px;
+		  left: 0;
+		  width: 100%;
+		  background: #a9aaacf7;
+    	  color: #373636;
+		  list-style-type: none;
+		  padding: 0;
+		  border-radius: 6px;
+		  overflow: auto;
+		  max-height: 0;
+		  transition: .3s ease-in;
+		}
+		
+		.selectBox2.active .optionList {
+		  max-height: 500px;
+		}
+		
+		.selectBox2 .optionItem {
+		  border-bottom: 1px dashed #777;
+		  padding: 5px 15px 5px;
+		  transition: .1s;
+		  font-size: x-large;
+		}
+		
+		.selectBox2 .optionItem:hover {
+		  background: rgba(77, 109, 239, 0.25);
+		}
+		
+		.selectBox2 .optionItem:last-child {
+		  border-bottom: 0 none;
+		}
+		.selectBnt{
+			display: -webkit-box;
+		    margin-left: 5px;
+		    border-radius: inherit;
+		    background-color: a9aaac;
+		    width: 38px;
+		}
+		
+		// 스크롤 커스텀
+		.selectBox2 .optionList::-webkit-scrollbar {width: 6px;}
+		.selectBox2 .optionList::-webkit-scrollbar-track {background: transparent; }
+		.selectBox2 .optionList::-webkit-scrollbar-thumb {background: #303030; border-radius: 45px;}
+		.selectBox2 .optionList::-webkit-scrollbar-thumb:hover {background: #303030;}
     </style>
 
 
@@ -2363,14 +2427,6 @@
     <script src="resources/js/front.js"></script>
     <link rel="shortcut icon" href="/resources/images/favicon.png">
     <link rel="icon" href="resources/images/favicon.png">
-    <script>
-        if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
-            window.location.href = "microsoft-edge:" + window.location.href;
-            setTimeout(function () {
-                window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
-            }, 1);
-        }
-    </script>
 </head>
 
 <body>
@@ -2389,17 +2445,16 @@
 
                 </ul>
             </div>
-
-			
             <!-- 추가 -->
             <section class="swiper-slide sec4" style="height: 881px; margin-bottom: 30px;">
                 <div class="container">
+            			<div id="loading">
+            				<img src="./resources/images/lo1.gif" alt="loading" style="border-radius:50%; width:300px; height:300px;">
+            				<p style="margin-top:45%; font-size:30px; color:white;">분석은 1분 정도 소요 되며,<br>이미지에 있는 객체만 분할 됩니다.</p>
+            			</div>
 
                     <div class="input_group" id="testimgdiv">
                      
-            			<div id="loading">
-            				<img src="./resources/images/lo1.gif" alt="loading" style="border-radius:50%; width:300px; height:300px;">
-            			</div>
 	                    
                         <div class="group">
                             <div class="tit">
@@ -2407,17 +2462,80 @@
                             </div>
                         </div>
                         
-	                    <!-- 이미지 업로드 -->
-                        <form action="imgSave.do" method="post" enctype="multipart/form-data" id="next">
-	                        <div style="width: 100%; text-align:center;">
-	                        	<input type="file" name="uploadFile" onchange="previewImg()"style="width:90%; height:90%; max-height: 320px;max-width: 500px; color:#B4B4B4;display: none;"> 
-								<img class="testimg" src="./resources/images/testimg.png" style="width: 90%; height:90%; max-height: 320px;max-width: 500px; vertical-align: middle border:0;" onclick="document.all.uploadFile.click();">
-	                        	<input type="hidden" name="email" value="${member.email}">
+                        <div>
+	                         <!-- select  -->
+	                         <div style="display: block;width: 50%;float:right;">
+	                         <p style="margin-bottom:20px; font-size:15px; color:#ee5253;">※ 분석하고 싶은 객체를 선택하세요. (필수)</p>
+								<div class="selectBox2 ">
+									<button class="label">객체 선택</button>
+									<ul class="optionList" style="list-style: none;">
+										<li class="optionItem"><input type='checkbox' name='object' value='11'
+											style="width: 20px; height: 20px;" checked="checked" /> person</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='12'
+											style="width: 20px; height: 20px;" checked="checked" /> rider</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='13'
+											style="width: 20px; height: 20px;" checked="checked"/> car</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='14'
+											style="width: 20px; height: 20px;" checked="checked" /> truck</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='15'
+											style="width: 20px; height: 20px;" checked="checked" /> bus</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='16'
+											style="width: 20px; height: 20px;" checked="checked" /> train</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='17'
+											style="width: 20px; height: 20px;" checked="checked" /> motorcycle</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='18'
+											style="width: 20px; height: 20px;" checked="checked" /> bicycle</li>
+										<li class="optionItem"><input type='checkbox' name='object'
+											value='0' style="width: 20px; height: 20px;" /> road</li>
+										<li class="optionItem"><input type='checkbox' name='object'
+											value='1' style="width: 20px; height: 20px;" /> sidewalk</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='2'
+											style="width: 20px; height: 20px;" /> building</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='3'
+											style="width: 20px; height: 20px;" /> wall</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='4'
+											style="width: 20px; height: 20px;" /> fence</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='5'
+											style="width: 20px; height: 20px;" /> pole</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='6'
+											style="width: 20px; height: 20px;" /> traffic light</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='7'
+											style="width: 20px; height: 20px;" /> traffic sign</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='8'
+											style="width: 20px; height: 20px;" /> vegetation</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='9'
+											style="width: 20px; height: 20px;" /> terrain</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='10'
+											style="width: 20px; height: 20px;" /> sky</li>
+										
+									</ul>
+									<button class="selectBnt" onclick='getCheckboxValue()'>Apply</button>
+								</div>
+							</div>
+	                       
+		                    <!-- 이미지 업로드 -->
+		                    <div style="display: block;width: 100%;">
+		                        <form action="imgSave.do" method="post" enctype="multipart/form-data" id="next">
+		                        	<div>
+				                        <div style="width: 100%;display:block;">
+				                        	<input type="file" name="uploadFile" onchange="previewImg()"style="width:90%; height:90%; max-height: 320px;max-width: 500px; color:#B4B4B4;display: none;"> 
+											<img class="testimg" src="./resources/images/testimg.png" style="width: 90%; height:90%; max-height: 320px;max-width: 500px; vertical-align: middle border:0;" onclick="document.all.uploadFile.click();">
+				                        	<input type="hidden" name="email" value="${member.email}">
+				                        </div>
+				       
+				                       	<div style="float:right; margin-right:30%; margin-top:-5%;">
+				                           	<input type="submit" class="b_type2" value=" >> 분석 시작 >> " >
+				                        </div>
+			                        </div>
+		                        </form>
 	                        </div>
-	                        	<div style="text-align:center; margin-top:2%;">
-	                            	<input type="submit" class="b_type2" value=" >> 분석 시작 >> " >
-	                            </div>
-                        </form>
+                        </div>
+                        
+                        
+						
+                        
+
+                        
                         <script>
                         /* 이미지 미리보기 */
                             function previewImg() {
@@ -2459,21 +2577,10 @@
                     </div>
                 </div>
             </div>
-
             <!-- 홈 -->
             <!-- 홈버튼 누르면 처음 페이지 -->
-
             <script>
                 $(document).ready(function () {
-                    $('.main_wrap .side_menu .mode_change').click(function () {
-                        $(this).toggleClass('on')
-                        if ($(".main_wrap .side_menu .mode_change").hasClass("on")) {
-                            $(".main_wrap").addClass("white")
-                        } else {
-                            $(".main_wrap").removeClass("white")
-                        }
-                    });
-
                     // modal_logout는 로그아웃
                     $('.main_wrap .b_type3').click(function () {
                         $('.modal_logout').addClass('on')
@@ -2495,47 +2602,11 @@
 
 
 
-                /* 2023-01-13 Cossia */
-                /* main page slide S */
-                const main_page = new Swiper(".main_swiper", {
-                    direction: "vertical",
-                    slidesPerView: 1,
-                    spaceBetween: 30,
-                    mousewheel: true,
-                    speed: 800,
-                    pagination: {
-                        el: ".main_pagination,.main_nav",
-                        clickable: true,
-                    },
-                    breakpoints: {
-                        1024: {}
-                    },
-                    on: {
-                        slideChange: function () {
-                            $('.gnb li').removeClass('on');
-                            $('.gnb li').eq(this.realIndex).addClass('on');
-                        }
-                    }
-                });
                 /* main menu click */
                 $(document).on('click', '.gnb li', function () {
                     main_page.slideTo($('.gnb li').index(this));
                 });
-                /* footer right ... click */
-                // $(document).on('click', '.fix_menu', function(){
-                //     main_page.slideTo( 3 );
-                // });
-                /* main page slide E */
 
-                $('#frm').validate({
-                    rules: {
-                        name: { required: true, },
-                        manager: { required: true, },
-                        phone: { required: true, },
-                        email: { required: true, email: true },
-                        content: { required: true, },
-                    }
-                })
             </script>
             
             <script>
@@ -2549,40 +2620,49 @@
             	});
             </script>
             
-            <footer>
-                <div class="f_top">
-                    <ul>
-                        <li><a href="/info/privacy">개인정보 취급방침</a></li>
-                        <li><a href="/info/tos">이용약관</a></li>
-                        <li><a href="/info/email">이메일무단수집거부</a></li>
-                    </ul>
-                </div>
+            <!-- 다중체크박스  -->
+			<script type="text/javascript">
+			const label = document.querySelector('.label');
+			const options = document.querySelectorAll('.optionItem');
 
-                <div class="f_inner">
-
-                    <div class="f_info">
-                        <address>
-                            <p>주소 : 위드컴퍼니</p>
-                            <p>대표 : 위드컴퍼니</p>
-                            <p>E-mail : weed@with.com</p>
-                            <p>전화번호 : 010-7771-1241 : </p>
-                        </address>
-                        <p class="cope">Copyright ⓒ WD</p>
-                    </div>
-                    <div class="f_logo">
-                        <img src="/resources/images/foot-logo.png">
-                    </div>
-
-                </div>
-            </footer>
-            <!--- !! 절대 지우지 마세요 !! --->
-            <iframe name="ifrm" style="display: none"></iframe>
-            <script>
-                $(function () {
-                })
-            </script>
-            <!--- !! 절대 지우지 마세요 !! --->
-
+			label.addEventListener('click', function(){
+			  if(label.parentNode.classList.contains('active')) {
+			    label.parentNode.classList.remove('active');
+			  } else {
+			    label.parentNode.classList.add('active');
+			  }
+			});
+			
+			 //value 값만 나옴
+ 			function getCheckboxValue()  {
+ 				label.parentNode.classList.remove('active');
+				  // 선택된 목록 가져오기
+				  const query = 'input[name="object"]:checked';
+				  const selectedEls = 
+				      document.querySelectorAll(query);
+				  
+				  // 선택된 목록에서 value 찾기
+				  let valueResult = '';
+				  selectedEls.forEach((el) => {
+				    valueResult += el.value +',';
+				  });
+				  // 출력
+				  console.log(valueResult);
+				  console.log(typeof 'valueResult');
+				  
+			 	  $.ajax({
+						url : "ArrSocket.do",
+						type : 'post',
+						dataType : 'json',
+						data : {valueResult:valueResult},
+						success : function(data) {
+							console.log("데이터 전송 성공이야");
+			     		}
+				});
+				  
+			};  
+				
+			</script>
 
 </body>
 

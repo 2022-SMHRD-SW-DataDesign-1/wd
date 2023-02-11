@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.SystemEnvironmentPropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -65,6 +66,16 @@ public class TestController {
 			System.out.println("Upload File Size: "+multipartFile.getSize()); // 업로드되는 파일의 크기
 			
 			uploadFileName = multipartFile.getOriginalFilename();
+			
+			/*
+			 * int size = uploadFileName.length(); String files =
+			 * uploadFileName.substring(size - 3); System.out.println("확장자:" + files);
+			 * 
+			 * if(files.equals("jpg")) { System.out.println("jpg입니다."); } else {
+			 * uploadFileName = uploadFileName.replace(files, "jpg");
+			 * System.out.println("파일이름 : " + uploadFileName); }
+			 */
+			
 			
 			uploadFileName = uploadFileName.substring(uploadFileName.lastIndexOf("\\")+1);
 			System.out.println("only file name: "+uploadFileName);

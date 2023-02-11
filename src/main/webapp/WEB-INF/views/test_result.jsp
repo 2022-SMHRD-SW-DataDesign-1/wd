@@ -2550,8 +2550,8 @@
                                 <h3>Object Table</h3>
                             </div>
                             <div class="chartCard">
-							  <div class="chartBox">
-							    <canvas id="myChart" style="width: 600px;  height: 433px;"></canvas>
+							  <div class="chartBox" style="width: 600px;  height: 433px;">
+							    <canvas id="myChart"></canvas>
 							  </div>
 							</div>
                         </div>
@@ -2777,6 +2777,7 @@ const L_config = {
 	type: 'line',
 	data: L_data,
 	options: {
+		maintainAspectRatio:false,
 		interaction: {
             intersect: false,
             mode: 'index',
@@ -2786,15 +2787,16 @@ const L_config = {
 				type: 'linear',
 				display: true,
 				position: 'left',
-				suggestedMin: 0
+				suggestedMin: 0,
+				suggestedMax: 100
 			},
 			y1: {
 				type: 'linear',
 				display: true,
 				position: 'right',
-            	beginAtZero: false
+            	beginAtZero: false,
 				//suggestedMin: 0,
-                //suggestedMax: 1// y축 값 0부터 시작
+                suggestedMax: 1// y축 값 0부터 시작
 			}
 		}
 	} // options end

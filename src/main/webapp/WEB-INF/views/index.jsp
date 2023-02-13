@@ -3301,14 +3301,14 @@
 	                                        객체 인식 분할 방식 중 가장 최신 기술인 Panoptic Segmentation 입니다.</p>
 	                                        <div class="btn_bottom">
 	                                            <button type="submit" class="b_type2"
-	                                                onclick="location.href='https://github.com/google-research/deeplab2/blob/main/g3doc/projects/panoptic_deeplab.md'" style="display: block;">Document</button>
+	                                                onclick="location.href='https://github.com/2022-SMHRD-SW-DataDesign-1/wd.git'" style="display: block;">Document</button>
 	                                        </div>
                                     	</div>
                                     </div>
                                     <div class="swiper-slide item swiper-slide-duplicate-prev"
                                         style="width: 427.5px; margin-right: 30px;" data-swiper-slide-index="2">
                                         <div class="title3">
-                                            <h3>시연 영상</h3>
+                                            <h3>Demo Video</h3>
                                         </div>
                                             <div class="text3">
 	                                        <p  style="text-align: center; padding: 100px 0px;">실시간으로 받아오는 영상을 분석하고 있습니다. 실시간 분석 영상 화면을 시청해보세요.</p>
@@ -3613,33 +3613,40 @@
             });
 			// developer hover
              $(document).ready(function(){
-                $('.sec2 .title1').hover(function(){
-                    $('.sec2 .title1').css('display','none');
-                    $('.sec2 .text1').css('display','block');
-                },function(){
-                    $('.sec2 .title1').css('display','block');
-                    $('.sec2 .text1').css('display','none');
+                $('.title1').mouseover(function(){
+                    $('.title1').css('display','none');
+                    $('.text1').css('display','block');
                 });
+            
+               	 $('.text1').mouseout(function(){
+                   	 $('.title1').css('display','block');
+                        $('.text1').css('display','none');
+                   });
+               
             });
 
             $(document).ready(function(){
-                $('.sec2 .title2').hover(function(){
-                    $('.sec2 .title2').css('display','none');
-                    $('.sec2 .text2').css('display','block');
-                },function(){
-                    $('.sec2 .title2').css('display','block');
-                    $('.sec2 .text2').css('display','none');
+                $('.title2').mouseover(function(){
+                    $('.title2').css('display','none');
+                    $('.text2').css('display','block');
                 });
+                
+                $('.text2').mouseout(function(){
+                  	 $('.title2').css('display','block');
+                       $('.text2').css('display','none');
+                  });
             });
 
             $(document).ready(function(){
-                $('.sec2 .title3').hover(function(){
-                    $('.sec2 .title3').css('display','none');
-                    $('.sec2 .text3').css('display','block');
-                },function(){
-                    $('.sec2 .title3').css('display','block');
-                    $('.sec2 .text3').css('display','none');
+                $('.title3').mouseover(function(){
+                    $('.title3').css('display','none');
+                    $('.text3').css('display','block');
                 });
+                
+                $('.text3').mouseout(function(){
+                 	 $('.title3').css('display','block');
+                      $('.text3').css('display','none');
+                 });
             });
 
 

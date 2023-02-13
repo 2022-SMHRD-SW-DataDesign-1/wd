@@ -2398,7 +2398,7 @@
                     <!-- 비디오 위치 -->
 					<div class="input_group"
 						style="width: 400px; height: 553px; margin-top: 10%;">
-						<div class="group">
+						<div class="group" style="margin-top: 30px;">
 							<div class="tit1" id="realTestimg">
 								<img class="testimg" src="./resources/images/original_img/${filename}"
 									style="width: 100%; max-width: 450px; vertical-align: middle; max-height: 217px;height: 100%;">

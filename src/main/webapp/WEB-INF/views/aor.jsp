@@ -2349,7 +2349,7 @@
 		  position: absolute; 
 		  top: 0; 
 		  right: 35px;
-		  background: #a9aaac;
+		  
 		}
 		
 		.selectBox2 .label {
@@ -2467,7 +2467,7 @@
 						style="width: 400px; height: 553px; margin-top: 10%;">
 					<!-- select  -->
 						<div class="selectBox2 ">
-							<button class="label">객체선택 🍊</button>
+							<button class="label">객체 선택</button>
 						
 							<ul class="optionList">
 								<li class="optionItem"><input type='checkbox' name='object'
@@ -2522,8 +2522,9 @@
 
 						<div class="group">
 							<div class="tit1">
-								<img  id="accImg" src="./resources/images/acc_img/B@6782ed96.jpg"
+								<img  id="accImg" src="./resources/images/loding.png"
 									style="width: 100%; max-width: 450px; vertical-align: middle; max-height: 217px;height: 100%;">
+									
 							</div>
 						</div>
 					</div>
@@ -2734,10 +2735,10 @@
 									datasets: [{
 										label: 'Object Accuracy',
 										data: lineDataset,
-										backgroundColor: 'rgba(200, 214, 229, 0.2)',
-										borderColor: 'rgba(200, 214, 229,1)',
+										backgroundColor: 'rgba(116, 185, 255, 0.45)',
+										borderColor: 'rgba(116, 185, 255,1)',
 										yAxisID: 'y1',
-										tension: 0.5
+										tension: 0.4
 									}, {
 										label: 'Object Count', // 범례 이름
 										data: barDataset,
@@ -2807,30 +2808,30 @@
 						    		label: 'Stuff Accuracy',
 				    	    		data: stuffDataset,
 				        			backgroundColor: [
-					          			'rgba(255, 26, 104, 0.2)',
-					          			'rgba(54, 162, 235, 0.2)',
-					          			'rgba(255, 206, 86, 0.2)',
-					          			'rgba(75, 192, 192, 0.2)',
-							         	'rgba(153, 102, 255, 0.2)',
-							          	'rgba(200, 159, 64, 0.2)',
-							         	'rgba(102, 159, 64, 0.2)',
-							         	'rgba(55, 159, 64, 0.2)',
-							         	'rgba(5, 159, 64, 0.2)',
-							         	'rgba(45, 159, 64, 0.2)',
-							         	'rgba(0, 0, 0, 0.2)'
+					          			'rgba(99, 110, 114, 0.2)',
+					          			'rgba(250, 177, 160, 0.2)',
+					          			'rgba(0, 206, 201, 0.2)',
+					          			'rgba(225, 112, 85, 0.2)',
+							         	'rgba(48, 51, 107, 0.2)',
+							          	'rgba(87, 96, 111, 0.2)',
+							         	'rgba(0, 184, 148, 0.2)',
+							         	'rgba(255, 234, 167, 0.2)',
+							         	'rgba(76, 209, 55, 0.2)',
+							         	'rgba(32, 191, 107, 0.2)',
+							         	'rgba(75, 207, 250, 0.2)'
 					       			 ],
 							        borderColor: [
-								          'rgba(255, 26, 104, 1)',
-								          'rgba(54, 162, 235, 1)',
-								          'rgba(255, 206, 86, 1)',
-								          'rgba(75, 192, 192, 1)',
-								          'rgba(153, 102, 255, 1)',
-								          'rgba(200, 159, 64, 1)',
-								          'rgba(102, 159, 64, 1)',
-								          'rgba(55, 159, 64, 1)',
-								          'rgba(5, 159, 64, 1)',
-								          'rgba(45, 159, 64, 1)',
-								          'rgba(0, 0, 0, 1)'
+								          'rgba(99, 110, 114, 1)',
+								          'rgba(250, 177, 160, 1)',
+								          'rgba(0, 206, 201, 1)',
+								          'rgba(225, 112, 85, 1)',
+								          'rgba(48, 51, 107, 1)',
+								          'rgba(87, 96, 111, 1)',
+								          'rgba(0, 184, 148, 1)',
+								          'rgba(255, 234, 167, 1)',
+								          'rgba(76, 209, 55, 1)',
+								          'rgba(32, 191, 107, 1)',
+								          'rgba(75, 207, 250, 1)'
 							        ],
 								    borderWidth: 1,
 								    cutout: '70%',
@@ -2838,6 +2839,11 @@
 								    offset: 10
 				  				}] // datasets end
 							}; // data end
+							
+							
+							selectedDatasetIndex = undefined;
+							selectedIndex = undefined;
+							
 							
 							clickLabel = {
 								id: 'clickLabel',
@@ -2930,37 +2936,70 @@
 			// 차트 전체 data
 			let L_data = {
 				labels: [ 
-					'person', 'rider', 'car', 'truck', 'bus', 'train', 'motorcycle', 'bicycle' // x축 라벨
+					'person', 'rider', 'motorcycle', 'bicycle', 'truck', 'train', 'car', 'bus' // x축 라벨
 				],
 				datasets: [{
-					label: 'Object Count', // 범례 이름
-					backgroundColor: 'rgba(75, 192, 192, 1)',
-					borderColor: 'rgba(75, 192, 192, 1)',
+					label: 'Object Accuracy', // 범례 이름
 					data: zeroNum,
-					borderWidth: 1
+					backgroundColor: 'rgba(116, 185, 255, 0.2)',
+					borderColor: 'rgba(116, 185, 255,1)',
+					yAxisID: 'y1',
+					lineTension: 0.4
 				}, {
-					type:'line',
-					label: 'Object Accuracy',
-					backgroundColor: 'rgba(255, 99, 132, 1)',
-					borderColor: 'rgba(255, 99, 132, 1)',
-					fill: false,
-					data: zeroNum
+					label: 'Object Count',
+					data: zeroNum,
+					backgroundColor: [
+				          'rgba(255,107,107,0.45)',
+				          'rgba(255,159,67, 0.45)',
+				          'rgba(254,202,87, 0.45)',
+				          'rgba(243,104,224, 0.45)',
+				          'rgba(16,172,132, 0.45)',
+				          'rgba(0,210,211, 0.45)',
+				          'rgba(46,134,222, 0.45)',
+				          'rgba(200,214,229, 0.45)'
+				    ],
+				    borderColor: [
+				          'rgba(255,107,107, 1)',
+				          'rgba(255,159,67, 1)',
+				          'rgba(254,202,87, 1)',
+				          'rgba(243,104,224, 1)',
+				          'rgba(16,172,132, 1)',
+				          'rgba(0,210,211, 1)',
+				          'rgba(102, 159, 64, 1)',
+				          'rgba(46,134,222, 1)',
+				          'rgba(200,214,229, 1)'
+				    ],
+				    borderWidth: 1,
+				    yAxisID: 'y',
+				    type:'bar'
 				}]
 			}// L_data end
 			
 			// 차트 설정
 			let L_config = {
-				type: 'bar',
+				type: 'line',
 				data: L_data,
 				options: {
 					maintainAspectRatio: false,
-					title: {
-						text: 'Chart.js Time Scale'
+					interaction: {
+						intersect: false,
+						mode: 'index',
 					},
 					scales: {
-						resposive: false, // default값 true, 차트 크기를 변경하기 위해 false로 변경
 						y: {
-							beginAtZero: true // y축 값 0부터 시작
+							type: 'linear',
+							display: true,
+							position: 'left',
+							suggestedMin: 0,
+							suggestedMax: 100
+						},
+						y1: {
+							type: 'linear',
+							display: true,
+							position: 'right',
+			            	beginAtZero: false,
+							//suggestedMin: 0,
+			                suggestedMax: 1// y축 값 0부터 시작
 						}
 					}
 				} // options end
@@ -2976,35 +3015,35 @@
 
 				// setup 
 				let data = {
-						labels: ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic light', 'traffic sign', 'vegetation', 'terrain', 'sky'],
+						labels: ['road', 'sidewalk', 'building', 'wall', 'fence', 'pole', 'traffic_light', 'traffic_sign', 'vegetation', 'terrain', 'sky'],
 					    datasets: [{
 						    label: 'Stuff Accuracy',
 				    	    data: zero,
-				        	backgroundColor: [
-					          'rgba(255, 26, 104, 0.2)',
-					          'rgba(54, 162, 235, 0.2)',
-					          'rgba(255, 206, 86, 0.2)',
-					          'rgba(75, 192, 192, 0.2)',
-					          'rgba(153, 102, 255, 0.2)',
-					          'rgba(200, 159, 64, 0.2)',
-					          'rgba(102, 159, 64, 0.2)',
-					          'rgba(55, 159, 64, 0.2)',
-					          'rgba(5, 159, 64, 0.2)',
-					          'rgba(45, 159, 64, 0.2)',
-					          'rgba(0, 0, 0, 0.2)'
-					        ],
+				    	    backgroundColor: [
+			          			'rgba(99, 110, 114, 0.2)',
+			          			'rgba(250, 177, 160, 0.2)',
+			          			'rgba(0, 206, 201, 0.2)',
+			          			'rgba(225, 112, 85, 0.2)',
+					         	'rgba(48, 51, 107, 0.2)',
+					          	'rgba(87, 96, 111, 0.2)',
+					         	'rgba(0, 184, 148, 0.2)',
+					         	'rgba(255, 234, 167, 0.2)',
+					         	'rgba(76, 209, 55, 0.2)',
+					         	'rgba(32, 191, 107, 0.2)',
+					         	'rgba(75, 207, 250, 0.2)'
+			       			 ],
 					        borderColor: [
-						          'rgba(255, 26, 104, 1)',
-						          'rgba(54, 162, 235, 1)',
-						          'rgba(255, 206, 86, 1)',
-						          'rgba(75, 192, 192, 1)',
-						          'rgba(153, 102, 255, 1)',
-						          'rgba(200, 159, 64, 1)',
-						          'rgba(102, 159, 64, 1)',
-						          'rgba(55, 159, 64, 1)',
-						          'rgba(5, 159, 64, 1)',
-						          'rgba(45, 159, 64, 1)',
-						          'rgba(0, 0, 0, 1)'
+						          'rgba(99, 110, 114, 1)',
+						          'rgba(250, 177, 160, 1)',
+						          'rgba(0, 206, 201, 1)',
+						          'rgba(225, 112, 85, 1)',
+						          'rgba(48, 51, 107, 1)',
+						          'rgba(87, 96, 111, 1)',
+						          'rgba(0, 184, 148, 1)',
+						          'rgba(255, 234, 167, 1)',
+						          'rgba(76, 209, 55, 1)',
+						          'rgba(32, 191, 107, 1)',
+						          'rgba(75, 207, 250, 1)'
 					        ],
 						    borderWidth: 1,
 						    cutout: '70%',

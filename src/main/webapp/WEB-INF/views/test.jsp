@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>위드컴퍼니</title>
+<title>WD Company</title>
 <meta name="X-CSRF-TOKEN" content="9e1df29c77b7a592462f8a7808050758">
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -2142,7 +2142,7 @@
             flex-direction: column;
             gap: 30px 0;
             position: absolute;
-            margin-left:9%
+            margin-left:11%
         }
 
         .modal_logout .input_group {
@@ -2316,8 +2316,8 @@
             background: var(--color-f2f2f2);
         }
         #loading {
-		width: 100%;
-	    height: 100%;
+		width: 80%;
+	    height: 80%;
 	    position: absolute;
 	    display: inline-block;
 	    opacity: 0.9;
@@ -2325,7 +2325,7 @@
 	    z-index: 100000;
 	    text-align: center;
 	    border-radius: 50px;
-	    margin-top: 5%;
+	    margin-left: 11%;
         
         }
         
@@ -2349,18 +2349,6 @@
 		  cursor: pointer;
 		  display:-webkit-inline-box;
 		}
-		
-/* 		.selectBox2:after {
-		  content: '';
-		  display: none;
-		  width: 2px;
-		  height: 100%; 
-		  position: absolute; 
-		  top: 0; 
-		  right: 35px;
-		  background: #a9aaac;
-		} */
-		
 		.selectBox2 .label {
 		  display: flex;
 		  align-items: center;
@@ -2477,56 +2465,58 @@
                         <div>
 	                         <!-- select  -->
 	                         <div style="display: block;width: 50%;float:right;">
-	                         <p style="margin-bottom:20px; font-size:15px; color:#ee5253;">※ 분석하고 싶은 객체를 선택하세요. (필수)</p>
+	                         <p style="margin-bottom:20px; font-size:15px; color:#ee5253;">✔ 분석하고 싶은 객체를 선택하세요. (필수)</p>
 								<div class="selectBox2 ">
 									<button class="label">객체 선택</button>
 									<ul class="optionList" style="list-style: none;">
-										<li class="optionItem"><input type='checkbox' name='object' value='11'
-											style="width: 20px; height: 20px;"  /> person</li>
-										<li class="optionItem"><input type='checkbox' name='object' value='12'
-											style="width: 20px; height: 20px;"  /> rider</li>
-										<li class="optionItem"><input type='checkbox' name='object' value='13'
-											style="width: 20px; height: 20px;" /> car</li>
-										<li class="optionItem"><input type='checkbox' name='object' value='14'
-											style="width: 20px; height: 20px;"  /> truck</li>
-										<li class="optionItem"><input type='checkbox' name='object' value='15'
-											style="width: 20px; height: 20px;"  /> bus</li>
-										<li class="optionItem"><input type='checkbox' name='object' value='16'
-											style="width: 20px; height: 20px;"  /> train</li>
-										<li class="optionItem"><input type='checkbox' name='object' value='17'
-											style="width: 20px; height: 20px;"  /> motorcycle</li>
-										<li class="optionItem"><input type='checkbox' name='object' value='18'
-											style="width: 20px; height: 20px;"  /> bicycle</li>
-										<li class="optionItem"><input type='checkbox' name='object'
-											value='0' style="width: 20px; height: 20px;" /> road</li>
-										<li class="optionItem"><input type='checkbox' name='object'
-											value='1' style="width: 20px; height: 20px;" /> sidewalk</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='0' 
+											style="width: 20px; height: 20px;" checked="checked"; /> road</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='1'
+										 	style="width: 20px; height: 20px;" checked="checked"; /> sidewalk</li>
 										<li class="optionItem"><input type='checkbox' name='object' value='2'
-											style="width: 20px; height: 20px;" /> building</li>
+											style="width: 20px; height: 20px;" checked="checked"; /> building</li>
 										<li class="optionItem"><input type='checkbox' name='object' value='3'
-											style="width: 20px; height: 20px;" /> wall</li>
+											style="width: 20px; height: 20px;" checked="checked"; /> wall</li>
 										<li class="optionItem"><input type='checkbox' name='object' value='4'
-											style="width: 20px; height: 20px;" /> fence</li>
+											style="width: 20px; height: 20px;" checked="checked"; /> fence</li>
 										<li class="optionItem"><input type='checkbox' name='object' value='5'
-											style="width: 20px; height: 20px;" /> pole</li>
+											style="width: 20px; height: 20px;" checked="checked"; /> pole</li>
 										<li class="optionItem"><input type='checkbox' name='object' value='6'
-											style="width: 20px; height: 20px;" /> traffic light</li>
+											style="width: 20px; height: 20px;" checked="checked"; /> traffic light</li>
 										<li class="optionItem"><input type='checkbox' name='object' value='7'
-											style="width: 20px; height: 20px;" /> traffic sign</li>
+											style="width: 20px; height: 20px;" checked="checked"; /> traffic sign</li>
 										<li class="optionItem"><input type='checkbox' name='object' value='8'
-											style="width: 20px; height: 20px;" /> vegetation</li>
+											style="width: 20px; height: 20px;" checked="checked"; /> vegetation</li>
 										<li class="optionItem"><input type='checkbox' name='object' value='9'
-											style="width: 20px; height: 20px;" /> terrain</li>
+											style="width: 20px; height: 20px;" checked="checked"; /> terrain</li>
 										<li class="optionItem"><input type='checkbox' name='object' value='10'
-											style="width: 20px; height: 20px;" /> sky</li>
+											style="width: 20px; height: 20px;" checked="checked"; /> sky</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='11'
+											style="width: 20px; height: 20px;" checked="checked"; /> person</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='12'
+											style="width: 20px; height: 20px;" checked="checked"; /> rider</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='13'
+											style="width: 20px; height: 20px;" checked="checked"; /> car</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='14'
+											style="width: 20px; height: 20px;" checked="checked"; /> truck</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='15'
+											style="width: 20px; height: 20px;" checked="checked"; /> bus</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='16'
+											style="width: 20px; height: 20px;" checked="checked"; /> train</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='17'
+											style="width: 20px; height: 20px;" checked="checked"; /> motorcycle</li>
+										<li class="optionItem"><input type='checkbox' name='object' value='18'
+											style="width: 20px; height: 20px;" checked="checked"; /> bicycle</li>
+										
 										
 									</ul>
-									<button class="selectBnt" onclick='getCheckboxValue()' style="padding:0.5%;">Apply</button>
+									<button class="selectBnt" onclick='getCheckboxValue()' disabled=true style="padding:0.5%;">Apply</button>
 								</div>
 							</div>
 	                       
 		                    <!-- 이미지 업로드 -->
 		                    <div style="display: block;width: 100%;">
+		                    <p style="margin-bottom:20px; font-size:15px; color:white;"> ✔ 실행순서 : 이미지 선택 ➜ 객체 선택 후 Apply ➜ 분석 시작 </p>
 		                        <form action="imgSave.do" method="post" enctype="multipart/form-data" id="next">
 		                        	<div>
 				                        <div style="width: 100%;display:block;">
@@ -2536,7 +2526,7 @@
 				                        </div>
 				       
 				                       	<div style="float:right; margin-right:30%; margin-top:-5%;">
-				                           	<input type="submit" class="b_type2" disabled=true value=" >> 분석 시작 >> " >
+				                           	<input type="submit" class="b_type2" disabled=true value="  ➤  분석 시작 " >
 				                        </div>
 			                        </div>
 		                        </form>
@@ -2567,6 +2557,8 @@
 								if (file) {
 									reader.readAsDataURL(file);
 								}
+								
+								$('.selectBnt').attr('disabled',false);
 							}
                         </script>
                     </div>

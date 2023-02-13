@@ -1,5 +1,6 @@
 package com.weed.wws;
 
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -29,15 +30,20 @@ public class ResultController2 {
 		try {
 			Socket soc = new Socket("172.30.1.63", 1234);
 			DataOutputStream dout = new DataOutputStream(soc.getOutputStream());
+			DataInputStream din = new DataInputStream(soc.getInputStream());
+			
 
 			String str = valueResult;
 			String arr = str.substring(0, str.length() - 1);
 			System.out.println("arr : " + arr);
 			
-
-			 dout.writeBytes(arr);
+			 byte[] arrs = arr.getBytes();
+			 dout.write(arrs);
 			 
-			 dout.flush(); 
+			 byte a = din.readByte();
+			 System.out.println("echo"+a);
+			 
+			 // dout.flush(); 
 			 dout.close(); 
 			 soc.close();
 

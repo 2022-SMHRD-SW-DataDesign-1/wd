@@ -30,10 +30,10 @@ public class InitSocketController {
   
         	
         	
-        	this.resultDataSocket=resultDataSocket2;
-        	this.resultImgDataSocket=resultImgDataSocket2;
-        	System.out.println("Binding Address1: "+resultDataSocket2.getLocalPort());
-            System.out.println("Binding Address2: "+resultImgDataSocket2.getLocalPort());
+        	this.resultDataSocket=resultDataSocket;
+        	this.resultImgDataSocket=resultImgDataSocket;
+        	System.out.println("Binding Address1: "+resultDataSocket.getLocalPort());
+            System.out.println("Binding Address2: "+resultImgDataSocket.getLocalPort());
         	System.out.println("socket bind");
 		} catch (SocketException e) {
 			// TODO Auto-generated catch block

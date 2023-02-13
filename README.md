@@ -16,8 +16,8 @@
 
 * 팬옵틱 분할 기법에서는 객체의 정보를 불가산 객체(stuff) 와 가산 객체 (thing)로 구분하여 분할을 적용한다.
 불가산 객체는 무정형의 불가산 영역을 의미하며, 대표적으로 하늘, 도로 등이 이에 해당한다. 가산 객체는 객체 아이디가 부여되는 객체를 의미하며, 차, 트럭, 사람 등이 이에 해당한다.
-의미론적 분할 기법으로는 이미지의 모든 픽셀에 대하여 불가산 객체와 가산 객체에 대한 구분 없이 픽셀단 위의 클래스 예측을 한다. 객체 분할 기법으로는 가산 객체로 분류된 클래스에 대하여 객체 아이디, 클래스, 마스크에
-대한 예측을 한다. 그림 1에서는 동일한 입력 영상에 대한 의미론적 분할 기법, 객체 분할 기법, 팬옵틱 분할 기법 각각의 결과를 보여준다.
+의미론적 분할 기법으로는 이미지의 모든 픽셀에 대하여 불가산 객체와 가산 객체에 대한 구분 없이 픽셀단 위의 클래스 예측을 한다. 객체 분할 기법으로는 가산 객체로 분류된 클래스에 대하여 객체 아이디, 클래스, 마스크에 대한 예측을 한다. 
+* 그림에서는 동일한 입력 영상에 대한 의미론적 분할 기법, 객체 분할 기법, 팬옵틱 분할 기법 각각의 결과를 보여준다.
 팬옵틱 분할 기법은 크게 top-down method와 bottom-up method로 구분된다. Top-down method는 객체 분할 기법과 의미론적 분할 기법을 병렬적으로 수행하는 방법이다.
 반면, bottom-up method는 의미론적 분할 기법을 한 후, 해당 정보를 이용하여 객체 분할 기법을 하는 순차적인 방법이다. 다음 장에서는 각 top-down method와 bottom-up method에 해당하는 대표적인 모델들의 구조와 주요 동작원리에 대해서 분석한다.
 <br>(출처:대한임베디드공학회논문지-딥 러닝 기반의 팬옵틱 분할 기법 분석)
@@ -320,11 +320,11 @@
     </td>
   </tr> 
   <tr>
+    <td align="center"><a href="https://github.com/444tang" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/KimJi5u" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/74eonk" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/dltmfql456" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/Chan-25" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/rewrite255" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/99wise" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/songseungho-v" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/JungJoonseok" target='_blank'>github</a></td>
   </tr>
 </table>
 <br>

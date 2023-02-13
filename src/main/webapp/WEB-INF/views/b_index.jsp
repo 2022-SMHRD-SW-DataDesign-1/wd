@@ -3394,7 +3394,7 @@
                                     </div>
                                     <div class="swiper-slide" style="width: 389.333px; margin-right: 30px;"
                                         data-swiper-slide-index="2">
-                                        <div class="img_box"><img src="./resources/images/road.jpg">
+                                        <div class="img_box"><img src="./resources/images/road.png">
                                         </div>
                                         <div class="txt_box">
                                             <h3>도로환경 데이터 학습</h3>
@@ -3487,7 +3487,6 @@
                         </div>
 
                         <div class="input_group">
-                            <form method="post" action="/requst-post-normal" target="ifrm">
                                 <input type="hidden" name="csrf_cossia_token" value="9e1df29c77b7a592462f8a7808050758"
                                     autocomplete="off">
                                 <input name="table" type="hidden" value="contact" autocomplete="off">
@@ -3518,7 +3517,7 @@
                                                 placeholder="프로젝트 내용"></textarea></li>
                                     </ul>
                                 <div class="btn_bottom">
-                                    <button type="submit" class="b_type3" onclick="">Sign Up</button>
+                                    <button class="b_type3" onclick="">Sign Up</button>
                                 </div>
                                 <div  class="b_type3" style="position:absolute;top:22%; background-color: rgba(27, 28, 28, 0.75); height:56%; width:34%;text-align:center;border-radius:9px;">
                                     <p style="color:var(--color-fff); position: absolute; left: 50%; top: 50%;
@@ -3526,7 +3525,6 @@
                                      로그인 후 이용가능합니다.</p>
                                 </div>
                             </div>
-                            </form>
                         </div>
                     </div>
                 </section>
@@ -3578,7 +3576,7 @@
                 <div class="content_info">
                     <h2>Sign Up</h2>
                     <div class="input_group">
-                        <form method="post" action="Join.do" id="frm"  target="ifrm">
+                        <form method="post" action="Join.do" id="frm">
                             <input name="table" type="hidden" value="contact" autocomplete="off">
                             <div class="group">
                                 <ul>
@@ -3657,6 +3655,10 @@
 
                 $('.modal_user_plus .bg').click(function () {
                     $('.modal_user_plus').removeClass('on')
+                });
+                
+                $('.input_group .b_type3').click(function () {
+                    $('.modal_user_plus').addClass("on")
                 });
                 
                 // modal_user는 로그인

@@ -43,6 +43,7 @@ public class SocketController {
 	@RequestMapping(value = "/Socket.do")
 	public String Socket(HttpServletRequest request, HttpServletResponse response, MultipartFile multipartFile, Model model)
 			throws IOException {
+		
 		System.out.println("socket통신");
 
 		try {
@@ -117,7 +118,7 @@ public class SocketController {
 						
 				System.out.println("리스트값");
 				
-				byte[] all = new byte[8000];
+				byte[] all = new byte[65536];
 				listin.read(all);
 				System.out.println(all);
 				

@@ -2376,7 +2376,7 @@
 		
 		.selectBox2 .optionList {
 		  position: absolute; 
-		  top: 28px;
+		  top: 33px;
 		  left: 0;
 		  width: 100%;
 		  background: #a9aaacf7;
@@ -2390,7 +2390,7 @@
 		}
 		
 		.selectBox2.active .optionList {
-		  max-height: 500px;
+		  max-height: 400px;
 		}
 		
 		.selectBox2 .optionItem {
@@ -2411,8 +2411,8 @@
 			display: -webkit-box;
 		    margin-left: 5px;
 		    border-radius: inherit;
-		    background-color: a9aaac;
-		    width: 38px;
+		    background-color: white;
+		    color: gray;
 		}
 		
 		// 스크롤 커스텀
@@ -2482,21 +2482,21 @@
 									<button class="label">객체 선택</button>
 									<ul class="optionList" style="list-style: none;">
 										<li class="optionItem"><input type='checkbox' name='object' value='11'
-											style="width: 20px; height: 20px;" checked="checked" /> person</li>
+											style="width: 20px; height: 20px;"  /> person</li>
 										<li class="optionItem"><input type='checkbox' name='object' value='12'
-											style="width: 20px; height: 20px;" checked="checked" /> rider</li>
+											style="width: 20px; height: 20px;"  /> rider</li>
 										<li class="optionItem"><input type='checkbox' name='object' value='13'
-											style="width: 20px; height: 20px;" checked="checked"/> car</li>
+											style="width: 20px; height: 20px;" /> car</li>
 										<li class="optionItem"><input type='checkbox' name='object' value='14'
-											style="width: 20px; height: 20px;" checked="checked" /> truck</li>
+											style="width: 20px; height: 20px;"  /> truck</li>
 										<li class="optionItem"><input type='checkbox' name='object' value='15'
-											style="width: 20px; height: 20px;" checked="checked" /> bus</li>
+											style="width: 20px; height: 20px;"  /> bus</li>
 										<li class="optionItem"><input type='checkbox' name='object' value='16'
-											style="width: 20px; height: 20px;" checked="checked" /> train</li>
+											style="width: 20px; height: 20px;"  /> train</li>
 										<li class="optionItem"><input type='checkbox' name='object' value='17'
-											style="width: 20px; height: 20px;" checked="checked" /> motorcycle</li>
+											style="width: 20px; height: 20px;"  /> motorcycle</li>
 										<li class="optionItem"><input type='checkbox' name='object' value='18'
-											style="width: 20px; height: 20px;" checked="checked" /> bicycle</li>
+											style="width: 20px; height: 20px;"  /> bicycle</li>
 										<li class="optionItem"><input type='checkbox' name='object'
 											value='0' style="width: 20px; height: 20px;" /> road</li>
 										<li class="optionItem"><input type='checkbox' name='object'
@@ -2521,7 +2521,7 @@
 											style="width: 20px; height: 20px;" /> sky</li>
 										
 									</ul>
-									<button class="selectBnt" onclick='getCheckboxValue()'>Apply</button>
+									<button class="selectBnt" onclick='getCheckboxValue()' style="padding:0.5%;">Apply</button>
 								</div>
 							</div>
 	                       
@@ -2536,7 +2536,7 @@
 				                        </div>
 				       
 				                       	<div style="float:right; margin-right:30%; margin-top:-5%;">
-				                           	<input type="submit" class="b_type2" value=" >> 분석 시작 >> " >
+				                           	<input type="submit" class="b_type2" disabled=true value=" >> 분석 시작 >> " >
 				                        </div>
 			                        </div>
 		                        </form>
@@ -2658,12 +2658,13 @@
 				  selectedEls.forEach((el) => {
 				    valueResult += el.value +',';
 				  });
+				  
 				  // 출력
 				  console.log(valueResult);
 				  console.log(typeof 'valueResult');
 				  
 			 	  $.ajax({
-						url : "ArrSocket.do",
+						url : "ArrSocket2.do",
 						type : 'post',
 						dataType : 'json',
 						data : {valueResult:valueResult},
@@ -2671,6 +2672,10 @@
 							console.log("데이터 전송 성공이야");
 			     		}
 				});
+			 	  
+			 	 $('.selectBnt').css('display','none');
+			 	 $('.b_type2').attr('disabled',false);
+			 	  
 				  
 			};  
 				

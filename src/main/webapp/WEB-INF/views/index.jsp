@@ -3409,18 +3409,18 @@
                                             <h3>의학전문 데이터 학습</h3>
                                             <p>
                                                 <span>#질병보조진단</span>
-                                                <span>#</span>
-                                                <span>#반응형</span>
+                                                <span>#의학</span>
+                                                <span>#생명공학</span>
                                             </p>
                                         </div>
                                     </div>
                                     <div class="swiper-slide" style="width: 389.333px; margin-right: 30px;"
                                         data-swiper-slide-index="2">
-                                        <div class="img_box"><img src="./resources/images/road.jpg">
+                                        <div class="img_box"><img src="./resources/images/road.png">
                                         </div>
-                                        <div class="txt_box">
+                                        <div class="txt_box" style="background-color:#86765c9e; border-radius:15px;">
                                             <h3>도로환경 데이터 학습</h3>
-                                            <p>
+                                            <p style="color:white;">
                                                 <span>#전문적인</span>
                                                 <span>#Cityscape</span>
                                                 <span>#자율주행시스템</span>

@@ -155,7 +155,7 @@
 ### ⌨ Index
 <table>
   <tr>
-    <th>로그인</th>
+    <th>Index</th>
   </tr>
   <tr>
     <td>
@@ -173,23 +173,54 @@
     <th>Demo Video(AOR)</th>
   </tr>
   <tr>
-    <td><img src="" width="300" height="250" /></td>
-    <td><img src="" width="300" height="250" /></td>
-    <td><img src="" width="300" height="250" /></td>
+    <td>
+      <p><img src="https://user-images.githubusercontent.com/112090905/218392337-0dfc51bf-736e-49b2-a1df-bfbd15cdadb6.png" style="width:350px; hieght:350px;" /></p>
+      <p><img src="https://user-images.githubusercontent.com/112090905/218392462-b8fa5091-4b81-458c-9135-d24dfc9fe268.png" style="width:350px; height:250px;" /></p>
+    </td>
+    <p><td><img src="https://user-images.githubusercontent.com/112090905/218394640-912b3b61-17c0-4b8f-bc9e-69bc3f949854.png" style="width:350px; hieght:500px;" /></p></td>
+    <p><td><img src="https://user-images.githubusercontent.com/112090905/218393787-a4033bca-5c4b-4309-a081-dee309ef77ee.png" style="width:350px; hieght:500px;" /></p></td>
+   
   </tr>
 </table>
 <br>
 
 ### ⌨ Case Study
-
+<table>
+  <tr>
+    <th>Case Study</th>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://user-images.githubusercontent.com/112090905/218391016-525575f5-5c16-4f4a-8243-083526a8bde1.png" />
+    </td>
+  </tr>
+</table>
 <br>
 
 ### ⌨ 의뢰서 신청서 작성
-![image](https://user-images.githubusercontent.com/112090905/218387673-a191ac41-4b9e-4b57-9159-20ba0b624736.png)
+<table>
+  <tr>
+    <th>의뢰서 신청서 작성</th>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://user-images.githubusercontent.com/112090905/218387673-a191ac41-4b9e-4b57-9159-20ba0b624736.png" />
+    </td>
+  </tr>
+</table>
 <br>
 
-### ⌨ 의뢰서 목록 출력
-![image](https://user-images.githubusercontent.com/112090905/218388400-c40269a3-fd2d-49ed-9989-b9b92b6947d2.png)
+### ⌨ 의뢰서 목록 확인
+<table>
+  <tr>
+    <th>의뢰서 목록 확인</th>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://user-images.githubusercontent.com/112090905/218388400-c40269a3-fd2d-49ed-9989-b9b92b6947d2.png" />
+    </td>
+  </tr>
+</table>
 <br>
 
 
@@ -197,14 +228,14 @@
 ## ⭐ 팀원 역할
 <table>
   <tr>
-    <td align="center"><img src="https://user-images.githubusercontent.com/112142386/202969513-493f9f0f-7f31-4f22-9e5e-e79fccc3f56f.png" width="100" height="100" />
+    <td align="center"><img src="https://user-images.githubusercontent.com/112090905/218397923-44f1bb28-c83a-4910-8771-2bd100976b8a.png" width="100" height="100" />
 </td>
-    <td align="center"><img src="https://user-images.githubusercontent.com/112142386/202969019-427903b2-7033-4129-a975-22c0274b375f.png" width="100" height="100" />
+    <td align="center"><img src="https://user-images.githubusercontent.com/112090905/218398121-712e531c-1346-4dbe-9d34-917c0a147d34.png" width="100" height="100" />
 </td>
-    <td align="center"><img src="https://user-images.githubusercontent.com/112142386/202969664-f80e8841-fcd0-41d3-a2d5-250e2afe3bf7.png" width="100" height="100" />
+    <td align="center"><img src="https://user-images.githubusercontent.com/112090905/218399734-e2045d68-cd3c-45d9-b946-546ec38ff490.png" width="100" height="100" />
 </td>
-    <td align="center"><img src="https://user-images.githubusercontent.com/112142386/202969746-889c1aa0-64a9-4ead-97fe-c4a299fb1751.png" width="100" height="100" /></td>
-    <td align="center"><img src="https://user-images.githubusercontent.com/112142386/202969976-e861c94c-e985-4b6a-8333-eb679f4b0aa2.png" width="100" height="100" /></td>
+    <td align="center"><img src="https://user-images.githubusercontent.com/112090905/218397828-a441eff9-66e0-4fd6-b129-c82e3fca8176.png" width="100" height="100" /></td>
+    <td align="center"><img src="https://user-images.githubusercontent.com/112090905/218398186-eb46eb36-c9f5-42c8-bf01-dee9f61041fd.png" width="100" height="100" /></td>
   </tr>
   <tr>
     <td align="center"><strong>한가연</strong></td>
@@ -229,14 +260,13 @@
   </tr>
   <tr>
     <td align="center">
-      1.프로젝트 일정 파악<br>
-      2.개인별 진행사항 파악<br>
+      1.리스크관리(기술적 문제, 팀웍 문제)<br>
+      2.메인페이지, 관리자페이지, 테스트페이지, Document페이지<br>
       3.리스크관리(기술적 문제, 팀웍 문제)<br>
-      4.회의 진행 및 회의록 <br>
-      5.WBS작성
+      4.멘토링일지 작성<br>
     </td>
     <td align="center">
-      1.게시물 작성 및 관리, 포트폴리오 관리, 게시물 상세 페이지, FAQ 기능 구현
+      1.이미지 업로드, 분석 결과 출력, 실시간 분석 이미지 출력
     </td>
     <td align="center">
       1.화면 UX/UI구현<br>

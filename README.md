@@ -13,14 +13,14 @@
 
 ## 🖼 Panoptic Segmentation
 <img src ="https://user-images.githubusercontent.com/112090905/218389196-cbb51d64-774c-4dcc-a374-5faf75e037ed.png" />
-
+<br>(이미지 출처:Panoptic-DeepLab (CVPR2020))<br><br>
 * 팬옵틱 분할 기법에서는 객체의 정보를 불가산 객체(stuff) 와 가산 객체 (thing)로 구분하여 분할을 적용한다.
 불가산 객체는 무정형의 불가산 영역을 의미하며, 대표적으로 하늘, 도로 등이 이에 해당한다. 가산 객체는 객체 아이디가 부여되는 객체를 의미하며, 차, 트럭, 사람 등이 이에 해당한다.
 의미론적 분할 기법으로는 이미지의 모든 픽셀에 대하여 불가산 객체와 가산 객체에 대한 구분 없이 픽셀단 위의 클래스 예측을 한다. 객체 분할 기법으로는 가산 객체로 분류된 클래스에 대하여 객체 아이디, 클래스, 마스크에 대한 예측을 한다. 
 * 그림에서는 동일한 입력 영상에 대한 의미론적 분할 기법, 객체 분할 기법, 팬옵틱 분할 기법 각각의 결과를 보여준다.
 팬옵틱 분할 기법은 크게 top-down method와 bottom-up method로 구분된다. Top-down method는 객체 분할 기법과 의미론적 분할 기법을 병렬적으로 수행하는 방법이다.
 반면, bottom-up method는 의미론적 분할 기법을 한 후, 해당 정보를 이용하여 객체 분할 기법을 하는 순차적인 방법이다. 다음 장에서는 각 top-down method와 bottom-up method에 해당하는 대표적인 모델들의 구조와 주요 동작원리에 대해서 분석한다.
-<br>(출처:대한임베디드공학회논문지-딥 러닝 기반의 팬옵틱 분할 기법 분석)
+<br>(출처:대한임베디드공학회논문지-딥 러닝 기반의 팬옵틱 분할 기법 분석)<br>
 
 
 ## 📅 프로젝트 기간
@@ -56,11 +56,11 @@
         <td>
             <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white" />
             <img src="https://img.shields.io/badge/CSS3-00B2FF?style=for-the-badge&logo=CSS3&logoColor=white" />
+            <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=black" />
             <img src="https://img.shields.io/badge/JSP-FF7D44?style=for-the-badge" />
             <img src="https://img.shields.io/badge/BootStrap-7952B3?style=for-the-badge&logo=BootStrap&logoColor=white" />
             <img src="https://img.shields.io/badge/ajax-23C8D2?style=for-the-badge" />
             <img src="https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge" />
-            <img src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge" />
         </td>
     </tr>
     <tr>
@@ -69,7 +69,6 @@
             <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=Oracle&logoColor=white" />
             <img src="https://img.shields.io/badge/Apache Tomcat 9.0-FFD425?style=for-the-badge&logo=Apache Tomcat&logoColor=black" />
             <img src="https://img.shields.io/badge/Flask-929292?style=for-the-badge&logo=Flask&logoColor=white" />
-            <img src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge" />
         </td>
     </tr>
     <tr>
@@ -169,19 +168,35 @@
 <table>
   <tr>
     <th>Image Test</th>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://user-images.githubusercontent.com/112090905/218392337-0dfc51bf-736e-49b2-a1df-bfbd15cdadb6.png" />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://user-images.githubusercontent.com/112090905/218392462-b8fa5091-4b81-458c-9135-d24dfc9fe268.png" />
+    </td>
+  </tr>
+  <tr>
     <th>Panoptic Document</th>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://user-images.githubusercontent.com/112090905/218394640-912b3b61-17c0-4b8f-bc9e-69bc3f949854.png" />
+    </td>
+  </tr>
+  <tr>
     <th>Demo Video(AOR)</th>
   </tr>
   <tr>
     <td>
-      <p><img src="https://user-images.githubusercontent.com/112090905/218392337-0dfc51bf-736e-49b2-a1df-bfbd15cdadb6.png" style="width:350px; hieght:350px;" /></p>
-      <p><img src="https://user-images.githubusercontent.com/112090905/218392462-b8fa5091-4b81-458c-9135-d24dfc9fe268.png" style="width:350px; height:250px;" /></p>
+      <img src="https://user-images.githubusercontent.com/112090905/218393787-a4033bca-5c4b-4309-a081-dee309ef77ee.png" />
     </td>
-    <p><td><img src="https://user-images.githubusercontent.com/112090905/218394640-912b3b61-17c0-4b8f-bc9e-69bc3f949854.png" style="width:350px; hieght:500px;" /></p></td>
-    <p><td><img src="https://user-images.githubusercontent.com/112090905/218393787-a4033bca-5c4b-4309-a081-dee309ef77ee.png" style="width:350px; hieght:500px;" /></p></td>
-   
   </tr>
 </table>
+
 <br>
 
 ### ⌨ Case Study
@@ -230,7 +245,7 @@
   <tr>
     <td align="center"><img src="https://user-images.githubusercontent.com/112090905/218397923-44f1bb28-c83a-4910-8771-2bd100976b8a.png" width="100" height="100" />
 </td>
-    <td align="center"><img src="https://user-images.githubusercontent.com/112090905/218398121-712e531c-1346-4dbe-9d34-917c0a147d34.png" width="100" height="100" />
+    <td align="center"><img src="https://user-images.githubusercontent.com/112090905/218599130-7c104b79-b0ab-4336-b15c-dc9c76a88028.png" width="100" height="100" />
 </td>
     <td align="center"><img src="https://user-images.githubusercontent.com/112090905/218399734-e2045d68-cd3c-45d9-b946-546ec38ff490.png" width="100" height="100" />
 </td>
@@ -261,27 +276,19 @@
   <tr>
     <td align="center">
       1.리스크관리(기술적 문제, 팀웍 문제)<br>
-      2.메인페이지, 관리자페이지, 테스트페이지, Document페이지<br>
-      3.리스크관리(기술적 문제, 팀웍 문제)<br>
-      4.멘토링일지 작성<br>
+      2.메인페이지,<br> 관리자페이지,<br> 테스트페이지,<br> Document페이지<br>
     </td>
     <td align="center">
-      1.이미지 업로드, 분석 결과 출력, 실시간 분석 이미지 출력
+      1.프로젝트 일정 파악,<br> 개인별 진행사항 파악,<br> 리스크관리(기술적 문제),<br> 회의 진행 및 회의록,<br> WBS작성<br>
     </td>
     <td align="center">
-      1.화면 UX/UI구현<br>
-      2.화면 설계서 작성<br>
-      3.Main, 로그인, 회원가입, 리뷰, 로고제작<br>
+      1.메인페이지,<br> 테스트페이지,<br> Document페이지,<br> 시연 영상 페이지,<br> 활용사례 페이지<br>
     </td>
     <td align="center">
-      1.서버 API 설계 및 구현<br>
-      2.데이터베이스 구축<br>
-      3.데이터베이스 요구사항 분석서, 테이블 명세서 작성<br>
-      4.채팅, 결제, 게시물 목록, 로그인, 회원가입 기능 구현<br>
-      5.거래내역, 결제, 찜 목록, 검색 화면구현<br>
+      1.펜옵틱 딥러닝<br>
     </td>
     <td align="center">
-      1.회원가입, 로그인
+      1.DB구현
     </td>
   </tr>
     <tr>
@@ -300,23 +307,26 @@
   </tr>
   <tr>
     <td align="center">
-      1.검색, 찜 기능구현<br>
-      2.Header, 회원가입, 메인 페이지 게시글 출력 화면 구현<br>
-      3.프로젝트 기획서, 요구사항 정의서 작성<br>
+      1.로그인,<br> 회원가입,<br> 의뢰서 작성,<br> 의뢰서 목록,<br> 서버구현,<br> DB구현
+      2.Header,<br> 회원가입,<br> 메인 페이지 게시글 출력 화면 구현<br>
+      3.프로젝트 기획서,<br> 요구사항 정의서 작성<br>
     </td>
     <td align="center">
-      1.게시물 작성 및 관리, 포트폴리오 관리, 게시물 상세 페이지, FAQ 화면 구현<br>
-      2.프로젝트 기획서, 요구사항 정의서 작성
+      1.이미지 업로드,<br> 분석 결과 출력,<br> 실시간 분석 이미지 출력<br>
+      2.차트구현
+      3.로고제작<br>
+      4.프로젝트 기획서,<br> 요구사항 정의서 작성<br>
     </td>
     <td align="center">
-      1.리뷰기능 구현<br>
-      2.프로젝트 기획서, 요구사항 정의서 작성
+      1.분석 결과 출력,<br> 분석 사진 출력<br>
+      2.프로젝트 기획서,<br> 요구사항 정의서 작성<br>
     </td>
     <td align="center">
-      1.프로젝트 기획서, 요구사항 정의서 작성
+      1.TCP/IP 통신,<br> UDP통신,<br> Flask서버 활용 실시간 영상 출력<br>
+      2.프로젝트 기획서,<br> 요구사항 정의서 작성<br>
     </td>
     <td align="center">
-      1.프로젝트 기획서, 요구사항 정의서 작성
+      1.프로젝트 기획서,<br> 요구사항 정의서 작성<br>
     </td>
   </tr> 
   <tr>
@@ -331,14 +341,23 @@
 
 ## 🤾‍♂️ 트러블슈팅
 * <b>문제1</b>
-  * 비동기 통신으로 검색 시 공백이어도 전체검색되는 문제
-  * 해결방안 : 공백시 전체 검색되는 코드의 변수에 값을 설정하여 공백으로 검색 안되게 수정
+  * 회원가입, 로그인 기능의 문제는 없었으나 페이지 이동이 되지 않는 문제점
+  * 해결방안 : 기능당 form태그를 각각 지정하여 페이지 이동
 * <b>문제2</b>
-  * css 취합시 충돌 발생
-  * 해결방안 : 검사(F12)이용하여 적용되는 스타일 확인한 후, 코드 수정하여 해결
+  * Controller에서는 값이 있느나 jsp에서 값이 안넘어오는 문제점
+  * 해결방안 : Spring은 기존에 학습했던 이클립스와 달라 Controller에 @ResponseBody 언급하여 Hash Map 사용, json타입 명시하여 key/value값으로 값 출력
 * <b>문제3</b>
-  * 하나의 submit 버튼을 통해 한 번에 다른 경로로 파일 업로드하는 문제
-  * 해결방안 : 페이지를 하나 더 생성하여 각각의 페이지에서 파일 업로드 할 수 있게 수정 
+  * 이미지를 바이트값으로 바꿔 소켓통신으로 보낼때 jpg를 제외한 확장자는 이미지가 넘어가지 못하는 문제
+  * 해결방안 : 확장자를 jpg로 바꿔서 소켓통신으로 보냄
 * <b>문제4</b>
-  * tomcat과 flask의 소켓통신 문제
-  * 해결방안 : js에서 라이브러리를 잘못 사용하고 있어 제대로된 라이브러리로 수정, cors_allowed_origins 에러는 socketio의 속성값에 cors_allowed_origins=&#42;값을 주면서 해결
+  * java와 python을 TCP/IP로 소켓통신시 값이 넘어가지 않는 문제점
+  * 해결방안 : 이미지, 문자열 전부 바이트 배열로 변환하여 값을 보냄
+* <b>문제5</b>
+  * 영상 송수신 socket에서 UDP통신 진행 중 frame drop발생
+  * 해결방안 : 20FPS에 못미치는 것으로 확인, pickle 함수 이용하여 직렬화 및 openvcv를 이용한 인코딩 및 디코딩하여 문제 해결
+* <b>문제6</b>
+  * socket buffer보다 크기가 큰 데이터 전송시 발생하는 문제
+  * 해결방안 : 품질을 낮춰도 같은 문제가 발생하여 수신되어지는 frame의 속도가 송신속도보다 느려 socket에 쌓여 overflow발생함을 확인. 해결방안1. 소켓 주기적으로 초기화, 이 방안은 바인드에 걸리는 소요시간을 계산 못함. 해결방안2. 수신부에서 진행한 panoptic을 연산부로 따로 분리하여 영상 수신부에서 interrupt(try except와 timeout속성을 이용하여 지속적으로 영상을 수신하면서 연산결과 도출에 대한 특정신호 대기.)를 받아 1개의 frame을 panoptic연산부로 전송하도록 영상 수신부와 연산부 각각이 별개의 동작을 진행하도록 구조 변경하고 문제 해결
+* <b>문제7</b>
+  * python의 list변수에서 변경하지 않은 buffer변수가 일정작업이후 변화하는 문제
+  * 해결방안 : ex) a=b, b=c가 되어 a가 c로 바뀌어 있음을 확인하여 .copy() 함수를 이용하여 복사하는 방안을 사용하여 문제 해결

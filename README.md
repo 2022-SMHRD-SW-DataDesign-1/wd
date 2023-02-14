@@ -361,3 +361,9 @@
 * <b>문제7</b>
   * python의 list변수에서 변경하지 않은 buffer변수가 일정작업이후 변화하는 문제
   * 해결방안 : ex) a=b, b=c가 되어 a가 c로 바뀌어 있음을 확인하여 .copy() 함수를 이용하여 복사하는 방안을 사용하여 문제 해결
+* <b>문제8</b>
+  * python panoptic 결과 Data Udp 송신 및 JAVA UDP 수신시 결과 DATA의 누락 문제
+  * 해결방안 : JAVA UDP 소켓 컨트롤러에서 주기적으로 호출시마다 새로 소켓을 Bind를 진행하는데 해당 Binding마다 소요시간이 존재함. 해당 Binding타이밍에 결과데이터 송신시 결과 DATA누락됨. WAS가 실행되는 초기에 socket 객체에 바인딩을 진행하고 이후에는 바인딩된 객체를 사용할 수 있도록 수정. PostConstruct 어노테이션으로 초기에 소켓바인딩. static메모리에 객체를 올려놓고 사용할 수 있도록 생성하여 문제 해결
+* <b>문제9</b>
+  * Flask cam 서버에 여러 클라이언트 접근시 기존 client의 연결이 종료되는 문제
+  * 해결방안 : opencv의 videocapture가 클라이언트 접근마다 새로 접근하여 capture =cv2.VideoCapture(0)을 다시 호출하는 것이 원인으로 판단. 클라이언트 접근시 capture.read만 다시 호출 할 수 있도록 서버실행시 VideoCapture함수를 1회 실행하도록 코드 구조 변경하여 문제 해결

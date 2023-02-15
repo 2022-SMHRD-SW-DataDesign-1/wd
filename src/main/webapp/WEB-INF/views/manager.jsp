@@ -2696,7 +2696,7 @@
                                             전화번호
                                         </td>
                                         <td>
-                                            ${contact.name}
+                                            ${contact.phone}
                                         </td>
                                     </tr>
                                     <tr>

@@ -2514,7 +2514,7 @@
                         
 				 		<div class="group">
 							<div class="tit1" id="realTestimg" style="height:217px">
-								<iframe class="iframe"  src="http://172.30.1.6:5000/stream" title="stream video" frameborder="0" 
+								<iframe class="iframe"  src="http://172.30.1.32:5000/stream" title="stream video" frameborder="0" 
 								style="width:100%; height:100%;" scrolling="no"
     							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 							</div>
@@ -2920,7 +2920,7 @@
 				//}, 5000); // timr end
 			};// test end
 			
-			test(); // 페이지 업로드 된 후 실행되는 함수
+			//test(); // 페이지 업로드 된 후 실행되는 함수
 			
 			// 차트 초기 데이터
 			// 막대 초기 데이터-8개
@@ -3113,6 +3113,7 @@
 				   document.getElementById('DChart'),
 				   config
 				);
+				test(); // 페이지 업로드 된 후 실행되는 함수
 			</script>
 			<!-- 다중체크박스  -->
 			<script type="text/javascript">

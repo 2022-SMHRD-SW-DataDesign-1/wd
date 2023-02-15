@@ -187,6 +187,7 @@ public class ChartController {
 				map.put("count_list", count_list);
 				map.put("score_list", score_list);
 				
+				
 				//System.out.println(jsonobject.toString());
 				
 

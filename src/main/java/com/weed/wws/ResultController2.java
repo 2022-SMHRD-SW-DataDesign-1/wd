@@ -28,7 +28,7 @@ public class ResultController2 {
 		System.out.println("Arrsocket2통신");
 
 		try {
-			Socket soc = new Socket("172.30.1.63", 1234);
+			Socket soc = new Socket("localhost", 1234);
 			DataOutputStream dout = new DataOutputStream(soc.getOutputStream());
 			DataInputStream din = new DataInputStream(soc.getInputStream());
 			

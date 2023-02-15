@@ -47,7 +47,7 @@ public class SocketController {
 		System.out.println("socket통신");
 
 		try {
-			Socket soc = new Socket("172.30.1.63", 12345);
+			Socket soc = new Socket("localhost", 12345);
 			DataOutputStream dout = new DataOutputStream(soc.getOutputStream());
 			DataInputStream in = new DataInputStream(soc.getInputStream());
 
@@ -113,7 +113,7 @@ public class SocketController {
 			try {
 				System.out.println("새로 열기");
 				
-				Socket listsoc = new Socket("172.30.1.63", 123);
+				Socket listsoc = new Socket("localhost", 123);
 				DataInputStream listin = new DataInputStream(listsoc.getInputStream());
 						
 				System.out.println("리스트값");
